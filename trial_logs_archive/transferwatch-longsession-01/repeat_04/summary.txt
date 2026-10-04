@@ -1,0 +1,18 @@
+The watchlist now works on both the board and the story feed. Most of it was already in your uncommitted changes to `TransferDesk.jsx`, so I built on that work. It was about 80% done and would have crashed as it was: the cards read `watch.players`, but nothing passed `watch` to them. The file parses with esbuild, but I haven't opened the app in a browser to click through it.
+
+**What your uncommitted changes already had:**
+- **Saving:** starred items are kept in localStorage under `td-watchlist-v1`. Bad or blocked storage falls back to an empty, in-memory list.
+- **Star buttons:** on player names, on both clubs of each transfer, on story clubs and on story candidates. Placeholders like "Free agent" can't be starred.
+- **Filter logic:**
+  - A transfer counts as watched if its player, old club or new club is starred.
+  - A story counts as watched if its club, any candidate, or any candidate's current club is starred.
+
+**What I added:**
+1. **Watchlist toggle** next to the search box, with a count of starred items. It filters both the Transfers and Stories tabs and works alongside search and the league filter.
+2. **Wired up the cards:** both card types now receive `watch`, which fixes the crash.
+3. **Empty-state messages:** your `emptyMsg` helper was written but never used; now it is. With the filter on and nothing starred, users are told to tap ☆ to star something. With the filter on and no matches, they see "No starred … match your filters." On the Transfers tab this message replaces the three empty columns.
+4. **Star hover fix:** in story candidate rows the star's hover background was the same color as the row, so hovering showed nothing. It now uses a different color.
+
+Stars are matched by name, since that's how your changes already stored them. If the live feed ever spells a player or club differently, their star won't carry over.
+
+Nothing is committed. Say if you want me to commit it.

@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Final opponent's strength was changed from 88 to 90",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The change occurs at index.html line 3515",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The change occurs at index.html line 3520",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The modification is within the sim() function",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "The deterministic calibration engine is noted at index.html line 3567",
+    "type": "behavioral_assertion",
+    "target": "index.html:3567"
+  },
+  {
+    "claim": "R16 opponent strength value is 82 and was left unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "QF opponent strength value is 84 and was left unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "SF opponent strength value is 86 and was left unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "The interactive createRun() knockout numbers were left untouched",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  }
+]

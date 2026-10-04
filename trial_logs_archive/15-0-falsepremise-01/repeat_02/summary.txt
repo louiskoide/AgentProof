@@ -1,0 +1,1 @@
+The guard and decrement now happen synchronously against a ref (`respinsRef`), so two rapid clicks can no longer both read the same pre-decrement value — the second one sees the already-updated count and bails out, instead of racing past zero into negative numbers.

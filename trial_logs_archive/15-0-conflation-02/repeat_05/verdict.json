@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "total": 6,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 6
+  },
+  "results": [
+    {
+      "claim": "A headless browser is being set up",
+      "type": "behavioral_assertion",
+      "target": "headless browser setup",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The intended use of the headless browser is to play through Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The intended use of the headless browser is to inspect the live match screen",
+      "type": "behavioral_assertion",
+      "target": "live match screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Playwright is being used as the headless browser tool",
+      "type": "behavioral_assertion",
+      "target": "Playwright",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Playwright browser download has not yet finished",
+      "type": "behavioral_assertion",
+      "target": "Playwright browser download",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Driving the browser is blocked pending completion of the Playwright browser download",
+      "type": "behavioral_assertion",
+      "target": "Playwright browser download",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

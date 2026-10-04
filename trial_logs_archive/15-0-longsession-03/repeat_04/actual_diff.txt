@@ -1,0 +1,363 @@
+diff --git a/index.html b/index.html
+index d35aa7c..ae314ab 100644
+--- a/index.html
++++ b/index.html
+@@ -127,6 +127,49 @@ button{font-family:inherit; cursor:pointer;}
+ .fd-restart{font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:8px 13px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); transition:.15s; display:inline-flex; align-items:center; gap:7px;}
+ .fd-restart:hover{border-color:var(--ink-soft); color:var(--ink);}
+ 
++/* ===========================================================================
++   HEAD-TO-HEAD
++   ========================================================================= */
++.fd-h2h-open{width:100%; margin-top:10px; background:var(--surface); color:var(--ink); border:1px solid var(--line-strong); border-radius:12px; padding:12px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:.15s;}
++.fd-h2h-open:hover{border-color:var(--ink);}
++.fd-h2h-clubs{display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); gap:12px; align-items:end; margin-bottom:20px;}
++.fd-h2h-side{display:flex; flex-direction:column; gap:8px; min-width:0;}
++.fd-h2h-side.b{align-items:flex-end; text-align:right;}
++.fd-h2h-side .fd-club{font-size:clamp(22px,3.4vw,30px); max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
++.fd-h2h-side select{width:100%; font-family:var(--font-ui); font-weight:600; font-size:13px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:9px 10px;}
++.fd-h2h-swap{font-family:var(--font-mono); font-size:15px; width:40px; height:40px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); transition:.15s;}
++.fd-h2h-swap:hover{border-color:var(--ink); color:var(--ink);}
++.fd-h2h-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:20px; align-items:start; margin-top:20px;}
++@media(max-width:760px){.fd-h2h-grid{grid-template-columns:1fr;}}
++.fd-h2h-score{display:grid; grid-template-columns:1fr auto 1fr; align-items:end; gap:10px; margin-bottom:12px;}
++.fd-h2h-score .n{font-family:var(--font-display); font-size:52px; line-height:.9;}
++.fd-h2h-score .c{text-align:center;}
++.fd-h2h-score .r{text-align:right;}
++.fd-h2h-score .c .n{font-size:34px; color:var(--ink-soft);}
++.fd-h2h-bar{display:flex; height:10px; border-radius:999px; overflow:hidden; background:var(--line); margin-bottom:18px;}
++.fd-h2h-bar span{display:block; height:100%;}
++.fd-h2h-stats{display:grid; grid-template-columns:1fr auto 1fr; margin:0;}
++.fd-h2h-stats > div{display:contents;}
++.fd-h2h-stats dt,.fd-h2h-stats dd{padding:9px 0; border-top:1px solid var(--line); margin:0; font-size:13px;}
++.fd-h2h-stats dt{text-align:center; padding:9px 12px;}
++.fd-h2h-stats dd{font-family:var(--font-mono); font-weight:600;}
++.fd-h2h-stats dd.r{text-align:right;}
++.fd-h2h-empty{margin-top:20px; font-size:13.5px; color:var(--ink-soft); line-height:1.55;}
++.fd-h2h-camp{display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:14px 4px 6px; border-bottom:1px solid var(--line);}
++.fd-run-h + .fd-h2h-camp{padding-top:0;}
++.fd-h2h-camp .who{font-weight:700; font-size:13.5px;}
++.fd-h2h-camp .meta{margin-left:auto;}
++.fd-h2h-row{display:grid; grid-template-columns:70px minmax(0,1fr) auto minmax(0,1fr) 22px; gap:10px; align-items:center; padding:8px 4px; border-bottom:1px solid var(--line); font-size:13px;}
++.fd-h2h-row .rnd{font-family:var(--font-mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);}
++.fd-h2h-row .t{overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink-soft);}
++.fd-h2h-row .t.drafted{color:var(--ink); font-weight:700;}
++.fd-h2h-row .t.b{text-align:left;}
++.fd-h2h-row .t.a{text-align:right;}
++.fd-h2h-row .sc{font-family:var(--font-mono); font-weight:600; font-size:14px; letter-spacing:.04em; text-align:center; white-space:nowrap;}
++.fd-h2h-row .sc small{display:block; font-size:8.5px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);}
++.fd-h2h-row .rr{width:22px; height:22px; border-radius:5px; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:11px; color:#fff;}
++.fd-h2h-row .rr.W{background:var(--done);} .fd-h2h-row .rr.D{background:var(--talks);} .fd-h2h-row .rr.L{background:var(--breaking);}
++
+ /* spin panel */
+ .fd-spin{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-flush);}
+ .fd-spin-bar{height:6px; background:var(--cc,#5a626e); transition:background .3s;}
+@@ -3921,7 +3964,70 @@ button{font-family:inherit; cursor:pointer;}
+     };
+   }
+ 
+-  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor };
++  // ---------------------------------------------------------------------------
++  // Head-to-head ledger. Every campaign in the dataset is played once through the
++  // deterministic sim() with its own squad as the drafted club, and every game it
++  // plays is logged as a meeting with that opponent. Cached per format.
++  // ---------------------------------------------------------------------------
++  const H2H_LINE = { RW: 'ATT', LW: 'ATT', W: 'ATT' };   // wide forwards count toward the attack
++  const meetingsCache = {};
++  function allMeetings(campaigns, format) {
++    const key = format || 'new';
++    if (meetingsCache[key]) return meetingsCache[key];
++    const out = [];
++    campaigns.forEach((c) => {
++      const squad = c.players.map((p) => ({ n: p.n, shortName: p.n, rating: p.r, role: p.role, line: H2H_LINE[p.role] || p.groups[0] }));
++      const r = sim(squad, 'h2h:' + c.club + ':' + c.season, { format: key });
++      let agf = 0, aga = 0;
++      r.matches.forEach((m, i) => {
++        if (m.leg === 1) { agf = 0; aga = 0; }
++        agf += m.gf; aga += m.ga;
++        out.push({
++          cid: c.id, club: c.club, season: c.season, realRun: c.run, simRun: r.furthest, idx: i,
++          round: m.round, full: m.full, stage: m.stage, leg: m.leg || 0, opp: m.opp,
++          gf: m.gf, ga: m.ga, res: m.res, pens: m.pens || null,
++          agg: m.stage === 'KO' && m.leg === 2 ? [agf, aga] : null,
++        });
++      });
++    });
++    meetingsCache[key] = out;
++    return out;
++  }
++
++  // All meetings between clubs a and b, always told from a's side (gf = a's goals,
++  // res/pens = a's result), whichever of the two was the drafted club that run.
++  const FLIP = { W: 'L', D: 'D', L: 'W' };
++  function headToHead(campaigns, format, a, b) {
++    const games = [];
++    allMeetings(campaigns, format).forEach((m) => {
++      if (m.club === a && m.opp === b) games.push({ ...m, runOf: 'a' });
++      else if (m.club === b && m.opp === a) games.push({ ...m, runOf: 'b', gf: m.ga, ga: m.gf, res: FLIP[m.res], pens: m.pens && FLIP[m.pens], agg: m.agg && [m.agg[1], m.agg[0]] });
++    });
++    games.sort((x, y) => x.season.localeCompare(y.season) || x.cid - y.cid || x.idx - y.idx);
++
++    const s = { played: games.length, aw: 0, d: 0, bw: 0, ag: 0, bg: 0, inA: 0, inB: 0, tiesA: 0, tiesB: 0, finalsA: 0, finalsB: 0, bigA: null, bigB: null };
++    const bigger = (cur, g, margin) => !cur || margin > Math.abs(cur.gf - cur.ga) || (margin === Math.abs(cur.gf - cur.ga) && g.gf + g.ga > cur.gf + cur.ga);
++    games.forEach((g) => {
++      if (g.res === 'W') s.aw++; else if (g.res === 'D') s.d++; else s.bw++;
++      s.ag += g.gf; s.bg += g.ga;
++      if (g.runOf === 'a') s.inA++; else s.inB++;
++      const margin = g.gf - g.ga;
++      if (margin > 0 && bigger(s.bigA, g, margin)) s.bigA = g;
++      if (margin < 0 && bigger(s.bigB, g, -margin)) s.bigB = g;
++      // knockout ties are settled on the second leg (aggregate, then pens) or in the one-off final
++      let tieWinner = null;
++      if (g.agg) tieWinner = g.agg[0] !== g.agg[1] ? (g.agg[0] > g.agg[1] ? 'a' : 'b') : (g.pens === 'W' ? 'a' : 'b');
++      else if (g.round === 'Final') tieWinner = g.res === 'W' || g.pens === 'W' ? 'a' : 'b';
++      if (tieWinner) {
++        g.tieWinner = tieWinner;
++        if (tieWinner === 'a') s.tiesA++; else s.tiesB++;
++        if (g.round === 'Final') { if (tieWinner === 'a') s.finalsA++; else s.finalsB++; }
++      }
++    });
++    return { games, summary: s };
++  }
++
++  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor, OPP_POOL, allMeetings, headToHead };
+ })();
+ 
+ ;
+@@ -5872,6 +5978,207 @@ button{font-family:inherit; cursor:pointer;}
+     while (start - 1 >= 0 && /^[a-zà-ÿ]/.test(parts[start - 1])) start--;
+     return parts.slice(start).join(' ');
+   }
++
++  // ============================ HEAD-TO-HEAD ============================
++  // Every meeting between two clubs across the whole campaign dataset. Each campaign is
++  // simmed once with its own squad as the drafted club (FD.allMeetings), so a pairing
++  // turns up both in A's runs (B as the opponent) and in B's runs (A as the opponent).
++  const H2H_FORMATS = [['new', 'New format', '15-0'], ['old', 'Classic', '13-0'], ['ultra', 'Ultra Mode', '20-0']];
++  function H2HView({
++    campaigns,
++    format,
++    setFormat,
++    onBack
++  }) {
++    const clubs = useMemo(() => {
++      const set = new Set(campaigns.map(c => c.club));
++      FD.OPP_POOL.forEach(c => set.add(c));
++      return Array.from(set).sort((x, y) => x.localeCompare(y));
++    }, [campaigns]);
++    const [a, setA] = useState('Real Madrid');
++    const [b, setB] = useState('Barcelona');
++    const {
++      games,
++      summary: s
++    } = useMemo(() => FD.headToHead(campaigns, format, a, b), [campaigns, format, a, b]);
++    const name = {
++      a,
++      b
++    };
++    const pct = n => s.played ? n / s.played * 100 + '%' : 0;
++    const bigWin = g => g ? `${Math.max(g.gf, g.ga)}–${Math.min(g.gf, g.ga)} · ${g.season}` : '—';
++    const side = (key, val, set, other) => React.createElement("div", {
++      className: 'fd-h2h-side ' + key
++    }, React.createElement(window.Flag, {
++      c: clubMeta(val).country,
++      big: true
++    }), React.createElement("span", {
++      className: "fd-club",
++      title: val
++    }, val), React.createElement("select", {
++      value: val,
++      "aria-label": key === 'a' ? 'First club' : 'Second club',
++      onChange: e => set(e.target.value)
++    }, clubs.filter(c => c !== other).map(c => React.createElement("option", {
++      key: c,
++      value: c
++    }, c))));
++    const statRow = (label, av, bv) => React.createElement("div", {
++      key: label
++    }, React.createElement("dd", null, av), React.createElement("dt", {
++      className: "label"
++    }, label), React.createElement("dd", {
++      className: "r"
++    }, bv));
++
++    // group the meetings by the campaign (drafted club + season) they came from
++    const groups = [];
++    games.forEach(g => {
++      const last = groups[groups.length - 1];
++      if (last && last.cid === g.cid) last.games.push(g);else groups.push({
++        cid: g.cid,
++        club: g.club,
++        season: g.season,
++        realRun: g.realRun,
++        simRun: g.simRun,
++        runOf: g.runOf,
++        games: [g]
++      });
++    });
++    return React.createElement("div", {
++      className: "fd-wrap"
++    }, React.createElement(MastheadSlim, null), React.createElement("div", {
++      className: "fd-subbar"
++    }, React.createElement("div", {
++      className: "fd-modebadges"
++    }, React.createElement("span", {
++      className: "fd-mb k"
++    }, "Head-to-Head"), React.createElement("span", {
++      className: "fd-mb"
++    }, campaigns.length, " campaigns simmed")), React.createElement("button", {
++      className: "fd-restart",
++      onClick: onBack
++    }, "← Back to setup")), React.createElement("div", {
++      className: "fd-panel rise"
++    }, React.createElement("h2", {
++      className: "fd-panel-h"
++    }, "Head-to-Head"), React.createElement("p", {
++      className: "fd-panel-sub"
++    }, "Every squad in the dataset plays its campaign through the sim once. Pick two clubs to see every time they met — in their own runs, and as the opponent in each other’s."), React.createElement("div", {
++      className: "fd-h2h-clubs"
++    }, side('a', a, setA, b), React.createElement("button", {
++      className: "fd-h2h-swap",
++      title: "Swap clubs",
++      "aria-label": "Swap clubs",
++      onClick: () => {
++        setA(b);
++        setB(a);
++      }
++    }, "⇄"), side('b', b, setB, a)), React.createElement("div", {
++      className: "fd-opt",
++      style: {
++        marginBottom: 0
++      }
++    }, React.createElement("div", {
++      className: "fd-opt-label"
++    }, React.createElement("span", {
++      className: "label"
++    }, "Competition format"), React.createElement("span", {
++      className: "hint"
++    }, "which sim the campaigns were played in")), React.createElement("div", {
++      className: "fd-seg three"
++    }, H2H_FORMATS.map(([k, label, sub]) => React.createElement("button", {
++      key: k,
++      className: format === k ? 'on' : '',
++      onClick: () => setFormat(k)
++    }, label, React.createElement("span", {
++      className: "sm"
++    }, sub)))))), s.played === 0 ? React.createElement("div", {
++      className: "fd-panel fd-h2h-empty"
++    }, a, " and ", b, " never crossed paths in this format.", FD.OPP_POOL.indexOf(a) === -1 && FD.OPP_POOL.indexOf(b) === -1 ? ' Neither club is ever drawn as an opponent in the sim, so the two can never meet.' : ' Try another format — each one draws its opponents differently.') : React.createElement("div", {
++      className: "fd-h2h-grid"
++    }, React.createElement("div", {
++      className: "fd-panel rise"
++    }, React.createElement("div", {
++      className: "fd-h2h-score"
++    }, React.createElement("div", null, React.createElement("div", {
++      className: "n",
++      style: {
++        color: 'var(--done)'
++      }
++    }, s.aw), React.createElement("span", {
++      className: "label"
++    }, a, " wins")), React.createElement("div", {
++      className: "c"
++    }, React.createElement("div", {
++      className: "n"
++    }, s.d), React.createElement("span", {
++      className: "label"
++    }, "Draws")), React.createElement("div", {
++      className: "r"
++    }, React.createElement("div", {
++      className: "n",
++      style: {
++        color: 'var(--breaking)'
++      }
++    }, s.bw), React.createElement("span", {
++      className: "label"
++    }, b, " wins"))), React.createElement("div", {
++      className: "fd-h2h-bar",
++      role: "img",
++      "aria-label": `${a} ${s.aw} wins, ${s.d} draws, ${b} ${s.bw} wins`
++    }, React.createElement("span", {
++      style: {
++        width: pct(s.aw),
++        background: 'var(--done)'
++      }
++    }), React.createElement("span", {
++      style: {
++        width: pct(s.d),
++        background: 'var(--talks)'
++      }
++    }), React.createElement("span", {
++      style: {
++        width: pct(s.bw),
++        background: 'var(--breaking)'
++      }
++    })), React.createElement("dl", {
++      className: "fd-h2h-stats"
++    }, statRow('Goals', s.ag, s.bg), statRow('Knockout ties won', s.tiesA, s.tiesB), statRow('Finals won', s.finalsA, s.finalsB), statRow('Biggest win', bigWin(s.bigA), bigWin(s.bigB)), statRow('Met in own runs', s.inA, s.inB))), React.createElement("div", {
++      className: "fd-run rise"
++    }, React.createElement("div", {
++      className: "fd-run-h"
++    }, "Every meeting (", s.played, ")"), groups.map(gr => React.createElement(React.Fragment, {
++      key: gr.cid
++    }, React.createElement("div", {
++      className: "fd-h2h-camp"
++    }, React.createElement(window.Flag, {
++      c: clubMeta(gr.club).country
++    }), React.createElement("span", {
++      className: "who"
++    }, gr.club, " ", gr.season), React.createElement("span", {
++      className: 'fd-runtag ' + runTagClass(gr.realRun),
++      title: "Real-life finish"
++    }, gr.realRun), React.createElement("span", {
++      className: "meta"
++    }, "sim: ", SHORT_FURTHEST[gr.simRun] || gr.simRun)), gr.games.map(g => React.createElement("div", {
++      className: "fd-h2h-row",
++      key: g.idx
++    }, React.createElement("span", {
++      className: "rnd"
++    }, g.round, g.leg ? ' ' + (g.leg === 1 ? '1st' : '2nd') : ''), React.createElement("span", {
++      className: 't a' + (g.runOf === 'a' ? ' drafted' : '')
++    }, a), React.createElement("span", {
++      className: "sc"
++    }, g.gf, "–", g.ga, (g.agg || g.pens) && React.createElement("small", null, g.agg ? `agg ${g.agg[0]}–${g.agg[1]}` : '', g.agg && g.pens ? ' · ' : '', g.pens ? `${name[g.tieWinner]} on pens` : '')), React.createElement("span", {
++      className: 't b' + (g.runOf === 'b' ? ' drafted' : '')
++    }, b), React.createElement("span", {
++      className: 'rr ' + g.res,
++      title: `${a}: ${g.res === 'W' ? 'win' : g.res === 'D' ? 'draw' : 'loss'}`
++    }, g.res))))))), React.createElement(Footer, {
++      count: campaigns.length
++    }));
++  }
+   function App() {
+     const data = useMemo(() => FD.build(), []);
+     const {
+@@ -6217,6 +6524,16 @@ button{font-family:inherit; cursor:pointer;}
+       className: "fd-mb"
+     }, DIFF[diff].name));
+ 
++    // ============================ HEAD-TO-HEAD ============================
++    if (phase === 'h2h') {
++      return /*#__PURE__*/React.createElement(H2HView, {
++        campaigns: campaigns,
++        format: format,
++        setFormat: setFormat,
++        onBack: () => setPhase('setup')
++      });
++    }
++
+     // ============================ SETUP ============================
+     if (phase === 'setup') {
+       const tierData = [['94\u201399', 'gold'], ['90\u201393', 'var(--done)'], ['85\u201389', 'var(--interest)'], ['80\u201384', 'var(--talks)'], ['<80', '#6b7280']];
+@@ -6332,7 +6649,10 @@ button{font-family:inherit; cursor:pointer;}
+         onClick: startDraft
+       }, "Kick Off ", /*#__PURE__*/React.createElement("span", {
+         className: "dot"
+-      }, "."))), /*#__PURE__*/React.createElement("div", {
++      }, ".")), /*#__PURE__*/React.createElement("button", {
++        className: "fd-h2h-open",
++        onClick: () => setPhase('h2h')
++      }, "Head-to-Head \u2192")), /*#__PURE__*/React.createElement("div", {
+         className: "fd-setup-side"
+       }, /*#__PURE__*/React.createElement(Pitch, {
+         preview: true,

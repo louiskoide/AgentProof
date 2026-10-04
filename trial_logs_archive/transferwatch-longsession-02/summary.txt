@@ -1,0 +1,7 @@
+Implementation is done and syntax-verified with esbuild. Summary of what changed in `TransferDesk.jsx`:
+
+- **Data model**: transfers can carry `chainId`, `chainLabel` (role tag like "Sells to fund"), and `chainNext` (connector text to the following leg). A new `SEED_CHAINS` array defines chains as `{ id, title, blurb, transferIds: [...] }`, in order.
+- **Demo chain**: linked `t-alvarez` (Atlético sell Álvarez to fund a bid) → `t-joaogomes` (Atlético's target, Wolves' departure) → a new `c-wolves-cm` entry (Wolves' resulting replacement need, explicitly marked as speculative/unreported since it's not a real reported transfer).
+- **Live feed contract**: `fetchLatest` now also merges an optional `chains` array from the backend, same pattern as `transfers`/`stories`.
+- **Rendering**: a new "Linked moves" section appears above the pipeline board showing each chain as one connected card (`ChainCard`/`ChainLeg`) — legs joined by arrows with the relationship label between them, wrapping to a vertical stack on mobile. Transfers that belong to a chain are excluded from the normal interest/talks/done columns so they no longer show up as three disconnected cards.
+- Chains respect the existing league and search filters (shown if any leg or the chain's title/blurb matches).

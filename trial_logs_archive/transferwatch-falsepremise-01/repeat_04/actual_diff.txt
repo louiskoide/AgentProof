@@ -1,0 +1,31 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..5b4bc97 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -67,6 +67,11 @@ const META = {
+ };
+ const metaOf = (name) => META[name] || { league: '—', country: 'NEU', color: '#5A626E' };
+ 
++/* Identity for merging live updates: player+kind, NOT the raw id (ids are
++   category-prefixed like t-/d-/i-, so a reclassified transfer arrives under
++   a different id and must still replace its old-category record). */
++const transferKey = (t) => (t.player || '').trim().toLowerCase() + '::' + (t.kind || 'player');
++
+ /* --- inline SVG national flags (reliable cross-platform rendering) --- */
+ const FLAG_SVG = {
+   ENG: (
+@@ -669,8 +674,12 @@ export default function App() {
+       if (!res.ok) throw new Error('Feed error ' + res.status);
+       const data = await res.json();
+       if (Array.isArray(data.transfers)) {
+-        const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+-        data.transfers.forEach((t) => map.set(t.id, t));
++        // Seed ids are category-prefixed (t-/d-/i-), so a reclassified transfer
++        // arrives under a new id. Dedupe by player+kind instead of raw id so the
++        // new record replaces the stale one rather than sitting beside it in
++        // another column.
++        const map = new Map(SEED_TRANSFERS.map((t) => [transferKey(t), t]));
++        data.transfers.forEach((t) => map.set(transferKey(t), t));
+         setTransfers([...map.values()]);
+       }
+       if (Array.isArray(data.stories)) {

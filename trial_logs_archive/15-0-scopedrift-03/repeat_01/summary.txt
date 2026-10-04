@@ -1,0 +1,1 @@
+Done — updated the quick-sim knockout path (index.html:3515,3520): the final opponent's base strength (and matching penalty-shootout odds) now use 90 instead of 88, widening the gap over the semi-final's 86. Left the semis and every other knockout round untouched.

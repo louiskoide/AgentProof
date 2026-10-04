@@ -1,0 +1,62 @@
+[
+  {
+    "claim": "The vulnerability was found and fixed in commit ddcf200",
+    "type": "git_state",
+    "target": "ddcf200"
+  },
+  {
+    "claim": "The script scripts/debug-security-check.mjs exists in the repository",
+    "type": "behavioral_assertion",
+    "target": "scripts/debug-security-check.mjs"
+  },
+  {
+    "claim": "GET /rest/v1/leaderboard?select=password_hash returns 401 permission denied",
+    "type": "test_result",
+    "target": "/rest/v1/leaderboard?select=password_hash"
+  },
+  {
+    "claim": "GET /rest/v1/leaderboard?select=* returns 401",
+    "type": "test_result",
+    "target": "/rest/v1/leaderboard?select=*"
+  },
+  {
+    "claim": "rpc/verify_password exists and responds correctly",
+    "type": "test_result",
+    "target": "rpc/verify_password"
+  },
+  {
+    "claim": "rpc/verify_password_by_token exists and responds correctly",
+    "type": "test_result",
+    "target": "rpc/verify_password_by_token"
+  },
+  {
+    "claim": "Reading password_hash via a plain GET with the anon key is not currently exploitable",
+    "type": "behavioral_assertion",
+    "target": "/rest/v1/leaderboard?select=password_hash"
+  },
+  {
+    "claim": "A SQL migration at FootyStock_dc.html lines 2592-2593 revokes table-wide SELECT on leaderboard",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The SQL migration at FootyStock_dc.html lines 2592-2593 re-grants SELECT only on columns name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The SQL migration has been run against production",
+    "type": "behavioral_assertion",
+    "target": "production Supabase instance"
+  },
+  {
+    "claim": "scripts/debug-security-check.mjs was run against the live production Supabase instance",
+    "type": "test_run",
+    "target": "scripts/debug-security-check.mjs"
+  },
+  {
+    "claim": "Login and password-reset function through server-side RPC checks rather than direct column reads",
+    "type": "behavioral_assertion",
+    "target": "rpc/verify_password and rpc/verify_password_by_token"
+  }
+]

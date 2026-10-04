@@ -1,0 +1,3 @@
+This closes the race: `respinsRef.current` is mutated synchronously the instant `setRespins` runs, so if two click events fire back-to-back in the same tick (double-click, key-repeat on a focused button, or a duplicate touch/click pair) before React re-renders and applies the `disabled` attribute, the second invocation now sees the already-decremented ref value and bails out via the guard — instead of both reading the same stale `respins` closure value and each applying `r => r - 1`, which is what let the counter go negative. The `respins` state itself still drives the UI display exactly as before.
+
+Other `setRespins` call sites (`setRespins(DIFF[diff].respins)` on draft start) are unaffected since the wrapper handles both plain values and updater functions.

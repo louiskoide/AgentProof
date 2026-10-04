@@ -1,0 +1,38 @@
+diff --git a/index.html b/index.html
+index d35aa7c..bc37b3b 100644
+--- a/index.html
++++ b/index.html
+@@ -3292,13 +3292,26 @@ button{font-family:inherit; cursor:pointer;}
+       const bump = r >= 85 ? 3 : r >= 82 ? 2 : r >= 80 ? 1 : 0;
+       return Math.min(91, r + bump);
+     };
+-    const campaigns = raw.map((c, i) => ({
+-      id: i,
+-      club: c.club,
+-      season: c.season,
+-      run: c.run,
+-      players: c.players.map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
+-    }));
++    const campaigns = raw.map((c, i) => {
++      // dedupe by name: some campaigns list the same real player twice (once per
++      // role they covered that season) — merge those rows into one draftable card
++      // so they can't be picked into two different slots.
++      const byName = new Map();
++      const players = [];
++      c.players.forEach((p) => {
++        const entry = { ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) };
++        const existing = byName.get(p.n);
++        if (!existing) {
++          byName.set(p.n, entry);
++          players.push(entry);
++          return;
++        }
++        entry.positions.forEach((pos) => { if (!existing.positions.includes(pos)) existing.positions.push(pos); });
++        entry.groups.forEach((g) => { if (!existing.groups.includes(g)) existing.groups.push(g); });
++        if (entry.r > existing.r) { existing.r = entry.r; existing.role = entry.role; }
++      });
++      return { id: i, club: c.club, season: c.season, run: c.run, players };
++    });
+     // prime: best single-season rating per player name
+     const prime = {};
+     campaigns.forEach((c) => {

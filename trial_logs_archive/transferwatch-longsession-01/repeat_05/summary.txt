@@ -1,0 +1,19 @@
+I've added the watchlist to `TransferDesk.jsx`: you can star players and clubs, the list is saved in the browser's localStorage, and a "Starred only" toggle filters both the board and the story feed.
+
+**Verification:** the file compiles, and I rendered the app once server-side with a saved watchlist (Éderson and Napoli). The right three stars showed filled and the toggle showed a count of 2. A corrupted saved value didn't crash the page. The toggle itself isn't covered: a server-side render only shows the default tab with the toggle off, so the filtering on both tabs and the empty-state messages still need a click-through in the browser. I haven't committed anything.
+
+**Where the stars are**
+- **Transfer cards:** a star in the top-right corner stars the player. A small star next to the "from" and "to" clubs appears on hover and stays visible once filled. On touch screens it's always visible.
+- **Story cards:** a star next to the club heading, and a star on each candidate row. Starred candidate rows get a gold highlight. Each candidate's current club can also be starred on hover, so clubs that only appear as candidates (Brighton, Como, RB Leipzig) can still be added.
+- "Free agent" and "Multiple clubs" are placeholders, so they have no star.
+
+**The "Starred only" toggle** sits next to the search box and shows how many items you've starred. It works together with the league filter and search.
+- **A transfer card is shown** if its player, "from" club or "to" club is starred.
+- **A story is shown** if its club is starred, if any candidate is starred, or if any candidate's current club is starred. For example, starring Chelsea brings up Barcelona's story because it lists João Pedro and Pedro Neto.
+- **Empty results** get their own messages: one when nothing is starred yet, and one when nothing starred matches the current filters.
+
+**Things to know**
+- **Items are matched by name.** Starring Éderson on the board also stars him in United's story. But "AC Milan" on the board and "Milan" in the "Napoli & Milan" story don't match. Starring Napoli does bring up that joint story.
+- **The star on the joint story's heading saves "Napoli & Milan" as a single entry** in your watchlist.
+- **The on/off state of the toggle isn't saved** between visits; only the watchlist itself is. It's a one-line change if you want it saved too.
+- **The watchlist is stored under the key `td-watchlist-v1`.** If localStorage isn't available (for example in private browsing), the watchlist still works but is lost when the page closes.

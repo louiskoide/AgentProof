@@ -1,0 +1,2 @@
+MISSING: build() — claimed but NOT found on disk
+EXISTS: index.html (gitignored: no, modified: Sep 24 16:18:11 2026)

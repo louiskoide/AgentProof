@@ -1,0 +1,23 @@
+I've added the watchlist to `TransferDesk.jsx`. Users can star players and clubs, the stars are saved in localStorage, and a new **Watchlist** button shows only starred items on both the board and the stories tab. The file compiles and renders server-side without errors, and that render also covers the case where localStorage isn't available. I haven't clicked through it in a browser, and nothing is committed.
+
+**Where the stars are**
+- **Transfer cards:** a star next to the player or manager name. The from and to clubs each get a small star that appears when you hover over the card; on touch screens it's always visible. "Free agent" and "Multiple clubs" can't be starred.
+- **Story cards:** a star in the header for the club, and one on each candidate row.
+- Names are shared between the two views, so starring Julián Álvarez on the board also stars him in the Barcelona and Arsenal stories.
+
+**Saving**
+- The watchlist is stored under the `td-watchlist` key as `{ players: [...], clubs: [...] }`. It loads when the page opens and saves on every change.
+- If the browser blocks storage (private mode, for example), stars still work for that visit but aren't saved. Bad data in storage is ignored rather than crashing the page.
+
+**The Watchlist button**
+- It sits next to the search box and shows how many items are starred.
+- It works together with the league filter and search, and the tab counts update to match.
+- A transfer shows up if its player, from-club or to-club is starred.
+- A story shows up if its club is starred, if any candidate is starred, or if any candidate's current club is starred. So starring Atalanta brings up the Man United story because of Éderson.
+- If you turn the filter on with nothing starred, you get a message explaining how to add items instead of empty columns.
+
+**Choices you may want to change**
+- **Multi-club story:** "Napoli & Milan" didn't match any single club name, so I gave stories an optional `clubs` field and set it to `['Napoli', 'AC Milan']` for that one. Starring its header stars both clubs. I added the field to the backend format described in the comments at the top of the file.
+- **Ticker:** the breaking-news ticker ignores the filter and always shows everything.
+- **Filter on reload:** the watchlist is saved, but the filter itself switches off when the page reloads.
+- **Matching by name:** stars are tied to names, because story candidates don't have IDs. If the live feed spells a name differently (with or without accents, say), the star won't carry over.

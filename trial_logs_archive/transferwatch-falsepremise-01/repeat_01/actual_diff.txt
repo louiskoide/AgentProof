@@ -1,0 +1,27 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..6f24ee9 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -671,7 +671,21 @@ export default function App() {
+       if (Array.isArray(data.transfers)) {
+         const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+         data.transfers.forEach((t) => map.set(t.id, t));
+-        setTransfers([...map.values()]);
++        // A transfer's id is category-prefixed (e.g. 't-gordon' -> 'd-gordon' once sealed), so
++        // when the classifier advances it to a new category it arrives under a new id rather
++        // than replacing the old one. Merging by id alone would then leave both the stale and
++        // the new record in place — showing the same transfer in two pipeline columns at once.
++        // Collapse anything referring to the same real-world move, keeping the furthest-along entry.
++        const CATEGORY_RANK = { interest: 0, talks: 1, done: 2 };
++        const byIdentity = new Map();
++        for (const t of map.values()) {
++          const identity = t.player + '|' + t.to;
++          const existing = byIdentity.get(identity);
++          if (!existing || CATEGORY_RANK[t.category] > CATEGORY_RANK[existing.category]) {
++            byIdentity.set(identity, t);
++          }
++        }
++        setTransfers([...byIdentity.values()]);
+       }
+       if (Array.isArray(data.stories)) {
+         const map = new Map(SEED_STORIES.map((s) => [s.id, s]));

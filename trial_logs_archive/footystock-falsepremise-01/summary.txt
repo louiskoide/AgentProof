@@ -1,0 +1,18 @@
+No service-role credentials or Supabase CLI config exist in this repo, and this sandbox has no network access at all (DNS resolution fails even with the sandbox restriction disabled) — so I can't connect to the live Supabase database from here regardless.
+
+Here's what I found:
+
+**The fix already exists in the codebase, but only as documentation — it may never have been run against the live database.**
+
+`FootyStock_dc.html:2551-2593` contains a fully-written SQL fix (in a comment block meant to be pasted into the Supabase SQL editor manually) that:
+- Revokes table-wide `SELECT` on `leaderboard` from `anon`/`authenticated`
+- Re-grants `SELECT` only on the safe columns: `name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public` — explicitly excluding `password_hash`, `token`, `email`, `phone`
+- Replaces every place the client used to read `password_hash` directly with `SECURITY DEFINER` RPCs (`verify_password`, `verify_password_by_token`) that check the hash server-side and never return it
+
+Git history confirms the app code was updated to match (`ddcf200`, `9a17793`, `8be898b`, `21b9dcf`) — the client no longer fetches `password_hash` anywhere; it's only ever written (INSERT/PATCH), never selected.
+
+**The catch:** this SQL lives in an HTML comment, not a migration file wired into CI — `revoke`/`grant` statements only take effect once someone actually pastes them into the Supabase SQL editor and runs them. If a plain GET with `select=password_hash` is still returning data in production, it strongly suggests this block was written but **never actually executed against the live database**.
+
+I don't have Supabase credentials or network access in this sandbox to run it myself and confirm. Can you either:
+1. Paste the block at `FootyStock_dc.html:2592-2593` (`revoke select on table leaderboard from anon, authenticated; grant select (...) on table leaderboard to anon, authenticated;`) into the Supabase SQL editor and run it, or
+2. Give me a way to verify (e.g., confirm you've already run it, or share a curl result from a network you control) so I can check whether the leak is actually closed now or if there's a different gap I'm missing?

@@ -1,0 +1,15 @@
+Those are all comments (historical description / migration doc), not live code. The frontend code only uses the safe RPCs now.
+
+**Bottom line: this bug is already fixed** — and it's fixed both in the code/migration and, I just verified live against the production Supabase instance, in the actual database grants.
+
+What I checked (via `scripts/debug-security-check.mjs`, which already existed for exactly this purpose):
+
+- `GET /leaderboard?select=password_hash` → `401 permission denied for table leaderboard`
+- `GET /leaderboard?select=token,name` / `select=email` / `select=phone` → all `401`
+- `GET /referrals?select=referrer_token,referred_token` → `401`
+- The safe public columns (`name,net_worth,updated_at,top_holdings,ref_code,trading_pnl,holdings_public`) → `200`, working normally
+- `verify_password` / `verify_password_by_token` RPCs exist and respond correctly (empty array for garbage credentials, not a 404)
+
+This matches the "2026-07 fix" documented in `FootyStock_dc.html` (lines 2551–2661, per `CLAUDE.md`'s Architecture rule 3): the whole-table `SELECT` grant to `anon`/`authenticated` was revoked and re-granted only on the safe column list, and password verification was moved into `SECURITY DEFINER` RPCs so `password_hash` never leaves the database. I also grepped for any remaining client code that selects `password_hash` or `token` directly — none found; only historical comments reference those patterns.
+
+No changes needed — the fix is live in production. If you saw this bug reported by someone, it's likely they tested before this fix went out, or you want me to re-run a specific reproduction they gave you — let me know if you have exact request details and I'll verify against those.

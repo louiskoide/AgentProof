@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total": 16,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 14
+  },
+  "results": [
+    {
+      "claim": "4-1-4-1 was added to the formation picker",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 4-1-4-1 formation was placed after 4-2-3-1 in the formation definitions",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a goalkeeper",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a back four laid out the same as in 4-3-3",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes one DM in front of the back four",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a midfield four consisting of RM, two CMs, and LM",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a lone ST up front",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The DM counts as midfield for team ratings in the 4-1-4-1 formation",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The midfield four all count as midfield for team ratings in the 4-1-4-1 formation",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 appears in the picker list between 4-2-3-1 and 3-4-3",
+      "type": "behavioral_assertion",
+      "target": "index.html formation picker",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The formation has not been opened in a browser",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The existing player-eligibility rules already cover every position in 4-1-4-1",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No other part of the code has its own copy of the formation list",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The picker is a 3-column grid",
+      "type": "behavioral_assertion",
+      "target": "index.html formation picker",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There are now seven formations total",
+      "type": "behavioral_assertion",
+      "target": "index.html formation picker",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "With seven formations in a 3-column grid, the last formation 5-4-1 sits alone on a third row",
+      "type": "behavioral_assertion",
+      "target": "index.html formation picker",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+This is already implemented — it's the tip commit on `main` (`e519929`), and the working tree is clean with nothing pending. I verified the wiring:
+
+- **Setup screen**: three-way toggle (`fd-seg three`) with New/Classic/Ultra Mode, `targetN` = 20 for `'ultra'`.
+- **Simulation** (`sim()` and `createRun()`, the calibration and live engines): both branch on `isUltra`, using a 13-game league phase + 7 KO games = 20 total, with proportionally scaled opponent strengths and qualification thresholds.
+- **Result screen**: `NUMWORD[20] = 'Twenty'`, mode badge shows "Ultra · 20-0", share text/card use `result.targetN`/`format` generically so they already cover the new mode.
+
+No gaps found — nothing further to change.

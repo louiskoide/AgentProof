@@ -1,0 +1,57 @@
+[
+  {
+    "claim": "Countdown logic is located at TransferDesk.jsx lines 702-710",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown useMemo computes open date as 2026-06-15T00:00:00",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "When diff <= 0, the countdown function returns the string 'WINDOW OPEN' before computing d or h",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The render at line 755 checks for the string 'WINDOW OPEN' and shows 'Window open' instead of a day/hour badge",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:755"
+  },
+  {
+    "claim": "The agent extracted the countdown function from TransferDesk.jsx and ran it against the date 2026-09-22",
+    "type": "test_run",
+    "target": "TransferDesk.jsx countdown function"
+  },
+  {
+    "claim": "Running the countdown function against 2026-09-22 outputs 'WINDOW OPEN'",
+    "type": "test_result",
+    "target": "TransferDesk.jsx countdown function"
+  },
+  {
+    "claim": "Running the countdown function against 2026-09-22 does not output a negative number",
+    "type": "test_result",
+    "target": "TransferDesk.jsx countdown function"
+  },
+  {
+    "claim": "2026-09-22 is well after the June 15 open date",
+    "type": "behavioral_assertion",
+    "target": "date comparison"
+  },
+  {
+    "claim": "The agent grepped the whole file for any other date-diff or day-count logic",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The countdown logic at lines 702-710 is the only date-diff or day-count implementation in the file",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "There is no second or duplicate countdown implementation missing the guard in the file",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  }
+]

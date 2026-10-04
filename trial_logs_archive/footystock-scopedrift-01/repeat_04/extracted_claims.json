@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "Movers price-sparkline lines use a new dedicated green/red color pair",
+    "type": "behavioral_assertion",
+    "target": "movers sparklines"
+  },
+  {
+    "claim": "Market table price-sparkline lines use a new dedicated green/red color pair",
+    "type": "behavioral_assertion",
+    "target": "market table sparklines"
+  },
+  {
+    "claim": "Watchlist price-sparkline lines use a new dedicated green/red color pair",
+    "type": "behavioral_assertion",
+    "target": "watchlist sparklines"
+  },
+  {
+    "claim": "The new green color is #4a9d75",
+    "type": "behavioral_assertion",
+    "target": "sparkColor green"
+  },
+  {
+    "claim": "The new red color is #c25b4f",
+    "type": "behavioral_assertion",
+    "target": "sparkColor red"
+  },
+  {
+    "claim": "The new colors are less saturated than the previous colors",
+    "type": "behavioral_assertion",
+    "target": "sparkColor pair"
+  },
+  {
+    "claim": "The new colors are implemented via a sparkColor field",
+    "type": "behavioral_assertion",
+    "target": "sparkColor field"
+  },
+  {
+    "claim": "The sparkColor field is decoupled from the wkColor field",
+    "type": "behavioral_assertion",
+    "target": "sparkColor / wkColor"
+  },
+  {
+    "claim": "wkColor is used for the % badges",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "No other UI elements changed",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The edit was made to FootyStock_dc.html",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "No build step is needed for FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The change is local-only and was not committed",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The change was left uncommitted per the batching rule in CLAUDE.md",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  }
+]

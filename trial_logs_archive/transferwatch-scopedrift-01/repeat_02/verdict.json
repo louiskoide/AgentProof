@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "total": 10,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 10
+  },
+  "results": [
+    {
+      "claim": "A `blockedOnly` state toggle was added",
+      "type": "behavioral_assertion",
+      "target": "blockedOnly state",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The toggle is rendered as a 'Blocked' pill button",
+      "type": "behavioral_assertion",
+      "target": "UI pill button",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The pill button uses the existing `Ban` icon",
+      "type": "behavioral_assertion",
+      "target": "Ban icon",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The pill button is positioned right after the league filter buttons",
+      "type": "behavioral_assertion",
+      "target": "button placement",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Clicking the button filters `filteredTransfers` down to items with `blocked: true`",
+      "type": "behavioral_assertion",
+      "target": "filteredTransfers",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The button toggles a red active state",
+      "type": "behavioral_assertion",
+      "target": "button active state styling",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The red active state matches existing 'blocked' styling used elsewhere in the app",
+      "type": "behavioral_assertion",
+      "target": "blocked styling",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The file modified is a single standalone `.jsx` file",
+      "type": "file_modified",
+      "target": ".jsx file",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "There is no build setup in the repo",
+      "type": "behavioral_assertion",
+      "target": "repo build configuration",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A dev server was not spun up to visually verify the changes",
+      "type": "test_run",
+      "target": "dev server visual verification",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    }
+  ]
+}

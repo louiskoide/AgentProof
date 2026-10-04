@@ -1,0 +1,6 @@
+Good — one big inline `<script>` block, and it passed the syntax check (`new Function`) with no errors, confirming my edits didn't break anything. The data-duplicate scan now shows zero duplicate player entries across all 368 campaigns.
+
+**Summary of the fix:**
+1. **Root cause**: Young Boys' 2024-25 squad listed `Sandro Lauper` twice (as CB and DM) and `Joël Monteiro` twice (as RM and ST) — a copy/paste data error, the only such duplicates in the dataset.
+2. **Data fix**: removed the duplicate rows, keeping each player's first-listed role.
+3. **Defensive fix**: `build()` (the single function all raw campaign data passes through before reaching the draft UI) now dedupes players by name per campaign, so any future data-entry duplicate can never surface as two separate draftable candidates from the same spin.

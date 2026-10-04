@@ -1,0 +1,8 @@
+[
+  {
+    "task_id": "footystock-longsession-01",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "Right now the signals object (fotmob/form/twitter/transfermarkt) only feeds the 'what's driving the price' display panel — the actual price is still just marketValue + noise. Wire the signals into the actual price per the anchor + composite model in pricing-model.md: mean-center each signal, weight them (performance 0.50 / form 0.30 / hype 0.20 per the doc), and combine in log space so price can't go negative.",
+    "test_command": null
+  }
+]

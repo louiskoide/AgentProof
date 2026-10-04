@@ -1,0 +1,107 @@
+[
+  {
+    "claim": "4-1-4-1 formation was added to the formation picker",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "All changes are in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Formation layout is defined at index.html line 3257",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The 4-1-4-1 layout is defined next to the other formations",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation includes a GK",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation uses the same back four as 4-3-3",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation includes a lone DM",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation includes a midfield line of RM, CM, CM and LM",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation includes one ST",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The 4-1-4-1 formation uses existing slot labels",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "Player eligibility per slot works the same as in other formations",
+    "type": "behavioral_assertion",
+    "target": "index.html:3257"
+  },
+  {
+    "claim": "The formation picker entry is at index.html line 5851",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The 4-1-4-1 entry in the picker sits after 4-2-3-1",
+    "type": "behavioral_assertion",
+    "target": "index.html:5851"
+  },
+  {
+    "claim": "The 4-1-4-1 picker entry is next to other back-four formations",
+    "type": "behavioral_assertion",
+    "target": "index.html:5851"
+  },
+  {
+    "claim": "The formation picker grid was changed from 3 columns to 4 columns",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "There are 7 formations total in the picker",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "With 3 columns and 7 formations, 4-1-4-1 would have been alone on a third row",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "With 4 columns and 7 formations, there are two rows of 4 and 3",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A 4-2-3-1 button already existed in the picker before this change",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The agent has not opened the file in a browser",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "No changes have been committed",
+    "type": "git_state",
+    "target": "index.html"
+  }
+]

@@ -1,0 +1,160 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..e4f9af0 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -2400,6 +2400,32 @@
+ </div>
+ </sc-if>
+ 
++<!-- ============ REFERRAL BONUS PREVIEW MODAL ============ -->
++<sc-if value="{{ refBonusPreviewOpen }}" hint-placeholder-val="{{ false }}">
++<div style="position:fixed;inset:0;z-index:100;background:rgba(12,20,15,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px" onClick="{{ dismissRefBonusPreview }}">
++  <div onClick="{{ stopRefBonusPreview }}" class="fs-modal-card" style="background:#fff;border-radius:24px;width:100%;max-width:440px;padding:30px;text-align:center;box-shadow:0 30px 80px rgba(10,20,14,.32)">
++    <div style="font:600 12px 'Hanken Grotesk';letter-spacing:.14em;text-transform:uppercase;color:#16a85f">Referral bonus</div>
++    <div style="font:700 24px 'Space Grotesk';letter-spacing:-.02em;margin-top:8px">{{ refBonusHeadline }}</div>
++    <div style="font:500 13.5px 'Hanken Grotesk';color:#8a938c;margin-top:6px;margin-bottom:20px">Preview — nothing's been added to your portfolio yet.</div>
++    <div style="background:#f5f6f3;border-radius:14px;padding:16px 18px;margin-bottom:14px">
++      <div style="display:flex;justify-content:space-between;font:500 13px 'Hanken Grotesk';padding:4px 0"><span style="color:#8a938c">Net worth now</span><b style="font-family:'Space Grotesk'">{{ refBonusNetWorthNowFmt }}</b></div>
++      <div style="display:flex;justify-content:space-between;font:500 13px 'Hanken Grotesk';padding:4px 0"><span style="color:#8a938c">Referral bonus</span><b style="font-family:'Space Grotesk';color:#16a85f">{{ refBonusValueFmt }}</b></div>
++      <div style="display:flex;justify-content:space-between;font:700 15px 'Hanken Grotesk';padding:8px 0 0;border-top:1px solid #e6e9e4;margin-top:6px"><span>New net worth</span><b style="font-family:'Space Grotesk';color:#16a85f">{{ refBonusNetWorthAfterFmt }}</b></div>
++    </div>
++    <sc-for list="{{ refBonusPreviewPacks }}" as="mp">
++      <div style="background:#f5f6f3;border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
++        <div style="text-align:left">
++          <div style="font:700 15px 'Space Grotesk'">{{ mp.name }}</div>
++          <div style="font:500 12px 'Hanken Grotesk';color:#8a938c;margin-top:2px">{{ mp.team }} · {{ mp.qty }} shares</div>
++        </div>
++        <div style="font:700 16px 'Space Grotesk';color:#16a85f">{{ mp.price }}</div>
++      </div>
++    </sc-for>
++    <button onClick="{{ claimRefBonusPreview }}" style="width:100%;margin-top:10px;font:700 15px 'Hanken Grotesk';background:#16a85f;color:#fff;border:none;padding:15px;border-radius:13px;cursor:pointer">Add to my portfolio →</button>
++  </div>
++</div>
++</sc-if>
++
+ <!-- ============ ACCOUNT RECOVERY MODAL ============ -->
+ <sc-if value="{{ recoverOpen }}" hint-placeholder-val="{{ false }}">
+ <div style="position:fixed;inset:0;z-index:100;background:rgba(12,20,15,.45);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px" onClick="{{ closeRecover }}">
+@@ -2751,6 +2777,7 @@ class Component extends DCLogic {
+       compActivitiesLoading: false,
+       compTradeModalOpen: false, compTradeModalId: null, compTradeSide: 'buy', compTradeQty: 1,
+       shareOpen: false, shareCopied: false, mysteryOpen: false, mysteryPacks: [], recoverOpen: false,
++      refBonusPreviewOpen: false, refBonusPreviewPacks: [], refBonusPreviewValue: 0, refBonusPreviewCount: 0,
+       phoneVal: '', phoneSaving: false, phoneSaved: false,
+       loggedIn: !!(()=>{ const m=document.cookie.match('(?:^|; )fs_token=([^;]*)'); let t=m?decodeURIComponent(m[1]):null; if(!t){ try{ t=localStorage.getItem('fs_token'); }catch(e){} } return t&&t!=='anon'?t:null; })(), loginStep: 'email', loginEmail: '', loginError: '', loginSending: false, copyTokenLabel: 'Copy code',
+       profileResetPwOpen: false, profileResetPwError: '', profileResetPwOk: '',
+@@ -2978,7 +3005,7 @@ class Component extends DCLogic {
+       // After portfolio is loaded, check referral (for referred user) and referrer reward queue
+       await this.checkPendingRef();
+       const pendingRewards=r.pending_ref_rewards||0;
+-      if(pendingRewards>0) await this._claimPendingReferrerRewards(pendingRewards);
++      if(pendingRewards>0) this.previewReferrerBonus(pendingRewards);
+       this.getReferralCount();
+     }catch(e){ this.setState({portfolioLoading:false}); }
+   }
+@@ -6618,12 +6645,14 @@ Afonso Moreira|Leverkusen|LW|21|4
+       if(status==='ok') await this.awardMysteryStocks("ref_"+pending);
+     }catch(e){}
+   }
+-  async awardMysteryStocks(seed){
+-    const DB=this.getDB(); if(!DB||!DB.length) return;
+-    const token=this.loadToken();
+-    const useSeed=seed||token;
++  // Pure player selection, shared by awardMysteryStocks (which commits the
++  // award) and previewReferrerBonus (which needs the same picks to preview
++  // without granting them). Same seed => same picks, so a preview shown to
++  // the referrer matches exactly what claimRefBonusPreview later credits.
++  _pickMysteryPlayers(seed){
++    const DB=this.getDB(); if(!DB||!DB.length) return [];
+     const eligible=DB.filter(p=>this.curPrice(p)>=200).sort((a,b)=>this.curPrice(b)-this.curPrice(a)).slice(0,30);
+-    if(!eligible.length) return;
++    if(!eligible.length) return [];
+     // Pick 3 players, preferring those with supply remaining but never blocking
+     // the award — referral shares are new issuance, not a market purchase.
+     const shares=this._wcLive&&this._wcLive.shares||{};
+@@ -6632,9 +6661,17 @@ Afonso Moreira|Leverkusen|LW|21|4
+     const pool=withSupply.length>=3?withSupply:eligible; // fall back to all if too few available
+     const picks=[];
+     for(let i=0;i<3;i++){
+-      const r=this.rand01(useSeed+"mystery"+i);
++      const r=this.rand01(seed+"mystery"+i);
+       picks.push(pool[Math.floor(r*pool.length)]);
+     }
++    return picks;
++  }
++  async awardMysteryStocks(seed){
++    const DB=this.getDB(); if(!DB||!DB.length) return;
++    const token=this.loadToken();
++    const useSeed=seed||token;
++    const picks=this._pickMysteryPlayers(useSeed);
++    if(!picks.length) return;
+     const ph={...(this.state.packedHoldings||{})};
+     const packSellItems=[];
+     const displayPacks=[];
+@@ -6663,16 +6700,47 @@ Afonso Moreira|Leverkusen|LW|21|4
+     }catch(e){ this._referralCount=0; }
+   }
+ 
+-  async _claimPendingReferrerRewards(pendingCount){
+-    // Called on load when portfolio has pending_ref_rewards > 0
++  async _claimPendingReferrerRewards(pendingCount,seeds){
++    // Called once the referrer has seen (and confirmed) the bonus preview.
++    // `seeds`, when passed, are the exact seeds previewReferrerBonus already
++    // showed — reusing them guarantees the credited packs match the preview.
+     const portfolioUrl=this._sbUrl.replace('/leaderboard','/portfolios');
+     const token=this.loadToken();
+     // Reset counter first to prevent double-award if session dies mid-process
+     fetch(portfolioUrl+'?token=eq.'+encodeURIComponent(token),{method:'PATCH',headers:{...this._sbHdr,'Content-Type':'application/json'},body:JSON.stringify({pending_ref_rewards:0})}).catch(()=>{});
+     for(let i=0;i<pendingCount;i++){
+-      await this.awardMysteryStocks("referrer_reward_"+token+"_"+i+"_"+Date.now());
++      const seed=(seeds&&seeds[i])||("referrer_reward_"+token+"_"+i+"_"+Date.now());
++      await this.awardMysteryStocks(seed);
+     }
+   }
++  // ---------- referral bonus preview ----------
++  // Shows the referrer what their bonus is worth (and their resulting net
++  // worth) before anything is credited — nothing is written to Supabase or
++  // packedHoldings here, only computed for display. The seeds are stashed so
++  // claimRefBonusPreview() can credit exactly the packs that were previewed.
++  previewReferrerBonus(pendingCount){
++    const token=this.loadToken();
++    const ts=Date.now();
++    const seeds=[]; const packs=[]; let totalValue=0;
++    for(let i=0;i<pendingCount;i++){
++      const seed="referrer_reward_"+token+"_"+i+"_"+ts;
++      seeds.push(seed);
++      for(const p of this._pickMysteryPlayers(seed)){
++        const price=this.curPrice(p);
++        totalValue+=price*3;
++        packs.push({name:p.name,team:p.team,qty:3,price:this.money(price)});
++      }
++    }
++    this._pendingRefBonus={count:pendingCount,seeds};
++    this.setState({refBonusPreviewOpen:true,refBonusPreviewPacks:packs,refBonusPreviewValue:totalValue,refBonusPreviewCount:pendingCount});
++  }
++  async claimRefBonusPreview(){
++    const pend=this._pendingRefBonus;
++    this.setState({refBonusPreviewOpen:false});
++    if(!pend) return;
++    this._pendingRefBonus=null;
++    await this._claimPendingReferrerRewards(pend.count,pend.seeds);
++  }
+   // ============ FOUNDER ============
+   isFounder(){ return (this.state.joinDate||"9999") < "2026-07-10"; }
+   // ============ PHONE ============
+@@ -8806,6 +8874,15 @@ Afonso Moreira|Leverkusen|LW|21|4
+       mysteryOpen: S.mysteryOpen, closeMystery:()=>this.setState({mysteryOpen:false}),
+       stopMystery:(e)=>{ e&&e.stopPropagation&&e.stopPropagation(); },
+       mysteryPacks: S.mysteryPacks||[],
++      refBonusPreviewOpen: S.refBonusPreviewOpen,
++      stopRefBonusPreview:(e)=>{ e&&e.stopPropagation&&e.stopPropagation(); },
++      dismissRefBonusPreview:()=>this.setState({refBonusPreviewOpen:false}),
++      claimRefBonusPreview:()=>this.claimRefBonusPreview(),
++      refBonusPreviewPacks: S.refBonusPreviewPacks||[],
++      refBonusHeadline: (S.refBonusPreviewCount||0)>1 ? '🎉 '+S.refBonusPreviewCount+' friends joined with your code!' : '🎉 A friend joined with your code!',
++      refBonusNetWorthNowFmt: this.money(nw),
++      refBonusValueFmt: '+'+this.money(S.refBonusPreviewValue||0),
++      refBonusNetWorthAfterFmt: this.money(nw+(S.refBonusPreviewValue||0)),
+       isFounder: this.isFounder(),
+       myEmail: this.loadEmail()||'—',
+       profileResetPwOpen: S.profileResetPwOpen,

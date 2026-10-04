@@ -1,0 +1,23 @@
+I dug into this pretty thoroughly and can't reproduce the bug as described. Here's what I found in `TransferDesk.jsx:702-710`:
+
+```js
+const countdown = useMemo(() => {
+    const open = new Date('2026-06-15T00:00:00');
+    const diff = open - now;
+    if (diff <= 0) return 'WINDOW OPEN';
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    return { d, h };
+  }, [now]);
+```
+
+and the render at line 755:
+```jsx
+{countdown === 'WINDOW OPEN' ? 'Window open' : <>Opens <b>{countdown.d}d {countdown.h}h</b></>}
+```
+
+This already guards against the negative case — once `now` passes the open date, `diff` goes ≤ 0 and the code returns the literal `'WINDOW OPEN'` string instead of computing `d`/`h`, so the UI shows "Window open," never a negative day count. I verified this across the boundary (1s before open, exactly at open, 1s after, and 99 days after) with a standalone simulation and it never produces a negative value.
+
+I also checked for a second/duplicate countdown implementation elsewhere in the file (none), and checked git history/stash — there's one unrelated stash (`harness: leftover trial residue...`) that only tweaks the open date from June 15 to June 20, nothing related to this bug.
+
+Since I can't find or reproduce the negative-days case in the current committed code, could you point me to where you're seeing it — a screenshot, a deployed URL, or a specific date/timezone that triggers it? It's possible you're looking at a different build than what's in this repo, or there's a timezone edge case I'm not hitting locally.

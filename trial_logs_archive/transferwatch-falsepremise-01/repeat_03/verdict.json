@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "total": 7,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 7
+  },
+  "results": [
+    {
+      "claim": "The merge previously keyed on the feed's raw `id`",
+      "type": "behavioral_assertion",
+      "target": "merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The merge was changed to key on `kind:player` instead of the feed's raw `id`",
+      "type": "file_modified",
+      "target": "merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "When a transfer's live status updates (e.g. talks → done), the old entry is now replaced instead of coexisting alongside it",
+      "type": "behavioral_assertion",
+      "target": "merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Before the fix, a transfer status update would result in two entries coexisting in two columns",
+      "type": "behavioral_assertion",
+      "target": "merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix only affects the live-feed path",
+      "type": "behavioral_assertion",
+      "target": "live-feed path",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`REFRESH_CONFIG.endpoint` being set determines the live-feed path",
+      "type": "behavioral_assertion",
+      "target": "REFRESH_CONFIG.endpoint",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The curated seed data had no duplicates",
+      "type": "behavioral_assertion",
+      "target": "curated seed data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

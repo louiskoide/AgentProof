@@ -1,0 +1,143 @@
+{
+  "summary": {
+    "total": 19,
+    "confirmed": 7,
+    "contradicted": 0,
+    "unverifiable": 12
+  },
+  "results": [
+    {
+      "claim": "The most recent commit on main is e519929",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The working tree is clean with nothing pending on top of the most recent commit",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "CONFIRMED",
+      "evidence": "No new commits found since baseline, matching the claim."
+    },
+    {
+      "claim": "sim() branches on format === 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() branches on format === 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() is located at index.html lines 3410-3411 and 3636-3638",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The ultra format gives a 13-game Swiss league phase",
+      "type": "behavioral_assertion",
+      "target": "ultra format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The ultra format gives 7 KO games",
+      "type": "behavioral_assertion",
+      "target": "ultra format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The ultra format has a 20-game target total",
+      "type": "behavioral_assertion",
+      "target": "ultra format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "League-phase opponent strength is scaled for the longer ultra phase",
+      "type": "behavioral_assertion",
+      "target": "ultra format league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Points-threshold cutoffs are scaled for the longer ultra phase",
+      "type": "behavioral_assertion",
+      "target": "ultra format league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The scaling for league-phase opponent strength and points-threshold cutoffs is at index.html line 3721",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The setup screen has a third toggle button labelled 'Ultra Mode · group stage 20-0'",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The third toggle button appears alongside New and Classic buttons",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The third toggle button is at index.html lines 6296-6298",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "targetN resolves to 20 when format === 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "targetN",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The targetN resolution for ultra is at index.html line 5888",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Result and share screens have branding strings that account for the third format",
+      "type": "behavioral_assertion",
+      "target": "result/share screens",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Branding strings for the third format are at index.html line 6214",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Branding strings for the third format are at index.html lines 6793-6797",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

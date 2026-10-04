@@ -1,0 +1,2 @@
+EXISTS: CLAUDE.md (gitignored: no, modified: Jul  3 13:01:06 2026)
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 22 05:50:06 2026)

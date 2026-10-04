@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "total": 11,
+    "confirmed": 0,
+    "contradicted": 2,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "A `blocked` category was added to `CAT`",
+      "type": "file_modified",
+      "target": "CAT",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "The `blocked` category was included in the `cols` array",
+      "type": "file_modified",
+      "target": "cols",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "The `blocked` category renders as a fourth board column",
+      "type": "behavioral_assertion",
+      "target": "board",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The `blocked` column uses the existing `--blocked` accent color",
+      "type": "behavioral_assertion",
+      "target": "blocked column",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The `blocked` column has a subtitle of 'Fallen through / door shut'",
+      "type": "file_modified",
+      "target": "blocked column subtitle",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "The João Pedro entry was previously flagged `blocked: true` while in the `interest` column",
+      "type": "behavioral_assertion",
+      "target": "João Pedro entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Bastoni entry was previously flagged `blocked: true` while in the `interest` column",
+      "type": "behavioral_assertion",
+      "target": "Bastoni entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The João Pedro entry was reclassified into the new `blocked` category",
+      "type": "file_modified",
+      "target": "João Pedro entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "The Bastoni entry was reclassified into the new `blocked` category",
+      "type": "file_modified",
+      "target": "Bastoni entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "The board's responsive grid was widened to `repeat(4,1fr)` at a breakpoint of ≥1100px",
+      "type": "file_modified",
+      "target": "board responsive grid",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "A 2-column grid step was added at a breakpoint of ≥700px",
+      "type": "file_modified",
+      "target": "board responsive grid",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    }
+  ]
+}

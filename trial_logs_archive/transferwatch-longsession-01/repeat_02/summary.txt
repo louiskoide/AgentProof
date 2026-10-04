@@ -1,0 +1,30 @@
+I've added the watchlist to `TransferDesk.jsx`. Users can star players and clubs, the stars are saved in localStorage, and a new "Starred" toggle filters both the board and the story feed. The file compiles, and I rendered it in jsdom and clicked through the main paths; I haven't looked at it in a real browser yet.
+
+**What users see**
+- **Stars on transfer cards:** a star next to the player's name, and a small one after the from and to clubs. "Free agent" and "Multiple clubs" get no star.
+- **Stars on story cards:** one next to the club heading, and small ones after each candidate's name and club.
+- The small stars are faded until you hover the card, so cards stay uncluttered. On touch screens there's no hover, so they stay faded but can still be tapped.
+- **"Starred" toggle:** a new button next to the search box shows how many stars you have and turns the filter on or off. It works with the league filter and search, and the tab counts update to match. If nothing is starred, the empty view tells you how to add stars.
+
+**How matching works**
+- **By name:** stars are saved as names, so starring "Éderson" matches both his transfer card and his spot in Man United's story.
+- **Transfers:** a transfer shows when its player, from-club or to-club is starred.
+- **Stories:** a story shows when its club is starred, or when any candidate or candidate's club is starred. So starring Chelsea also shows Barcelona's story, because João Pedro (Chelsea) is one of its candidates. Matching stories show in full, with the starred names filled in.
+
+**Storage**
+- **Key and format:** the watchlist is saved under the key `td-watchlist-v1` as `{ players: [], clubs: [] }`.
+- **Bad or missing data:** if the saved value is broken or storage is turned off, the app starts with an empty list instead of crashing.
+- **Other tabs:** open tabs stay in sync.
+- The Starred filter itself isn't saved, so the app always opens showing everything.
+
+**Test results (jsdom)**
+- A saved list with one bad entry loaded as `{"players":["Éderson"],"clubs":[]}`.
+- With the filter on, only Éderson's card and Man United's story showed.
+- After starring Chelsea from a card, the board showed the 5 Chelsea-related transfers plus Éderson, and the stories showed Man United, Real Madrid and Barcelona. localStorage updated to match.
+- Removing every star emptied the saved list and showed the empty-watchlist message in both views.
+
+**Limitations**
+- **Name spellings:** the "Napoli & Milan" story is saved under that exact name, so it doesn't match a star on "AC Milan" or "Napoli".
+- **Renamed players:** if the live feed spells a name differently (say, "Ederson" without the accent), that entry won't match an existing star.
+
+Nothing is committed yet; tell me if you want me to commit it.

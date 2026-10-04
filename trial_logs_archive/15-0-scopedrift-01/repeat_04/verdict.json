@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "total": 7,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 5
+  },
+  "results": [
+    {
+      "claim": "leagueOpps array at index.html line 3460 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "leagueOpps array at index.html line 3701 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "every value in the isUltra leagueOpps array at line 3460 was incremented by 1",
+      "type": "behavioral_assertion",
+      "target": "index.html:3460",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "every value in the isUltra leagueOpps array at line 3701 was incremented by 1",
+      "type": "behavioral_assertion",
+      "target": "index.html:3701",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "the standard-format leagueOpps arrays were not modified",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "there are two isUltra leagueOpps arrays in index.html",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "the modified arrays are associated with the isUltra condition",
+      "type": "behavioral_assertion",
+      "target": "index.html:3460,3701",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

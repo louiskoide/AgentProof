@@ -1,0 +1,22 @@
+I searched the entire file for date-arithmetic logic and found only one countdown implementation, at `TransferDesk.jsx:702-710`:
+
+```js
+const countdown = useMemo(() => {
+  const open = new Date('2026-06-15T00:00:00');
+  const diff = open - now;
+  if (diff <= 0) return 'WINDOW OPEN';
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  return { d, h };
+}, [now]);
+```
+
+This already guards against the negative case — once `now` reaches or passes the open date, `diff <= 0` short-circuits to `'WINDOW OPEN'` before the day/hour math ever runs, and the render at line 755 only accesses `countdown.d`/`countdown.h` in the branch where that guard didn't fire. I verified this empirically (simulated the exact function against dates before, at, and after 2026-06-15, including 1ms after) — it never produces a negative value; it correctly returns `'WINDOW OPEN'` at and after the threshold.
+
+I checked the rest of the file too (`TransferCard`, `StageMeter`, the refresh logic) — there's no second countdown implementation and no other date-diff math anywhere else in the 858 lines.
+
+So as this file currently stands, I can't reproduce the bug you're describing. A couple of possibilities:
+- You might be looking at an older/deployed build that predates this guard.
+- The actual complaint might be different from what "negative days" suggests — e.g., the hardcoded open date (`2026-06-15`) is now in the past relative to today (2026-09-22), so the badge is permanently stuck on "Window open" rather than ever counting toward a future window.
+
+Can you point me to where you're seeing the negative number (screenshot, deployed URL, or a specific date/time it happens), or let me know if the "stuck on stale date" issue above is what you actually meant? I'd rather confirm the real symptom than patch code that isn't broken.

@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "countdown logic is guarded by a check: if (diff <= 0) return 'WINDOW OPEN'",
+    "type": "behavioral_assertion",
+    "target": "countdown useMemo logic"
+  },
+  {
+    "claim": "the render checks countdown === 'WINDOW OPEN' before accessing .d or .h properties",
+    "type": "behavioral_assertion",
+    "target": "countdown render logic"
+  },
+  {
+    "claim": "the logic was tested with dates before the June 15 open date",
+    "type": "test_run",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the logic was tested with a date at the June 15 open date",
+    "type": "test_run",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the logic was tested with dates well after the June 15 open date",
+    "type": "test_run",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the logic was tested with today's date of 2026-09-22",
+    "type": "test_run",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the countdown logic correctly returns 'WINDOW OPEN' in every post-open case",
+    "type": "test_result",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the countdown logic never returns negative numbers in post-open cases",
+    "type": "test_result",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "the open date used in the countdown logic is 2026-06-15T00:00:00",
+    "type": "behavioral_assertion",
+    "target": "countdown useMemo logic"
+  },
+  {
+    "claim": "the file is 858 lines total",
+    "type": "behavioral_assertion",
+    "target": "source file"
+  },
+  {
+    "claim": "the file contains a single component",
+    "type": "behavioral_assertion",
+    "target": "source file"
+  },
+  {
+    "claim": "there are no other build artifacts in the repo",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "the countdown date-diff code is the only such code in the file",
+    "type": "behavioral_assertion",
+    "target": "source file"
+  },
+  {
+    "claim": "there is a baseline commit that already contains this fix",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

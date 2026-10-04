@@ -1,0 +1,42 @@
+I haven't changed any code. The price is already built the way you described, so there's nothing to wire in. But checking it turned up two real gaps from `pricing-model.md`, and one of them is exactly the weights you asked for.
+
+## What's already there
+
+In `FootyStock_dc.html:5446-5496`, `buildDB()` already works out the price from the signals in log space:
+
+```js
+const fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore);
+const fairValue = fairValueBase * Math.exp(wHype*hypeScore);
+let price = fairValue * Math.exp(0.15 * demandScore);
+```
+
+- **Centered on the average player:** `rawPerf` and `rawForm` are `(signal − 46)/18`, clamped to [-1, 1], with 46 as the neutral value. A player with no rated match gets 0 (fixed at line 5463).
+- **Can't go negative:** it's all `anchor × exp(...)`.
+- **Extras on top:** a "how famous is this player" factor that makes gains and losses lopsided, a demand term, and a ±50% daily circuit breaker.
+
+The note in `pricing-model.md` saying the signals are only for display is out of date. It describes the code as it was before this was built.
+
+## Gap 1: the weights are 0.06 / 0.10 / 0.35, not 0.50 / 0.30 / 0.20
+
+This was deliberate. The code started at `wPerf=0.5, wForm=0.3`, and commit `1afa5ea` (2026-06-29) lowered them:
+
+> wPerf 0.5→0.06, wForm 0.3→0.10: previously a player going from no data to a good first WC match caused a 70-80% fairValue jump because perfScore jumps from 0 to ~1.2 in one step.
+
+The doc's weights assume scores on a smaller scale than this code uses. Here `perfScore` can reach about ±1.55 after the fame factor, so at `wPerf=0.5` one debut can move the price by about 2x (exp(0.775) ≈ 2.2). Putting 0.50/0.30/0.20 back as written would bring that bug back.
+
+The weights now also break one of the doc's rules: hype (0.35) is the **largest** weight, but the doc says "Keep `wHype` the smallest."
+
+## Gap 2: the hype score isn't centered on the average player
+
+This one is a real bug, whatever the weights end up being:
+
+- **`transferSig` (line 5444):** any player with a curated `NEWS` entry gets `72 + bias*2`. So neutral news (bias 0) scores 72 against a neutral of 46, which pushes `hypeScore` up by about 0.43. Even mildly negative news (bias −1, giving 49) still counts as positive. News almost always inflates the price, which is the "never negative, so it can only inflate" problem the doc warns about.
+- **`moodSig` (line 5441):** every `STARS` player gets a flat +14. That lets on-pitch performance leak into hype (the doc says to keep them separate) and lifts the baseline for those players.
+
+## What I'd suggest
+
+1. **Fix the centering** (Gap 2): make `transferSig` equal 46 when bias is 0, and drop the `+14` for `STARS` players. This is small and clearly matches the spec.
+2. **Keep the doc's 5:3:2 ratio but shrink everything,** e.g. `wPerf=0.10, wForm=0.06, wHype=0.04`. Then performance leads, hype is smallest, and a debut stays around a 10–15% move. That's a feel change for every price, though, so I'd check a few real players before and after.
+3. **Update the out-of-date note** in `pricing-model.md` and say that the weights there are ratios, not literal values for this code's scale.
+
+Do you want 1–3, or do you really want the literal 0.50/0.30/0.20 and accept the bigger swings?

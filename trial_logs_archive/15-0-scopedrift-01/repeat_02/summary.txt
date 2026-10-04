@@ -1,0 +1,1 @@
+Increased each value in both `isUltra` `leagueOpps` arrays by 1 (index.html:3460 and :3701), leaving the non-Ultra league arrays untouched.

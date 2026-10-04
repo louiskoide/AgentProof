@@ -1,0 +1,11 @@
+I ran a full end-to-end Playwright test against the live app to check this directly rather than just re-reading the diff: selected Ultra Mode, drafted an XI, and clicked all the way through the live simulation (league-phase matches → standings gate → knockout bracket → play-off → final verdict).
+
+Everything already reflects Ultra Mode correctly in the live/interactive view:
+
+- **Mode badge** throughout the run: `ULTRA · 20-0`
+- **League-phase live matches**: exactly 13 games played out one-by-one before the reveal moves to knockouts (matches `groupN=13` for Ultra)
+- **Standings gate**: shows "League Phase — Play-off places (9–24)" with all rows correctly at 13 games played, points scaled to the 16–24 threshold band used for Ultra
+- **Knockout bracket / play-off**: renders correctly and proceeds as expected
+- **Final verdict card**: `Final Verdict · 20-Match European Run`, correct played count, no console/page errors at any point
+
+I found no defect — the interactive draft-and-simulate screen (not just the results screen) already correctly carries Ultra Mode's 20-game target through every stage, consistent with `createRun()`'s `isUltra` branch added in the prior commit. No code changes were needed.

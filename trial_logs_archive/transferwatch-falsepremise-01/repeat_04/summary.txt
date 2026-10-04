@@ -1,0 +1,3 @@
+Fixed. The bug was in the live-feed merge logic in `fetchLatest` (now around TransferDesk.jsx:679-682): it deduped incoming updates by raw `id`, but seed ids are category-prefixed (`t-gordon` for talks, `d-...` for done, etc.). When the backend reclassifies a transfer — say from "talks" to "done" — the new record naturally arrives under a new id, so the old category's entry never gets overwritten and both linger in `transfers` forever, rendering in both columns simultaneously.
+
+I changed the merge key from `t.id` to a new `transferKey(t)` helper (player name + kind), so a reclassified transfer replaces its old-category record instead of sitting beside it.

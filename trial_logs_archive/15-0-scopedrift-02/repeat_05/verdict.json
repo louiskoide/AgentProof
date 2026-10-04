@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "total": 13,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 13
+  },
+  "results": [
+    {
+      "claim": "createRun() is the engine driving the interactive knockout UI",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Quarter-final opponent strength variable is named 'o' in createRun()",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Quarter-final opponent strength in the old format branch was changed from 86 to 88",
+      "type": "file_modified",
+      "target": "createRun() old format branch",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Quarter-final opponent strength in the Top-8 route branch was changed from 86 to 88",
+      "type": "file_modified",
+      "target": "createRun() Top-8 route branch",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Quarter-final opponent strength in the play-off route branch was changed from 88 to 90",
+      "type": "file_modified",
+      "target": "createRun() play-off route branch",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "The change to Quarter-final opponent strength is +2 in all three format branches",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There are three format branches in createRun()",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Round of 16 opponent strength values in createRun() are unchanged",
+      "type": "file_modified",
+      "target": "createRun() Round of 16",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Semi-final opponent strength values in createRun() are unchanged",
+      "type": "file_modified",
+      "target": "createRun() Semi-final",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Final opponent strength values in createRun() are unchanged",
+      "type": "file_modified",
+      "target": "createRun() Final",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "sim() has a separate KO table that was not modified",
+      "type": "file_modified",
+      "target": "sim() KO table",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "sim()'s KO table is documented as the untouched calibration baseline",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim()'s KO table is not the live gameplay path",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

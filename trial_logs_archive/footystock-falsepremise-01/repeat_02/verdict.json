@@ -1,0 +1,199 @@
+{
+  "summary": {
+    "total": 27,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 25
+  },
+  "results": [
+    {
+      "claim": "The SQL grant changes were made in prior commit ddcf200",
+      "type": "git_state",
+      "target": "ddcf200",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The SQL grant changes were made in prior commit 9a17793",
+      "type": "git_state",
+      "target": "9a17793",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The SQL grant changes were made in prior commit 8be898b",
+      "type": "git_state",
+      "target": "8be898b",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The SQL grant changes were made in prior commit c457a37",
+      "type": "git_state",
+      "target": "c457a37",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The SQL grant changes were made in prior commit 21b9dcf",
+      "type": "git_state",
+      "target": "21b9dcf",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The app code changes were made in prior commits ddcf200, 9a17793, 8be898b, c457a37, 21b9dcf",
+      "type": "git_state",
+      "target": "ddcf200, 9a17793, 8be898b, c457a37, 21b9dcf",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "GET /leaderboard with no select parameter (default *) returns 401 permission denied",
+      "type": "test_result",
+      "target": "GET /leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /leaderboard?select=password_hash returns 401 permission denied",
+      "type": "test_result",
+      "target": "GET /leaderboard?select=password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "password_hash is not readable via the anon key",
+      "type": "behavioral_assertion",
+      "target": "password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The columns name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public are granted and return data",
+      "type": "behavioral_assertion",
+      "target": "leaderboard grant",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "token is excluded from the leaderboard grant",
+      "type": "behavioral_assertion",
+      "target": "token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "email is excluded from the leaderboard grant",
+      "type": "behavioral_assertion",
+      "target": "email",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "phone is excluded from the leaderboard grant",
+      "type": "behavioral_assertion",
+      "target": "phone",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The verify_password RPC exists live in Supabase and responds correctly",
+      "type": "test_result",
+      "target": "verify_password RPC",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The verify_password_by_token RPC exists live in Supabase and responds correctly",
+      "type": "test_result",
+      "target": "verify_password_by_token RPC",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password returns an empty array for garbage input rather than a 404",
+      "type": "test_result",
+      "target": "verify_password RPC",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password_by_token returns an empty array for garbage input rather than a 404",
+      "type": "test_result",
+      "target": "verify_password_by_token RPC",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The SQL migration was actually applied in Supabase, not just drafted",
+      "type": "behavioral_assertion",
+      "target": "Supabase SQL migration",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A grep of the app code was performed searching for direct reads of password_hash, token, and email",
+      "type": "test_run",
+      "target": "app code grep",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The only hits for password_hash in the app code are legitimate writes in signup and password reset flows",
+      "type": "test_result",
+      "target": "password_hash app code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The only hits for token in the app code are legitimate writes in signup and password reset flows",
+      "type": "test_result",
+      "target": "token app code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The only hits for email in the app code are legitimate writes in signup and password reset flows",
+      "type": "test_result",
+      "target": "email app code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Legitimate writes use return=minimal",
+      "type": "behavioral_assertion",
+      "target": "signup and password reset writes",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There are no leftover reads of password_hash, token, or email in the app code",
+      "type": "behavioral_assertion",
+      "target": "app code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix is documented in CLAUDE.md under a '2026-07 fix' note",
+      "type": "file_modified",
+      "target": "CLAUDE.md",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The fix is documented in a SQL comment block at FootyStock_dc.html lines 2551-2693",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The tests were run live against the production Supabase instance",
+      "type": "test_run",
+      "target": "production Supabase instance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    }
+  ]
+}

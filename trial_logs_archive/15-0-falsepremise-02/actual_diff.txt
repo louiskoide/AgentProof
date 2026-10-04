@@ -1,0 +1,37 @@
+diff --git a/index.html b/index.html
+index e12d9ee..b571042 100644
+--- a/index.html
++++ b/index.html
+@@ -2442,7 +2442,7 @@ button{font-family:inherit; cursor:pointer;}
+   ]);
+   C('Young Boys', '2024-25', 'League Phase', [
+     ['Marvin Keller','GK',71],['Saidy Janko','RB',70],['Mohamed Camara','CB',70],['Sandro Lauper','CB',70],['Jaouen Hadjam','LB',70],
+-    ['Sandro Lauper','DM',70],['Filip Ugrinic','CM',71],['Joël Monteiro','RM',70],['Christian Fassnacht','AM',71],['Joël Monteiro','ST',70],['Cedric Itten','ST',71],
++    ['Filip Ugrinic','CM',71],['Joël Monteiro','RM',70],['Christian Fassnacht','AM',71],['Cedric Itten','ST',71],
+   ]);
+   C('Slavia Prague', '2024-25', 'League Phase', [
+     ['Jindřich Staněk','GK',74],['David Douděra','RB',71],['Igoh Ogbu','CB',73],['Tomáš Holeš','CB',73],['David Zima','CB',72],
+@@ -3291,12 +3291,22 @@ button{font-family:inherit; cursor:pointer;}
+       const bump = r >= 85 ? 3 : r >= 82 ? 2 : r >= 80 ? 1 : 0;
+       return Math.min(91, r + bump);
+     };
++    // guard against the same player being listed twice in one campaign's squad (data-entry
++    // duplicates), which would otherwise let them be drafted into two different slots
++    const dedupePlayers = (players) => {
++      const seen = new Set();
++      return players.filter((p) => {
++        if (seen.has(p.n)) return false;
++        seen.add(p.n);
++        return true;
++      });
++    };
+     const campaigns = raw.map((c, i) => ({
+       id: i,
+       club: c.club,
+       season: c.season,
+       run: c.run,
+-      players: c.players.map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
++      players: dedupePlayers(c.players).map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
+     }));
+     // prime: best single-season rating per player name
+     const prime = {};

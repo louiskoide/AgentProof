@@ -1,0 +1,1 @@
+Done — bumped every value in both `isUltra` `leagueOpps` arrays (index.html:3460 and :3701) by 1, leaving the standard-format arrays untouched.

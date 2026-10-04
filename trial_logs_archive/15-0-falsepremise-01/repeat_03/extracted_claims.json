@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Only dead/legacy UI text references `Infinity`",
+    "type": "behavioral_assertion",
+    "target": "UI text"
+  },
+  {
+    "claim": "No `DIFF` entry currently sets `respins: Infinity`",
+    "type": "behavioral_assertion",
+    "target": "DIFF configuration"
+  },
+  {
+    "claim": "`Infinity - 1` is not a live code path today",
+    "type": "behavioral_assertion",
+    "target": "respin decrement logic"
+  },
+  {
+    "claim": "`Infinity - 1 === Infinity` evaluates to true",
+    "type": "behavioral_assertion",
+    "target": "JavaScript arithmetic"
+  },
+  {
+    "claim": "`Infinity <= 0` evaluates to false",
+    "type": "behavioral_assertion",
+    "target": "JavaScript arithmetic"
+  },
+  {
+    "claim": "The fix handles `Infinity` correctly",
+    "type": "behavioral_assertion",
+    "target": "respin decrement fix"
+  },
+  {
+    "claim": "The counter updates via a ref that is mutated synchronously before `setRespins` is called",
+    "type": "behavioral_assertion",
+    "target": "respin counter update logic"
+  },
+  {
+    "claim": "A second click arriving before React re-renders reads the already-decremented ref value instead of a stale one",
+    "type": "behavioral_assertion",
+    "target": "respin counter concurrent click handling"
+  },
+  {
+    "claim": "The respin count can no longer be driven below zero",
+    "type": "behavioral_assertion",
+    "target": "respin counter minimum bound"
+  }
+]

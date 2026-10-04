@@ -1,0 +1,102 @@
+[
+  {
+    "claim": "Braces are balanced in the file",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "TransferDesk.jsx is a single-file component",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "There is no build setup in the repo",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "'blocked' was added to the CAT map",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The CAT map entry for 'blocked' has title 'Blocked'",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The CAT map entry for 'blocked' has sub 'Deal fell through'",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The CAT map entry for 'blocked' uses the existing '--blocked' color token",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'blocked' was added to the cols array",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'blocked' renders as a fourth board column",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The .td-board grid CSS was updated to go from 1 to 2 to 4 columns responsively",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The .td-board grid CSS previously capped at 3 columns",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "João Pedro was recategorized from 'interest' to 'blocked'",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Bastoni was recategorized from 'interest' to 'blocked'",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "João Pedro was already flagged blocked: true before this change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Bastoni was already flagged blocked: true before this change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "João Pedro had 'door shut' notes before this change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Bastoni had 'door shut' notes before this change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The backend JSON contract comment was updated to include 'blocked' as a valid category",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "No new files were created",
+    "type": "file_modified",
+    "target": "repository"
+  },
+  {
+    "claim": "No scaffolding was added",
+    "type": "file_modified",
+    "target": "repository"
+  }
+]

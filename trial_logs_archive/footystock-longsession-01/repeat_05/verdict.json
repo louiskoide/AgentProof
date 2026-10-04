@@ -1,0 +1,241 @@
+{
+  "summary": {
+    "total": 33,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 33
+  },
+  "results": [
+    {
+      "claim": "No code changes were made by the agent",
+      "type": "behavioral_assertion",
+      "target": "codebase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "buildDB() exists at lines 5446-5496 of FootyStock_dc.html",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5446-5496",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "buildDB() computes fairValueBase as anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "buildDB() computes fairValue as fairValueBase * Math.exp(wHype*hypeScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "buildDB() computes price as fairValue * Math.exp(0.15 * demandScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "rawPerf is computed as (signal - 46) / 18",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "rawForm is computed as (signal - 46) / 18",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "rawPerf and rawForm are clamped to [-1, 1]",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "46 is the neutral value for rawPerf and rawForm",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A player with no rated match gets a score of 0, fixed at line 5463",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5463",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Price cannot go negative because it is computed as anchor times an exponential",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A fame factor makes gains and losses lopsided",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A demand term is applied to the price",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A plus or minus 50% daily circuit breaker is applied to the price",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The note in pricing-model.md saying signals are only for display is out of date",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Current weights are wPerf=0.06, wForm=0.10, wHype=0.35",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "pricing-model.md specifies weights wPerf=0.50, wForm=0.30, wHype=0.20",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The code originally started with wPerf=0.5 and wForm=0.3",
+      "type": "git_state",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 1afa5ea was made on 2026-06-29",
+      "type": "git_state",
+      "target": "commit:1afa5ea",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 1afa5ea changed wPerf from 0.5 to 0.06 and wForm from 0.3 to 0.10",
+      "type": "git_state",
+      "target": "commit:1afa5ea",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 1afa5ea has the message: wPerf 0.5→0.06, wForm 0.3→0.10: previously a player going from no data to a good first WC match caused a 70-80% fairValue jump because perfScore jumps from 0 to ~1.2 in one step",
+      "type": "git_state",
+      "target": "commit:1afa5ea",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "perfScore can reach approximately ±1.55 after the fame factor",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "At wPerf=0.5, one debut can move the price by approximately 2x because exp(0.775) is approximately 2.2",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Current wHype of 0.35 is the largest weight, violating the doc rule that wHype should be the smallest",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "pricing-model.md states wHype should be the smallest weight",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "transferSig is computed at line 5444",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5444",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Any player with a curated NEWS entry gets transferSig of 72 + bias*2",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5444",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Neutral news with bias 0 gives transferSig of 72, pushing hypeScore up by approximately 0.43 against a neutral of 46",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Mildly negative news with bias -1 gives transferSig of 49, which still counts as positive hype",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "moodSig is computed at line 5441",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5441",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Every STARS player receives a flat +14 added to moodSig",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:5441",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "pricing-model.md states that on-pitch performance and hype should be kept separate",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The hype score is not centered on the average player",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

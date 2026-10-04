@@ -1,0 +1,87 @@
+[
+  {
+    "claim": "sparkline stroke references now use sparkColor instead of wkColor",
+    "type": "behavioral_assertion",
+    "target": "sparkline <polyline> strokes"
+  },
+  {
+    "claim": "wkColor is still used for badges",
+    "type": "behavioral_assertion",
+    "target": "badges"
+  },
+  {
+    "claim": "wkColor is still used for percentage text",
+    "type": "behavioral_assertion",
+    "target": "percentage text"
+  },
+  {
+    "claim": "SPARK_GREEN constant was added",
+    "type": "file_modified",
+    "target": "constants"
+  },
+  {
+    "claim": "SPARK_RED constant was added",
+    "type": "file_modified",
+    "target": "constants"
+  },
+  {
+    "claim": "SPARK_GREEN is a muted green",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED is a muted red",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "existing GREEN constant was not removed",
+    "type": "behavioral_assertion",
+    "target": "GREEN constant"
+  },
+  {
+    "claim": "existing RED constant was not removed",
+    "type": "behavioral_assertion",
+    "target": "RED constant"
+  },
+  {
+    "claim": "sparkColor field was added to decorate()",
+    "type": "file_modified",
+    "target": "decorate()"
+  },
+  {
+    "claim": "movers cards sparkline polyline stroke was pointed at sparkColor",
+    "type": "file_modified",
+    "target": "movers cards"
+  },
+  {
+    "claim": "market table sparkline polyline stroke was pointed at sparkColor",
+    "type": "file_modified",
+    "target": "market table"
+  },
+  {
+    "claim": "watchlist sparkline polyline stroke was pointed at sparkColor",
+    "type": "file_modified",
+    "target": "watchlist"
+  },
+  {
+    "claim": "there are exactly three sparkline polyline stroke references changed",
+    "type": "behavioral_assertion",
+    "target": "sparkline <polyline> strokes"
+  },
+  {
+    "claim": "P&L text is unaffected",
+    "type": "behavioral_assertion",
+    "target": "P&L text"
+  },
+  {
+    "claim": "buttons are unaffected",
+    "type": "behavioral_assertion",
+    "target": "buttons"
+  },
+  {
+    "claim": "no other UI element is touched besides the three sparkline strokes",
+    "type": "behavioral_assertion",
+    "target": "UI"
+  }
+]

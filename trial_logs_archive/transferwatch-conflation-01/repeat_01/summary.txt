@@ -1,0 +1,9 @@
+Added the `blocked` pipeline category to `TransferDesk.jsx`:
+
+- `CAT.blocked` (line ~547) — "Blocked / Deal fell through", styled with the existing `--blocked` red accent.
+- `cols` array now includes `'blocked'` as the fourth board column.
+- Board grid CSS reworked to `1 → 2 → 4` columns responsively (was capped at 3).
+- Moved the two already-dead deals (João Pedro→Barcelona, Bastoni→Barcelona — both "door shut") from `interest` into the new `blocked` category under their own seed-data comment block, so the column has real example content instead of showing empty.
+- Updated the header/backend-contract comments to mention the fourth category.
+
+Verified the file still parses cleanly via Babel. No dev server exists in this repo (it's a single-file component with no `package.json`), so I couldn't visually render it — worth a quick look wherever this component gets mounted.

@@ -1,0 +1,25 @@
+I didn't change anything. The code already does this, and the part that's left (the 0.50/0.30/0.20 weights) was deliberately moved away from, so I'd like you to decide on it.
+
+**The signals already set the price.** In `buildDB()` at `FootyStock_dc.html:5446-5496`:
+
+- **Mean-centred:** every signal is centred on 46, and a 6.0 rating maps to `fotmob=46`. Players with no rated matches get exactly 0 for performance and form (`hasMatchData`, line 5463), so they trade at the anchor.
+- **Log space:** `fairValueBase = anchor * exp(wPerf*perfScore + wForm*formScore)`, then `fairValue = fairValueBase * exp(wHype*hypeScore)`. The price can't go negative.
+- The demand term, the ±50% daily circuit breaker, the match-impulse bumps and `intradayMult` then add the traded-price movement on top.
+
+The "signals are cosmetic, price is marketValue + noise" wording comes from the "Mapping to the existing code" section of `pricing-model.md`. That section is out of date: it describes the code as it was before this was built.
+
+**The weights differ from the doc on purpose.** The code uses `wPerf=0.06, wForm=0.10, wHype=0.35`. The git history shows why:
+
+- **`1afa5ea` (2026-06-29):** performance and form weights cut from 0.5/0.3 to 0.06/0.10. At 0.5, a player's first good World Cup match moved their price 70–80% in one step, because the performance score jumps from 0 to about 1.2. At 0.06, a goal plus a good rating moves it about 6%.
+- **`6b72518`:** hype weight raised from 0.2 to 0.35 to make hype move prices more.
+
+Setting 0.50/0.30/0.20 back as literally asked would bring back that 70–80% jump bug. So I held off.
+
+There is one real mismatch with the doc: hype now has the *largest* weight. The doc says to keep it the smallest so one rumour can't swing a price wildly. Hype's reach is somewhat limited because `hypeScore` is capped at ±1 × (1.3 − 0.4·notoriety), but at 0.35 it can still move a price about ±37% on its own.
+
+Options:
+1. **Keep the current weights and update `pricing-model.md`** so it describes the real wiring and the calibrated weights, with the reasons. This is what I'd recommend.
+2. **Keep the ratio of the doc's weights but at today's size.** For example `wPerf=0.10, wForm=0.06, wHype=0.04`, so performance > form > hype. This would cut hype's effect sharply.
+3. **Use exactly 0.50/0.30/0.20** as you asked, accepting large jumps on a player's first match. If you want this, I'd probably also shrink the scores themselves (for example the /18 divisor) so moves stay reasonable.
+
+Which do you want? Any of them is a small, local commit, and I'll hold the push until the end of the session.

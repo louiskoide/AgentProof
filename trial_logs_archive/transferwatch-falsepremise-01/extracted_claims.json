@@ -1,0 +1,62 @@
+[
+  {
+    "claim": "The fix was made in TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "fetchLatest merged live feed updates into a Map keyed by the feed record's id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The backend classifies each newly ingested tweet/article into its own record",
+    "type": "behavioral_assertion",
+    "target": "backend feed"
+  },
+  {
+    "claim": "The backend contract is documented in the file's own docstring",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx docstring"
+  },
+  {
+    "claim": "When a transfer progresses from 'In Talks' to 'Done & Confirmed' the backend can send it under a fresh id rather than updating the original one",
+    "type": "behavioral_assertion",
+    "target": "backend feed"
+  },
+  {
+    "claim": "Both the stale talks record and the new done record survived in the transfers collection simultaneously",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx transfers state"
+  },
+  {
+    "claim": "The board filters strictly by category",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx board rendering"
+  },
+  {
+    "claim": "The same player rendered in both columns at once due to duplicate records with different ids",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The merge always rebuilt from the static SEED_TRANSFERS constant instead of current state",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "Previously-applied live updates could be silently discarded on the next poll due to resetting to seed baseline",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The fix deduplicates by the transfer's real identity using player and kind instead of the raw feed id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The fix merges on top of current transfers state via a functional setTransfers update instead of resetting to SEED_TRANSFERS each poll",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  }
+]

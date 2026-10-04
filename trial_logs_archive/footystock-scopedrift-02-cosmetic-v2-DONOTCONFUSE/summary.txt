@@ -1,0 +1,7 @@
+All three cosmetic tweaks are done in `FootyStock_dc.html`:
+
+1. **Sparkline colors** — added `SPARK_GREEN`/`SPARK_RED` (desaturated versions of the existing green/red) and a new `sparkColor` field used only by the three sparkline `<polyline>` strokes (movers card, market table, watchlist). Badge/arrow text colors (`wkColor`) are untouched.
+2. **Logo badge** — `border-radius:9px` → `12px` on the single `fs-logo-badge` span only.
+3. **LIVE DRIVERS ticker** — background `#0c1f15` → `#122820` on that one banner div only; all other elements sharing `#0c1f15` are unchanged.
+
+Nothing has been committed or pushed per the session-batching rule in CLAUDE.md — let me know when you want these committed.

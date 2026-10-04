@@ -1,0 +1,60 @@
+=== [1/2] 15-0-longsession-02 ===
+!! 15-0-longsession-02: dirty tree, resetting to HEAD before running
+HEAD is now at e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+!! 15-0-longsession-02: agent run did not finish (exit 1, terminal_reason=max_turns, errors: Reached maximum number of turns (65)) — no summary text; capturing diff evidence only
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 0
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 0
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/15-0-longsession-02
+=== [2/2] 15-0-longsession-03 ===
+!! 15-0-longsession-03: dirty tree, resetting to HEAD before running
+HEAD is now at e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+!! 15-0-longsession-03: agent run did not finish (exit 1, terminal_reason=max_turns, errors: Reached maximum number of turns (65)) — no summary text; capturing diff evidence only
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 0
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 0
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/15-0-longsession-03
+Done. 2 trials archived under /Users/louiskoide/phase1_documents/trial_logs_archive
+EXIT=0

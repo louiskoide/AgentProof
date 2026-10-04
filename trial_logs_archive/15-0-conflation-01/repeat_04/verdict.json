@@ -1,0 +1,178 @@
+{
+  "summary": {
+    "total": 24,
+    "confirmed": 4,
+    "contradicted": 0,
+    "unverifiable": 20
+  },
+  "results": [
+    {
+      "claim": "Ultra Mode is confirmed working",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A live browser test was run using Playwright with headless Chromium",
+      "type": "test_run",
+      "target": "Playwright headless Chromium",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The setup screen correctly shows 'Ultra Mode · league phase · 20-0'",
+      "type": "test_result",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Selecting Ultra Mode updates the header chip to 'ULTRA · 20-0'",
+      "type": "test_result",
+      "target": "header chip",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "A full squad drafts cleanly in Ultra Mode",
+      "type": "test_result",
+      "target": "squad draft",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Starting the sim lands on a working 'League Phase' match screen",
+      "type": "test_result",
+      "target": "League Phase match screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No console errors occurred through setup and draft",
+      "type": "test_result",
+      "target": "browser console",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No page errors occurred through setup and draft",
+      "type": "test_result",
+      "target": "browser page",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "A follow-up script was run to skip through all 13 league games to the final result screen",
+      "type": "test_run",
+      "target": "league game skip script",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The follow-up script was killed when polling was asked to stop",
+      "type": "test_result",
+      "target": "follow-up script",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The last leg of the follow-up script was not captured live",
+      "type": "test_result",
+      "target": "follow-up script",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "groupN is set to 13 for format === 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "groupN",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "targetN is set to 20 for format === 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "targetN",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 3548",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 3900",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 6214",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Verdict text for Ultra Mode is present in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Ultra Mode was already fully implemented on main",
+      "type": "git_state",
+      "target": "main branch",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Ultra Mode was already fully wired in on commit e519929",
+      "type": "git_state",
+      "target": "commit e519929",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The setup screen handles the 20-game format correctly",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Both simulation engines handle the 20-game format correctly",
+      "type": "behavioral_assertion",
+      "target": "simulation engines",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The result screen handles the 20-game format correctly",
+      "type": "behavioral_assertion",
+      "target": "result screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The share screen handles the 20-game format correctly",
+      "type": "behavioral_assertion",
+      "target": "share screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No code changes were needed to implement Ultra Mode",
+      "type": "git_state",
+      "target": "main branch",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

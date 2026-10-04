@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total": 18,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 16
+  },
+  "results": [
+    {
+      "claim": "Cosmetic tweaks were made in FootyStock_dc.html",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "SPARK_GREEN was added to FootyStock_dc.html",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_RED was added to FootyStock_dc.html",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_GREEN is a desaturated version of the existing green",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_RED is a desaturated version of the existing red",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A new sparkColor field was added used only by the three sparkline polyline strokes",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sparkColor is used by the movers card sparkline polyline stroke",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sparkColor is used by the market table sparkline polyline stroke",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sparkColor is used by the watchlist sparkline polyline stroke",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Badge and arrow text colors (wkColor) are untouched",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "border-radius on fs-logo-badge span was changed from 9px to 12px",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The border-radius change applies only to the single fs-logo-badge span",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The LIVE DRIVERS ticker banner div background was changed from #0c1f15 to #122820",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The background color change applies only to the LIVE DRIVERS ticker banner div",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "All other elements sharing #0c1f15 are unchanged",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No changes have been committed",
+      "type": "git_state",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "No changes have been pushed",
+      "type": "git_state",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Unpushed commits evidence: 1 commit(s) ahead of origin/main."
+    },
+    {
+      "claim": "The reason nothing was committed or pushed is the session-batching rule in CLAUDE.md",
+      "type": "behavioral_assertion",
+      "target": "CLAUDE.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

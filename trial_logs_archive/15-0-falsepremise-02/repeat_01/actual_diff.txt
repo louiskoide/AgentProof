@@ -1,0 +1,41 @@
+diff --git a/index.html b/index.html
+index d35aa7c..4d2c8dd 100644
+--- a/index.html
++++ b/index.html
+@@ -2443,7 +2443,7 @@ button{font-family:inherit; cursor:pointer;}
+   ]);
+   C('Young Boys', '2024-25', 'League Phase', [
+     ['Marvin Keller','GK',71],['Saidy Janko','RB',70],['Mohamed Camara','CB',70],['Sandro Lauper','CB',70],['Jaouen Hadjam','LB',70],
+-    ['Sandro Lauper','DM',70],['Filip Ugrinic','CM',71],['Joël Monteiro','RM',70],['Christian Fassnacht','AM',71],['Joël Monteiro','ST',70],['Cedric Itten','ST',71],
++    ['Filip Ugrinic','CM',71],['Joël Monteiro','RM',70],['Christian Fassnacht','AM',71],['Cedric Itten','ST',71],
+   ]);
+   C('Slavia Prague', '2024-25', 'League Phase', [
+     ['Jindřich Staněk','GK',74],['David Douděra','RB',71],['Igoh Ogbu','CB',73],['Tomáš Holeš','CB',73],['David Zima','CB',72],
+@@ -3292,13 +3292,20 @@ button{font-family:inherit; cursor:pointer;}
+       const bump = r >= 85 ? 3 : r >= 82 ? 2 : r >= 80 ? 1 : 0;
+       return Math.min(91, r + bump);
+     };
+-    const campaigns = raw.map((c, i) => ({
+-      id: i,
+-      club: c.club,
+-      season: c.season,
+-      run: c.run,
+-      players: c.players.map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
+-    }));
++    const campaigns = raw.map((c, i) => {
++      const seenNames = new Set();
++      return {
++        id: i,
++        club: c.club,
++        season: c.season,
++        run: c.run,
++        // guard against data-entry dupes: a player can only appear once per campaign squad,
++        // otherwise the draft would offer them as two separate candidates for the same spin
++        players: c.players
++          .filter((p) => (seenNames.has(p.n) ? false : (seenNames.add(p.n), true)))
++          .map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
++      };
++    });
+     // prime: best single-season rating per player name
+     const prime = {};
+     campaigns.forEach((c) => {

@@ -1,0 +1,9 @@
+I added 4-1-4-1 to the formation picker. I haven't opened it in a browser, so I haven't seen how it looks or tried a draft with it.
+
+**Changes in `index.html`:**
+- **The formation itself** (after 4-2-3-1): a goalkeeper, a back four laid out the same as in 4-3-3, one DM in front of them, a midfield four (RM, two CMs, LM), and a lone ST up front. The DM and the midfield four all count as midfield for the team ratings.
+- **The picker list:** 4-1-4-1 now appears between 4-2-3-1 and 3-4-3.
+
+It should need nothing else. The existing player-eligibility rules already cover every position in it, and nothing else in the code has its own copy of the formation list.
+
+**One layout issue:** the picker is a 3-column grid, so with seven formations the last one, 5-4-1, now sits alone on a third row. If that looks wrong, I can switch to 4 columns (rows of 4 and 3) or drop a formation to keep it at six. The catch with 4 columns is that labels like "4-1-4-1" might be cramped on narrow phone screens.

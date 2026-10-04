@@ -1,0 +1,339 @@
+{
+  "summary": {
+    "total": 47,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 44
+  },
+  "results": [
+    {
+      "claim": "Watchlist functionality was added to TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Users can star players and clubs in TransferDesk.jsx",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Starred items are saved in localStorage",
+      "type": "behavioral_assertion",
+      "target": "localStorage",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A Watchlist button was added that filters to show only starred items",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist button affects both the board tab and the stories tab",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The file compiles without errors",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The file renders server-side without errors",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The server-side render covers the case where localStorage is not available",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The implementation has not been tested in a browser",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No changes have been committed to git",
+      "type": "git_state",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Transfer cards have a star next to the player or manager name",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "From and to clubs on transfer cards each have a small star that appears on hover",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Club stars on transfer cards are always visible on touch screens",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Free agent entries cannot be starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Multiple clubs entries cannot be starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Story cards have a star in the header for the club",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Story cards have a star on each candidate row",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Starring a player on the board also stars them in story views",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The watchlist is stored under the localStorage key 'td-watchlist'",
+      "type": "behavioral_assertion",
+      "target": "localStorage",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The watchlist is stored as an object with shape { players: [...], clubs: [...] }",
+      "type": "behavioral_assertion",
+      "target": "localStorage",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The watchlist loads when the page opens",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The watchlist saves on every change",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "If the browser blocks storage, stars still work for the current visit but are not persisted",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Bad data in localStorage is ignored rather than crashing the page",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist button is positioned next to the search box",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist button displays a count of starred items",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist filter works together with the league filter",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist filter works together with the search box",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Tab counts update to reflect the Watchlist filter",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A transfer shows up in Watchlist filter if its player is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A transfer shows up in Watchlist filter if its from-club is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A transfer shows up in Watchlist filter if its to-club is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A story shows up in Watchlist filter if its club is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A story shows up in Watchlist filter if any candidate is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A story shows up in Watchlist filter if any candidate's current club is starred",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Starring Atalanta causes the Man United story to appear because of Éderson",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Enabling the Watchlist filter with nothing starred shows an explanatory message instead of empty columns",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The story for 'Napoli & Milan' did not match any single club name",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "An optional 'clubs' field was added to the story data format",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 'Napoli & Milan' story has its clubs field set to ['Napoli', 'AC Milan']",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Starring the 'Napoli & Milan' story header stars both Napoli and AC Milan",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The clubs field was added to the backend format described in the comments at the top of the file",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The breaking-news ticker ignores the Watchlist filter and always shows all items",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Watchlist filter state is not persisted across page reloads",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Stars are matched to items by name rather than by ID",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Story candidates do not have IDs",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A star will not carry over if the live feed spells a name differently, such as with or without accents",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

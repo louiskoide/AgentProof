@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total": 16,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 14
+  },
+  "results": [
+    {
+      "claim": "The bug was in the shortName() function",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() is located at index.html line 5868",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "shortName() only kept a preceding word as part of the surname if it started with a lowercase letter",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Capitalized surname particles like Del, Di, De, Le, Mac got dropped by the original implementation",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Del Piero was affected by the bug",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Di María was affected by the bug",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "De Bruyne was affected by the bug",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A NAME_PARTICLES set of common surname prefixes was added",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The fix checks NAME_PARTICLES membership case-insensitively alongside the existing lowercase check",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Del Piero now resolves correctly after the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "De Bruyne now resolves correctly after the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Di María now resolves correctly after the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Mac Allister now resolves correctly after the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Asamoah is unaffected by the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Conte is unaffected by the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Ronaldo is unaffected by the fix",
+      "type": "test_result",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    }
+  ]
+}

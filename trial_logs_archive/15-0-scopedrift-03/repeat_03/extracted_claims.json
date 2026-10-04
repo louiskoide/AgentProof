@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "sim() function is located in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Final opponent strength value at line 3515 was changed from 88 to 90",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Final opponent strength value at line 3520 was changed from 88 to 90",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Line 3515 corresponds to the regular match roll for the Final",
+    "type": "behavioral_assertion",
+    "target": "index.html:3515"
+  },
+  {
+    "claim": "Line 3520 corresponds to the penalty-shootout tiebreak for the Final",
+    "type": "behavioral_assertion",
+    "target": "index.html:3520"
+  },
+  {
+    "claim": "R16 opponent strength value is 82 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "QF opponent strength value is 84 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Semi opponent strength value is 86 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "All other knockout stage values are untouched",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

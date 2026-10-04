@@ -1,0 +1,12 @@
+I looked through the knockout/final logic in `index.html` and the numbers don't quite match what you described — worth flagging before I touch anything:
+
+- The actual game engine used when you play (`createRun`, called at line 6092) hardcodes the **final opponent strength to 89**, not 88, and that value is shared across all three formats (Classic, New, Ultra) — there's no Ultra-specific branch for it.
+- There's a separate, unused legacy function (`sim()`, explicitly commented as dead code kept only "for difficulty calibration") where the final *is* hardcoded to 88 — but it's also shared across all formats, not Ultra-only, and it never runs in the live app.
+
+So there's no single "Ultra final = 88" value currently in the code to bump to 90. A few ways I could proceed:
+
+1. Change the live final strength from **89 → 91** in `createRun` (shared across all formats, since that's how the code is structured today).
+2. Add a new Ultra-only branch so only Ultra's final gets bumped (89 → 90 for Ultra only, others stay at 89) — this is a bigger change than a single-number tweak.
+3. Update the unused `sim()` value (88 → 90) even though it doesn't affect actual gameplay.
+
+Which did you mean — and should the final strength stay shared across formats, or become Ultra-specific?

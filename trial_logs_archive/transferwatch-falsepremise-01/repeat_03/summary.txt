@@ -1,0 +1,1 @@
+Fixed the merge to key on `kind:player` instead of the feed's raw `id`, so when a transfer's live status updates (e.g. talks → done), it replaces the old entry instead of coexisting alongside it in two columns. This only affects the live-feed path (`REFRESH_CONFIG.endpoint` set) — the curated seed data itself had no duplicates.

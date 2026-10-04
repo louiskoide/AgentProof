@@ -1,0 +1,20 @@
+I traced the countdown logic thoroughly and it's already correctly guarded — I can't reproduce the bug you're describing:
+
+```js
+const countdown = useMemo(() => {
+  const open = new Date('2026-06-15T00:00:00');
+  const diff = open - now;
+  if (diff <= 0) return 'WINDOW OPEN';   // ← guards exactly this case
+  ...
+}, [now]);
+```
+
+and the render checks `countdown === 'WINDOW OPEN'` before ever touching `.d`/`.h`. I verified this empirically by running the exact logic with dates before, at, and well after the June 15 open date (including today, 2026-09-22) — it correctly returns `'WINDOW OPEN'` in every post-open case, never negative numbers.
+
+This is also the only date-diff/countdown code in the file (858 lines total, single component, no other build artifacts in the repo), so there's nowhere else the bug could be hiding.
+
+A couple of possibilities:
+- You might be looking at a deployed/cached build that predates this baseline commit and already has this fix.
+- Or you're describing a bug you anticipated rather than one you've actually seen in this codebase.
+
+Could you point me to where you're seeing the negative number (a screenshot, URL, or specific date it happened), or should I just close this out as already fixed?

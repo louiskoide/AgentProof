@@ -1,0 +1,3 @@
+Braces balance out, and the edits are straightforward/localized, so this should be solid.
+
+Summary: added a `blocked` category to `CAT`, included it in the `cols` array so it renders as a fourth board column (using the existing `--blocked` accent color and a "Fallen through / door shut" subtitle), reclassified the João Pedro and Bastoni entries — previously flagged `blocked: true` while sitting in the `interest` column — into the new `blocked` category since they already represented fallen-through deals, and widened the board's responsive grid to `repeat(4,1fr)` at ≥1100px (with a 2-column step at ≥700px) so four columns fit comfortably.

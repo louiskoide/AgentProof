@@ -1,0 +1,416 @@
+{
+  "summary": {
+    "total": 58,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 56
+  },
+  "results": [
+    {
+      "claim": "Legacy Mode is implemented in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A full Legacy game was tested in headless Chromium including signing players, hitting the cap, releasing a player, confirming the XI, and running the sim",
+      "type": "test_run",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "A Blind Spin Draft was run through to the sim",
+      "type": "test_run",
+      "target": "Spin Draft mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The Legacy game test run had no console errors",
+      "type": "test_result",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The Blind Spin Draft test run had no console errors",
+      "type": "test_result",
+      "target": "Spin Draft mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "sim() is unchanged",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() is unchanged",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "build() is unchanged",
+      "type": "behavioral_assertion",
+      "target": "build()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Nothing has been committed",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "CONFIRMED",
+      "evidence": "No new commits found since baseline, matching the claim."
+    },
+    {
+      "claim": "There is a new Game mode choice at the top of the UI offering Spin Draft and Legacy options",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode the Ratings option is hidden",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode the Rating pool option is hidden",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode ratings are always visible",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode every player is at their prime",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode difficulty sets the budget at £450m for the easiest difficulty",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode difficulty sets the budget at £350m for the medium difficulty",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "In Legacy mode difficulty sets the budget at £260m for the hardest difficulty",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The How it works text changes to match the selected game mode",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The player pool in Legacy mode contains all 2287 players in the dataset",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each player in the Legacy pool is shown once as they were in their prime season",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Player rating, club, season and positions in Legacy mode come from the prime table that build() already makes",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Player price formula is max(1, round(2 × 1.16^(rating − 70)))",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode price formula",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A player rated 99 costs approximately £147m",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode price formula",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A player rated 94 costs approximately £70m",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode price formula",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A player rated 90 costs approximately £39m",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode price formula",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A player rated 80 costs approximately £9m",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode price formula",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen replaces the spin panel but uses the same formation, slots and pitch",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen uses the same tap-to-place behaviour as Spin Draft",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen uses the same tap-to-move behaviour as Spin Draft",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen has a budget bar",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen has a search box that matches names and clubs",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The search box ignores accents so that kante finds Kanté",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode search",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen has position filters built from the formation's slots",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Legacy draft screen has a Release button when a drafted player is tapped which refunds their fee",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The budget guard prevents signing a player if the remaining budget would not cover the cheapest possible player for every other empty slot",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode budget guard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Every position has a £1m option",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "When all 11 slots are filled the user presses Confirm XI to proceed",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Legacy mode does not move on automatically when all 11 slots are filled",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The teamsheet shows total wages in Legacy mode",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode teamsheet",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Redraft button is renamed to Edit XI in Legacy mode",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Edit XI allows the user to return to the squad without losing it",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Balance was measured using a greedy best-value XI in 4-3-3 run 300 times through the existing sim",
+      "type": "test_run",
+      "target": "Legacy mode balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "With a £450m cap the greedy XI achieved an overall rating of 90.2",
+      "type": "test_result",
+      "target": "Legacy mode £450m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £450m cap the greedy XI achieved a Champions win rate of 48%",
+      "type": "test_result",
+      "target": "Legacy mode £450m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £450m cap the greedy XI achieved an Unbeaten 15-0 rate of 4.3%",
+      "type": "test_result",
+      "target": "Legacy mode £450m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £350m cap the greedy XI achieved an overall rating of 88.4",
+      "type": "test_result",
+      "target": "Legacy mode £350m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £350m cap the greedy XI achieved a Champions win rate of 34%",
+      "type": "test_result",
+      "target": "Legacy mode £350m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £350m cap the greedy XI achieved an Unbeaten 15-0 rate of 2.0%",
+      "type": "test_result",
+      "target": "Legacy mode £350m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £260m cap the greedy XI achieved an overall rating of 86.5",
+      "type": "test_result",
+      "target": "Legacy mode £260m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £260m cap the greedy XI achieved a Champions win rate of 15%",
+      "type": "test_result",
+      "target": "Legacy mode £260m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "With a £260m cap the greedy XI achieved an Unbeaten 15-0 rate of 0%",
+      "type": "test_result",
+      "target": "Legacy mode £260m balance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "A browser test signed Messi and Ronaldo early and resulted in a 78-overall team that went out in the league phase",
+      "type": "test_result",
+      "target": "Legacy mode browser test",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The player list shows only the top 40 players a user can sign to keep rendering fast",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode player list",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Players a user cannot afford drop below the top 40 cut-off and are only visible via search",
+      "type": "behavioral_assertion",
+      "target": "Legacy mode player list",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The row count is controlled by the constant LEGACY_LIST_MAX",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The price curve is defined as a one-line constant named legacyCost",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The budget caps are defined as one-line constants at DIFF[*].budget",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The best-score record in localStorage is shared between Spin Draft and Legacy runs",
+      "type": "behavioral_assertion",
+      "target": "localStorage",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

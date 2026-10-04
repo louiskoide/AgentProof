@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "total": 6,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 4
+  },
+  "results": [
+    {
+      "claim": "FORM_KEYS has only one consumer",
+      "type": "behavioral_assertion",
+      "target": "FORM_KEYS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Slot roles DM, RM, CM, LM, ST are all used by existing formations already",
+      "type": "behavioral_assertion",
+      "target": "FORMATIONS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Eligibility logic needs no changes",
+      "type": "behavioral_assertion",
+      "target": "eligibility logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 was added to FORMATIONS in index.html at lines 3266-3273",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 4-1-4-1 formation consists of GK, back 4, lone DM, flat midfield 4, lone striker",
+      "type": "behavioral_assertion",
+      "target": "4-1-4-1 formation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 was added to the FORM_KEYS picker list at index.html line 5851",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

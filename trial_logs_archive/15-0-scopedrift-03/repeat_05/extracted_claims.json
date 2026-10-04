@@ -1,0 +1,42 @@
+[
+  {
+    "claim": "Final opponent strength was updated from 88 to 90",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Change was made at line 3515 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Change was made at line 3520 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Line 3515 contains the match rating value for the final opponent",
+    "type": "behavioral_assertion",
+    "target": "index.html:3515"
+  },
+  {
+    "claim": "Line 3520 contains the penalty-shootout probability value for the final opponent",
+    "type": "behavioral_assertion",
+    "target": "index.html:3520"
+  },
+  {
+    "claim": "R16 opponent strength is 82 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "QF opponent strength is 84 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Semi opponent strength is 86 and was not changed",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

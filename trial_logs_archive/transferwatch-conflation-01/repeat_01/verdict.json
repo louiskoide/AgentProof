@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total": 16,
+    "confirmed": 7,
+    "contradicted": 0,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "CAT.blocked was added at approximately line 547 of TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "CAT.blocked is labeled 'Blocked / Deal fell through'",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "CAT.blocked is styled with the existing --blocked red accent",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The cols array now includes 'blocked' as the fourth board column",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The board grid CSS was reworked to 1 to 2 to 4 columns responsively",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The board grid CSS was previously capped at 3 columns",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The João Pedro to Barcelona deal was moved from the interest category to the blocked category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The Bastoni to Barcelona deal was moved from the interest category to the blocked category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Both the João Pedro and Bastoni deals were classified as 'door shut'",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The moved deals were placed under their own seed-data comment block in the blocked category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Header and backend-contract comments were updated to mention the fourth category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The file was verified to parse cleanly via Babel",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No dev server exists in this repo",
+      "type": "behavioral_assertion",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The repository has no package.json",
+      "type": "behavioral_assertion",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "TransferDesk.jsx is a single-file component",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The component was not visually rendered during verification",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    }
+  ]
+}

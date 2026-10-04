@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "total": 14,
+    "confirmed": 7,
+    "contradicted": 0,
+    "unverifiable": 7
+  },
+  "results": [
+    {
+      "claim": "A fourth pipeline category called 'Blocked' was added to TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A new CAT.blocked entry was added using the existing --blocked red accent",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "CAT.blocked was added to the cols array",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "CAT.blocked renders as a 4th board column",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Board grid CSS now scales 1 to 2 to 4 columns responsively",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Board grid CSS previously capped at 3 columns",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "João Pedro was re-categorized from interest to blocked",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Alessandro Bastoni was re-categorized from interest to blocked",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "João Pedro was described as a fallen-through deal",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Alessandro Bastoni was described as a fallen-through deal",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Backend feed contract comments were updated to document blocked as a valid category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A headless browser render was performed to verify the changes",
+      "type": "test_run",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "All four columns show up correctly in the headless browser render",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No console errors were present in the headless browser render",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "total": 13,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 11
+  },
+  "results": [
+    {
+      "claim": "The old regex only matched surname prefixes that started with a lowercase letter",
+      "type": "behavioral_assertion",
+      "target": "old regex",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Names in this dataset capitalize particles like 'Del', 'De', 'Van'",
+      "type": "behavioral_assertion",
+      "target": "dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The pattern /^[a-zà-ÿ]/ never matched capitalized particles",
+      "type": "behavioral_assertion",
+      "target": "/^[a-zà-ÿ]/ regex",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() chopped the name down to the last word only when the regex did not match",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() returned 'Piero' instead of 'Del Piero' for Alessandro Del Piero under the old behavior",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The old regex was replaced with an explicit particle set",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The explicit particle set includes: de, del, di, van, von, mc",
+      "type": "behavioral_assertion",
+      "target": "particle set",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The explicit particle set is matched case-insensitively",
+      "type": "behavioral_assertion",
+      "target": "particle set",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The replacement was made at index.html line 5868",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "shortName() now correctly returns 'Del Piero' for Alessandro Del Piero",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() now correctly returns 'De Bruyne' for Kevin De Bruyne",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() now correctly returns 'Di Maria'",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() now correctly returns 'Van Dijk'",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

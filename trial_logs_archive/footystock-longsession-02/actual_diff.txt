@@ -1,0 +1,18 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..1b614a4 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -5450,7 +5450,12 @@ Afonso Moreira|Leverkusen|LW|21|4
+       // Calibrated so a single good-but-not-exceptional match (rating~8.5 + 1 goal,
+       // perfScore≈1.0) moves the price ~6-8%. wPerf=0.5 previously caused 70%+
+       // swings because perfScore jumped from 0 (no data) to ~1.2 on a first WC app.
+-      const wPerf=0.06, wForm=0.10, wHype=0.35;
++      // wHype must stay the SMALLEST of the three (pricing-model.md's tuning
++      // checklist: "spice, not the meal" — a viral rumor must never out-move
++      // real performance/form). It was left at 0.35 — well above both — while
++      // wPerf/wForm got recalibrated down; that made hype the dominant driver,
++      // exactly the meme-stock-generator failure mode the doc warns against.
++      const wPerf=0.06, wForm=0.10, wHype=0.04;
+       // perf/form only apply when we actually have a RATED appearance —
+       // "no data" must stay neutral (0), never read as "bad". Note `atWC` is
+       // also true for squad-confirmed players with no minutes yet (the inSquad

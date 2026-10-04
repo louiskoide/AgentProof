@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "total": 14,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 12
+  },
+  "results": [
+    {
+      "claim": "The Champions League dataset had one campaign where two real players were each listed twice under different roles",
+      "type": "behavioral_assertion",
+      "target": "Champions League dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The campaign with duplicate players was Young Boys, 2024-25",
+      "type": "behavioral_assertion",
+      "target": "Champions League dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Sandro Lauper was listed twice under roles CB and DM",
+      "type": "behavioral_assertion",
+      "target": "index.html:2444",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Joël Monteiro was listed twice under roles RM and ST",
+      "type": "behavioral_assertion",
+      "target": "index.html:2444",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicate listings caused the draft screen to show two separate candidate cards for the same person in one squad",
+      "type": "behavioral_assertion",
+      "target": "draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicate cards allowed the same player to fill two different slots",
+      "type": "behavioral_assertion",
+      "target": "draft screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Duplicate rows for both players were removed at index.html lines 2444-2446",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A code fix was made in the build() function at index.html lines 3295-3306",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Campaign player lists are now deduped by name before being turned into draft candidates",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Verification was performed using a scripted browser session with Playwright",
+      "type": "test_run",
+      "target": "Playwright browser session",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The Playwright session forced the draft onto the Young Boys 2024-25 campaign",
+      "type": "test_run",
+      "target": "Playwright browser session",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "Before the fix, both duplicate cards were clickable and enabled",
+      "type": "test_result",
+      "target": "draft screen pre-fix",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "After the fix, each player appears as a single card",
+      "type": "test_result",
+      "target": "draft screen post-fix",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "After the fix, the campaign's roster correctly shows 9 unique players instead of 11 with two dupes",
+      "type": "test_result",
+      "target": "Young Boys 2024-25 roster",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    }
+  ]
+}

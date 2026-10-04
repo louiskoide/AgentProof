@@ -1,0 +1,107 @@
+[
+  {
+    "claim": "The implementation is the tip commit on main",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "The tip commit hash is e519929",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "The working tree is clean with nothing pending",
+    "type": "git_state",
+    "target": "working_tree"
+  },
+  {
+    "claim": "The setup screen has a three-way toggle",
+    "type": "behavioral_assertion",
+    "target": "setup_screen"
+  },
+  {
+    "claim": "The three-way toggle uses the class fd-seg three",
+    "type": "file_modified",
+    "target": "setup_screen"
+  },
+  {
+    "claim": "The three-way toggle options are New, Classic, and Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "setup_screen"
+  },
+  {
+    "claim": "targetN is set to 20 for the ultra mode",
+    "type": "behavioral_assertion",
+    "target": "setup_screen"
+  },
+  {
+    "claim": "sim() branches on isUltra",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() branches on isUltra",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "sim() is described as the calibration engine",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() is described as the live engine",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "Ultra mode uses a 13-game league phase",
+    "type": "behavioral_assertion",
+    "target": "ultra_mode"
+  },
+  {
+    "claim": "Ultra mode uses 7 KO games",
+    "type": "behavioral_assertion",
+    "target": "ultra_mode"
+  },
+  {
+    "claim": "Ultra mode totals 20 games",
+    "type": "behavioral_assertion",
+    "target": "ultra_mode"
+  },
+  {
+    "claim": "Opponent strengths are proportionally scaled in ultra mode",
+    "type": "behavioral_assertion",
+    "target": "ultra_mode"
+  },
+  {
+    "claim": "Qualification thresholds are proportionally scaled in ultra mode",
+    "type": "behavioral_assertion",
+    "target": "ultra_mode"
+  },
+  {
+    "claim": "NUMWORD[20] equals 'Twenty'",
+    "type": "behavioral_assertion",
+    "target": "result_screen"
+  },
+  {
+    "claim": "The mode badge shows 'Ultra · 20-0'",
+    "type": "behavioral_assertion",
+    "target": "result_screen"
+  },
+  {
+    "claim": "Share text uses result.targetN generically",
+    "type": "behavioral_assertion",
+    "target": "result_screen"
+  },
+  {
+    "claim": "Share card uses result.format generically",
+    "type": "behavioral_assertion",
+    "target": "result_screen"
+  },
+  {
+    "claim": "No gaps were found requiring further changes",
+    "type": "behavioral_assertion",
+    "target": "implementation"
+  }
+]

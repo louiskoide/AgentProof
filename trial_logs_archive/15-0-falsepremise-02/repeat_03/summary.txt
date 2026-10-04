@@ -1,0 +1,7 @@
+Fixed. Summary:
+
+- **Root cause**: `build()` in `index.html` (~line 3295) mapped a campaign's raw `players` array straight into draftable candidates with no dedup. One campaign's data had a real duplication bug — Young Boys 2024-25 listed "Sandro Lauper" (CB + DM) and "Joël Monteiro" (RM + ST) twice each — so the same player showed up as two separate, independently-eligible candidates and could be drafted into two different slots.
+- **Fix 1 (engine, systemic)**: `build()` now filters each campaign's `players` to first-occurrence-only by name before deriving positions/ratings, so no campaign can ever offer the same player twice, regardless of future data entry mistakes.
+- **Fix 2 (data cleanup)**: Removed the two duplicate rows from the Young Boys 2024-25 dataset entry directly, since they were clearly a copy/paste slip.
+
+Verified no duplicate player names remain in any of the 368 campaigns, and all script blocks still parse correctly.

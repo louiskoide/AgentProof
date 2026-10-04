@@ -1,0 +1,21 @@
+I added the watchlist to `TransferDesk.jsx`. The file compiles, and I rendered it once on the server with a saved watchlist of Julián Álvarez and Chelsea: exactly the 5 expected stars showed as on. I haven't clicked through it in a browser, so toggling stars, the "Starred only" filter and the localStorage writes haven't been tested by hand.
+
+**Starring**
+- **Board cards:** a star next to the player's (or manager's) name. Each club also gets a small star, which appears when you hover over the card and always shows once starred. On touch screens the club stars are always visible. "Free agent" and "Multiple clubs" can't be starred.
+- **Story cards:** a star next to the club name in the header, and one on each candidate row. A starred candidate's row is lightly highlighted in gold.
+- Stars are saved by name, so starring Julián Álvarez on the board also marks him in the Barcelona and Arsenal stories.
+
+**Saving**
+- The watchlist is saved in localStorage under `td-watchlist` as `{ players: [...], clubs: [...] }` and reloaded when the page opens.
+- If localStorage is unavailable or its data is corrupted, the watchlist starts empty and still works for the current session.
+
+**"Starred only" toggle**
+- It sits next to the search box and shows how many items you've starred. It works together with the league filter and search, and the tab counts update to match.
+- **Board:** a card shows if its player or either of its clubs is starred.
+- **Stories:** a story shows if its club is starred, any candidate is starred, or any candidate currently plays for a starred club. So starring Chelsea brings up Barcelona's story, because João Pedro and Pedro Neto are Chelsea players.
+- If the filter is on but nothing is starred, a hint explains how to add items.
+- The toggle itself resets when the page reloads, since only the watchlist was meant to be saved.
+
+**One data quirk:** the Serie A story's club is `"Napoli & Milan"`, so starring it counts as a separate club from "Napoli" or "AC Milan". Starring Napoli from Allegri's card won't bring that story up unless one of its candidates matches. Changing that means splitting the name and mapping "Milan" to "AC Milan". I can do that if you want.
+
+I haven't committed anything.

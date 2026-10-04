@@ -1,0 +1,52 @@
+[
+  {
+    "claim": "index.html line 3515 was modified",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "index.html line 3520 was modified",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The final opponent's base strength value was changed to 90",
+    "type": "behavioral_assertion",
+    "target": "index.html:3515"
+  },
+  {
+    "claim": "The final opponent's penalty-shootout odds were updated to use 90",
+    "type": "behavioral_assertion",
+    "target": "index.html:3520"
+  },
+  {
+    "claim": "The previous final opponent base strength value was 88",
+    "type": "behavioral_assertion",
+    "target": "index.html:3515"
+  },
+  {
+    "claim": "The semi-final opponent base strength value is 86",
+    "type": "behavioral_assertion",
+    "target": "index.html quick-sim knockout path"
+  },
+  {
+    "claim": "The value 90 is greater than the semi-final value of 86",
+    "type": "behavioral_assertion",
+    "target": "quick-sim knockout path"
+  },
+  {
+    "claim": "The semi-final round values were left untouched",
+    "type": "behavioral_assertion",
+    "target": "index.html semi-final knockout round"
+  },
+  {
+    "claim": "Every other knockout round besides the final was left untouched",
+    "type": "behavioral_assertion",
+    "target": "index.html knockout rounds"
+  },
+  {
+    "claim": "The changes are confined to the quick-sim knockout path",
+    "type": "behavioral_assertion",
+    "target": "index.html quick-sim knockout path"
+  }
+]

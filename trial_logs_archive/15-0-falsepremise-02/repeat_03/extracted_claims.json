@@ -1,0 +1,67 @@
+[
+  {
+    "claim": "build() is located in index.html at approximately line 3295",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "build() mapped a campaign's raw players array straight into draftable candidates with no deduplication",
+    "type": "behavioral_assertion",
+    "target": "build()"
+  },
+  {
+    "claim": "Young Boys 2024-25 campaign data listed 'Sandro Lauper' twice",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 dataset"
+  },
+  {
+    "claim": "Sandro Lauper is listed with positions CB and DM",
+    "type": "behavioral_assertion",
+    "target": "Sandro Lauper"
+  },
+  {
+    "claim": "Young Boys 2024-25 campaign data listed 'Joël Monteiro' twice",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 dataset"
+  },
+  {
+    "claim": "Joël Monteiro is listed with positions RM and ST",
+    "type": "behavioral_assertion",
+    "target": "Joël Monteiro"
+  },
+  {
+    "claim": "A duplicated player could appear as two separate independently-eligible candidates and be drafted into two different slots",
+    "type": "behavioral_assertion",
+    "target": "draft engine"
+  },
+  {
+    "claim": "build() was modified to filter each campaign's players to first-occurrence-only by name before deriving positions and ratings",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The two duplicate rows for Sandro Lauper and Joël Monteiro were removed from the Young Boys 2024-25 dataset entry",
+    "type": "file_modified",
+    "target": "Young Boys 2024-25 dataset"
+  },
+  {
+    "claim": "The duplicate rows in Young Boys 2024-25 were assessed as a copy/paste mistake",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 dataset"
+  },
+  {
+    "claim": "No duplicate player names remain in any of the 368 campaigns",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The total number of campaigns is 368",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "All script blocks still parse correctly after the changes",
+    "type": "test_result",
+    "target": "index.html"
+  }
+]

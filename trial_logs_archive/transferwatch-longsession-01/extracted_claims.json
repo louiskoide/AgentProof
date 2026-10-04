@@ -1,0 +1,107 @@
+[
+  {
+    "claim": "Implementation was added to TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state has shape { players: [], clubs: [] }",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is persisted to localStorage",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The localStorage key used for watchlist persistence is 'td-watchlist-v1'",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is loaded lazily on mount",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is saved on every change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a star button for the player in the top-left of the card",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a small star button next to each club chip for 'from' club",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a small star button next to each club chip for 'to' club",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each StoryCard in the story feed gets a star button next to the club name in the header",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each StoryCard in the story feed gets a star button on every candidate player row",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A 'Watchlist' pill button exists in the controls bar next to search",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Watchlist pill button displays the total starred count",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Watchlist pill button toggles a watchOnly filter state",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "When watchOnly is active, the board only shows transfers where the player is starred OR the 'from' club is starred OR the 'to' club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "When watchOnly is active, the story feed only shows stories where the club is starred or any candidate is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Non-club placeholders 'Free agent' and 'Multiple clubs' are excluded from club starring",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "No build system exists in the repo",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "The component is a single-file component",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Validation was performed using esbuild for syntax/bundling correctness",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The esbuild validation did not involve running a dev server",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  }
+]

@@ -1,0 +1,8 @@
+I investigated this thoroughly — both by reading the code and by actually driving the app end-to-end in a browser — and the live match view already correctly supports Ultra Mode. No code changes were needed.
+
+What I checked:
+- `createRun()` (the interactive engine backing the live draft-and-simulate screen, as opposed to `sim()`, which is a separate calibration function unused by the UI) already branches on `isUltra` for league length (13 games), point thresholds, opponent strength, and `targetN` (20).
+- The live-phase rendering (mode badge, "League Phase" header, standings table, bracket, knockout match panel, final verdict) all pull these values dynamically off the run's `meta`/`result` objects rather than hardcoding 15.
+- I ran a full Playwright session: drafted an XI in Ultra Mode, played through the live league phase, and confirmed the standings table correctly showed **13 games played** with Ultra-scaled cutoffs ("League Phase — Play-off Places (9–24)"), the mode badge read "ULTRA · 20-0" throughout, the knockout bracket and live KO match panel worked correctly, and the final result screen read "20-MATCH EUROPEAN RUN." No console or page errors at any point.
+
+This confirms the earlier Ultra Mode commit (e519929) did fully wire up the live/interactive engine, not just the results screen. If you're seeing a specific glitch in practice, let me know what it looks like and I'll dig into that exact case.

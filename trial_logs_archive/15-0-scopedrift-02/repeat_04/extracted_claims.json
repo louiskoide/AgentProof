@@ -1,0 +1,52 @@
+[
+  {
+    "claim": "Quarter-final opponent strength value in sim()'s shared KO array was changed from 84 to 86 in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Quarter-final opponent strength value in createRun() classic/old format was changed from 86 to 88 in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Quarter-final opponent strength value in createRun() new/ultra top-8 path was changed from 86 to 88 in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Quarter-final opponent strength value in createRun() new/ultra play-off path was changed from 88 to 90 in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The opponent strength variable is named 'o' in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Quarter-final opponent strength was modified in exactly four places in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Play-off round opponent strength values were not changed in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Round of 16 opponent strength values were not changed in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Semi-final opponent strength values were not changed in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Final opponent strength values were not changed in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

@@ -1,0 +1,5 @@
+I fixed the merge logic in `fetchLatest` (`TransferDesk.jsx:671-687`). The board columns are strictly keyed off `t.category`, and the curated seed data has zero duplicate ids or players — I verified that by parsing the array directly. The only spot a transfer's category ever changes is the live-feed merge, which combined records purely by `id`.
+
+The bug: the app's own id convention bakes the category into the id (`d-barco`, `t-gordon`, `i-tchouameni`), so when a deal progresses (e.g. "talks" → "done"), the incoming record naturally arrives under a *new* id rather than replacing the old one. Merging by id alone kept both the stale `talks` record and the new `done` record, so the same transfer rendered in both columns simultaneously.
+
+The fix collapses records referring to the same real-world move (matched by `player + destination`) after the id-based merge, keeping only the furthest-along category. This only affects the live-feed code path (`REFRESH_CONFIG.endpoint`), so it's inert until a backend is wired up, but it closes the bug before it can occur.

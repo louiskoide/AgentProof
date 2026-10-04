@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "CAT.blocked was added at approximately line 547 of TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "CAT.blocked is labeled 'Blocked / Deal fell through'",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "CAT.blocked is styled with the existing --blocked red accent",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The cols array now includes 'blocked' as the fourth board column",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The board grid CSS was reworked to 1 to 2 to 4 columns responsively",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The board grid CSS was previously capped at 3 columns",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The João Pedro to Barcelona deal was moved from the interest category to the blocked category",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Bastoni to Barcelona deal was moved from the interest category to the blocked category",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Both the João Pedro and Bastoni deals were classified as 'door shut'",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The moved deals were placed under their own seed-data comment block in the blocked category",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Header and backend-contract comments were updated to mention the fourth category",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The file was verified to parse cleanly via Babel",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "No dev server exists in this repo",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "The repository has no package.json",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "TransferDesk.jsx is a single-file component",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The component was not visually rendered during verification",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  }
+]

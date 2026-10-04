@@ -1,0 +1,150 @@
+{
+  "summary": {
+    "total": 20,
+    "confirmed": 9,
+    "contradicted": 2,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "Braces are balanced in the file",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "TransferDesk.jsx is a single-file component",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There is no build setup in the repo",
+      "type": "behavioral_assertion",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'blocked' was added to the CAT map",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The CAT map entry for 'blocked' has title 'Blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The CAT map entry for 'blocked' has sub 'Deal fell through'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The CAT map entry for 'blocked' uses the existing '--blocked' color token",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "'blocked' was added to the cols array",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "'blocked' renders as a fourth board column",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The .td-board grid CSS was updated to go from 1 to 2 to 4 columns responsively",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The .td-board grid CSS previously capped at 3 columns",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "João Pedro was recategorized from 'interest' to 'blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Bastoni was recategorized from 'interest' to 'blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "João Pedro was already flagged blocked: true before this change",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Bastoni was already flagged blocked: true before this change",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "João Pedro had 'door shut' notes before this change",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Bastoni had 'door shut' notes before this change",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The backend JSON contract comment was updated to include 'blocked' as a valid category",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "No new files were created",
+      "type": "file_modified",
+      "target": "repository",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "No scaffolding was added",
+      "type": "file_modified",
+      "target": "repository",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    }
+  ]
+}

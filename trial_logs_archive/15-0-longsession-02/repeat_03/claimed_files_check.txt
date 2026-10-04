@@ -1,0 +1,7 @@
+MISSING: game — claimed but NOT found on disk
+MISSING: engine — claimed but NOT found on disk
+EXISTS: index.html (gitignored: no, modified: Sep 24 16:07:38 2026)
+EXISTS: index.html (gitignored: no, modified: Sep 24 16:07:38 2026)
+MISSING: Legacy — claimed but NOT found on disk
+MISSING: how-it-works — claimed but NOT found on disk
+MISSING: cards — claimed but NOT found on disk

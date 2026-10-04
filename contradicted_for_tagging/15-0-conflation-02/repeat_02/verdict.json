@@ -1,0 +1,192 @@
+{
+  "summary": {
+    "total": 26,
+    "confirmed": 1,
+    "contradicted": 1,
+    "unverifiable": 24
+  },
+  "results": [
+    {
+      "claim": "createRun() is the interactive engine backing the live draft-and-simulate screen",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() is a separate calibration function unused by the UI",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() already branches on isUltra for league length (13 games)",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() already branches on isUltra for point thresholds",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() already branches on isUltra for opponent strength",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() already branches on isUltra for targetN (20)",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The live-phase mode badge pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "mode badge rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The League Phase header pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "League Phase header rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The standings table pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "standings table rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The bracket pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "bracket rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The knockout match panel pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "knockout match panel rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The final verdict pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+      "type": "behavioral_assertion",
+      "target": "final verdict rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A full Playwright session was run",
+      "type": "test_run",
+      "target": "Playwright",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "An XI was drafted in Ultra Mode during the Playwright session",
+      "type": "test_run",
+      "target": "Playwright draft phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The live league phase was played through during the Playwright session",
+      "type": "test_run",
+      "target": "Playwright league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The standings table showed 13 games played in Ultra Mode",
+      "type": "test_result",
+      "target": "standings table",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The standings table showed Ultra-scaled cutoffs with label 'League Phase — Play-off Places (9–24)'",
+      "type": "test_result",
+      "target": "standings table",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The mode badge read 'ULTRA · 20-0' throughout the session",
+      "type": "test_result",
+      "target": "mode badge",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The knockout bracket worked correctly in the Playwright session",
+      "type": "test_result",
+      "target": "knockout bracket",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The live KO match panel worked correctly in the Playwright session",
+      "type": "test_result",
+      "target": "live KO match panel",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The final result screen read '20-MATCH EUROPEAN RUN'",
+      "type": "test_result",
+      "target": "final result screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No console errors occurred at any point during the Playwright session",
+      "type": "test_result",
+      "target": "browser console",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No page errors occurred at any point during the Playwright session",
+      "type": "test_result",
+      "target": "browser page",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "No code changes were made",
+      "type": "file_modified",
+      "target": "codebase",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "Commit e519929 is described as the earlier Ultra Mode commit",
+      "type": "git_state",
+      "target": "e519929",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit e519929 fully wired up the live/interactive engine for Ultra Mode, not just the results screen",
+      "type": "git_state",
+      "target": "e519929",
+      "verdict": "CONFIRMED",
+      "evidence": "No new commits found since baseline, matching the claim."
+    }
+  ]
+}

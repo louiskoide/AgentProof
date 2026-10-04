@@ -1,0 +1,186 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..12cfbe2 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -1,5 +1,5 @@
+-import { useState, useEffect, useMemo, useRef } from 'react';
+-import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake } from 'lucide-react';
++import { useState, useEffect, useMemo, useRef, Fragment } from 'react';
++import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake, Link2 } from 'lucide-react';
+ 
+ /* ============================================================================
+    THE TRANSFER DESK — Summer 2026 window tracker (Europe's top 5 leagues)
+@@ -29,8 +29,11 @@ const REFRESH_CONFIG = {
+                       category:'interest'|'talks'|'done', stage:1-5|null, stageNote,
+                       sources:[..], date, breaking:bool, blocked:bool, note, leagues:[..] } ],
+        stories:   [ { id, club, league, country, color, position, blurb,
+-                      candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ]
+-     } */
++                      candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ],
++       chains:    [ { id, title, blurb,
++                      links:[{ id:<transfer id>, role:'what this move means in the chain' }] } ]
++     }
++     Chain links are ordered: each move depends on the one before it. */
+ };
+ 
+ const STAGE_LABELS = ['Initial contact', 'Bid submitted', 'Personal terms agreed', 'Fee agreed', 'Medical / sealed'];
+@@ -390,6 +393,22 @@ const SEED_STORIES = [
+   },
+ ];
+ 
++/* --- chains: transfers that depend on each other, in order ---
++   Linked transfers render together as one connected sequence instead of as
++   separate cards in the pipeline columns. Links pointing at unknown transfer
++   ids are dropped; a chain needs at least two resolvable links to show. */
++const SEED_CHAINS = [
++  {
++    id: 'c-cb-domino', title: 'The centre-back domino',
++    blurb: 'Konaté’s contract stand-off sets off a chain: if he leaves for Madrid, Liverpool’s approach for Upamecano becomes a replacement signing — and his free exit leaves Bayern shopping for a centre-back of their own.',
++    links: [
++      { id: 'i-konate', role: 'Liverpool lose a starting centre-back' },
++      { id: 'i-upamecano', role: 'Liverpool’s replacement for Konaté' },
++      { id: 'i-bremer', role: 'Bayern replace Upamecano — one of several options' },
++    ],
++  },
++];
++
+ /* ============================ STYLES ============================ */
+ const CSS = `
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@@ -498,6 +517,26 @@ const CSS = `
+ .td-src svg{color:var(--done);}
+ .td-date{margin-left:auto; font-family:var(--font-mono); font-size:10.5px; color:var(--ink-faint); letter-spacing:.03em;}
+ 
++/* chains */
++.td-chains{display:flex; flex-direction:column; gap:14px; margin-bottom:26px;}
++.td-chain{background:rgba(255,255,255,.5); border:1px solid var(--line-strong); border-radius:16px; padding:16px; animation:rise .5s cubic-bezier(.2,.7,.3,1) both;}
++.td-chain-kicker{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
++.td-chain-title{font-family:var(--font-display); font-size:20px; text-transform:uppercase; letter-spacing:.01em; margin:4px 0 5px;}
++.td-chain-blurb{font-size:13px; line-height:1.5; color:var(--ink-soft); margin-bottom:14px; max-width:880px;}
++.td-chain-links{display:flex; flex-direction:column;}
++.td-chain-step{flex:1; min-width:0; display:flex; flex-direction:column;}
++.td-chain-step .td-card{flex:1;}
++.td-chain-step-head{display:flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
++.td-chain-step-head .dot{width:7px; height:7px; border-radius:50%; background:var(--cat);}
++.td-chain-role{font-size:12.5px; font-weight:700; color:var(--ink); line-height:1.35; margin:4px 0 8px;}
++.td-chain-conn{display:flex; align-items:center; justify-content:center; color:var(--ink-faint); padding:8px 0;}
++.td-chain-conn svg{transform:rotate(90deg);}
++@media(min-width:880px){
++  .td-chain-links{flex-direction:row; align-items:stretch;}
++  .td-chain-conn{padding:40px 8px 0;}
++  .td-chain-conn svg{transform:none;}
++}
++
+ /* stories */
+ .td-stories{display:grid; grid-template-columns:1fr; gap:16px;}
+ @media(min-width:760px){.td-stories{grid-template-columns:1fr 1fr;}}
+@@ -611,6 +650,30 @@ function TransferCard({ t, idx }) {
+   );
+ }
+ 
++function ChainCard({ c, idx }) {
++  return (
++    <div className="td-chain" style={{ animationDelay: idx * 55 + 'ms' }}>
++      <span className="td-chain-kicker"><Link2 size={12} />Chain · {c.steps.length} linked moves</span>
++      <div className="td-chain-title">{c.title}</div>
++      {c.blurb && <p className="td-chain-blurb">{c.blurb}</p>}
++      <div className="td-chain-links">
++        {c.steps.map(({ t, role }, i) => (
++          <Fragment key={t.id}>
++            {i > 0 && <div className="td-chain-conn"><ArrowRight size={18} /></div>}
++            <div className="td-chain-step" style={{ '--cat': CAT[t.category].color }}>
++              <div className="td-chain-step-head">
++                Step {i + 1}<span className="dot" />{CAT[t.category].title}
++              </div>
++              {role && <div className="td-chain-role">{role}</div>}
++              <TransferCard t={t} idx={i} />
++            </div>
++          </Fragment>
++        ))}
++      </div>
++    </div>
++  );
++}
++
+ function StoryCard({ s, idx }) {
+   return (
+     <div className="td-story" style={{ '--cc': s.color, animationDelay: idx * 55 + 'ms' }}>
+@@ -648,6 +711,7 @@ export default function App() {
+   const [query, setQuery] = useState('');
+   const [transfers, setTransfers] = useState(SEED_TRANSFERS);
+   const [stories, setStories] = useState(SEED_STORIES);
++  const [chains, setChains] = useState(SEED_CHAINS);
+   const [mode, setMode] = useState('curated'); // curated | live | offline
+   const [updatedAt, setUpdatedAt] = useState(new Date());
+   const [loading, setLoading] = useState(false);
+@@ -678,6 +742,11 @@ export default function App() {
+         data.stories.forEach((s) => map.set(s.id, s));
+         setStories([...map.values()]);
+       }
++      if (Array.isArray(data.chains)) {
++        const map = new Map(SEED_CHAINS.map((c) => [c.id, c]));
++        data.chains.forEach((c) => map.set(c.id, c));
++        setChains([...map.values()]);
++      }
+       setMode('live');
+       setUpdatedAt(data.updatedAt ? new Date(data.updatedAt) : new Date());
+     } catch (e) {
+@@ -727,8 +796,35 @@ export default function App() {
+     return hay.includes(q);
+   }), [stories, league, q]);
+ 
++  /* ---- chains: resolve link ids to transfers; drop chains with < 2 known links ---- */
++  const resolvedChains = useMemo(() => {
++    const byId = new Map(transfers.map((t) => [t.id, t]));
++    return chains
++      .map((c) => ({
++        ...c,
++        steps: (c.links || []).map((l) => ({ t: byId.get(l.id), role: l.role })).filter((s) => s.t),
++      }))
++      .filter((c) => c.steps.length >= 2);
++  }, [chains, transfers]);
++
++  // chained transfers render inside their chain, never as loose column cards
++  const chainedIds = useMemo(
++    () => new Set(resolvedChains.flatMap((c) => c.steps.map((s) => s.t.id))),
++    [resolvedChains],
++  );
++
++  // a chain shows in full if any of its moves matches, or its own title/blurb matches the search
++  const filteredChains = useMemo(() => {
++    const matchedIds = new Set(filteredTransfers.map((t) => t.id));
++    return resolvedChains.filter((c) => {
++      if (c.steps.some((s) => matchedIds.has(s.t.id))) return true;
++      if (!q || !c.steps.some((s) => matchLeague(s.t.leagues))) return false;
++      return [c.title, c.blurb].filter(Boolean).join(' ').toLowerCase().includes(q);
++    });
++  }, [resolvedChains, filteredTransfers, league, q]);
++
+   const cols = ['interest', 'talks', 'done'];
+-  const byCol = (c) => filteredTransfers.filter((t) => t.category === c);
++  const byCol = (c) => filteredTransfers.filter((t) => t.category === c && !chainedIds.has(t.id));
+   const timeStr = updatedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+   const tickerItems = transfers.filter((t) => t.breaking || t.category === 'done' || t.stage >= 4).slice(0, 9);
+   const LEAGUES = ['All', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'];
+@@ -801,6 +897,21 @@ export default function App() {
+           </div>
+         </div>
+ 
++        {/* CHAINS */}
++        {tab === 'transfers' && filteredChains.length > 0 && (
++          <div className="td-chains">
++            <div className="td-col-head">
++              <span className="td-col-mark" style={{ background: 'var(--ink)' }} />
++              <div>
++                <div className="td-col-title">Transfer Chains</div>
++                <div className="td-col-sub">Linked deals · each move depends on the last</div>
++              </div>
++              <span className="td-col-count">{filteredChains.length}</span>
++            </div>
++            {filteredChains.map((c, i) => <ChainCard key={c.id} c={c} idx={i} />)}
++          </div>
++        )}
++
+         {/* TRANSFERS */}
+         {tab === 'transfers' && (
+           <div className="td-board">

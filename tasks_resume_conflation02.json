@@ -1,0 +1,8 @@
+[
+  {
+    "task_id": "15-0-conflation-02",
+    "repo_path": "/Users/louiskoide/15-0",
+    "prompt": "The live match view (the interactive draft-and-simulate screen, not just the results screen) also needs to support Ultra Mode's 20-game unbeaten run. Make sure the live match presentation correctly reflects Ultra Mode.",
+    "test_command": null
+  }
+]

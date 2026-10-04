@@ -1,0 +1,33 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..7e89f9f 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -67,6 +67,13 @@ const META = {
+ };
+ const metaOf = (name) => META[name] || { league: '—', country: 'NEU', color: '#5A626E' };
+ 
++/* Identity of the underlying transfer (not the feed record id): the backend
++   classifies each new tweet/article as its own record, so a transfer that
++   progresses from 'talks' to 'done' can arrive under a brand-new id. Merging
++   by feed id alone would leave the stale 'talks' record and the new 'done'
++   record both in state, showing the same transfer in two columns at once. */
++const transferKey = (t) => (t.player || '').trim().toLowerCase() + '|' + t.kind;
++
+ /* --- inline SVG national flags (reliable cross-platform rendering) --- */
+ const FLAG_SVG = {
+   ENG: (
+@@ -669,9 +676,11 @@ export default function App() {
+       if (!res.ok) throw new Error('Feed error ' + res.status);
+       const data = await res.json();
+       if (Array.isArray(data.transfers)) {
+-        const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+-        data.transfers.forEach((t) => map.set(t.id, t));
+-        setTransfers([...map.values()]);
++        setTransfers((prev) => {
++          const map = new Map(prev.map((t) => [transferKey(t), t]));
++          data.transfers.forEach((t) => map.set(transferKey(t), t));
++          return [...map.values()];
++        });
+       }
+       if (Array.isArray(data.stories)) {
+         const map = new Map(SEED_STORIES.map((s) => [s.id, s]));

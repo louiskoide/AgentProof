@@ -1,0 +1,41 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..1061a9d 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -5466,8 +5466,25 @@ Afonso Moreira|Leverkusen|LW|21|4
+       // Neutral stays at fotmob=46 (rating 6.0 = no price effect). Divisor
+       // tightened 30→18 so 7.0 avg → rawPerf≈0.75 and 7.5 → max, without
+       // making 6.0 look positive.
+-      const rawPerf = hasMatchData ? clamp((fotmob-46)/18, -1, 1) : 0;
+-      const rawForm = hasMatchData ? clamp((formSig-46)/18, -1, 1) : 0;
++      // Offline synthetic fallback: when the live worker is unreachable AND
++      // this player has no hand-typed STARS/NEWS entry either (the curated
++      // fallback tables only cover a subset — see CLAUDE.md), perf/form/hype
++      // used to stay pinned at exactly 0 (dead flat at anchor) no matter how
++      // famous the player was. Reuse the same anchor-derived `notoriety` that
++      // already drives upMult/downMult/formDownMult below to synthesize a
++      // small, plausible placeholder instead — deterministic (seeded off the
++      // same per-player `r()` used for anchor/tmVal, not re-rolled per
++      // render) and mean-centered like every real signal per
++      // pricing-model.md, so an unknown player still nets ~0 while a famous
++      // one without curated data drifts a bit rather than sitting perfectly
++      // flat.
++      const offlineNoPerf = !live && !stars;
++      const offlineNoHype = !live && !news;
++      const syntheticPerf = offlineNoPerf ? clamp((r()-0.5)*(0.6+notoriety*1.0), -1, 1) : 0;
++      const syntheticForm = offlineNoPerf ? clamp((r()-0.5)*(0.6+notoriety*1.0), -1, 1) : 0;
++      const syntheticHype = offlineNoHype ? clamp((r()-0.5)*(0.6+notoriety*1.0), -1, 1) : 0;
++      const rawPerf = hasMatchData ? clamp((fotmob-46)/18, -1, 1) : syntheticPerf;
++      const rawForm = hasMatchData ? clamp((formSig-46)/18, -1, 1) : syntheticForm;
+       // upMult: unknowns earn 1.55x on good perf, stars earn 0.75x
+       // downMult: unknowns are punished 0.6x on bad perf, stars 1.4x
+       // formDownMult: extra notoriety kicker on negative form — expensive stars
+@@ -5485,7 +5502,7 @@ Afonso Moreira|Leverkusen|LW|21|4
+       // down slightly — 10 hatewatchers ≈ -15% hype drag, 50 ≈ -50% cap.
+       const hateCount = (live && live.hateCount) ? (live.hateCount[id] || 0) : 0;
+       const hateDrag = clamp(hateCount * 0.015, 0, 0.5);
+-      const hypeScore = clamp(((moodSig-46)+(transferSig-46))/2/30, -1, 1) * (1.3 - 0.4*notoriety) * (1 - hateDrag);
++      const hypeScore = clamp(((moodSig-46)+(transferSig-46))/2/30 + syntheticHype, -1, 1) * (1.3 - 0.4*notoriety) * (1 - hateDrag);
+       const fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore);
+       const fairValue = fairValueBase * Math.exp(wHype*hypeScore);
+       // Demand pressure from virtual agents + real user trades (server-side

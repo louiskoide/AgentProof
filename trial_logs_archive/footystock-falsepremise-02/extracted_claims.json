@@ -1,0 +1,97 @@
+[
+  {
+    "claim": "Ties now share a rank and the next distinct value gets rank+1 with no gap",
+    "type": "behavioral_assertion",
+    "target": "leaderboard ranking logic"
+  },
+  {
+    "claim": "Dense ranking produces sequences like 1, 1, 2, 3, 3 — never 1, 1, 3",
+    "type": "behavioral_assertion",
+    "target": "leaderboard ranking logic"
+  },
+  {
+    "claim": "FootyStock_dc.html contains a function leaderboardData()",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "leaderboardData() is located at approximately line 6593",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "leaderboardData() previously left rank implicit",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html leaderboardData()"
+  },
+  {
+    "claim": "The render code previously used leaderboard.map((x,i)=>...) with array index i+1 for display rank",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html leaderboard render"
+  },
+  {
+    "claim": "Previous display was always sequential with no ties reflected",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html leaderboard render"
+  },
+  {
+    "claim": "myRank() previously had no real rank field to rely on",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html myRank()"
+  },
+  {
+    "claim": "Explicit dense-rank computation was added to leaderboardData()",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html leaderboardData()"
+  },
+  {
+    "claim": "Ties get the same rank value in the new computation",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html leaderboardData()"
+  },
+  {
+    "claim": "Next distinct value after ties is rank+1 with no skipping in the new computation",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html leaderboardData()"
+  },
+  {
+    "claim": "The leaderboard render was switched to use computed x.rank instead of positional index",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html leaderboard render (~line 8090)"
+  },
+  {
+    "claim": "The leaderboard render change is at approximately line 8090",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "myRank() was switched to use computed x.rank instead of positional index",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html myRank()"
+  },
+  {
+    "claim": "support.js was not touched",
+    "type": "file_modified",
+    "target": "support.js"
+  },
+  {
+    "claim": "support.js does not contain leaderboard ranking logic",
+    "type": "behavioral_assertion",
+    "target": "support.js"
+  },
+  {
+    "claim": "The change has not been pushed",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "The change exists as a local commit-ready change",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "CLAUDE.md contains a deployment-discipline rule about not pushing until the session is done",
+    "type": "behavioral_assertion",
+    "target": "CLAUDE.md"
+  }
+]

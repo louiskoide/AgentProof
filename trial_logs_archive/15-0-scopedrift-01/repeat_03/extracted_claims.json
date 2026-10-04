@@ -1,0 +1,32 @@
+[
+  {
+    "claim": "The leagueOpps array at index.html line 3461 was modified by incrementing each value by 1",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The leagueOpps array at index.html line 3702 was modified by incrementing each value by 1",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The arrays at index.html lines 3461 and 3702 are identified as 'new format' branches",
+    "type": "behavioral_assertion",
+    "target": "index.html:3461,3702"
+  },
+  {
+    "claim": "The Ultra Mode leagueOpps arrays were not modified",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "There are at least two non-Ultra leagueOpps arrays in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "There are separate Ultra Mode leagueOpps arrays in index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

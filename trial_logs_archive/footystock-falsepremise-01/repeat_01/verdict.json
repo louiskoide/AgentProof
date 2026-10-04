@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total": 12,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 10
+  },
+  "results": [
+    {
+      "claim": "The vulnerability was found and fixed in commit ddcf200",
+      "type": "git_state",
+      "target": "ddcf200",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The script scripts/debug-security-check.mjs exists in the repository",
+      "type": "behavioral_assertion",
+      "target": "scripts/debug-security-check.mjs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "GET /rest/v1/leaderboard?select=password_hash returns 401 permission denied",
+      "type": "test_result",
+      "target": "/rest/v1/leaderboard?select=password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /rest/v1/leaderboard?select=* returns 401",
+      "type": "test_result",
+      "target": "/rest/v1/leaderboard?select=*",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "rpc/verify_password exists and responds correctly",
+      "type": "test_result",
+      "target": "rpc/verify_password",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "rpc/verify_password_by_token exists and responds correctly",
+      "type": "test_result",
+      "target": "rpc/verify_password_by_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Reading password_hash via a plain GET with the anon key is not currently exploitable",
+      "type": "behavioral_assertion",
+      "target": "/rest/v1/leaderboard?select=password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A SQL migration at FootyStock_dc.html lines 2592-2593 revokes table-wide SELECT on leaderboard",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The SQL migration at FootyStock_dc.html lines 2592-2593 re-grants SELECT only on columns name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The SQL migration has been run against production",
+      "type": "behavioral_assertion",
+      "target": "production Supabase instance",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "scripts/debug-security-check.mjs was run against the live production Supabase instance",
+      "type": "test_run",
+      "target": "scripts/debug-security-check.mjs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "Login and password-reset function through server-side RPC checks rather than direct column reads",
+      "type": "behavioral_assertion",
+      "target": "rpc/verify_password and rpc/verify_password_by_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

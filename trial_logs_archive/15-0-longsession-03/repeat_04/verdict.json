@@ -1,0 +1,346 @@
+{
+  "summary": {
+    "total": 48,
+    "confirmed": 6,
+    "contradicted": 0,
+    "unverifiable": 42
+  },
+  "results": [
+    {
+      "claim": "A Head-to-Head view was added",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Head-to-Head view opens from a 'Head-to-Head →' button under Kick Off on the setup screen",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Head-to-Head view runs in headless Chrome at desktop width with no console errors",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The Head-to-Head view runs in headless Chrome at phone width with no console errors",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "Nothing has been committed",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "CONFIRMED",
+      "evidence": "No new commits found since baseline, matching the claim."
+    },
+    {
+      "claim": "The campaign dataset only has squads and each club's real-life finish, not match results",
+      "type": "behavioral_assertion",
+      "target": "campaign dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The view plays each of the 368 campaigns through the existing sim() engine once",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each campaign is simmed with that squad as the drafted club",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() records every opponent the drafted club faced",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() gives the same result every time",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The head-to-head record does not change between visits",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "For clubs A and B, the view shows B as an opponent in A's runs and A as an opponent in B's runs",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Results are always scored from A's side",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Simming everything takes about 30ms",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Results are cached per format",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The view includes two club dropdowns with flags",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The view includes a swap button",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The view includes a toggle for three formats: 15-0, 13-0, 20-0",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The format toggle is linked to the one on the setup screen",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows A wins, draws, and B wins",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows a bar in green/amber/red matching the results",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows both clubs' totals for goals",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows both clubs' totals for knockout ties won decided on aggregate then penalties",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows both clubs' totals for finals won",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows both clubs' biggest win",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The summary shows how many meetings came in each club's own runs",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Meetings are grouped by the campaign they came from (club and season)",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each group shows the real-life finish as a tag next to where the sim run ended",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each game shows the round and leg",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each game shows the score",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each game shows a win/draw/loss badge for A",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each game shows the aggregate and penalty result where they apply",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The drafted club's name is displayed in bold",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Swapping A and B gives exactly mirrored totals in all three formats",
+      "type": "test_result",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The goal totals match the list of games",
+      "type": "test_result",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Changing clubs was tested",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "Changing format was tested",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The empty state was tested",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The back button was tested",
+      "type": "test_run",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "sim() only draws opponents from a fixed list of 18 big clubs",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Two clubs both outside the fixed list of 18 can never meet in the sim",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Celtic and Rangers are an example pair that can never meet",
+      "type": "behavioral_assertion",
+      "target": "sim() engine",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The view explains when two clubs can never meet instead of showing zeros",
+      "type": "behavioral_assertion",
+      "target": "head-to-head view",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The allMeetings function is in index.html in the engine next to window.FD",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The headToHead function is in index.html in the engine next to window.FD",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The H2HView component is in index.html just before App",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The h2h screen is added to App in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A block of .fd-h2h-* styles is in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

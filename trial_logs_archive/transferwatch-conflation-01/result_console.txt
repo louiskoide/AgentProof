@@ -1,0 +1,26 @@
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+MISSING: Bastoni — claimed but NOT found on disk
+MISSING: entry — claimed but NOT found on disk
+MISSING: CAT — claimed but NOT found on disk
+MISSING: João — claimed but NOT found on disk
+MISSING: Pedro — claimed but NOT found on disk
+MISSING: entry — claimed but NOT found on disk
+MISSING: blocked — claimed but NOT found on disk
+MISSING: column — claimed but NOT found on disk
+MISSING: subtitle — claimed but NOT found on disk
+MISSING: board — claimed but NOT found on disk
+MISSING: responsive — claimed but NOT found on disk
+MISSING: grid — claimed but NOT found on disk
+MISSING: cols — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

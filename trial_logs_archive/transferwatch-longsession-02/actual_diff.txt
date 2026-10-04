@@ -1,0 +1,225 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..f00501c 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -1,5 +1,5 @@
+ import { useState, useEffect, useMemo, useRef } from 'react';
+-import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake } from 'lucide-react';
++import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake, Link2 } from 'lucide-react';
+ 
+ /* ============================================================================
+    THE TRANSFER DESK — Summer 2026 window tracker (Europe's top 5 leagues)
+@@ -27,10 +27,18 @@ const REFRESH_CONFIG = {
+        updatedAt: "2026-05-29T12:00:00Z",
+        transfers: [ { id, kind:'player'|'manager', player, position, from, to, fee,
+                       category:'interest'|'talks'|'done', stage:1-5|null, stageNote,
+-                      sources:[..], date, breaking:bool, blocked:bool, note, leagues:[..] } ],
++                      sources:[..], date, breaking:bool, blocked:bool, note, leagues:[..],
++                      chainId, chainLabel, chainNext } ],
+        stories:   [ { id, club, league, country, color, position, blurb,
+-                      candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ]
+-     } */
++                      candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ],
++       chains:    [ { id, title, blurb, transferIds:[..] } ]
++     }
++     A "chain" links transfers that are causally connected (e.g. a sale funds a bid,
++     and that departure forces a third club to find a replacement). Any transfer can
++     carry a chainId pointing at a chains[] entry; chainLabel is the short role tag
++     shown on its card ("SELLS" / "TARGET" / "REPLACEMENT") and chainNext is the
++     connector text shown between it and the following leg. Chained transfers render
++     together as one connected sequence instead of as separate pipeline cards. */
+ };
+ 
+ const STAGE_LABELS = ['Initial contact', 'Bid submitted', 'Personal terms agreed', 'Fee agreed', 'Medical / sealed'];
+@@ -152,6 +160,16 @@ const SEED_TRANSFERS = [
+     stage: 4, stageNote: 'Agreement in principle reached at ~€45m — awaiting formalities and the window opening.',
+     sources: ['Sky Sports'], date: 'Late May 2026', breaking: false,
+     leagues: ['Premier League', 'La Liga'],
++    chainId: 'chain-atletico-domino', chainLabel: 'The target',
++    chainNext: 'Losing Gomes leaves Wolves short in midfield →',
++  },
++  {
++    id: 'c-wolves-cm', kind: 'player', player: 'Wolves CM search', position: 'CM / DM',
++    from: 'Multiple clubs', to: 'Wolves', fee: 'TBD', category: 'interest',
++    sources: ['Transfer Desk analysis'], date: 'Projected', breaking: false,
++    note: 'Speculative — not yet reported. If João Gomes leaves for Atlético, Wolves are projected to need a like-for-like No. 6 replacement.',
++    leagues: ['Premier League'],
++    chainId: 'chain-atletico-domino', chainLabel: 'The replacement',
+   },
+   {
+     id: 't-senesi', kind: 'player', player: 'Marcos Senesi', position: 'CB',
+@@ -183,6 +201,8 @@ const SEED_TRANSFERS = [
+     sources: ['ESPN', 'Mundo Deportivo'], date: 'Late May 2026', breaking: true,
+     note: 'The window\u2019s marquee battle. Atlético signed him from Man City for ~€75m in 2024.',
+     leagues: ['La Liga'],
++    chainId: 'chain-atletico-domino', chainLabel: 'Sells to fund',
++    chainNext: 'Álvarez fee bankrolls a bid for João Gomes →',
+   },
+   {
+     id: 't-vlahovic', kind: 'player', player: 'Dušan Vlahović', position: 'ST',
+@@ -390,6 +410,16 @@ const SEED_STORIES = [
+   },
+ ];
+ 
++/* ---- chains: transfers that are causally linked, rendered as one sequence ---- */
++const SEED_CHAINS = [
++  {
++    id: 'chain-atletico-domino',
++    title: 'The Atlético Domino',
++    blurb: 'Atlético cash in on Álvarez to fund a move for João Gomes — which then leaves Wolves needing a midfield replacement of their own.',
++    transferIds: ['t-alvarez', 't-joaogomes', 'c-wolves-cm'],
++  },
++];
++
+ /* ============================ STYLES ============================ */
+ const CSS = `
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@@ -453,6 +483,31 @@ const CSS = `
+ .td-lg:hover{border-color:var(--ink-soft);}
+ .td-lg.active{background:var(--ink); color:#fff; border-color:var(--ink);}
+ 
++/* chains */
++.td-chains{display:flex; flex-direction:column; gap:14px; margin-bottom:24px;}
++.td-chains-label{display:flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft);}
++.td-chain{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:16px 18px 18px; animation:rise .5s cubic-bezier(.2,.7,.3,1) both;}
++.td-chain-head{margin-bottom:14px;}
++.td-chain-title{font-family:var(--font-display); font-size:19px; text-transform:uppercase; letter-spacing:.01em;}
++.td-chain-blurb{font-size:12.5px; line-height:1.5; color:var(--ink-soft); margin-top:4px; max-width:680px;}
++.td-chain-seq{display:flex; align-items:stretch; gap:0; flex-wrap:wrap;}
++.td-chain-leg{flex:1 1 200px; min-width:190px; background:var(--bg); border:1px solid var(--line); border-left:3px solid var(--cat); border-radius:12px; padding:12px 13px 11px;}
++.td-chain-role{font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cat); margin-bottom:6px;}
++.td-chain-pos{font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:3px;}
++.td-chain-name{font-family:var(--font-display); font-size:17px; line-height:1.05; margin-bottom:6px;}
++.td-chain-move{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--ink); flex-wrap:wrap;}
++.td-chain-fee{font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); margin-top:7px;}
++.td-chain-fee b{color:var(--ink); font-weight:600;}
++.td-chain-cat{display:inline-block; font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--cat); margin-top:7px;}
++.td-chain-link{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; padding:0 12px; min-width:120px; text-align:center;}
++.td-chain-link svg{color:var(--ink-faint); flex-shrink:0;}
++.td-chain-link span{font-family:var(--font-mono); font-size:9.5px; color:var(--ink-soft); line-height:1.3;}
++@media(max-width:700px){
++  .td-chain-seq{flex-direction:column;}
++  .td-chain-link{flex-direction:row; min-width:0; padding:8px 0;}
++  .td-chain-link svg{transform:rotate(90deg);}
++}
++
+ /* pipeline board */
+ .td-board{display:grid; grid-template-columns:1fr; gap:18px;}
+ @media(min-width:880px){.td-board{grid-template-columns:repeat(3,1fr);}}
+@@ -611,6 +666,56 @@ function TransferCard({ t, idx }) {
+   );
+ }
+ 
++function ChainLeg({ t }) {
++  const cat = CAT[t.category];
++  const fromM = metaOf(t.from), toM = metaOf(t.to);
++  const isMgr = t.kind === 'manager';
++  return (
++    <div className="td-chain-leg" style={{ '--cat': cat.color }}>
++      {t.chainLabel && <div className="td-chain-role">{t.chainLabel}</div>}
++      <div className="td-chain-pos">{t.position}</div>
++      <div className="td-chain-name">{t.player}</div>
++      <div className="td-chain-move">
++        {!isMgr && (
++          <>
++            <span className="td-club"><Flag c={fromM.country} />{t.from}</span>
++            <ArrowRight size={13} className="td-arrow" />
++          </>
++        )}
++        <span className="td-club"><Flag c={toM.country} />{t.to}</span>
++      </div>
++      {t.fee && <div className="td-chain-fee">Fee · <b>{t.fee}</b></div>}
++      <div className="td-chain-cat">{cat.title}</div>
++    </div>
++  );
++}
++
++function ChainCard({ chain, transfersById, idx }) {
++  const legs = chain.transferIds.map((id) => transfersById.get(id)).filter(Boolean);
++  if (legs.length < 2) return null;
++  return (
++    <div className="td-chain" style={{ animationDelay: idx * 60 + 'ms' }}>
++      <div className="td-chain-head">
++        <div className="td-chain-title">{chain.title}</div>
++        <p className="td-chain-blurb">{chain.blurb}</p>
++      </div>
++      <div className="td-chain-seq">
++        {legs.map((t, i) => (
++          <div key={t.id} style={{ display: 'contents' }}>
++            <ChainLeg t={t} />
++            {i < legs.length - 1 && (
++              <div className="td-chain-link">
++                <ArrowRight size={16} />
++                {t.chainNext && <span>{t.chainNext}</span>}
++              </div>
++            )}
++          </div>
++        ))}
++      </div>
++    </div>
++  );
++}
++
+ function StoryCard({ s, idx }) {
+   return (
+     <div className="td-story" style={{ '--cc': s.color, animationDelay: idx * 55 + 'ms' }}>
+@@ -648,6 +753,7 @@ export default function App() {
+   const [query, setQuery] = useState('');
+   const [transfers, setTransfers] = useState(SEED_TRANSFERS);
+   const [stories, setStories] = useState(SEED_STORIES);
++  const [chains, setChains] = useState(SEED_CHAINS);
+   const [mode, setMode] = useState('curated'); // curated | live | offline
+   const [updatedAt, setUpdatedAt] = useState(new Date());
+   const [loading, setLoading] = useState(false);
+@@ -678,6 +784,11 @@ export default function App() {
+         data.stories.forEach((s) => map.set(s.id, s));
+         setStories([...map.values()]);
+       }
++      if (Array.isArray(data.chains)) {
++        const map = new Map(SEED_CHAINS.map((c) => [c.id, c]));
++        data.chains.forEach((c) => map.set(c.id, c));
++        setChains([...map.values()]);
++      }
+       setMode('live');
+       setUpdatedAt(data.updatedAt ? new Date(data.updatedAt) : new Date());
+     } catch (e) {
+@@ -727,8 +838,22 @@ export default function App() {
+     return hay.includes(q);
+   }), [stories, league, q]);
+ 
++  /* ---- chains: transfers linked into a connected sequence render together, not as separate cards ---- */
++  const transfersById = useMemo(() => new Map(transfers.map((t) => [t.id, t])), [transfers]);
++  const chainedIds = useMemo(() => new Set(chains.flatMap((c) => c.transferIds)), [chains]);
++
++  const filteredChains = useMemo(() => chains.filter((c) => {
++    const legs = c.transferIds.map((id) => transfersById.get(id)).filter(Boolean);
++    if (legs.length < 2) return false;
++    if (!legs.some((t) => matchLeague(t.leagues))) return false;
++    if (!q) return true;
++    const hay = [c.title, c.blurb, ...legs.flatMap((t) => [t.player, t.from, t.to, t.position, ...(t.sources || [])])]
++      .filter(Boolean).join(' ').toLowerCase();
++    return hay.includes(q);
++  }), [chains, transfersById, league, q]);
++
+   const cols = ['interest', 'talks', 'done'];
+-  const byCol = (c) => filteredTransfers.filter((t) => t.category === c);
++  const byCol = (c) => filteredTransfers.filter((t) => t.category === c && !chainedIds.has(t.id));
+   const timeStr = updatedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+   const tickerItems = transfers.filter((t) => t.breaking || t.category === 'done' || t.stage >= 4).slice(0, 9);
+   const LEAGUES = ['All', 'Premier League', 'La Liga', 'Serie A', 'Bundesliga', 'Ligue 1'];
+@@ -802,6 +927,15 @@ export default function App() {
+         </div>
+ 
+         {/* TRANSFERS */}
++        {tab === 'transfers' && filteredChains.length > 0 && (
++          <div className="td-chains">
++            <div className="td-chains-label"><Link2 size={12} />Linked moves</div>
++            {filteredChains.map((c, i) => (
++              <ChainCard key={c.id} chain={c} transfersById={transfersById} idx={i} />
++            ))}
++          </div>
++        )}
++
+         {tab === 'transfers' && (
+           <div className="td-board">
+             {cols.map((c) => {

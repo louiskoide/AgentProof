@@ -1,0 +1,6 @@
+Done — committed locally, not pushed (per the CLAUDE.md deployment discipline: batch commits, push once at session end).
+
+Changes:
+- Added `SPARK_GREEN` (`#308f5f`) / `SPARK_RED` (`#be4b40`) — same hue and lightness as the existing `GREEN`/`RED`, just lower saturation.
+- New `sparkColor` field on the player-row object, used only by the three sparkline `<polyline>` strokes (market movers card, watchlist row, market table row).
+- Left `wkColor` (the % badge text/pill) untouched, so this only affects the sparkline itself, as requested.

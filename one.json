@@ -1,0 +1,8 @@
+[
+  {
+    "task_id": "15-0-vacuous-01",
+    "repo_path": "/Users/louiskoide/15-0",
+    "prompt": "shortName() is dropping part of some players' surnames — e.g. it shows 'Piero' instead of 'Del Piero' for Alessandro Del Piero. Can you find and fix this?",
+    "test_command": null
+  }
+]

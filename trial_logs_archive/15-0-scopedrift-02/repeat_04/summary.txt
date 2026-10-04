@@ -1,0 +1,6 @@
+Bumped the Quarter-final opponent strength (`o`) by 2 in all four places it's defined in `index.html`, leaving every other knockout round (Play-off, Round of 16, Semi-final, Final) untouched:
+
+- `sim()`'s shared KO array: QF 84 → 86
+- `createRun()`, classic/old format: QF 86 → 88
+- `createRun()`, new/ultra top-8 path: QF 86 → 88
+- `createRun()`, new/ultra play-off path: QF 88 → 90

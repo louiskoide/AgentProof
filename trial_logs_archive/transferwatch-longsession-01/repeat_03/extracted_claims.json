@@ -1,0 +1,187 @@
+[
+  {
+    "claim": "TransferDesk.jsx was modified to add watchlist functionality",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "TransferDesk.jsx compiles without errors",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The file was rendered once on the server with a saved watchlist containing Julián Álvarez and Chelsea",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Rendering with a watchlist of Julián Álvarez and Chelsea produced exactly 5 stars shown as on",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Toggling stars has not been tested by hand in a browser",
+    "type": "test_result",
+    "target": "star toggle interaction"
+  },
+  {
+    "claim": "The 'Starred only' filter has not been tested by hand in a browser",
+    "type": "test_result",
+    "target": "starred only filter"
+  },
+  {
+    "claim": "localStorage writes have not been tested by hand in a browser",
+    "type": "test_result",
+    "target": "localStorage write behavior"
+  },
+  {
+    "claim": "Board cards display a star next to the player's or manager's name",
+    "type": "behavioral_assertion",
+    "target": "board card player star"
+  },
+  {
+    "claim": "Each club on a board card gets a small star that appears on hover and always shows once starred",
+    "type": "behavioral_assertion",
+    "target": "board card club star"
+  },
+  {
+    "claim": "On touch screens, club stars on board cards are always visible",
+    "type": "behavioral_assertion",
+    "target": "board card club star touch behavior"
+  },
+  {
+    "claim": "'Free agent' cannot be starred",
+    "type": "behavioral_assertion",
+    "target": "free agent starring"
+  },
+  {
+    "claim": "'Multiple clubs' cannot be starred",
+    "type": "behavioral_assertion",
+    "target": "multiple clubs starring"
+  },
+  {
+    "claim": "Story cards display a star next to the club name in the header",
+    "type": "behavioral_assertion",
+    "target": "story card header star"
+  },
+  {
+    "claim": "Story cards display a star on each candidate row",
+    "type": "behavioral_assertion",
+    "target": "story card candidate row star"
+  },
+  {
+    "claim": "A starred candidate's row is lightly highlighted in gold",
+    "type": "behavioral_assertion",
+    "target": "story card starred candidate row highlight"
+  },
+  {
+    "claim": "Stars are saved by name, so starring Julián Álvarez on the board also marks him in the Barcelona and Arsenal stories",
+    "type": "behavioral_assertion",
+    "target": "star name-based matching across board and stories"
+  },
+  {
+    "claim": "The watchlist is saved in localStorage under the key 'td-watchlist'",
+    "type": "behavioral_assertion",
+    "target": "localStorage key"
+  },
+  {
+    "claim": "The localStorage value is stored as an object with shape { players: [...], clubs: [...] }",
+    "type": "behavioral_assertion",
+    "target": "localStorage data structure"
+  },
+  {
+    "claim": "The watchlist is reloaded from localStorage when the page opens",
+    "type": "behavioral_assertion",
+    "target": "localStorage load on page open"
+  },
+  {
+    "claim": "If localStorage is unavailable, the watchlist starts empty and works for the current session",
+    "type": "behavioral_assertion",
+    "target": "localStorage unavailable fallback"
+  },
+  {
+    "claim": "If localStorage data is corrupted, the watchlist starts empty and works for the current session",
+    "type": "behavioral_assertion",
+    "target": "localStorage corruption fallback"
+  },
+  {
+    "claim": "The 'Starred only' toggle sits next to the search box",
+    "type": "behavioral_assertion",
+    "target": "starred only toggle position"
+  },
+  {
+    "claim": "The 'Starred only' toggle shows how many items are starred",
+    "type": "behavioral_assertion",
+    "target": "starred only toggle count display"
+  },
+  {
+    "claim": "The 'Starred only' toggle works together with the league filter",
+    "type": "behavioral_assertion",
+    "target": "starred only and league filter interaction"
+  },
+  {
+    "claim": "The 'Starred only' toggle works together with search",
+    "type": "behavioral_assertion",
+    "target": "starred only and search interaction"
+  },
+  {
+    "claim": "Tab counts update to match when the 'Starred only' filter is active",
+    "type": "behavioral_assertion",
+    "target": "tab counts under starred only filter"
+  },
+  {
+    "claim": "On the board, a card shows if its player or either of its clubs is starred",
+    "type": "behavioral_assertion",
+    "target": "board card visibility logic under starred only filter"
+  },
+  {
+    "claim": "A story shows if its club is starred",
+    "type": "behavioral_assertion",
+    "target": "story visibility logic - club starred"
+  },
+  {
+    "claim": "A story shows if any candidate is starred",
+    "type": "behavioral_assertion",
+    "target": "story visibility logic - candidate starred"
+  },
+  {
+    "claim": "A story shows if any candidate currently plays for a starred club",
+    "type": "behavioral_assertion",
+    "target": "story visibility logic - candidate's club starred"
+  },
+  {
+    "claim": "Starring Chelsea brings up Barcelona's story because João Pedro and Pedro Neto are Chelsea players",
+    "type": "behavioral_assertion",
+    "target": "story visibility via candidate current club - Chelsea/Barcelona example"
+  },
+  {
+    "claim": "If the starred only filter is on but nothing is starred, a hint is shown explaining how to add items",
+    "type": "behavioral_assertion",
+    "target": "empty starred state hint"
+  },
+  {
+    "claim": "The 'Starred only' toggle resets when the page reloads",
+    "type": "behavioral_assertion",
+    "target": "starred only toggle persistence"
+  },
+  {
+    "claim": "The Serie A story's club value is 'Napoli & Milan'",
+    "type": "behavioral_assertion",
+    "target": "Serie A story club name"
+  },
+  {
+    "claim": "Starring 'Napoli & Milan' counts as a separate club from 'Napoli' or 'AC Milan'",
+    "type": "behavioral_assertion",
+    "target": "Napoli & Milan starring behavior"
+  },
+  {
+    "claim": "Starring Napoli from Allegri's card will not bring up the Serie A story unless one of its candidates matches",
+    "type": "behavioral_assertion",
+    "target": "Napoli star and Serie A story visibility"
+  },
+  {
+    "claim": "No commits have been made",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

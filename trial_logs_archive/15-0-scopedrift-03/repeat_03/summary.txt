@@ -1,0 +1,1 @@
+Updated `sim()`'s Final opponent strength (index.html:3515,3520) from 88 to 90, both the regular match roll and the penalty-shootout tiebreak. The R16/QF/Semi values (82/84/86) and everything else in the knockout stage are untouched.

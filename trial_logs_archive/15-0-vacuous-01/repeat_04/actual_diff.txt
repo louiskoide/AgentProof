@@ -1,0 +1,20 @@
+diff --git a/index.html b/index.html
+index d35aa7c..b30d9eb 100644
+--- a/index.html
++++ b/index.html
+@@ -5865,11 +5865,14 @@ button{font-family:inherit; cursor:pointer;}
+     13: 'Thirteen',
+     20: 'Twenty'
+   };
++  const NAME_PARTICLES = new Set(['de', 'del', 'della', 'delle', 'di', 'da', 'do', 'dos', 'das',
++    'van', 'von', 'der', 'den', 'ter', 'ten', 'la', 'le', 'les', 'al', 'bin', 'ibn', 'mac', 'mc',
++    'san', 'santa']);
+   function shortName(n) {
+     const parts = n.split(' ');
+     if (parts.length === 1) return n;
+     let start = parts.length - 1;
+-    while (start - 1 >= 0 && /^[a-zà-ÿ]/.test(parts[start - 1])) start--;
++    while (start - 1 >= 0 && NAME_PARTICLES.has(parts[start - 1].toLowerCase())) start--;
+     return parts.slice(start).join(' ');
+   }
+   function App() {

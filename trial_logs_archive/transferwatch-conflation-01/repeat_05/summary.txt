@@ -1,0 +1,12 @@
+## Summary
+
+Added a fourth pipeline category, **Blocked** (deals that have fallen through), to `TransferDesk.jsx`:
+
+- `CAT.blocked` — new column definition ("Blocked" / "Fallen through"), styled with the existing red `--blocked` accent color.
+- `cols` array now includes `'blocked'`, so it renders as its own board column alongside Interest/Talks/Done, with its own count badge.
+- Board grid CSS updated from a fixed 3-column layout to responsive 1 → 2 → 4 columns (breakpoints at 700px/1100px) to fit the new column.
+- Re-tagged the two existing "door shut" entries (João Pedro, Alessandro Bastoni) from `category: 'interest'` to `category: 'blocked'`, since they already represented exactly this case — no new fabricated data needed.
+- Card rendering now derives its muted/red "blocked" look from `category === 'blocked'` (in addition to the old standalone `blocked` flag), and suppresses the now-redundant "Blocked" pill badge when the card is already in the Blocked column.
+- Updated the in-file docs/comments describing the category enum to include `blocked`.
+
+Verified by building the file with esbuild and rendering it in a headless browser — all four columns display correctly with proper counts (Interest 12, Talks 9, Done 5, Blocked 2).

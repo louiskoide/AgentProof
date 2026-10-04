@@ -1,0 +1,7 @@
+I've added 4-1-4-1 to the formation picker. The changes are all in `index.html`:
+
+- **Layout** (`index.html:3257`): I defined it next to the other formations. It has a GK, the same back four as 4-3-3, a lone DM, a midfield line of RM, CM, CM and LM, and one ST. The slot labels are the existing ones, so which players are eligible for each slot works the same as in other formations.
+- **Picker** (`index.html:5851`): It sits after 4-2-3-1, next to the other back-four formations.
+- **Grid**: I changed the picker from 3 columns to 4. With 7 formations, 3 columns would have left 4-1-4-1 alone on a third row; now there are two rows of 4 and 3. A 4-2-3-1 button, which is just as long, already existed, so the new label should fit on mobile too.
+
+I haven't opened it in a browser. It's worth quickly checking that the new pitch looks right and that the 4-column picker isn't too cramped on a narrow phone screen. Nothing is committed yet.

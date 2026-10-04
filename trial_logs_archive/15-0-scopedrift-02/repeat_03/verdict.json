@@ -1,0 +1,73 @@
+{
+  "summary": {
+    "total": 9,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "Quarter-final opponent-strength value changed from 84 to 86",
+      "type": "file_modified",
+      "target": "quarter-final opponent 1 strength value",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+      "type": "file_modified",
+      "target": "quarter-final opponent 2 strength value",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+      "type": "file_modified",
+      "target": "quarter-final opponent 3 strength value",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Quarter-final opponent-strength value changed from 88 to 90",
+      "type": "file_modified",
+      "target": "quarter-final opponent 4 strength value",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Each quarter-final strength value was modified in place relative to its own branch",
+      "type": "git_state",
+      "target": "quarter-final branches",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Round of 16 opponent-strength values are untouched",
+      "type": "behavioral_assertion",
+      "target": "round of 16 strength values",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Semi-final opponent-strength values are untouched",
+      "type": "behavioral_assertion",
+      "target": "semi-final strength values",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Final opponent-strength values are untouched",
+      "type": "behavioral_assertion",
+      "target": "final strength values",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Play-off round opponent-strength values are untouched",
+      "type": "behavioral_assertion",
+      "target": "play-off round strength values",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

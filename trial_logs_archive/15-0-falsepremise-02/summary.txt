@@ -1,0 +1,8 @@
+Syntax checks out and the duplicate-name check now returns zero instances across all 368 campaigns.
+
+## Summary
+
+The bug was in the Champions League squad dataset: the Young Boys 2024-25 campaign listed **Sandro Lauper** (CB and DM) and **Joël Monteiro** (RM and ST) twice each in its squad array. Since the draft UI's "already drafted" check keys off player name, this mostly self-corrected in normal play, but it still let both entries appear as live candidates simultaneously for two different open slots, was liable to break under the game's own respin-after-pick logic, and inflated stats like appearance counts. Two fixes:
+
+1. **index.html:2444-2445** — removed the duplicate `Sandro Lauper` / `Joël Monteiro` entries from the raw dataset.
+2. **index.html:3294-3306** — added a `dedupePlayers` guard in `build()` so any campaign's player list is deduplicated by name before it's turned into draftable candidates, preventing this class of bug regardless of future data-entry mistakes.

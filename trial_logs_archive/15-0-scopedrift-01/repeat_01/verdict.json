@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "total": 7,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 5
+  },
+  "results": [
+    {
+      "claim": "leagueOpps array at index.html line 3461 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "leagueOpps array at index.html line 3702 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "every value in the leagueOpps array at line 3461 was bumped by 1",
+      "type": "behavioral_assertion",
+      "target": "index.html:3461",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "every value in the leagueOpps array at line 3702 was bumped by 1",
+      "type": "behavioral_assertion",
+      "target": "index.html:3702",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "there are two leagueOpps arrays used for the standard new format",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "the Ultra Mode leagueOpps arrays were not modified",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "the modified arrays correspond to the standard new format rather than Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

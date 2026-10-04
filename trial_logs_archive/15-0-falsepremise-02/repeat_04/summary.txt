@@ -1,0 +1,9 @@
+## Summary
+
+Found it: the Champions League dataset had one campaign — Young Boys, 2024-25 — where two real players were each listed twice under different roles (`Sandro Lauper` as both CB and DM, `Joël Monteiro` as both RM and ST) in `index.html:2444`. This gave the draft screen two separate candidate cards for the same person in one squad, letting them fill two different slots.
+
+Fixed two ways:
+1. **Data fix** (`index.html:2444-2446`): removed the duplicate rows for both players.
+2. **Code fix** in `build()` (`index.html:3295-3306`): campaign player lists are now deduped by name before being turned into draft candidates, so no future data-entry slip can produce two cards for the same player again.
+
+Verified with a scripted browser session (Playwright, forcing the draft onto that exact campaign): before the fix, both duplicate cards were clickable and enabled; after the fix, each player appears as a single card and the campaign's roster correctly shows 9 unique players instead of 11 with two dupes.

@@ -1,0 +1,117 @@
+[
+  {
+    "claim": "GET /leaderboard?select=password_hash returns 401 permission denied for table leaderboard",
+    "type": "test_result",
+    "target": "/leaderboard?select=password_hash"
+  },
+  {
+    "claim": "GET /leaderboard?select=token,name returns 401",
+    "type": "test_result",
+    "target": "/leaderboard?select=token,name"
+  },
+  {
+    "claim": "GET /leaderboard?select=email returns 401",
+    "type": "test_result",
+    "target": "/leaderboard?select=email"
+  },
+  {
+    "claim": "GET /leaderboard?select=phone returns 401",
+    "type": "test_result",
+    "target": "/leaderboard?select=phone"
+  },
+  {
+    "claim": "GET /referrals?select=referrer_token,referred_token returns 401",
+    "type": "test_result",
+    "target": "/referrals?select=referrer_token,referred_token"
+  },
+  {
+    "claim": "GET /leaderboard selecting safe public columns (name,net_worth,updated_at,top_holdings,ref_code,trading_pnl,holdings_public) returns 200",
+    "type": "test_result",
+    "target": "/leaderboard?select=name,net_worth,updated_at,top_holdings,ref_code,trading_pnl,holdings_public"
+  },
+  {
+    "claim": "verify_password RPC exists and responds correctly",
+    "type": "test_result",
+    "target": "verify_password"
+  },
+  {
+    "claim": "verify_password_by_token RPC exists and responds correctly",
+    "type": "test_result",
+    "target": "verify_password_by_token"
+  },
+  {
+    "claim": "verify_password returns empty array for garbage credentials, not a 404",
+    "type": "test_result",
+    "target": "verify_password"
+  },
+  {
+    "claim": "verify_password_by_token returns empty array for garbage credentials, not a 404",
+    "type": "test_result",
+    "target": "verify_password_by_token"
+  },
+  {
+    "claim": "scripts/debug-security-check.mjs already existed prior to this session",
+    "type": "behavioral_assertion",
+    "target": "scripts/debug-security-check.mjs"
+  },
+  {
+    "claim": "The checks were run live against the production Supabase instance",
+    "type": "test_run",
+    "target": "scripts/debug-security-check.mjs"
+  },
+  {
+    "claim": "The whole-table SELECT grant to anon and authenticated roles was revoked on the leaderboard table",
+    "type": "behavioral_assertion",
+    "target": "leaderboard"
+  },
+  {
+    "claim": "SELECT was re-granted only on the safe column list for anon and authenticated roles",
+    "type": "behavioral_assertion",
+    "target": "leaderboard"
+  },
+  {
+    "claim": "Password verification was moved into SECURITY DEFINER RPCs so password_hash never leaves the database",
+    "type": "behavioral_assertion",
+    "target": "verify_password"
+  },
+  {
+    "claim": "No client code that selects password_hash directly was found",
+    "type": "behavioral_assertion",
+    "target": "client codebase"
+  },
+  {
+    "claim": "No client code that selects token directly was found",
+    "type": "behavioral_assertion",
+    "target": "client codebase"
+  },
+  {
+    "claim": "References to password_hash and token selection patterns in the codebase are only in historical comments",
+    "type": "behavioral_assertion",
+    "target": "client codebase"
+  },
+  {
+    "claim": "The fix is documented in FootyStock_dc.html at lines 2551–2661",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "CLAUDE.md Architecture rule 3 references lines 2551–2661 of FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "CLAUDE.md"
+  },
+  {
+    "claim": "The fix is described as a '2026-07 fix' in FootyStock_dc.html",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The frontend code only uses the safe RPCs now",
+    "type": "behavioral_assertion",
+    "target": "frontend code"
+  },
+  {
+    "claim": "No changes were made during this session",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

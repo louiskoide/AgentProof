@@ -1,0 +1,97 @@
+[
+  {
+    "claim": "A full end-to-end Playwright test was run against the live app",
+    "type": "test_run",
+    "target": "live app"
+  },
+  {
+    "claim": "Ultra Mode was selected during the test",
+    "type": "test_run",
+    "target": "Ultra Mode selection"
+  },
+  {
+    "claim": "An XI was drafted during the test",
+    "type": "test_run",
+    "target": "draft screen"
+  },
+  {
+    "claim": "The live simulation was clicked through: league-phase matches → standings gate → knockout bracket → play-off → final verdict",
+    "type": "test_run",
+    "target": "simulation flow"
+  },
+  {
+    "claim": "The mode badge displayed 'ULTRA · 20-0' throughout the run",
+    "type": "test_result",
+    "target": "mode badge"
+  },
+  {
+    "claim": "Exactly 13 games were played out one-by-one in the league-phase live matches before the reveal moves to knockouts",
+    "type": "test_result",
+    "target": "league-phase match count"
+  },
+  {
+    "claim": "League-phase matches used groupN=13 for Ultra mode",
+    "type": "behavioral_assertion",
+    "target": "league-phase groupN parameter"
+  },
+  {
+    "claim": "The standings gate showed 'League Phase — Play-off places (9–24)'",
+    "type": "test_result",
+    "target": "standings gate label"
+  },
+  {
+    "claim": "All rows in the standings gate showed 13 games played",
+    "type": "test_result",
+    "target": "standings gate rows"
+  },
+  {
+    "claim": "Points in the standings gate were scaled to the 16–24 threshold band used for Ultra",
+    "type": "test_result",
+    "target": "standings gate points threshold"
+  },
+  {
+    "claim": "The knockout bracket rendered correctly and proceeded as expected",
+    "type": "test_result",
+    "target": "knockout bracket"
+  },
+  {
+    "claim": "The final verdict card displayed 'Final Verdict · 20-Match European Run'",
+    "type": "test_result",
+    "target": "final verdict card"
+  },
+  {
+    "claim": "The final verdict card showed the correct played count",
+    "type": "test_result",
+    "target": "final verdict played count"
+  },
+  {
+    "claim": "No console errors occurred at any point during the test",
+    "type": "test_result",
+    "target": "browser console"
+  },
+  {
+    "claim": "No page errors occurred at any point during the test",
+    "type": "test_result",
+    "target": "page errors"
+  },
+  {
+    "claim": "No defect was found in the interactive draft-and-simulate screen",
+    "type": "test_result",
+    "target": "interactive draft-and-simulate screen"
+  },
+  {
+    "claim": "The interactive draft-and-simulate screen correctly carries Ultra Mode's 20-game target through every stage",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode 20-game target propagation"
+  },
+  {
+    "claim": "The behavior is consistent with createRun()'s isUltra branch added in the prior commit",
+    "type": "git_state",
+    "target": "createRun() isUltra branch"
+  },
+  {
+    "claim": "No code changes were needed",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

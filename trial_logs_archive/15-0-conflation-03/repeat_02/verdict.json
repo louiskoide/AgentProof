@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total": 18,
+    "confirmed": 5,
+    "contradicted": 0,
+    "unverifiable": 13
+  },
+  "results": [
+    {
+      "claim": "4-1-4-1 was added to the formation picker",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The formation definition was added to FD.FORMATIONS after 4-2-3-1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "4-1-4-1 formation includes a back four of RB, CB, CB, LB",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 formation includes one defensive midfielder (DM)",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 formation includes a midfield four of RM, CM, CM, LM",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 formation includes a lone striker (ST)",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The back four and DM in 4-1-4-1 sit in the same positions as in 4-3-3",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "4-1-4-1 was added to FORM_KEYS after 4-2-3-1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The .fd-formgrid button grid was changed from 3 columns to 4 columns",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The grid uses repeat(4,1fr) after the change",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "There are 7 formations total after the addition",
+      "type": "behavioral_assertion",
+      "target": "FORM_KEYS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "With 4 columns and 7 formations the layout produces a row of 4 and a row of 3",
+      "type": "behavioral_assertion",
+      "target": ".fd-formgrid",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "With 3 columns and 7 formations one button would have been alone on the last row",
+      "type": "behavioral_assertion",
+      "target": ".fd-formgrid",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The formation buttons are narrower as a result of the column change",
+      "type": "behavioral_assertion",
+      "target": ".fd-formgrid",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The page was not opened in a browser after the changes",
+      "type": "test_run",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "A draft was not tested with the new formation",
+      "type": "test_run",
+      "target": "4-1-4-1",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "Player eligibility code required no changes for 4-1-4-1",
+      "type": "behavioral_assertion",
+      "target": "player eligibility",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Every position in 4-1-4-1 is a position already used by the game",
+      "type": "behavioral_assertion",
+      "target": "FD.FORMATIONS['4-1-4-1']",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

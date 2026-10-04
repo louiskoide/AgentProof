@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "Changes were committed locally",
+    "type": "git_state",
+    "target": "local repository"
+  },
+  {
+    "claim": "Changes were not pushed to remote",
+    "type": "git_state",
+    "target": "remote repository"
+  },
+  {
+    "claim": "CLAUDE.md specifies deployment discipline of batching commits and pushing once at session end",
+    "type": "behavioral_assertion",
+    "target": "CLAUDE.md"
+  },
+  {
+    "claim": "SPARK_GREEN color value is #308f5f",
+    "type": "file_modified",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED color value is #be4b40",
+    "type": "file_modified",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "SPARK_GREEN has the same hue and lightness as the existing GREEN",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED has the same hue and lightness as the existing RED",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "SPARK_GREEN has lower saturation than the existing GREEN",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED has lower saturation than the existing RED",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "A new sparkColor field was added to the player-row object",
+    "type": "file_modified",
+    "target": "player-row object"
+  },
+  {
+    "claim": "sparkColor is used by the sparkline polyline stroke in the market movers card",
+    "type": "behavioral_assertion",
+    "target": "market movers card"
+  },
+  {
+    "claim": "sparkColor is used by the sparkline polyline stroke in the watchlist row",
+    "type": "behavioral_assertion",
+    "target": "watchlist row"
+  },
+  {
+    "claim": "sparkColor is used by the sparkline polyline stroke in the market table row",
+    "type": "behavioral_assertion",
+    "target": "market table row"
+  },
+  {
+    "claim": "wkColor field was left untouched",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "wkColor controls the percentage badge text and pill styling",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "The sparkColor change affects only the sparkline itself and not the percentage badge",
+    "type": "behavioral_assertion",
+    "target": "sparkColor"
+  }
+]

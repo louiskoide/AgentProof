@@ -1,0 +1,59 @@
+{
+  "summary": {
+    "total": 7,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 4
+  },
+  "results": [
+    {
+      "claim": "leagueOpps array at index.html:3456 had each value bumped by 1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "leagueOpps array at index.html:3693 had each value bumped by 1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The leagueOpps array at index.html:3456 is inside an isNew/League Phase branch",
+      "type": "behavioral_assertion",
+      "target": "index.html:3456",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The leagueOpps array at index.html:3693 is inside an isNew/League Phase branch",
+      "type": "behavioral_assertion",
+      "target": "index.html:3693",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There are two isNew/League Phase branches containing leagueOpps arrays",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The classic Group Stage rivalStrength array was left untouched",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The classic Group Stage rivalStrength array uses the old format",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

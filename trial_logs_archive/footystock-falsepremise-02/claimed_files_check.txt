@@ -1,0 +1,11 @@
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: leaderboard — claimed but NOT found on disk
+MISSING: render — claimed but NOT found on disk
+MISSING: (~line — claimed but NOT found on disk
+MISSING: 8090) — claimed but NOT found on disk
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: leaderboardData() — claimed but NOT found on disk
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: myRank() — claimed but NOT found on disk
+EXISTS: support.js (gitignored: no, modified: Jul  3 13:01:06 2026)

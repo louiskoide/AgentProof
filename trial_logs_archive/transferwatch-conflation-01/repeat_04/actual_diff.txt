@@ -1,0 +1,66 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..a5164f7 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -10,7 +10,7 @@ import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newsp
+ 
+    AUTO-REFRESH (Option B): the app polls a backend that ingests new tweets/
+    articles from whitelisted reputable sources, classifies each into
+-   interest | talks | done, and returns JSON. Set REFRESH_CONFIG.endpoint to your
++   interest | talks | done | blocked, and returns JSON. Set REFRESH_CONFIG.endpoint to your
+    deployed backend URL to flip from CURATED to LIVE. (X/Twitter ingestion must
+    run server-side — its API is paid and can't be called from the browser — so
+    the live feed activates only once a backend is deployed. Until then the
+@@ -26,7 +26,7 @@ const REFRESH_CONFIG = {
+      {
+        updatedAt: "2026-05-29T12:00:00Z",
+        transfers: [ { id, kind:'player'|'manager', player, position, from, to, fee,
+-                      category:'interest'|'talks'|'done', stage:1-5|null, stageNote,
++                      category:'interest'|'talks'|'done'|'blocked', stage:1-5|null, stageNote,
+                       sources:[..], date, breaking:bool, blocked:bool, note, leagues:[..] } ],
+        stories:   [ { id, club, league, country, color, position, blurb,
+                       candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ]
+@@ -287,14 +287,14 @@ const SEED_TRANSFERS = [
+   },
+   {
+     id: 'i-joaopedro', kind: 'player', player: 'João Pedro', position: 'Forward',
+-    from: 'Chelsea', to: 'Barcelona', fee: 'N/A', category: 'interest', blocked: true,
++    from: 'Chelsea', to: 'Barcelona', fee: 'N/A', category: 'blocked', blocked: true,
+     sources: ['Fabrizio Romano'], date: 'May 2026', breaking: false,
+     note: 'Chelsea have told Barcelona he is "untouchable" — door shut.',
+     leagues: ['Premier League', 'La Liga'],
+   },
+   {
+     id: 'i-bastoni', kind: 'player', player: 'Alessandro Bastoni', position: 'CB',
+-    from: 'Inter', to: 'Barcelona', fee: 'N/A', category: 'interest', blocked: true,
++    from: 'Inter', to: 'Barcelona', fee: 'N/A', category: 'blocked', blocked: true,
+     sources: ['Gianluca Di Marzio'], date: 'May 2026', breaking: false,
+     note: 'Reportedly Barça\u2019s "dream" centre-back (Bayern also keen) — but Inter\u2019s Marotta insists "we\u2019re not a selling club."',
+     leagues: ['Serie A', 'La Liga'],
+@@ -455,7 +455,8 @@ const CSS = `
+ 
+ /* pipeline board */
+ .td-board{display:grid; grid-template-columns:1fr; gap:18px;}
+-@media(min-width:880px){.td-board{grid-template-columns:repeat(3,1fr);}}
++@media(min-width:640px){.td-board{grid-template-columns:repeat(2,1fr);}}
++@media(min-width:1180px){.td-board{grid-template-columns:repeat(4,1fr);}}
+ .td-col-head{display:flex; align-items:center; gap:10px; padding:0 2px 12px;}
+ .td-col-mark{width:10px; height:10px; border-radius:3px;}
+ .td-col-title{font-family:var(--font-display); font-size:17px; text-transform:uppercase; letter-spacing:.02em;}
+@@ -547,6 +548,7 @@ const CAT = {
+   interest: { color: 'var(--interest)', title: 'Interest', sub: 'Linked · nothing concrete' },
+   talks: { color: 'var(--talks)', title: 'In Talks', sub: 'Direct negotiations' },
+   done: { color: 'var(--done)', title: 'Done & Confirmed', sub: 'Agreed / sealed' },
++  blocked: { color: 'var(--blocked)', title: 'Blocked', sub: 'Deal fell through' },
+ };
+ 
+ function StageMeter({ stage, note }) {
+@@ -727,7 +729,7 @@ export default function App() {
+     return hay.includes(q);
+   }), [stories, league, q]);
+ 
+-  const cols = ['interest', 'talks', 'done'];
++  const cols = ['interest', 'talks', 'done', 'blocked'];
+   const byCol = (c) => filteredTransfers.filter((t) => t.category === c);
+   const timeStr = updatedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+   const tickerItems = transfers.filter((t) => t.breaking || t.category === 'done' || t.stage >= 4).slice(0, 9);

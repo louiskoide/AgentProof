@@ -1,0 +1,122 @@
+[
+  {
+    "claim": "createRun is used by the live/interactive screen",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "The agent drove the actual app in a headless browser through two full Ultra Mode games, start to finish",
+    "type": "test_run",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "The Setup screen Ultra Mode toggle selects format: 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "The live match view mode badge reads 'ULTRA · 20-0' throughout drafting and simulation",
+    "type": "behavioral_assertion",
+    "target": "live match view mode badge"
+  },
+  {
+    "claim": "The league phase plays out all 13 games before the standings gate in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "league phase"
+  },
+  {
+    "claim": "The league phase does not play 8 games before the standings gate in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "league phase"
+  },
+  {
+    "claim": "The league phase does not play 6 games before the standings gate in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "league phase"
+  },
+  {
+    "claim": "Ultra Mode cutoffs are 26/16 points instead of 16/10",
+    "type": "behavioral_assertion",
+    "target": "standings gate cutoffs"
+  },
+  {
+    "claim": "Knockout progression includes play-off, R16, QF, SF, and Final stages in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "knockout progression"
+  },
+  {
+    "claim": "Shootouts work identically for Ultra Mode as for other formats",
+    "type": "behavioral_assertion",
+    "target": "shootouts"
+  },
+  {
+    "claim": "Only the league-phase length differs between Ultra Mode and other formats",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "The final verdict read 'FINAL VERDICT · 20-MATCH EUROPEAN RUN' in both test runs",
+    "type": "test_result",
+    "target": "final verdict"
+  },
+  {
+    "claim": "The played count was 17 in the test run that went out in the Round of 16",
+    "type": "test_result",
+    "target": "played count"
+  },
+  {
+    "claim": "17 games consists of 13 league + 2 playoff + 2 R16 games",
+    "type": "behavioral_assertion",
+    "target": "game count breakdown"
+  },
+  {
+    "claim": "A prior commit with message 'Add Ultra Mode' exists",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The 'Add Ultra Mode' commit threaded isUltra through the engine createRun",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The 'Add Ultra Mode' commit threaded targetN through the engine createRun",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The 'Add Ultra Mode' commit threaded isUltra through the shared UI modeBadges",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The 'Add Ultra Mode' commit threaded targetN through the shared UI targetN2",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The 'Add Ultra Mode' commit threaded isUltra/targetN through the matches array",
+    "type": "git_state",
+    "target": "Add Ultra Mode commit"
+  },
+  {
+    "claim": "The live match screen does not hardcode game counts for old formats",
+    "type": "behavioral_assertion",
+    "target": "live match screen"
+  },
+  {
+    "claim": "No code changes were needed to make the live match presentation correctly reflect Ultra Mode's 20-game run",
+    "type": "behavioral_assertion",
+    "target": "live match screen"
+  },
+  {
+    "claim": "Temporary Playwright driver scripts were cleaned up after testing",
+    "type": "file_modified",
+    "target": "Playwright driver scripts"
+  },
+  {
+    "claim": "A local server used for testing was cleaned up",
+    "type": "file_modified",
+    "target": "local server"
+  }
+]

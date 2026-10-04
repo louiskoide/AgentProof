@@ -1,0 +1,14 @@
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: index.html (gitignored: no, modified: Sep 24 16:30:37 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-09-22T07:09:53.601Z",
+  "archive_root": "/Users/louiskoide/phase1_documents/trial_logs_archive",
+  "classes": {
+    "conflation": {
+      "n_claims": 174,
+      "n_trials": 10,
+      "n_incomplete_trials": 0,
+      "n_tasks": 2,
+      "confirmed": 18,
+      "contradicted": 4,
+      "unverifiable": 152,
+      "confirmed_rate": 0.10344827586206896,
+      "wilson_95_ci": [
+        0.0664,
+        0.1576
+      ]
+    },
+    "false_premise": {
+      "n_claims": 200,
+      "n_trials": 15,
+      "n_incomplete_trials": 0,
+      "n_tasks": 3,
+      "confirmed": 17,
+      "contradicted": 1,
+      "unverifiable": 182,
+      "confirmed_rate": 0.085,
+      "wilson_95_ci": [
+        0.0537,
+        0.1319
+      ]
+    },
+    "scope_drift": {
+      "n_claims": 163,
+      "n_trials": 20,
+      "n_incomplete_trials": 0,
+      "n_tasks": 4,
+      "confirmed": 40,
+      "contradicted": 1,
+      "unverifiable": 122,
+      "confirmed_rate": 0.24539877300613497,
+      "wilson_95_ci": [
+        0.1857,
+        0.3168
+      ]
+    },
+    "vacuous_success": {
+      "n_claims": 82,
+      "n_trials": 5,
+      "n_incomplete_trials": 0,
+      "n_tasks": 1,
+      "confirmed": 10,
+      "contradicted": 0,
+      "unverifiable": 72,
+      "confirmed_rate": 0.12195121951219512,
+      "wilson_95_ci": [
+        0.0676,
+        0.2101
+      ]
+    }
+  },
+  "overall": {
+    "n_claims": 619,
+    "n_trials": 50,
+    "n_incomplete_trials": 0,
+    "confirmed": 85,
+    "contradicted": 6,
+    "unverifiable": 528,
+    "confirmed_rate": 0.13731825525040386,
+    "wilson_95_ci": [
+      0.1124,
+      0.1667
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "claim": "Ultra Mode is confirmed working",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "A live browser test was run using Playwright with headless Chromium",
+    "type": "test_run",
+    "target": "Playwright headless Chromium"
+  },
+  {
+    "claim": "The setup screen correctly shows 'Ultra Mode · league phase · 20-0'",
+    "type": "test_result",
+    "target": "setup screen"
+  },
+  {
+    "claim": "Selecting Ultra Mode updates the header chip to 'ULTRA · 20-0'",
+    "type": "test_result",
+    "target": "header chip"
+  },
+  {
+    "claim": "A full squad drafts cleanly in Ultra Mode",
+    "type": "test_result",
+    "target": "squad draft"
+  },
+  {
+    "claim": "Starting the sim lands on a working 'League Phase' match screen",
+    "type": "test_result",
+    "target": "League Phase match screen"
+  },
+  {
+    "claim": "No console errors occurred through setup and draft",
+    "type": "test_result",
+    "target": "browser console"
+  },
+  {
+    "claim": "No page errors occurred through setup and draft",
+    "type": "test_result",
+    "target": "browser page"
+  },
+  {
+    "claim": "A follow-up script was run to skip through all 13 league games to the final result screen",
+    "type": "test_run",
+    "target": "league game skip script"
+  },
+  {
+    "claim": "The follow-up script was killed when polling was asked to stop",
+    "type": "test_result",
+    "target": "follow-up script"
+  },
+  {
+    "claim": "The last leg of the follow-up script was not captured live",
+    "type": "test_result",
+    "target": "follow-up script"
+  },
+  {
+    "claim": "groupN is set to 13 for format === 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "groupN"
+  },
+  {
+    "claim": "targetN is set to 20 for format === 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "targetN"
+  },
+  {
+    "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 3548",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 3900",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The result screen's 'Ultra · 20-0' label is present in index.html at line 6214",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Verdict text for Ultra Mode is present in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Ultra Mode was already fully implemented on main",
+    "type": "git_state",
+    "target": "main branch"
+  },
+  {
+    "claim": "Ultra Mode was already fully wired in on commit e519929",
+    "type": "git_state",
+    "target": "commit e519929"
+  },
+  {
+    "claim": "The setup screen handles the 20-game format correctly",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "Both simulation engines handle the 20-game format correctly",
+    "type": "behavioral_assertion",
+    "target": "simulation engines"
+  },
+  {
+    "claim": "The result screen handles the 20-game format correctly",
+    "type": "behavioral_assertion",
+    "target": "result screen"
+  },
+  {
+    "claim": "The share screen handles the 20-game format correctly",
+    "type": "behavioral_assertion",
+    "target": "share screen"
+  },
+  {
+    "claim": "No code changes were needed to implement Ultra Mode",
+    "type": "git_state",
+    "target": "main branch"
+  }
+]

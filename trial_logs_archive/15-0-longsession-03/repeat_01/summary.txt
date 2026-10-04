@@ -1,0 +1,19 @@
+I haven't written any code yet. The feature as described depends on data the app doesn't have, so I need you to choose a direction first.
+
+**What's actually in the app:**
+
+- **The campaign dataset has no match results.** Each of the 368 entries is only `club, season, run` (how far the club got, e.g. `'Round of 16'`) plus a list of players and ratings. It never records who a club played or what the score was, so there's no real history of meetings to search.
+- **There's no single "drafted club."** Your XI takes one player from each spin, so a squad mixes players from up to 11 different club-seasons. The run is labelled internally by pool and formation, not by a club.
+- **Opponents are random and nothing is saved.** `sim()` and `createRun()` draw opponents at random from fixed lists (`OPP_POOL`, `TABLE_CLUBS`, etc.). The only thing kept between sessions is your best result (`fd_best`); individual matches are thrown away.
+
+So "every time two clubs met across the dataset" has nothing to search yet.
+
+**Ways this could work:**
+
+1. **Add real historical head-to-heads (not recommended).** This would mean writing actual CL results (dates, scores, rounds) for every pairing across 1992–2026, thousands of matches. I'd be writing that from memory, so there's a real risk of wrong scorelines, and nothing in the repo could check them.
+2. **Head-to-head from your own runs (recommended).** Save each completed run's matches in the browser. Credit a club when you draft one of its players (per match, weighted by or listed with those players), and count its games when it's the random opponent. Then a "Head to Head" screen lets you pick two clubs and see W/D/L, goals and a list of meetings. Everything shown comes from games you actually played in the app.
+3. **Simulated head-to-heads from the dataset.** Pick two clubs, and the app plays their dataset squads against each other (every season pairing, or a chosen one) using the existing match engine, then shows the results. It makes nothing up, but the results are simulated, not history.
+
+I'd go with option 2, and could add option 3's "simulate this matchup" button on the same screen if you'd like. For option 2 I also need you to pick how a drafted club counts: **(a)** it counts as having played if **any** of its players were in your XI, or **(b)** only the club with the most players in your XI counts.
+
+Which option do you want?

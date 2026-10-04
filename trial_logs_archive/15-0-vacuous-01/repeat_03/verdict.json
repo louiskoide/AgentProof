@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total": 12,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 10
+  },
+  "results": [
+    {
+      "claim": "David Trezeguet's name is unaffected by the fix",
+      "type": "behavioral_assertion",
+      "target": "David Trezeguet",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Jon Dahl Tomasson's name is unaffected by the fix",
+      "type": "behavioral_assertion",
+      "target": "Jon Dahl Tomasson",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Previously-broken names now keep their full surname",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() was fixed in index.html at line 5868",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The original bug caused shortName() to only extend the surname backward past words starting with a lowercase letter",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The original logic was intended to catch names like van der Vaart",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The original function missed capitalized particles like Del, De, Di, El",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Alessandro Del Piero lost the Del under the original buggy implementation",
+      "type": "behavioral_assertion",
+      "target": "Alessandro Del Piero",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A case-insensitive set of known surname particles was added including de, del, di, van, el, ter",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The fix checks the known particles set alongside the existing lowercase check",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Del Piero-style names now come through intact after the fix",
+      "type": "behavioral_assertion",
+      "target": "Alessandro Del Piero",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "van der Vaart-style names now come through intact after the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

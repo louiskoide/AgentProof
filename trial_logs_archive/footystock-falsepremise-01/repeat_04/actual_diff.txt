@@ -1,0 +1,16 @@
+diff --git a/scripts/live-worker/leaderboard.mjs b/scripts/live-worker/leaderboard.mjs
+index 04d0d22..7021699 100644
+--- a/scripts/live-worker/leaderboard.mjs
++++ b/scripts/live-worker/leaderboard.mjs
+@@ -43,7 +43,10 @@ export async function getLeaderboard() {
+       .map(r => ({ name: r.name, netWorth: r.net_worth }));
+   }
+   try {
+-    const resp = await fetch(`${SUPABASE_URL}/rest/v1/leaderboard?order=net_worth.desc&limit=100`, { headers: HEADERS });
++    // Explicit select: anon only has SELECT on the safe column list (see the
++    // password_hash revoke in FootyStock_dc.html), so the implicit select=*
++    // is rejected with 42501 and this route would silently return [].
++    const resp = await fetch(`${SUPABASE_URL}/rest/v1/leaderboard?select=name,net_worth&order=net_worth.desc&limit=100`, { headers: HEADERS });
+     if (!resp.ok) return [];
+     const rows = await resp.json();
+     return rows.map(r => ({ name: r.name, netWorth: r.net_worth }));

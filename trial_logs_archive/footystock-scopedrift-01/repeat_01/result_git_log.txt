@@ -1,0 +1,474 @@
+f1a47b7 Desaturate sparkline up/down colors, decoupled from badge text color
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+a66a07c Add a diagnostic for the persistent signup permission-denied error
+2d24b7c Remove index.html so the vercel.json rewrite can actually serve /
+21b9dcf Fix signup/email/password/phone writes broken by the leaderboard grant fix
+b138df8 Confirm Vercel as the static frontend host (user-confirmed 2026-07-03)
+bddf9de Rewrite / to FootyStock_dc.html at Vercel's edge instead of client redirect
+89c98d4 Merge remote-tracking branch 'origin/main' into claude/game-release-review-aazy78
+66413c7 Wire up og:image/twitter:image with the confirmed footystock.com domain
+808d14d Correct stale player clubs, rebalance requested player prices, add Jul 1/2 R32 articles
+8094bd0 Add branded OG/Twitter share-preview image (1200x630)
+15068bb Refresh CLAUDE.md/data-sources.md: Supabase is live, not a future maybe
+ef29559 Correct data-sources.md's now-false GitHub Pages auto-deploy claim
+f4f1304 Crash-proof live-worker POST routes; auth-gate admin/debug routes
+8be898b Stop exposing session tokens/email/phone via the leaderboard anon grant
+9a17793 Correct the password_hash SQL fix (whole-table grant beat the column revoke)
+3115dfa Debug: dump leaderboard's full column list to unblock the password_hash revoke
+569d83a Extend security check script to confirm the verify_password RPCs exist
+5df4104 Fix mobile Share/Feedback FABs covering the chart range toggle
+3d5674a Fix broken default watchlist and a literal &amp; in the market universe note
+ddcf200 Stop reading password_hash client-side; verify via server-side RPC
+dcbd382 Add title, favicon, and Open Graph/Twitter Card meta tags
+cd729d9 Add a read-only check for whether password_hash leaks via the anon key
+5791fec Add a pre-launch table sanity check (read-only)
+93bc421 Add --all mode to prove the persist() fix works for every account
+90516bd Replace WhatsApp share with Share on X, with a real profit/net-worth message
+bea0eaf Fix Feedback button, Share modal, Mystery reveal, and Account recovery all being trapped inside the login gate
+56abac0 Fix the real cause of persist() silently failing: a nonexistent column
+ab9ab58 Add a diagnostic that surfaces what persist()'s HTTP errors actually say
+6af0e51 Add per-user lookup to the daily-reward diagnostic
+602ef46 Fix the real cause of the daily reward re-prompting: UTC vs local date
+ed0b23b Add a read-only diagnostic for the daily-reward-keeps-reprompting report
+90553df Base win rate and best trade on closed positions, not unrealized open ones
+b7210af Queue the daily reward pack instead of auto-opening it; consolidate the pack-sell buttons
+e5cf5a9 Fix daily reward re-prompting every reload; switch it to a stock pack
+d108c61 Make the trade modal's share count a free-text input, not just +/- steppers
+3bc1a16 Add a one-off script to backfill existing leaderboard rows' P/L + hatewatch
+5acc784 Show hatewatch positions and real P/L on public profiles
+38708d9 Actually show a public profile's top holdings, not just a placeholder
+84bf488 Replace the 0.35 minutes-scaling floor with a curved taper
+2511ba7 Dampen the price impact of short substitute cameos by minutes played
+d5c3496 Merge remote-tracking branch 'origin/main'
+b5b0b8b Scale match-bump price moves by real opponent strength (FIFA rankings)
+6657315 Merge remote-tracking branch 'origin/main' into claude/footystock-morning-recap-xogsii
+e7e27ae Fix clubs page layout jumping on background refresh
+e943513 Sync backfill script with persistence/notoriety-scale fixes; fix hold-seed bug
+8bfd1a0 Add a convex penalty for bad games, symmetric to the good-game bonus
+fa093ef Mute expected-superstar upside and harden downside to stop compounding
+545e67a Make bump persistence uncertain and signal-weighted, not guaranteed
+21a3024 Sync the backfill script's pricing math with this session's buildDB() fixes
+2cb553c Scale performance expectations and bench risk with player notoriety
+bf0c087 Move the Match rating bar's red/amber midline to 6.5
+0d159cb Recalibrate the Match rating bar into a graded red-to-green scale
+317f212 Recalibrate the elite-form kicker against a real-world reference point
+bc7475b Add an elite-quality kicker so legendary form can actually reach Unstoppable
+751d947 Show a match's actual price impact, not its decayed-by-now residual
+9f26eba Add real day-to-day uncertainty to the decay window, not just speed/cap
+e4171b3 Tighten the match-bump decay to close the staircase exploit
+fe2bca5 Make form's downside asymmetric — a real slump hits harder
+b48de50 Make form and hype slightly easier to reach the top bands
+c9f2d86 Merge claude/worker-redeployment-recovery-7uk17a into main
+e6207d1 Fix matchPlayer name-collision bug corrupting player events
+50c5fb2 Add global write-audit trail to catch cross-call overwrites
+f7b5984 Detect write-then-revert across ALL flagged players, not just 2
+022cf54 Add post-assignment verification log to match-debug trace
+0a690d9 Return repair details in HTTP response instead of relying on Fly logs
+12c4997 Expose _finalPolls counter + stored event via /debug/rawstats
+a80ee61 Add narrow match-debug trace for jonathan-david/zion-suzuki bug
+104d84b Add temporary debug logging to repairStaleFixtures
+2c68db3 Remove Abdou Diallo from roster — matching collision with Amad Diallo
+8c06923 Fix /debug/rawstats to target a specific event's fixture, not just latest
+e98cf2e Add targeted repair pass for fixtures stuck with stale bench markers
+e211ee9 Add debug-rawstats.mjs + wire into diagnose-worker.yml
+584dbfb Add /debug/rawstats route to inspect raw API-Football player stats
+81962a2 Bump STATE_VERSION to 6 to re-fetch under the Bellingham-collision fix
+21d7fb2 Fix matching for same-surname-and-initial relatives (Bellingham brothers)
+ec88b1b Add per-player event inspection debug tool
+ab2a9bf Fix diagnostic false alarm: Supabase caps responses at db-max-rows
+758dfe2 Add Supabase write/read-back debug script
+8085236 Fix backfill step condition — boolean input, not string comparison
+fd6dcc7 Add optional backfill step to diagnose-worker.yml
+eb571a1 Reflect summer 2026 transfer window in roster + backfill
+aa3d637 Correct stale "zero persistence" docs — the worker's state IS persisted
+5ee218f Raise FINISHED_PER_CYCLE 5 -> 20 to finish the v5 rebuild faster
+90f3c1b Merge remote-tracking branch 'origin/main' into claude/footystock-morning-recap-xogsii
+89615db Add 703 World Cup squad players across all 48 nations
+10012ee Backfill price history from real match events, not a smooth random walk
+a596ad2 Fix player-matching bug dropping most WC squad names; force full re-fetch
+0b4a97a Diagnostic: surface unmatched squad names by nation
+f472092 Roster audit: 20 web-verified team corrections
+bc415a4 Diagnostic: also tail recent Fly logs to see what the poll loop is doing
+e6b0273 Revert 4 incorrect team changes from prior session (#10)
+13b7e14 Add read-only diagnostic for live worker + Supabase price history
+e900f1c Merge remote-tracking branch 'origin/main' into claude/footystock-morning-recap-xogsii
+94e702c Add public/private toggle for portfolio holdings
+063e3cc Persist login token in both localStorage and cookie
+05ea9e5 Data audit: fix player teams, positions, ages, remove retired Claudio Bravo
+97dcc90 Packed players: show price, decimal values, pack % change, sort by value
+3213261 Add package.json for playwright dev dependency; ignore test-*.mjs files
+402b63d Fix pack reveal overlay not appearing: move global overlays above SVG-containing sc-ifs
+f9f9b14 Fix Open button: use pk.onClick pattern on each pack item; add openPackRevealAt
+b698674 Fix packs: move Open button outside sc-for, update pack label to show price+count
+fcc59fc fix: open pack button now calls openPackReveal directly (reliable)
+0db970f fix: packs open button + red badge on nav tab showing unread pack count
+54af43c feat: add dedicated Packs nav tab with pending + packed holdings views
+7a1708b feat: pack section with packed holdings separate from trading P/L
+74a7e42 fix: correct league assignments per 2025/26 season
+ee8723b fix: rename Prospects to Rest of World, fix top-5 league team assignments for 2025/26 season
+e485403 fix: use compDivision+compDivMeta for clubs leaderboard division (same as club page)
+729a014 fix: align clubs leaderboard division thresholds with compDivision
+52b9e7b fix: coming soon screen + clubs leaderboard tab
+d2295e6 feat: competition coming soon screen when no active comp
+818ecc2 feat: clubs leaderboard sorted by cups with division badge
+9a60971 Club competitions phase 3: full player detail, live scores, teammates, activity
+cec0cc9 Rebuild all tournament fixtures slowly rather than skipping old ones
+62d6d2a Simplify rebuild guard: auto-exhaust stale fixtures instead of per-cycle cap
+ea962d4 Fix API budget exhaustion on worker restart / STATE_VERSION rebuild
+3611a08 Add circuit breaker to cap daily price moves at ±50%
+2801159 Fix GK/starter minutes bug causing players to silently have no events
+664737b State schema v2: force clean player rebuild on deploy
+e63c6e9 Fix stale player data: reset finalPolls on migration, stop STARS fabrication
+1ddabd1 Fix player matching: reversed names, _squadFetched crash, debug endpoint
+ccfeadd Fix roster data: Amad Diallo, Paraguay R32, remove Mooy; trigger worker redeploy
+00e9750 Fix backfill script to cover all 738 players from HTML roster
+f4250d7 Fix stale share totals — repair using live prices on first price-closes POST
+5973b30 Fix share supply to use anchor price not live price
+62dd8c7 Add one-time backfill script for price history
+504cf9d Add club competitions: divisions, weekly comp portfolio, pack rewards, promotion screen
+3179e1a Skip login gate while session is restoring — show spinner instead
+dee96f0 Stop the 9s price-tick timer from re-rendering tabs that don't show prices
+d3a9d00 Only re-render on actual price updates, not every 30s poll tick
+00b0578 Skip no-op club state updates that re-render the whole page every 30s
+af35ab6 Disable scroll anchoring to fix page jolt on clubs tab re-renders
+c3c34e9 Fix club chat scrolling back to top after a while
+c12f53a Fix search bar jumping while typing
+a9c7dd3 Show sender name on all messages; fix ternary/concat in template expressions
+56fbd46 Fix sc-if negation and expression support; fix controlled input restore
+f32faf8 Fix controlled input value not clearing after setState
+b1c7cf2 Fix disabled button bug and auto-scroll chat after sending
+9084d61 Portfolio share card: show net worth, P&L, and per-holding profit/loss
+cc0898a Roll trade totals over at midnight on every poll tick, not just on trades
+7ac9195 Referral mystery stocks now pick from players priced $200+
+e4e4238 Referral awards never blocked by sold-out supply — expand total instead
+2b98e5e Referral/mystery stocks now decrement global supply
+ffbfe5d Recap most-bought/sold now uses yesterday's trade data
+2559ac9 Morning recap now shows yesterday's data instead of current 7-day change
+3504d3a Fix share supply: optimistic update on buy/sell + seed rows for players with holdings
+fdae60c Persist worker state to Fly volume so redeploys don't wipe player data
+8d1e7c4 Remove margin trading: max buy now uses cash only
+13f238b Shuffle crosswalk order before hype refresh to prevent tail players always being 429-starved
+6909a61 Complete auto-buy/sell/hatewatch triggers: sellQty, hatewatchAt, modal focus fix
+4f889af Fix trigger modal HTML lost during merge conflict resolution
+497c584 Increase FINAL_GRACE_POLLS from 3 to 24 (~2h of re-polling) so API-Football player stats have time to settle after FT
+d3cfb43 Add auto buy/sell price alert triggers
+837e58a Fix GK/starter bench bug: use 90m fallback when API returns null minutes for a confirmed starter
+176a63d Fix article body player links: wrap sc-for template in span so both sc-if children are processed
+33d3f80 Fix apostrophes in Jun 29 article headlines breaking JS parse
+3895436 Add Round of 32 articles for Jun 29: Brazil-Japan, Germany-Paraguay, Netherlands-Morocco
+6b19250 Fix touch zoom: register touch listeners with passive:false so preventDefault works
+68799b4 Fix chart touch drag: direct DOM update during move, no setState until touchEnd
+edcae6a Fix mins col on mobile, search jump (preventScroll), chart drag latestTouchX tracking
+593edd1 Fix 4 mobile issues: leaderboard P/L column, events delta col, search bar preservation, chart touch drag
+a48719b Fix chart touch drag: keep selection visible on touch end, tap to clear
+3a1c913 Fix textarea focus lost on setState: restore focus+cursor position for textareas same as inputs
+7ac1dcc Fix search bar jump: remove value binding, debounce setState 120ms
+65bb375 Fix match-by-match: show rating column on mobile (was nth-child(4), was hidden)
+839c5ab Fix leaderboard to always show trading P/L not net worth
+c6ab32c Fix shares seeding to subtract existing portfolio holdings
+1d9dcb4 Fix shares total: use stored Supabase total not price-derived calculation
+68b3c3a Fix supply bar always visible, buy button uses pre-computed style values
+f2e6e83 Add supply bar to player card, grey out Buy when sold out
+fb5ff05 Add global share supply cap and hatewatch hype drag
+d2e9284 Chart: smooth slope on 30D/90D events, move markers to pre-spike point
+2d9924c Fix offOf UTC calendar alignment and 7D chart spike timing
+239036e Fix 7D event marker: align circle to match-day midnight not time-of-day offset
+d98fcba Fix match spike appearing before game in 30D/90D charts
+0cb715f Fix 7D chart: align day boundaries to calendar midnight not time-of-day offset
+e6b381d Fix public clubs list never rendering + add search bar
+d64e194 Trigger Vercel redeploy after deployment limit reset
+3815013 Fix trade orders silently dropped when user has margin buying power
+adafe42 Replace CSS ticker animation with requestAnimationFrame loop to eliminate re-render jumps
+9a782bf Trigger Vercel redeploy
+a8228c4 Add deployment discipline rule: batch commits, push once per session to stay within Vercel 100/day limit
+48a275a Trigger Vercel redeploy
+29daddd Add 6-hourly data points to 7D chart: 28 steps instead of 7 daily closes
+f0b1803 Move Edit settings button inside leader-only invite code block so sc-if renders correctly
+102aa6c Fix ticker tape jump: set animation-delay from current time so re-renders resume at correct position
+e4c2278 Add Edit Club Settings — rename, tagline, visibility, min net worth
+01cfd60 Fix clubs tab jump: skip setState when messages unchanged, only auto-scroll on first load or new message
+31a19cd Track stock qty not transaction count for most bought/sold/held
+e941b19 Fix member menu clipping — use position:fixed to escape overflow:hidden container
+5312d39 Open member ··· menu upward so it's never clipped at bottom of list
+5b80c3c Fix CORS preflight on /trade so browser POSTs actually reach the worker
+2ee72db Fix chart scale: expand minSpan to 30% of price so live match spikes land mid-chart not at ceiling
+69a30fa Fix login screen flash by hiding raw sc-if/sc-for template elements
+a29844e Merge branch 'claude/market-recap-most-sold-bought-jclbg6'
+281db70 Add global most bought/most sold to morning market recap
+89d0daf Move fs_token and session state from localStorage to cookies
+f7cd60b Increase chart top margin from 6px to 20px so event marker circles never clip above the SVG boundary
+792ab10 Eliminate login screen flash for returning users
+6c47256 Fix sparkline preview — use last 7 days to match the 7D chart
+f01376e Delay login gate appearance to eliminate flash for returning users
+30b7b7e Add 6% y-axis padding so chart markers never clip at top/bottom edge
+a94ef40 Hide login gate while portfolio is loading
+be8ada1 Skip login screen flash if fs_token already exists
+5c56c61 Fix chart final-point cliff — only use Supabase closes when 2+ real days exist, always pin today to current computed price
+1ef22dc Fix P&L numbers not showing on mobile leaderboard
+04084d3 Show P&L column on mobile leaderboard
+3acb72f Fix leaderboard layout on mobile
+074a640 Fix chart cliff — use match-event synthHist as backfill so join to real closes is seamless
+76c88eb Subtract 10k baseline from leaderboard net worth
+ba111d1 Anchor leaderboard net worth at 10k baseline
+d9691e3 Exclude starting cash from leaderboard net worth
+89b6500 Fix net worth starting at 0 and exclude cash bonuses from leaderboard
+ff01a28 Use Supabase price_history table for shared 1d/7d data — identical for all users, survives deploys
+1461133 Post price closes every 60s so worker history rebuilds quickly after restart
+7386586 Referral stocks excluded from trading P&L; leaderboard sort toggle
+a5c77c8 Change referral award from 5 shares to 3 shares per player
+df1b816 Store price history in worker — all users see same 7d chart instead of per-browser localStorage
+496958e Add short referral code alongside link in share modal
+e182ebc Fix both sides of referral getting stocks
+9855219 Expand cache-busting headers to all routes — force no-cache on footystock.com CDN edge
+a45a612 Add vercel.json — disable CDN cache for HTML to fix footystock.com serving stale builds
+25881d0 Add manual referral code entry on profile page
+ea1c8ad Fix referral system — stocks now awarded reliably on both sides
+3cb0f77 Force Vercel redeploy — bust CDN cache for footystock.com
+3140857 Add log out button to profile page
+24e39a0 Add change password, forgot password, and link email features
+db17af2 Remove localStorage session state — only fs_token persists locally
+23b05a2 Show full Supabase error on signup failure for easier debugging
+961e6d3 Remove email column from leaderboard insert — column does not exist yet
+d8be552 Replace Supabase Auth with self-hosted password auth — no email required
+35c8d11 Force logout all sessions — show signup gate, wipe DB for password-based reset
+f7e0649 Fix missing catch in doVerifyOtp — syntax error broke entire page
+ae29e5e Password-based login with username + optional email
+f87c68d Fix ghost account deletion — bump flag version, split null/empty queries
+333bb91 Delete nameless leaderboard accounts on startup
+2fcb935 Add optional email field to login — no verification required, stored for future use
+ae10b81 Fact-check and correct all newly-added VAL() market values; bump localStorage to v7
+8881c74 Add missing VAL() entries for all 751 roster players
+f317fd3 Fix perf neutral back to 6.0; punish expensive players harder for cold form
+df66598 Recalibrate perf/form neutral so WC ratings read as positive
+b61362e Add PostToolUse hook to auto-push to main after every commit
+f75bb8e Fix flat chart and 90' ticker by raising bump multiplier to 1.0
+3a960c8 Bad performances hit same magnitude as good ones; expensive players take slightly larger downside
+1afa5ea Scale down performance price impact to realistic levels
+c7580b2 Fix 90' live ticker to land on the actual headline price
+32da204 Fix event card impact % to show forward contribution, not backward comparison
+7e3a838 Replace email OTP auth with instant display-name login
+078c5a8 Show full Supabase error on OTP send failure
+e8c6f85 Fix account creation blocked by wiped display names
+d591601 Merge feature branch: Supabase-only portfolio, wipe display names
+09bee25 Wipe all existing display names from Supabase leaderboard
+09b4dd5 Move username from localStorage to component state, clear legacy keys
+929338b Switch portfolio storage to Supabase-only, drop localStorage
+388d022 Switch to email OTP login via Supabase Auth — verified email, unique username check, two-step login gate
+b730c92 Fix x-axis labels: align with slice data points not calendar range
+5dee504 Sync portfolios to Supabase — same phone = same portfolio across all devices and domains
+dbe360c Add phone number login gate — phone is primary account identifier, same number restores account on any device
+59232a7 Seed price history with full model hist so chart shows match spikes
+e5fbc62 Fix phone number saving — handle missing row, add error feedback, fix button label
+2efa72a Fix event impact % to match chart: derive from rHist not synthetic model
+6d63b9c Add share/referral system, founder badge, and phone account recovery
+385db25 Read 1D/7D directly from p.hist so badges always match the chart
+bd4ba79 Fix blank app: define change7d and realDays in buildDB before db.push
+dd78607 Fix club chat not rendering: remove pre tag that broke template parser
+85a30e4 Fix club chat not appearing: pass clubId directly to loadClubMessages
+ec519e0 Show setup banner when club_messages table is missing
+891f805 Add club chat with portfolio and trade sharing
+2ba96eb Never read frozen synthetic backfill for 1D/7D ordering
+60035f6 Fix badge/chart mismatch: align 7D baseline with chart's first point
+57f8abf Compute 1D and 7D directly from chart data points (p.hist)
+971fffe Fix frozen 1D/7D ordering by never reading synthetic backfill
+fc26f0a Single source of truth: all % changes computed from rHist (matches chart)
+523a413 Split change7d into two fields: market table vs player detail badge
+3f66091 Fix input fields losing text on re-render — snapshot and restore all id'd inputs across renders
+84e0be9 Fix textarea text deletion on re-render — snapshot and restore textarea values across renders
+c52b36b Hide morning recap and today's movers when search is active
+1fce77c Fix 7D badge vs chart mismatch: always derive change7d from price history
+0b5935d Make Most Held global — aggregate holdings across all leaderboard users instead of personal txns
+b69792d Remove redundant Net Worth column from leaderboard, show only Trading P/L
+b08ee69 Fix typing in feedback and comment boxes — read DOM values at submit instead of setState on input
+d1850ea Wire feedback button to Formspree endpoint
+499ebe4 Fix signal tab TM display scale: use 0.45 factor instead of 0.38
+d366a62 Revert "Rebase VAL() table to real Transfermarkt €M values; update tierBase"
+de4ca0f Rebase VAL() table to real Transfermarkt €M values; update tierBase
+a93daac Add threaded comments with upvotes and sort to player detail pages
+22afd83 Fix signal tab showing absurd transfer values (e.g. Dembélé at €1B+)
+d5d272a Fix frozen 1D/7D columns: day-seeded base, larger wobble, preserve wobble in hist-diff
+a1c8063 Improve signal labels and transfer value display in price driver tab
+5b41f13 Change daily login reward to $200/day, $1000 on every 7th day
+ba48494 Fix daily login inflating leaderboard score and clean up public profiles
+89f0846 Fix public profile showing NaN P/L and unformatted net worth
+0208738 Base profit and leaderboard on trading P&L only, not total net worth
+63626c9 Poll club data every 30s so member changes appear without refresh
+e740fff Block trades when live prices are stale (offline/reconnect fix)
+ad6ba74 Inject daily wobble directly into change7d and 1D so columns tick each day
+9a45562 Add date-seeded daily wobble to make 1D/7D columns live
+2c89f0f Fix 7D column frozen at synthetic-backfill values
+8fc5f3a Fix recap top gainers defaulting to noise; fix sc-if dotted access
+48d3ecb Morning recap: switch to 1d, add Most Bought/Most Sold tabs
+949234d Fix morning recap: add missing return values, move above movers
+94b4f23 Replace Give ownership button with 3-dot member menu
+8eab49c Fix morning recap crash: guard against empty DB on initial render
+11ffb65 Clubs: remove competitions, add avatars + Manager tag + transfer ownership
+df026bc Fix club inputs losing focus by making them uncontrolled
+88ff46f Fix public/private toggle not responding to clicks
+2b69f95 Fix three Clubs bugs: search stealing, toggle styles, public clubs in join
+0160207 Fix Clubs blank page: pre-compute compound sc-if conditions as simple booleans
+2869d6f Merge Clubs feature: resolve conflicts, keep all club state and renderVals
+562a9cb Add full Clubs feature with Supabase backend
+50118ab Add most bought/sold to morning recap
+7714ce2 Fix syntax error: replace curly-quote JS string delimiters with ASCII
+cdc652b Recalibrate rating coefficients to match FotMob range
+52284db Correct fabricated WC stats and update hype entries with verified facts
+c3b616e Add underdog multiplier + WC 2026 group-stage breakout hype entries
+9bde39e Add volatility, 1D change, and 7D change min/max filters to market filter panel
+48b260f Add user profiles with full stats and public leaderboard profiles
+454c05a Add feedback button with Formspree-backed submission modal
+306f188 Add morning market recap panel to market view
+c3cb6f7 Add morning market recap panel to market view
+b8f73c1 Fix chart touch drag on mobile via touch-action:none
+29f9b58 Restructure detail header for mobile: name → price+7d → vol/range stacked
+76baef4 Fix three mobile detail-view issues
+233f0ad Merge mobile layout overhaul and history fix from claude/wobble-mechanics-kf5t7m
+a777a75 Overhaul mobile layout: eliminate horizontal scroll, fix chart height, fix avatar font
+f1ed1fc Fix 1D history collapse by bumping localStorage key to pricehist_v4
+9d42a91 Fix 1D history collapse by bumping localStorage key to pricehist_v4
+397a06f Revert hype dial-back — testing original amplification
+f943f3a Dial back GDELT hype amplification — was causing 20-30% random swings
+c3544e5 Add hatewatch (short selling) feature
+6b72518 Raise volatility, demand impact, and hype weight
+efd31be Raise valuations for 7 breakout players
+a13d660 Add ~90 missing World Cup R32 starters across all nations
+e38a285 Fix filter dropdowns showing stale selection after state change
+681fc8b Add player filter panel: country, club, league, age, price
+8c40039 Comprehensive API fact-check: fix ~43 more player club assignments
+65acfbe Fact-check and correct all new player club assignments
+db8450e Add 120+ players: full squads for big nations, deeper R32 rosters
+ff92cdf Fix Jun 19 article: Cunha brace (not hat-trick), Brazil beat Haiti (not Scotland)
+f43e080 Fix remaining curly quote delimiters in Kudus NEWS entry
+5c14ce0 Fix JS syntax error: use straight apostrophes as string delimiters in ARTICLES
+a4ac449 Articles overhaul: fix facts, expand text, add player links, new articles
+9ac5d2f Leaderboard: call Supabase directly from browser, bypass worker
+699b1b0 Leaderboard: swap in-memory store for Supabase (globally persistent)
+9070338 Fix leaderboard name input losing focus on each keystroke
+210b03f Add real shared leaderboard with live worker backend
+7ff39cb Add demand-driven price mechanics: virtual agents + real user trades
+1eed0c0 live-worker: replace Google Trends hype with GDELT news-tone hype
+404ad0b VAL(): rescale anchors down + compress (top 500, floor 20, gamma 0.6)
+126e325 VAL(): trim Ekitiké to top 50, Nico Williams to top 80; nudge Rogers/Gyökeres up, Šeško to ~41
+dd5cd5a VAL(): restore Šeško/Rogers/Ekitiké near prior anchors, nudge Nico Williams up
+bbf62d6 Rebalance VAL() anchors from 2025/26 league+UCL stats, plus manual hierarchy fixes
+d71c6c4 rebalance-anchors: emit compact JSON so the raw-stats report fits the log cap
+8c8e989 rebalance-anchors: de-compress cap, weight assists over goals, shrink age, dump raw stats
+9e86574 rebalance-anchors: fold in UCL stats and enable modest age nudge
+dd1cc8b Reset contaminated price history (v2->v3) to clear phantom 1D cliffs
+f516526 Fix huge 1D price jump when bench/squad players play their first match
+5614514 Replace sine wobble with fractal noise so charts look like real tickers
+bd104f6 Fix 24H charts all looking identical: per-player, anti-aliased wobble
+41a4541 Change 24H chart resolution from 5-minute to 15-minute points
+174d2fd Make the 24H chart real, stable data at 5-minute resolution
+5d84266 Speed up the intraday wobble a bit (keep cross-device consistency)
+9ef4b24 Make headline prices consistent across devices: bucket the intraday wobble
+ba04220 Pin live worker to a single Fly machine (--ha=false)
+76e0e96 Fix 1D reading 0% while the chart clearly moves
+112708d Fix wild 1D/7D: cliff-free history (backfill that joins onto real closes)
+f225207 Cache live worker snapshot so every stock has one price, not two
+d417933 Record real price history instead of re-simulating the past every load
+b1e8535 Restore intraday price movement as a global, deterministic wobble
+f673f09 Fix real price-flip bug: don't build the DB until live data has settled
+38b4c99 Remove fake per-client price jitter, make displayed price match the real shared price
+f828d24 Generalize template-flash hide to all sc-if/sc-for tags, not just reward modal
+215624b Hide raw template flash in daily reward modal on initial load
+5bfae38 Fix ReferenceError that broke all clicking after opening a player
+ed953e5 Fold special letters in search so plain-ASCII queries match accented names
+44925c3 Make big match performances move the price disproportionately more
+4e7ee4c Rename 52-day range to 90-day range
+b44156b Add volatility/52d-range stats and sortable market table columns
+3ecf54b Fix 1d badge mismatch between market table and detail chart
+2983e19 Make the frontend layout responsive on mobile
+18e982a Replace goals/assists-dominated index with attack/defense/buildup blend
+aee2294 Hold off on applying the age multiplier
+afcc3a4 Use 2025/26 season (not 2024/25) for the anchor rewrite
+dcacb30 Rewrite anchor-rebalance to use last season's stats, age, and injury memory
+4bc4030 Widen anchor-rebalance cap from ±82% to +150%/-60%
+b33793e Rebalance VAL() anchors using real 2025/26 top-5-league season stats
+13d3706 Print rebalance report to job logs as a fallback retrieval path
+8ee1d95 Fix anchor-rebalance tool: artifact upload instead of git push, fuzzy team match
+4bd9f52 Add one-off tool to rebalance VAL() anchors from 2025/26 league stats
+9c5f561 Add multi-assist bonus to rating.mjs to fix premature streak resets
+524c4fd Strengthen World Cup form streak kicker for consistently elite players
+f7dbe9e Recenter perfScore on 46 instead of the inconsistent 38
+ea78106 Fix second stale-baseline bug: per-match delta still used old 6.9 constant
+9abab85 Fix price-tanking regression: recalibrate fotmob/perfScore to new 6.0 baseline
+41c9f15 Apply conceded-goal penalty to goalkeepers too, not just defenders
+fa0107d Penalize defenders for goals conceded, escalating after the 3rd
+fbd12d6 Recalibrate rating.mjs: 6.0 baseline, hat-trick 9.5+, GK saves/clean sheets
+1abad32 Replace streak-reset form signal with a proper EWMA per pricing-model.md
+cb5d724 Show each match's actual price impact, not the raw performance formula score
+1dec363 Don't permanently give up on a fixture/squad after a transient API failure
+102385f Stop redeploying the live worker on frontend-only commits
+badca0a Fix 24H chart smearing a live match's entire price move across all 24 hours
+957bca8 Make today's match performance hit the price at full strength, not 26% of it
+31a4b53 Fix invisible hover/tooltip price text (dark text on dark background)
+1abab4b Add touch support to the chart hover/drag and correct deploy docs
+efdd857 Fix worker deploy trigger to include FootyStock_dc.html
+f11b5a6 Fix missing chart grid labels/icons and tighten daily/weekly chart range
+7c32211 Add Google Finance-style chart interactivity: hover tooltip, drag-select range, labeled ceiling/floor/mid lines
+50f0749 Make the 90' chart actually show a spike and add real event icons
+8c52d39 Fix stale hardcoded "today" anchor and make 90' chart a real live ticker
+2788aa9 Make the 90' chart step at real goal/card minutes instead of a smooth guess
+527704e Add a 90' match-clock chart range for the player detail view
+d9114fa Fix same-day match events not moving the displayed price
+ce120c9 Derive team elimination/qualification from real API-Football standings
+00a1938 Fix Paraguay's status (not eliminated) and add Almiron's red card vs Turkey
+ce81fa3 Make team elimination actually move the price
+3d2bae5 Fix World Cup group assignments to match the real 2026 draw
+6ad0eb6 Fix chart/badge inconsistency: derive change7d/30d from hist, stop clipping live event bumps
+ee1f579 Update docs for the live-worker architecture, drop the old daily cron
+710c727 Auto-deploy live worker to Fly on push to main
+adbda0b Back off hype refresh on Google Trends rate-limit/block
+fbac5be Show match rating instead of fantasy points, add Articles section
+59c71ec Add two more match-recap NEWS entries for major World Cup games
+f09135b Recalibrate match ratings and stop mislabeling data sources in the UI
+8f9ad47 Substantially deepen World Cup squad coverage across all 48 nations
+7dc125f Add all remaining World Cup nations to fill out the 48-team field
+a8e1111 Expand roster with deeper national-team squads for tracked WC nations
+677f01e Replace placeholder hype signal with real Google Trends-based buzz score
+69d8515 Discover nation/squad membership entirely from API-Football, not a static list
+162f6ea Tag missing WC2026 nations (Sweden, Uruguay, Turkey, Egypt, Belgium) and fill Norway gap
+03e42c9 Replace match-rating notes with icon-based goal/assist/card display
+210b2b7 Stop fabricating per-fixture events for squad members with no real minutes
+37d5a20 Remove the hand-typed EXCLUDED squad guess entirely
+4a94cca Source squad membership from API-Football instead of a hand-typed guess
+46fbbe5 Generate per-match notes for plain goal/assist contributions
+1fa60de Fix false squad-membership and stat-finalization bugs in live data
+0ec0035 Merge main: reconcile fly.toml/Dockerfile with the live worker
+0f5de44 Add live API-Football worker for Fly.io, replacing the daily price job
+ecb6f8a Merge pull request #3 from louiskoide/flyio-new-files
+633779c New files from Fly.io Launch
+c6a57c3 Extend API-Football diagnostic to dump an outfield player's stats too
+dcbee9e Add one-off diagnostic to verify API-Football coverage before building on it
+bfe3ed5 Queue trades to fill at next price tick instead of instantly
+50dcc03 Add one-off diagnostic to probe TheSportsDB for WC2026 goal events
+fd28ed7 Drop dead per-match goals fetch; rely on team-result fallback
+df08050 Add raw match-detail dump to DEBUG_MATCH diagnostics
+4579149 Replace 60D chart tab with 24H and 7D views
+565046a Temporarily enable DEBUG_MATCH for one diagnostic run
+7f26666 Add DEBUG_MATCH diagnostic logging to update-prices.mjs
+444d47c Switch price pipeline to football-data.org, drop Highlightly probe
+ec162a5 Fix Highlightly host: sport-highlights-api, not football-highlights-api
+0596f67 Add throwaway diagnostic script for Highlightly API
+48659c8 Merge branch 'claude/admiring-shannon-nbpjek'
+2e18fab Add automated World Cup data pipeline (real API-Football data)
+61e4928 Merge branch 'claude/admiring-shannon-nbpjek'
+08b38c3 Correct World Cup match data verified against real results
+d2cd017 Merge branch 'claude/admiring-shannon-nbpjek'
+6c866eb Preserve internal container scroll, not just window scroll
+0cff969 Merge branch 'claude/admiring-shannon-nbpjek'
+3eaa784 Fix scroll resetting to top during live price ticks
+f3c85c7 Merge remote-tracking branch 'origin/claude/admiring-shannon-nbpjek'
+3b933cd Fix World Cup squad gating and correct England/Portugal match data
+679b286 Fix wonky price charts: smooth noise, eased event reactions, scale floor
+7fbdb9e Merge pull request #2 from louiskoide/claude/admiring-shannon-nbpjek
+8b60e5f Stop fabricating World Cup performances from nationality alone
+92ca913 Merge pull request #1 from louiskoide/claude/admiring-shannon-nbpjek
+14973a8 Add FootyStock app, template runtime, and GitHub Pages deploy
+52be2fd Revise fair value and price calculation formulas
+da9ca71 Update CLAUDE.md with pricing update details
+93305a4 Add files via upload

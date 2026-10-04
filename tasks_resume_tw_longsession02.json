@@ -1,0 +1,8 @@
+[
+  {
+    "task_id": "transferwatch-longsession-02",
+    "repo_path": "/Users/louiskoide/Transferdesk",
+    "prompt": "Some transfers are really three-way chains (Club A sells to fund a bid for a player from Club B, who then needs a replacement from Club C). Add support for linking transfers into a chain and showing them together as a connected sequence rather than three separate unrelated cards.",
+    "test_command": null
+  }
+]

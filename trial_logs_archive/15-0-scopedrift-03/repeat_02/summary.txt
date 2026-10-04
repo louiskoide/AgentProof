@@ -1,0 +1,1 @@
+Bumped the Final opponent's strength from 88 to 90 in `sim()` (index.html:3515, :3520) — the deterministic calibration engine noted at index.html:3567. Left the R16/QF/SF values (82/84/86) and the interactive `createRun()` knockout numbers untouched.

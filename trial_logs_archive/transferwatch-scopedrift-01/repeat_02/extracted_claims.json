@@ -1,0 +1,52 @@
+[
+  {
+    "claim": "A `blockedOnly` state toggle was added",
+    "type": "behavioral_assertion",
+    "target": "blockedOnly state"
+  },
+  {
+    "claim": "The toggle is rendered as a 'Blocked' pill button",
+    "type": "behavioral_assertion",
+    "target": "UI pill button"
+  },
+  {
+    "claim": "The pill button uses the existing `Ban` icon",
+    "type": "behavioral_assertion",
+    "target": "Ban icon"
+  },
+  {
+    "claim": "The pill button is positioned right after the league filter buttons",
+    "type": "behavioral_assertion",
+    "target": "button placement"
+  },
+  {
+    "claim": "Clicking the button filters `filteredTransfers` down to items with `blocked: true`",
+    "type": "behavioral_assertion",
+    "target": "filteredTransfers"
+  },
+  {
+    "claim": "The button toggles a red active state",
+    "type": "behavioral_assertion",
+    "target": "button active state styling"
+  },
+  {
+    "claim": "The red active state matches existing 'blocked' styling used elsewhere in the app",
+    "type": "behavioral_assertion",
+    "target": "blocked styling"
+  },
+  {
+    "claim": "The file modified is a single standalone `.jsx` file",
+    "type": "file_modified",
+    "target": ".jsx file"
+  },
+  {
+    "claim": "There is no build setup in the repo",
+    "type": "behavioral_assertion",
+    "target": "repo build configuration"
+  },
+  {
+    "claim": "A dev server was not spun up to visually verify the changes",
+    "type": "test_run",
+    "target": "dev server visual verification"
+  }
+]

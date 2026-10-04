@@ -1,0 +1,784 @@
+=== [1/1] footystock-longsession-01 (repeat_02, 2/5) ===
+HEAD is now at a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+Baseline captured: a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/footystock result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 32 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "buildDB() is located at FootyStock_dc.html lines 5446-5496",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Every signal is centred on 46 in buildDB()",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "A 6.0 rating maps to fotmob=46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Players with no rated matches get exactly 0 for performance and form",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The hasMatchData check occurs at line 5463",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html:5463"
+  },
+  {
+    "claim": "Players with no rated matches trade at the anchor price",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValueBase is calculated as anchor * exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValue is calculated as fairValueBase * exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The price cannot go negative due to log-space formulation",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "A demand term exists in the pricing model",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "A ±50% daily circuit breaker exists in the pricing model",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Match-impulse bumps exist in the pricing model",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "intradayMult exists in the pricing model",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "pricing-model.md contains a section called 'Mapping to the existing code'",
+    "type": "file_modified",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section of pricing-model.md describes signals as cosmetic and price as marketValue + noise",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section of pricing-model.md is out of date",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The current code uses wPerf=0.06",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The current code uses wForm=0.10",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The current code uses wHype=0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Commit 1afa5ea was made on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut performance weight from 0.5 to 0.06",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut form weight from 0.3 to 0.10",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "At wPerf=0.5, a player's first good World Cup match moved their price 70-80% in one step",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "At wPerf=0.5, the performance score jumps from 0 to approximately 1.2 on a player's first match",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "At wPerf=0.06, a goal plus a good rating moves price approximately 6%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Commit 6b72518 raised hype weight from 0.2 to 0.35",
+    "type": "git_state",
+    "target": "6b72518"
+  },
+  {
+    "claim": "hypeScore is capped at ±1 × (1.3 − 0.4·notoriety)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "At wHype=0.35, hype can move a price approximately ±37% on its own",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The documentation states hype weight should be the smallest to prevent one rumour swinging a price wildly",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "In the current code hype has the largest weight of the three signals",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "No push to the remote repository has been made yet this session",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "Setting weights to 0.50/0.30/0.20 would bring back the 70-80% single-match price jump",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  }
+]
+=== Files actually changed per git (vs baseline a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1) ===
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 22 05:50:06 2026)
+EXISTS: pricing-model.md (gitignored: no, modified: Jun 25 21:00:58 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 32
+Confirmed: 3
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 29
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/footystock-longsession-01/repeat_02
+=== [1/1] footystock-longsession-01 (repeat_03, 3/5) ===
+HEAD is now at a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+Baseline captured: a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/footystock result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 34 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "No changes were made by the agent",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "Signals feed the actual price since the first commit (14973a8)",
+    "type": "git_state",
+    "target": "14973a8"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section of pricing-model.md says the price is just market value plus noise",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "buildDB() is located at FootyStock_dc.html lines 5446-5490",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The anchor is the VAL() market value, or a tier-based estimate if a player has none",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The anchor logic is at line 5243",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html:5243"
+  },
+  {
+    "claim": "Each signal is shifted so an average player with a score of 46 contributes 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Each signal is clamped to [-1, 1]",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Players with no rated match stay at exactly 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Mean-centering and clamping logic is at lines 5469-5470 and 5488",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html:5469-5470,5488"
+  },
+  {
+    "claim": "The code computes fairValueBase as anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code computes fairValue as fairValueBase * Math.exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Demand is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A ±50% daily circuit breaker is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Event bumps that decay are layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "An intraday wobble in curPrice() is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wPerf=0.06",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wForm=0.10",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wHype=0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The doc specifies weights of 0.50/0.30/0.20",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The code started with weights exactly 0.5/0.3/0.2",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The weights were lowered on purpose from 0.5/0.3/0.2",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Commit 1afa5ea was authored on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea explains why the weights were lowered",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "At wPerf=0.5, a player's first good World Cup match moved their fair value by 70-80%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores run from about -1 to +1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores can be multiplied by up to 1.55 for well-known players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores can be multiplied by up to 1.96 for well-known players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "exp(0.5 × 1.55) is approximately 2.2× the anchor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The doc's rule states wHype should be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "hype is currently the largest weight in the code",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A separate daily event bump already carries most of the effect of a match",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wHype went from 0.2 to 0.35 to 0.25 to 0.35 in one day of commits",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The wHype=0.25 version was noted as causing 20-30% random swings from GDELT",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  }
+]
+=== Files actually changed per git (vs baseline a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1) ===
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 22 05:50:06 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 34
+Confirmed: 3
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 31
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/footystock-longsession-01/repeat_03
+=== [1/1] footystock-longsession-01 (repeat_04, 4/5) ===
+HEAD is now at a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+Baseline captured: a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/footystock result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 30 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "No changes were made by the agent",
+    "type": "behavioral_assertion",
+    "target": "agent_action"
+  },
+  {
+    "claim": "buildDB() is defined in FootyStock_dc.html at lines 5446-5496",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "Each signal is centred on 46 as the average player score",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "rawPerf is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "rawForm is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "hypeScore is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Players with no rated match stay at exactly 0 via hasMatchData",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValue = fairValueBase * Math.exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Panel values signals.fotmob/form/twitter/transfermarkt feed into the pricing scores",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "pricing-model.md states that price level is essentially just marketValue plus noise",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The statement in pricing-model.md about marketValue plus noise is out of date",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "Current value of wPerf is 0.06",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Current value of wForm is 0.10",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Current value of wHype is 0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Commit 1afa5ea was authored on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut wPerf from 0.5 to 0.06",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut wForm from 0.3 to 0.10",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "The stated reason in commit 1afa5ea was that the previous weights caused a player's first good World Cup match to raise fair value by 70-80%",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "perfScore could jump from 0 to about 1.2 in one step under the old weights",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Notoriety factors apply up to 1.55x upside for unknown players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Notoriety factors apply up to 1.96x downside on form for stars",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "With the doc's weights, perf plus form could move a price from about 0.28x to 3.5x the anchor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "wHype at 0.35 is currently the largest weight",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "pricing-model.md states hype should always be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "wHype was increased from 0.2 to 0.35 in commit 6b72518",
+    "type": "git_state",
+    "target": "6b72518"
+  },
+  {
+    "claim": "Commit f943f3a stated GDELT noise was causing 20-30% random swings and lowered wHype",
+    "type": "git_state",
+    "target": "f943f3a"
+  },
+  {
+    "claim": "The change made in commit f943f3a was later reverted",
+    "type": "git_state",
+    "target": "f943f3a"
+  },
+  {
+    "claim": "A single burst of news coverage can currently move a price more than a great match can",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The Mapping to the existing code section of pricing-model.md does not match the current code",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  }
+]
+=== Files actually changed per git (vs baseline a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1) ===
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 22 05:50:06 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 30
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 29
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/footystock-longsession-01/repeat_04
+=== [1/1] footystock-longsession-01 (repeat_05, 5/5) ===
+HEAD is now at a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+Baseline captured: a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/footystock result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 33 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "No code changes were made by the agent",
+    "type": "behavioral_assertion",
+    "target": "codebase"
+  },
+  {
+    "claim": "buildDB() exists at lines 5446-5496 of FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "buildDB() computes fairValueBase as anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "buildDB() computes fairValue as fairValueBase * Math.exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "buildDB() computes price as fairValue * Math.exp(0.15 * demandScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawPerf is computed as (signal - 46) / 18",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawForm is computed as (signal - 46) / 18",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawPerf and rawForm are clamped to [-1, 1]",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "46 is the neutral value for rawPerf and rawForm",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A player with no rated match gets a score of 0, fixed at line 5463",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5463"
+  },
+  {
+    "claim": "Price cannot go negative because it is computed as anchor times an exponential",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A fame factor makes gains and losses lopsided",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A demand term is applied to the price",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A plus or minus 50% daily circuit breaker is applied to the price",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The note in pricing-model.md saying signals are only for display is out of date",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "Current weights are wPerf=0.06, wForm=0.10, wHype=0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "pricing-model.md specifies weights wPerf=0.50, wForm=0.30, wHype=0.20",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The code originally started with wPerf=0.5 and wForm=0.3",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Commit 1afa5ea was made on 2026-06-29",
+    "type": "git_state",
+    "target": "commit:1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea changed wPerf from 0.5 to 0.06 and wForm from 0.3 to 0.10",
+    "type": "git_state",
+    "target": "commit:1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea has the message: wPerf 0.5→0.06, wForm 0.3→0.10: previously a player going from no data to a good first WC match caused a 70-80% fairValue jump because perfScore jumps from 0 to ~1.2 in one step",
+    "type": "git_state",
+    "target": "commit:1afa5ea"
+  },
+  {
+    "claim": "perfScore can reach approximately ±1.55 after the fame factor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "At wPerf=0.5, one debut can move the price by approximately 2x because exp(0.775) is approximately 2.2",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Current wHype of 0.35 is the largest weight, violating the doc rule that wHype should be the smallest",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "pricing-model.md states wHype should be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "transferSig is computed at line 5444",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5444"
+  },
+  {
+    "claim": "Any player with a curated NEWS entry gets transferSig of 72 + bias*2",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5444"
+  },
+  {
+    "claim": "Neutral news with bias 0 gives transferSig of 72, pushing hypeScore up by approximately 0.43 against a neutral of 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Mildly negative news with bias -1 gives transferSig of 49, which still counts as positive hype",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "moodSig is computed at line 5441",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5441"
+  },
+  {
+    "claim": "Every STARS player receives a flat +14 added to moodSig",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5441"
+  },
+  {
+    "claim": "pricing-model.md states that on-pitch performance and hype should be kept separate",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The hype score is not centered on the average player",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  }
+]
+=== Files actually changed per git (vs baseline a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1) ===
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 33
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 33
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/footystock-longsession-01/repeat_05
+Done. 1 tasks x 5 repeats archived under /Users/louiskoide/phase1_documents/trial_logs_archive

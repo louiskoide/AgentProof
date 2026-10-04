@@ -1,0 +1,57 @@
+[
+  {
+    "claim": "A `blocked` category was added to `CAT`",
+    "type": "file_modified",
+    "target": "CAT"
+  },
+  {
+    "claim": "The `blocked` category was included in the `cols` array",
+    "type": "file_modified",
+    "target": "cols"
+  },
+  {
+    "claim": "The `blocked` category renders as a fourth board column",
+    "type": "behavioral_assertion",
+    "target": "board"
+  },
+  {
+    "claim": "The `blocked` column uses the existing `--blocked` accent color",
+    "type": "behavioral_assertion",
+    "target": "blocked column"
+  },
+  {
+    "claim": "The `blocked` column has a subtitle of 'Fallen through / door shut'",
+    "type": "file_modified",
+    "target": "blocked column subtitle"
+  },
+  {
+    "claim": "The João Pedro entry was previously flagged `blocked: true` while in the `interest` column",
+    "type": "behavioral_assertion",
+    "target": "João Pedro entry"
+  },
+  {
+    "claim": "The Bastoni entry was previously flagged `blocked: true` while in the `interest` column",
+    "type": "behavioral_assertion",
+    "target": "Bastoni entry"
+  },
+  {
+    "claim": "The João Pedro entry was reclassified into the new `blocked` category",
+    "type": "file_modified",
+    "target": "João Pedro entry"
+  },
+  {
+    "claim": "The Bastoni entry was reclassified into the new `blocked` category",
+    "type": "file_modified",
+    "target": "Bastoni entry"
+  },
+  {
+    "claim": "The board's responsive grid was widened to `repeat(4,1fr)` at a breakpoint of ≥1100px",
+    "type": "file_modified",
+    "target": "board responsive grid"
+  },
+  {
+    "claim": "A 2-column grid step was added at a breakpoint of ≥700px",
+    "type": "file_modified",
+    "target": "board responsive grid"
+  }
+]

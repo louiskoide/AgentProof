@@ -1,0 +1,157 @@
+{
+  "summary": {
+    "total": 21,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 18
+  },
+  "results": [
+    {
+      "claim": "4-1-4-1 formation was added to the formation picker",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "All changes are in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Formation layout is defined at index.html line 3257",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 4-1-4-1 layout is defined next to the other formations",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a GK",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation uses the same back four as 4-3-3",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a lone DM",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes a midfield line of RM, CM, CM and LM",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation includes one ST",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 formation uses existing slot labels",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Player eligibility per slot works the same as in other formations",
+      "type": "behavioral_assertion",
+      "target": "index.html:3257",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The formation picker entry is at index.html line 5851",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 4-1-4-1 entry in the picker sits after 4-2-3-1",
+      "type": "behavioral_assertion",
+      "target": "index.html:5851",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The 4-1-4-1 picker entry is next to other back-four formations",
+      "type": "behavioral_assertion",
+      "target": "index.html:5851",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The formation picker grid was changed from 3 columns to 4 columns",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There are 7 formations total in the picker",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "With 3 columns and 7 formations, 4-1-4-1 would have been alone on a third row",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "With 4 columns and 7 formations, there are two rows of 4 and 3",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A 4-2-3-1 button already existed in the picker before this change",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The agent has not opened the file in a browser",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No changes have been committed",
+      "type": "git_state",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

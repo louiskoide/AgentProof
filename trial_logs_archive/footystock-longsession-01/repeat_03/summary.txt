@@ -1,0 +1,24 @@
+I didn't change anything. The signals already feed the actual price, and have since the first commit (`14973a8`). The docs are what's out of date: the "Mapping to the existing code" section of `pricing-model.md` still says the price is just market value plus noise.
+
+**What's already in `buildDB()`** (`FootyStock_dc.html:5446-5490`):
+
+- **Anchor:** the `VAL()` market value, or a tier-based estimate if a player has none (line 5243).
+- **Mean-centering:** each signal is shifted so an average player (a score of 46) contributes 0, then clamped to [-1, 1]. Players with no rated match stay at exactly 0 (lines 5469-5470, 5488).
+- **Log-space combination:** matches the doc's formula:
+  ```js
+  const fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore);
+  const fairValue     = fairValueBase * Math.exp(wHype*hypeScore);
+  ```
+  Demand, a ±50% daily circuit breaker, event bumps that decay, and the intraday wobble in `curPrice()` are layered on top.
+
+**The weights are where the code and the doc differ.** The code uses `wPerf=0.06, wForm=0.10, wHype=0.35`, not 0.50/0.30/0.20. The code started at exactly 0.5/0.3/0.2 and was lowered on purpose. Commit `1afa5ea` (2026-06-29) explains why: at 0.5, a player's first good World Cup match moved their fair value by 70–80%. The scores run from about -1 to +1 and can be multiplied by up to 1.55 or 1.96 for well-known players, so `exp(0.5 × 1.55)` is about 2.2× the anchor. Going back to 0.5/0.3/0.2 would bring that problem back.
+
+The code does break one of the doc's rules, though: "keep `wHype` the smallest." Hype is currently the largest weight, even though a separate daily "event bump" already carries most of the effect of a match. Hype went 0.2 → 0.35 → 0.25 → 0.35 in one day of commits, and the 0.25 version was noted as causing 20–30% random swings from GDELT.
+
+**Options:**
+
+1. **Update the doc only.** Rewrite the stale section of `pricing-model.md` to describe what the code actually does, and record the current weights and why they were lowered. No price changes.
+2. **Fix the hype weight to follow the doc's rule.** Keep the rescaled sizes but make hype the smallest, e.g. `wPerf=0.10, wForm=0.06, wHype=0.05`. This roughly keeps the 50/30/20 ratio at the calibrated scale. Existing prices would move, mostly downward for heavily hyped players.
+3. **Use 0.50/0.30/0.20 as written.** I'd advise against this for the reason above.
+
+I'd do 1, plus 2 if you want hype brought back under the doc's rule. Which would you like?

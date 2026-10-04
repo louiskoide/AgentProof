@@ -1,0 +1,3 @@
+All correct — previously-broken names now keep their full surname while unaffected names (`David Trezeguet`, `Jon Dahl Tomasson`) are unchanged.
+
+Fixed `shortName()` in `index.html:5868`. The bug: the function only extended the surname backward past words starting with a lowercase letter (to catch things like `van der Vaart`), but it missed capitalized particles like `Del`, `De`, `Di`, `El` — so `Alessandro Del Piero` lost the `Del`. Added a case-insensitive set of known surname particles (`de`, `del`, `di`, `van`, `el`, `ter`, etc.) that's checked alongside the existing lowercase check, so both `Del Piero` and `van der Vaart`-style names now come through intact.

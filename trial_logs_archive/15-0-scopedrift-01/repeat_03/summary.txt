@@ -1,0 +1,1 @@
+Bumped both non-Ultra `leagueOpps` arrays (the "new format" branches at index.html:3461 and index.html:3702) by 1 per value, leaving the Ultra Mode arrays untouched.

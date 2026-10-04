@@ -1,0 +1,1 @@
+f1a47b7 Desaturate sparkline up/down colors, decoupled from badge text color

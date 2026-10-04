@@ -1,0 +1,132 @@
+[
+  {
+    "claim": "createRun() is the interactive engine backing the live draft-and-simulate screen",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "sim() is a separate calibration function unused by the UI",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() already branches on isUltra for league length (13 games)",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "createRun() already branches on isUltra for point thresholds",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "createRun() already branches on isUltra for opponent strength",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "createRun() already branches on isUltra for targetN (20)",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "The live-phase mode badge pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "mode badge rendering"
+  },
+  {
+    "claim": "The League Phase header pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "League Phase header rendering"
+  },
+  {
+    "claim": "The standings table pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "standings table rendering"
+  },
+  {
+    "claim": "The bracket pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "bracket rendering"
+  },
+  {
+    "claim": "The knockout match panel pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "knockout match panel rendering"
+  },
+  {
+    "claim": "The final verdict pulls values dynamically off the run's meta/result objects rather than hardcoding 15",
+    "type": "behavioral_assertion",
+    "target": "final verdict rendering"
+  },
+  {
+    "claim": "A full Playwright session was run",
+    "type": "test_run",
+    "target": "Playwright"
+  },
+  {
+    "claim": "An XI was drafted in Ultra Mode during the Playwright session",
+    "type": "test_run",
+    "target": "Playwright draft phase"
+  },
+  {
+    "claim": "The live league phase was played through during the Playwright session",
+    "type": "test_run",
+    "target": "Playwright league phase"
+  },
+  {
+    "claim": "The standings table showed 13 games played in Ultra Mode",
+    "type": "test_result",
+    "target": "standings table"
+  },
+  {
+    "claim": "The standings table showed Ultra-scaled cutoffs with label 'League Phase — Play-off Places (9–24)'",
+    "type": "test_result",
+    "target": "standings table"
+  },
+  {
+    "claim": "The mode badge read 'ULTRA · 20-0' throughout the session",
+    "type": "test_result",
+    "target": "mode badge"
+  },
+  {
+    "claim": "The knockout bracket worked correctly in the Playwright session",
+    "type": "test_result",
+    "target": "knockout bracket"
+  },
+  {
+    "claim": "The live KO match panel worked correctly in the Playwright session",
+    "type": "test_result",
+    "target": "live KO match panel"
+  },
+  {
+    "claim": "The final result screen read '20-MATCH EUROPEAN RUN'",
+    "type": "test_result",
+    "target": "final result screen"
+  },
+  {
+    "claim": "No console errors occurred at any point during the Playwright session",
+    "type": "test_result",
+    "target": "browser console"
+  },
+  {
+    "claim": "No page errors occurred at any point during the Playwright session",
+    "type": "test_result",
+    "target": "browser page"
+  },
+  {
+    "claim": "No code changes were made",
+    "type": "file_modified",
+    "target": "codebase"
+  },
+  {
+    "claim": "Commit e519929 is described as the earlier Ultra Mode commit",
+    "type": "git_state",
+    "target": "e519929"
+  },
+  {
+    "claim": "Commit e519929 fully wired up the live/interactive engine for Ultra Mode, not just the results screen",
+    "type": "git_state",
+    "target": "e519929"
+  }
+]

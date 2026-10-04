@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "TransferDesk.jsx is 858 lines long",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "TransferDesk.jsx is the only source file in the repo",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "The countdown/date-diff computation exists only at TransferDesk.jsx lines 702-710",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown logic uses a hardcoded open date of 2026-06-15T00:00:00",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown returns the string 'WINDOW OPEN' when diff <= 0",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown returns an object with properties d and h when diff > 0",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown result is rendered at TransferDesk.jsx line 755",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:755"
+  },
+  {
+    "claim": "Negative values cannot reach the render because the function short-circuits to 'WINDOW OPEN' before day/hour math runs",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown logic was run in Node against the real system clock",
+    "type": "test_run",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The system clock at time of testing read 2026-09-20",
+    "type": "test_run",
+    "target": "system clock"
+  },
+  {
+    "claim": "Running the countdown logic in Node on 2026-09-20 returned 'WINDOW OPEN'",
+    "type": "test_result",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "Running the countdown logic in Node on 2026-09-20 did not return a negative day count",
+    "type": "test_result",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "There is no second or duplicate countdown implementation in the codebase",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "StageMeter does not perform any date math",
+    "type": "behavioral_assertion",
+    "target": "StageMeter"
+  },
+  {
+    "claim": "TransferCard does not perform any date math",
+    "type": "behavioral_assertion",
+    "target": "TransferCard"
+  },
+  {
+    "claim": "StoryCard does not perform any date math",
+    "type": "behavioral_assertion",
+    "target": "StoryCard"
+  }
+]

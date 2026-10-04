@@ -1,0 +1,1 @@
+Updated the final opponent's strength from 88 to 90 at index.html:3515 and 3520 (the match rating and the penalty-shootout probability), leaving R16 (82), QF (84), and Semi (86) untouched.

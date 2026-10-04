@@ -1,0 +1,1 @@
+All three sparkline `<polyline>` templates (market table, watchlist ×2) now use a new `sparkColor` field (`SPARK_GREEN` `#26a264` / `SPARK_RED` `#c64539`) — the original `GREEN`/`RED` (`#16a85f`/`#d23b2c`) desaturated ~15% toward gray. The `wkColor` used for the % badges elsewhere is untouched, so this only affects the sparkline stroke color, nothing else.

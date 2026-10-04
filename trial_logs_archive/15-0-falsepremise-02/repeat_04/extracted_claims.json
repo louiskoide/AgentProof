@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "The Champions League dataset had one campaign where two real players were each listed twice under different roles",
+    "type": "behavioral_assertion",
+    "target": "Champions League dataset"
+  },
+  {
+    "claim": "The campaign with duplicate players was Young Boys, 2024-25",
+    "type": "behavioral_assertion",
+    "target": "Champions League dataset"
+  },
+  {
+    "claim": "Sandro Lauper was listed twice under roles CB and DM",
+    "type": "behavioral_assertion",
+    "target": "index.html:2444"
+  },
+  {
+    "claim": "Joël Monteiro was listed twice under roles RM and ST",
+    "type": "behavioral_assertion",
+    "target": "index.html:2444"
+  },
+  {
+    "claim": "The duplicate listings caused the draft screen to show two separate candidate cards for the same person in one squad",
+    "type": "behavioral_assertion",
+    "target": "draft screen"
+  },
+  {
+    "claim": "The duplicate cards allowed the same player to fill two different slots",
+    "type": "behavioral_assertion",
+    "target": "draft screen"
+  },
+  {
+    "claim": "Duplicate rows for both players were removed at index.html lines 2444-2446",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "A code fix was made in the build() function at index.html lines 3295-3306",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Campaign player lists are now deduped by name before being turned into draft candidates",
+    "type": "behavioral_assertion",
+    "target": "build() function"
+  },
+  {
+    "claim": "Verification was performed using a scripted browser session with Playwright",
+    "type": "test_run",
+    "target": "Playwright browser session"
+  },
+  {
+    "claim": "The Playwright session forced the draft onto the Young Boys 2024-25 campaign",
+    "type": "test_run",
+    "target": "Playwright browser session"
+  },
+  {
+    "claim": "Before the fix, both duplicate cards were clickable and enabled",
+    "type": "test_result",
+    "target": "draft screen pre-fix"
+  },
+  {
+    "claim": "After the fix, each player appears as a single card",
+    "type": "test_result",
+    "target": "draft screen post-fix"
+  },
+  {
+    "claim": "After the fix, the campaign's roster correctly shows 9 unique players instead of 11 with two dupes",
+    "type": "test_result",
+    "target": "Young Boys 2024-25 roster"
+  }
+]

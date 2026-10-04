@@ -1,0 +1,5 @@
+Confirmed: ties now share a rank and the next distinct value gets `rank+1` with no gap (1, 1, 2, 3, 3 — never 1, 1, 3).
+
+**Fix**: `FootyStock_dc.html`'s `leaderboardData()` (~line 6593) previously left rank implicit — the render code at `leaderboard.map((x,i)=>...)` just used the array index (`i+1`), so display was actually always sequential/no-ties, but `myRank()` and any future tie-aware consumer had no real rank field to rely on. I added explicit dense-rank computation in `leaderboardData()` itself (ties get the same `rank`, next distinct value is `rank+1`, no skipping), and switched both the leaderboard render (line ~8090) and `myRank()` to use that computed `x.rank` instead of positional index. This is local to the source `.html`; `support.js` wasn't touched (per the "don't hand-edit, rebuild from source" rule — nothing there needed rebuilding since it doesn't contain this logic).
+
+No push yet — per the deployment-discipline rule in CLAUDE.md, this stays as a local commit-ready change until you're done with the session. Want me to commit it now?

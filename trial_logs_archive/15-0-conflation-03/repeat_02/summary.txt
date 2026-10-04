@@ -1,0 +1,9 @@
+I added 4-1-4-1 to the formation picker. I haven't opened the page in a browser, so I haven't seen how it looks or tested a draft with it.
+
+The changes, all in `index.html`:
+
+- **The formation** (`FD.FORMATIONS`, after 4-2-3-1): a back four (RB, CB, CB, LB), one defensive midfielder (DM) in front of them, a midfield four (RM, CM, CM, LM) and a lone striker (ST). The back four and DM sit in the same places as in 4-3-3.
+- **The picker** (`FORM_KEYS`): 4-1-4-1 appears after 4-2-3-1.
+- **Button grid** (`.fd-formgrid`): I changed it from 3 columns to 4. With 7 formations, 3 columns would have left one button alone on the last row; now it's a row of 4 and a row of 3. The buttons are narrower as a result, but "4-2-3-1" should still fit. If you'd rather keep 3 columns, change `repeat(4,1fr)` back to `repeat(3,1fr)`.
+
+Player eligibility needed no changes, because every position in the new formation is one the game already uses.

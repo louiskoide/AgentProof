@@ -1,0 +1,38 @@
+diff --git a/index.html b/index.html
+index d35aa7c..ad546b1 100644
+--- a/index.html
++++ b/index.html
+@@ -89,7 +89,7 @@ button{font-family:inherit; cursor:pointer;}
+ .fd-seg button:not(.on):hover{color:var(--ink);}
+ 
+ .fd-setup-side{display:flex; flex-direction:column; gap:22px;}
+-.fd-formgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:8px;}
++.fd-formgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+ .fd-formbtn{border:1px solid var(--line-strong); background:var(--surface); border-radius:10px; padding:13px 6px; font-family:var(--font-mono); font-weight:600; font-size:14px; letter-spacing:.04em; color:var(--ink-soft); transition:.15s;}
+ .fd-formbtn.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+ .fd-formbtn:not(.on):hover{border-color:var(--ink-soft); color:var(--ink);}
+@@ -3254,6 +3254,15 @@ button{font-family:inherit; cursor:pointer;}
+         S('st', 'ATT', 'ST', 50, 16),
+       ],
+     },
++    '4-1-4-1': {
++      name: '4-1-4-1', slots: [
++        S('gk', 'GK', 'GK', 50, 90),
++        S('rb', 'DEF', 'RB', 82, 72), S('rcb', 'DEF', 'CB', 61, 76), S('lcb', 'DEF', 'CB', 39, 76), S('lb', 'DEF', 'LB', 18, 72),
++        S('dm', 'MID', 'DM', 50, 60),
++        S('rm', 'MID', 'RM', 82, 42), S('rcm', 'MID', 'CM', 60, 45), S('lcm', 'MID', 'CM', 40, 45), S('lm', 'MID', 'LM', 18, 42),
++        S('st', 'ATT', 'ST', 50, 18),
++      ],
++    },
+     '5-4-1': {
+       name: '5-4-1', slots: [
+         S('gk', 'GK', 'GK', 50, 90),
+@@ -5839,7 +5848,7 @@ button{font-family:inherit; cursor:pointer;}
+       respins: 0
+     }
+   };
+-  const FORM_KEYS = ['4-3-3', '4-4-2', '4-2-3-1', '3-4-3', '3-5-2', '5-4-1'];
++  const FORM_KEYS = ['4-3-3', '4-4-2', '4-2-3-1', '4-1-4-1', '3-4-3', '3-5-2', '5-4-1'];
+   const RANK = {
+     'Group Stage': 0,
+     'League Phase': 0,

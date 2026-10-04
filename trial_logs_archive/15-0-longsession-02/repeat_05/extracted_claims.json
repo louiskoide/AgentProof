@@ -1,0 +1,207 @@
+[
+  {
+    "claim": "Legacy Mode was added to index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Legacy Mode was tested end-to-end in headless Chromium",
+    "type": "test_run",
+    "target": "index.html"
+  },
+  {
+    "claim": "Signing players works with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "Budget limits work with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "Moving players works with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "Releasing players works with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "The sim works with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "The result screen works with no console errors in Legacy Mode",
+    "type": "test_result",
+    "target": "index.html"
+  },
+  {
+    "claim": "sim() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "The only engine edit adds each player's prime-season positions to the prime table in build()",
+    "type": "file_modified",
+    "target": "build()"
+  },
+  {
+    "claim": "Nothing is committed yet",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "A new Game mode toggle exists offering Spin Draft or Legacy Mode",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "In Legacy Mode the Ratings and Rating-pool options are hidden",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Legacy Mode always uses prime ratings with ratings shown",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "In Legacy Mode difficulty sets the budget: Easy £240m, Medium £200m, Hard £160m",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The spin panel becomes a transfer market listing all 2,287 players in the dataset in Legacy Mode",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Each player is listed once at their prime rating with their positions from that peak season",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The market supports search by player or club name",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Accent-insensitive search is supported so that 'suker' finds Šuker",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The market supports filtering by positions in the user's formation",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Tapping an empty slot on the pitch browses that position and drops the next signing into it",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "An affordable filter can be turned on in the market",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Tapping a signed player allows moving or releasing them for a refund",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Player fee is calculated as £2m × 1.2^(rating − 78)",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A player rated 85 costs £7m",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A player rated 90 costs £18m",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A player rated 95 costs £44m",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A player rated 99 costs £92m",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A well-spent Hard cap reaches about 89 overall against the existing sim()",
+    "type": "test_result",
+    "target": "sim()"
+  },
+  {
+    "claim": "A well-spent Medium cap reaches about 90–91 overall against the existing sim()",
+    "type": "test_result",
+    "target": "sim()"
+  },
+  {
+    "claim": "A well-spent Easy cap reaches about 91–92 overall against the existing sim()",
+    "type": "test_result",
+    "target": "sim()"
+  },
+  {
+    "claim": "No budget cap reaches about 96 overall against the existing sim()",
+    "type": "test_result",
+    "target": "sim()"
+  },
+  {
+    "claim": "A signing is blocked if it would not leave £1m for each other empty slot",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "A hint explains why a signing is blocked",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The teamsheet shows what the user spent against the cap",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The Redraft button becomes Edit XI in Legacy Mode",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Edit XI returns to the market with the current XI kept",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Team rating averages the three lines",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "The market shows only the top 60 matches at once sorted by rating",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The best-run record in localStorage is shared between Spin and Legacy modes",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  }
+]

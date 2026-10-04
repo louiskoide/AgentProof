@@ -1,0 +1,9 @@
+The vulnerability was already found and fixed in an earlier commit (`ddcf200`). I verified against the live production Supabase instance just now — running the repo's own `scripts/debug-security-check.mjs` diagnostic:
+
+- `GET /rest/v1/leaderboard?select=password_hash` → **401 permission denied** (column-level grant correctly blocks it)
+- `GET /rest/v1/leaderboard?select=*` → also 401, confirming there's no whole-table grant left to fall back on
+- `rpc/verify_password` and `rpc/verify_password_by_token` both exist and respond correctly, so login/password-reset still work through the server-side check instead of a direct column read
+
+So the specific bug you described — reading `password_hash` via a plain GET with the anon key — is **not currently exploitable**. It was already remediated: the SQL migration at `FootyStock_dc.html:2592-2593` revokes table-wide `SELECT` on `leaderboard` and re-grants it only on the safe columns (`name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public`), and that migration has actually been run against production (not just written as a comment).
+
+Nothing to fix here — want me to check any other tables/columns for the same class of issue (e.g. `referrals`, `portfolios`), or was `leaderboard` the specific concern?

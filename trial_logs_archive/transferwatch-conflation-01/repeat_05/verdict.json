@@ -1,0 +1,157 @@
+{
+  "summary": {
+    "total": 21,
+    "confirmed": 13,
+    "contradicted": 0,
+    "unverifiable": 8
+  },
+  "results": [
+    {
+      "claim": "A fourth pipeline category named 'Blocked' was added to TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "CAT.blocked is a new column definition with label 'Blocked' and subtitle 'Fallen through'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "CAT.blocked is styled with the existing red --blocked accent color",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The cols array now includes 'blocked' as a fourth entry alongside Interest, Talks, and Done",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The Blocked column renders with its own count badge",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The board grid CSS was updated from a fixed 3-column layout to a responsive layout",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The responsive grid has breakpoints at 700px and 1100px",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The responsive grid goes from 1 column to 2 columns to 4 columns across breakpoints",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The entry for João Pedro was re-tagged from category 'interest' to category 'blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The entry for Alessandro Bastoni was re-tagged from category 'interest' to category 'blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "João Pedro and Alessandro Bastoni were previously categorized as 'interest'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Card rendering derives its muted/red 'blocked' look from category === 'blocked' in addition to the old standalone blocked flag",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The 'Blocked' pill badge is suppressed when the card is already in the Blocked column",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The in-file docs/comments describing the category enum were updated to include 'blocked'",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The file was built using esbuild",
+      "type": "test_run",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The built file was rendered in a headless browser",
+      "type": "test_run",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "All four columns display correctly after the changes",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The Interest column displays a count of 12",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The Talks column displays a count of 9",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The Done column displays a count of 5",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The Blocked column displays a count of 2",
+      "type": "test_result",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    }
+  ]
+}

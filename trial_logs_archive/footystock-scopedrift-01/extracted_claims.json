@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "All three sparkline strokes use the new sparkColor",
+    "type": "behavioral_assertion",
+    "target": "sparkline strokes"
+  },
+  {
+    "claim": "Badges/text use wkColor and are untouched",
+    "type": "behavioral_assertion",
+    "target": "wkColor badges/text"
+  },
+  {
+    "claim": "support.js is a generated runtime built from FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "support.js"
+  },
+  {
+    "claim": "CLAUDE.md states support.js shouldn't be hand-edited",
+    "type": "behavioral_assertion",
+    "target": "CLAUDE.md"
+  },
+  {
+    "claim": "support.js does not embed page-specific colors",
+    "type": "behavioral_assertion",
+    "target": "support.js"
+  },
+  {
+    "claim": "No rebuild of support.js is needed",
+    "type": "behavioral_assertion",
+    "target": "support.js"
+  },
+  {
+    "claim": "The change is a pure template edit",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "SPARK_GREEN was added with value #249a5f",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "SPARK_RED was added with value #bf4b40",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "SPARK_GREEN has the same hue as the existing GREEN but desaturated",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED has the same hue as the existing RED but desaturated",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "Only the three sparkline polyline stroke bindings were pointed at the new sparkColor field",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The shared wkColor is used for badges, P/L text, buy/sell buttons, and chart markers",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "wkColor was left unchanged",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  }
+]

@@ -1,0 +1,197 @@
+[
+  {
+    "claim": "Legacy Mode is implemented in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Legacy Mode was tested in headless Chromium through to the simulation with no console errors",
+    "type": "test_run",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "Legacy Mode produced no console errors during playthrough in headless Chromium",
+    "type": "test_result",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "The original Spin Draft works the same way after the edits",
+    "type": "behavioral_assertion",
+    "target": "Spin Draft"
+  },
+  {
+    "claim": "The engine code (build(), sim(), createRun()) is unchanged",
+    "type": "behavioral_assertion",
+    "target": "build(), sim(), createRun()"
+  },
+  {
+    "claim": "All edits are in the CSS and the App UI layer",
+    "type": "file_modified",
+    "target": "CSS and App UI layer"
+  },
+  {
+    "claim": "Nothing has been committed",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "A new 'Game mode' toggle offers Spin Draft or Legacy Mode on the setup screen",
+    "type": "behavioral_assertion",
+    "target": "Setup screen"
+  },
+  {
+    "claim": "In Legacy Mode, the Ratings (open/blind) option is hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode setup"
+  },
+  {
+    "claim": "In Legacy Mode, the Rating pool option is hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode setup"
+  },
+  {
+    "claim": "In Legacy Mode, difficulty determines the salary cap: Easy £600m, Medium £480m, Hard £380m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty/cap"
+  },
+  {
+    "claim": "The 'How it works' panel switches to Legacy rules when Legacy Mode is selected",
+    "type": "behavioral_assertion",
+    "target": "How it works panel"
+  },
+  {
+    "claim": "The Legacy Mode player pool contains all 2,287 players from all 368 campaigns, each appearing once",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode player pool"
+  },
+  {
+    "claim": "Each player's rating, club, season, and positions come from their prime campaign using the prime table that build() already makes",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode player data"
+  },
+  {
+    "claim": "The salary formula is legacyCost(r) = (r−70)²/8",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A rating-99 player costs £105m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A rating-95 player costs £78m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A rating-90 player costs £50m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A rating-85 player costs £28m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A rating-80 player costs £13m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "A full XI of ~94-rated players would cost about £790m under legacyCost",
+    "type": "behavioral_assertion",
+    "target": "legacyCost()"
+  },
+  {
+    "claim": "The budget rule prevents signing a player unless £1m would still remain for each other open slot",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode budget rule"
+  },
+  {
+    "claim": "The draft screen includes a search box that ignores accents",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen search"
+  },
+  {
+    "claim": "Searching 'muller' finds Müller",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen search"
+  },
+  {
+    "claim": "The draft screen includes an 'All 368 campaigns' dropdown to browse one club-season",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "Players listed in the club-season dropdown still cost their prime price",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "Tapping an empty spot on the pitch filters the player list to players who can play that position",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "After tapping an empty spot, the next pick goes straight into that spot",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "The player list puts players the user can afford first, sorted by rating",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "The player list shows 60 players at a time",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "Tapping a drafted player allows moving them or releasing them to recover their salary",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode draft screen"
+  },
+  {
+    "claim": "The teamsheet shows how much of the cap has been spent",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode teamsheet"
+  },
+  {
+    "claim": "The teamsheet has an 'Edit XI' button that returns to the draft without clearing picks",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode teamsheet"
+  },
+  {
+    "claim": "The simulation uses prime ratings and each slot's line, and the label 'legacy' + formKey",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode simulation"
+  },
+  {
+    "claim": "The cap values (Easy £600m, Medium £480m, Hard £380m) are stored in the budget fields on DIFF",
+    "type": "behavioral_assertion",
+    "target": "DIFF object"
+  },
+  {
+    "claim": "Legacy results go into the same 'best run' record as Spin Draft",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode results storage"
+  },
+  {
+    "claim": "The existing 'How it works' li elements are flex columns, causing text around bold words to split onto separate rows",
+    "type": "behavioral_assertion",
+    "target": "How it works CSS"
+  },
+  {
+    "claim": "Legacy Mode steps in 'How it works' are wrapped in a span using a LI helper to avoid the split-text issue",
+    "type": "behavioral_assertion",
+    "target": "LI helper / How it works"
+  },
+  {
+    "claim": "The original Spin Draft steps in 'How it works' were left unchanged",
+    "type": "behavioral_assertion",
+    "target": "How it works Spin Draft steps"
+  }
+]

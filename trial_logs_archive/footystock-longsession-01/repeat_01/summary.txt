@@ -1,0 +1,29 @@
+I didn't change any code. The signals already feed the price, so the change you asked for would undo a fix made on purpose.
+
+**What the code does now** (`FootyStock_dc.html:5446-5496`): the price already follows the anchor + composite model from `pricing-model.md`.
+
+- **Log space:** `fairValue = anchor * exp(wPerf*perfScore + wForm*formScore) * exp(wHype*hypeScore)`, so the price can't go negative.
+- **Mean-centered:** each signal is centered on 46 (an average player). A player with no rated match gets exactly 0, not a penalty.
+- **Scaling and caps:** each score is capped and adjusted for how well-known the player is ("notoriety"). Hype is capped and reduced by hatewatch positions.
+- **After fair value:** the demand term, a ±50%/day circuit breaker and the decaying per-match bumps sit on top.
+
+The misleading part is the last section of `pricing-model.md`, "Mapping to the existing code". It still says the signals are only for display. That was true on 2026-06-25 but isn't any more, and it's probably where this request came from.
+
+**The weights aren't 0.50/0.30/0.20 on purpose.** They're `wPerf=0.06, wForm=0.10, wHype=0.35` (line 5453). Commit `1afa5ea` (2026-06-29) moved them from 0.5/0.3 because a player's first good World Cup match was making their price jump 70–80% in one step. Here's what each weight set can do to a price, at the extremes:
+
+| Signal | Current weights | Doc weights (0.5/0.3/0.2) |
+|---|---|---|
+| performance | +10% / −8% | +117% / −50% |
+| form | +17% / −18% | +59% / −44% |
+| hype | **+58% / −37%** | +30% / −23% |
+
+Switching to the doc weights would:
+- bring back the debut-match jumps;
+- let an unknown player reach about 4.5× their market value;
+- shift almost every price in the shared market at once, which the ±50%/day circuit breaker would spread over several days.
+
+**The real mismatch with the doc is the other way round:** hype currently outweighs performance and form, which breaks the doc's "keep wHype the smallest" rule.
+
+**My recommendation:** keep the doc's 50/30/20 ratio but scale all three down, e.g. `wPerf=0.15, wForm=0.09, wHype=0.06`. That limits performance to about +26%/−19%, form to ±15% and hype to about +8%. A good debut would then move an unknown player's price by roughly 19%, not 70%+. That's still more than the ~6% target from the June calibration, so it's your call how lively you want it.
+
+I'd also fix the stale "Mapping to the existing code" section so it doesn't cause this again. Should I make either change?

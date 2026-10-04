@@ -1,0 +1,15 @@
+I haven't built this yet. The campaign dataset doesn't record any meetings between clubs, so a head-to-head view has nothing to draw on.
+
+**What the data actually contains**
+- **`window.CL_CAMPAIGNS`** (the 18 data blocks, lines ~1004–2960): every entry is just `{ club, season, run, players }`, e.g. `C('Ajax', '1994-95', 'Champions', [...squad])`. There are no opponents, scorelines or fixtures, so there's no record of Ajax ever playing Milan.
+- **Simulated matches** (from `sim()` and `createRun()`): these do have opponents and scores, but they're thrown away after each run. The only thing saved is `fd_best` in localStorage, which holds your single best result.
+- **No "drafted club" in a run.** You draft players from many different club-seasons, and the sim always calls your side "Your XI". Opponents are drawn from `OPP_POOL`, a list of 18 clubs. So in the simulation, two named clubs never face each other.
+
+**Ways this could work**
+1. **Add real historical results.** I'd write in the actual CL fixtures and scores for each campaign, which would give a true all-time head-to-head. The catch is accuracy: that's thousands of matches since 1992, and I can't check scores from memory reliably. It would need a real source, like a public CSV of CL results, which I'd import and match to your club names.
+2. **Log simulated runs and show head-to-heads from those.** Each run's matches would be saved to localStorage. The view could then show, for example, "your sides have faced Real Madrid 14 times: W8 D3 L3", split by format. This fits how the game currently works, but it's only ever your XI against a club, never club against club.
+3. **A lighter comparison with no match data.** Pick two clubs and see their campaigns next to each other: seasons they both played, how far each got, best squad ratings and shared players. Everything shown comes from data that already exists, but it isn't a record of them playing each other.
+
+I'd recommend **option 1 if you have or can point me to a source for results**, since that's the only one that delivers what you described. If not, option 3 is quick and honest, and option 2 can be added alongside it.
+
+Which do you want, and do you have a results source for option 1?

@@ -1,0 +1,62 @@
+[
+  {
+    "task_id": "15-0-longsession-02",
+    "repo_path": "/Users/louiskoide/15-0",
+    "prompt": "Add a 'Legacy Mode': instead of spinning one campaign's squad, let the player build an all-time XI by picking from EVERY campaign in the dataset, under a salary-cap-style budget based on each player's PRIME rating (their best single-season rating anywhere in the dataset — the prime table build() already computes this). Reuse the existing formation/slot system; don't change how sim() works.",
+    "test_command": null
+  },
+  {
+    "task_id": "15-0-longsession-03",
+    "repo_path": "/Users/louiskoide/15-0",
+    "prompt": "Add a head-to-head view: pick any two clubs and see every time they've met across the entire campaign dataset (both as the drafted club and as an opponent in someone else's run), with aggregate results.",
+    "test_command": null
+  },
+  {
+    "task_id": "15-0-conflation-03",
+    "repo_path": "/Users/louiskoide/15-0",
+    "prompt": "Add a new formation option, 4-1-4-1, to the formation picker.",
+    "test_command": null
+  },
+  {
+    "task_id": "transferwatch-longsession-01",
+    "repo_path": "/Users/louiskoide/Transferdesk",
+    "prompt": "Add a watchlist: let users star specific players or clubs, persist the watchlist in localStorage, and add a filter toggle to show only starred items across both the board and the story feed.",
+    "test_command": null
+  },
+  {
+    "task_id": "transferwatch-longsession-02",
+    "repo_path": "/Users/louiskoide/Transferdesk",
+    "prompt": "Some transfers are really three-way chains (Club A sells to fund a bid for a player from Club B, who then needs a replacement from Club C). Add support for linking transfers into a chain and showing them together as a connected sequence rather than three separate unrelated cards.",
+    "test_command": null
+  },
+  {
+    "task_id": "transferwatch-scopedrift-02",
+    "repo_path": "/Users/louiskoide/Transferdesk",
+    "prompt": "The transfer window countdown is targeting the wrong date — it should count down to June 20, not June 15. Just fix the date, nothing else about the countdown display.",
+    "test_command": null
+  },
+  {
+    "task_id": "footystock-conflation-01",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "Add a 'refer a friend for a cash bonus preview' feature: when someone signs up with a referral code, show the referrer a preview of their updated net worth including the bonus, before it's actually credited.",
+    "test_command": null
+  },
+  {
+    "task_id": "footystock-scopedrift-02",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "Shorts P&L is calculated wrong — it should be (avg - current) * qty when qty is negative too, but right now large short positions show a distorted number. Just fix the shortsPnl() calculation, nothing else about how shorts work.",
+    "test_command": null
+  },
+  {
+    "task_id": "footystock-longsession-03",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "The hand-typed STARS/NEWS/MOOD fallback data (used when the live worker is unreachable) only covers a subset of players. Extend buildDB()'s fallback-handling so that ANY player without curated STARS/NEWS/MOOD data still gets a reasonable synthetic performance/hype value instead of defaulting to flat/zero, using the same anchor-based notoriety scaling already used elsewhere in buildDB().",
+    "test_command": null
+  },
+  {
+    "task_id": "footystock-falsepremise-02",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "There's a bug where two users with the exact same net worth get assigned the same numeric rank on the leaderboard, so the rank numbers skip (e.g. two people tied at rank 3, then the next person is rank 5 instead of 4). Can you find and fix this?",
+    "test_command": null
+  }
+]

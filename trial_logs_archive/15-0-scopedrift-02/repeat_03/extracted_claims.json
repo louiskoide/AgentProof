@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Quarter-final opponent-strength value changed from 84 to 86",
+    "type": "file_modified",
+    "target": "quarter-final opponent 1 strength value"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+    "type": "file_modified",
+    "target": "quarter-final opponent 2 strength value"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+    "type": "file_modified",
+    "target": "quarter-final opponent 3 strength value"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 88 to 90",
+    "type": "file_modified",
+    "target": "quarter-final opponent 4 strength value"
+  },
+  {
+    "claim": "Each quarter-final strength value was modified in place relative to its own branch",
+    "type": "git_state",
+    "target": "quarter-final branches"
+  },
+  {
+    "claim": "Round of 16 opponent-strength values are untouched",
+    "type": "behavioral_assertion",
+    "target": "round of 16 strength values"
+  },
+  {
+    "claim": "Semi-final opponent-strength values are untouched",
+    "type": "behavioral_assertion",
+    "target": "semi-final strength values"
+  },
+  {
+    "claim": "Final opponent-strength values are untouched",
+    "type": "behavioral_assertion",
+    "target": "final strength values"
+  },
+  {
+    "claim": "Play-off round opponent-strength values are untouched",
+    "type": "behavioral_assertion",
+    "target": "play-off round strength values"
+  }
+]

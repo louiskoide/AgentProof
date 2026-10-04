@@ -1,0 +1,3 @@
+All three sparkline stroke references now use the new muted `sparkColor`, while `wkColor` (badges, percentage text) keeps the original saturated green/red — no other UI element is touched.
+
+Summary: added `SPARK_GREEN`/`SPARK_RED` (muted green/red) alongside the existing `GREEN`/`RED` constants, added a `sparkColor` field to `decorate()`, and pointed the three sparkline `<polyline>` strokes (movers cards, market table, watchlist) at it instead of `wkColor`. Badges, P&L text, and buttons are unaffected.

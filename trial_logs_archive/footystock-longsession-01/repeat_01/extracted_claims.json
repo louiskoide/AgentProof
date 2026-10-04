@@ -1,0 +1,207 @@
+[
+  {
+    "claim": "No code was changed by the agent",
+    "type": "behavioral_assertion",
+    "target": "agent_action"
+  },
+  {
+    "claim": "Signals already feed the price in FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The price implementation is at lines 5446-5496 of FootyStock_dc.html",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "fairValue = anchor * exp(wPerf*perfScore + wForm*formScore) * exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "The price formula uses log space so the price cannot go negative",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "Each signal is mean-centered on 46 representing an average player",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "A player with no rated match gets exactly 0, not a penalty",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "Each score is capped and adjusted for player notoriety",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "Hype is capped and reduced by hatewatch positions",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "A demand term sits on top of fair value",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "A ±50%/day circuit breaker sits on top of fair value",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "Decaying per-match bumps sit on top of fair value",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5446-5496"
+  },
+  {
+    "claim": "pricing-model.md contains a section called 'Mapping to the existing code'",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section of pricing-model.md says signals are only for display",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section was accurate as of 2026-06-25",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section is no longer accurate",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "wPerf is set to 0.06 at line 5453",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "wForm is set to 0.10 at line 5453",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "wHype is set to 0.35 at line 5453",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "Commit 1afa5ea was made on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea moved wPerf and wForm away from 0.5/0.3",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "The reason for the weight change in commit 1afa5ea was that a player's first good World Cup match was causing a 70-80% price jump in one step",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "At current weights, performance can move price +10% / -8%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "At current weights, form can move price +17% / -18%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "At current weights, hype can move price +58% / -37%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "At doc weights 0.5/0.3/0.2, performance can move price +117% / -50%",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "At doc weights 0.5/0.3/0.2, form can move price +59% / -44%",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "At doc weights 0.5/0.3/0.2, hype can move price +30% / -23%",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "pricing-model.md specifies weights of 0.50/0.30/0.20 for wPerf/wForm/wHype",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "pricing-model.md specifies that wHype should be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "Currently wHype outweighs both wPerf and wForm",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:5453"
+  },
+  {
+    "claim": "Switching to doc weights would bring back debut-match jumps",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Switching to doc weights could let an unknown player reach about 4.5x their market value",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Switching to doc weights would shift almost every price in the shared market at once",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The ±50%/day circuit breaker would spread a large price shift over several days",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The agent recommends wPerf=0.15, wForm=0.09, wHype=0.06",
+    "type": "behavioral_assertion",
+    "target": "agent_recommendation"
+  },
+  {
+    "claim": "wPerf=0.15 would limit performance price movement to about +26% / -19%",
+    "type": "behavioral_assertion",
+    "target": "agent_recommendation"
+  },
+  {
+    "claim": "wForm=0.09 would limit form price movement to approximately ±15%",
+    "type": "behavioral_assertion",
+    "target": "agent_recommendation"
+  },
+  {
+    "claim": "wHype=0.06 would limit hype price movement to about +8%",
+    "type": "behavioral_assertion",
+    "target": "agent_recommendation"
+  },
+  {
+    "claim": "With recommended weights, a good debut would move an unknown player's price by roughly 19%",
+    "type": "behavioral_assertion",
+    "target": "agent_recommendation"
+  },
+  {
+    "claim": "A June calibration targeted approximately 6% price movement",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  }
+]

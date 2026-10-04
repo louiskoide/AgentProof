@@ -1,0 +1,37 @@
+diff --git a/index.html b/index.html
+index d35aa7c..bd54ae6 100644
+--- a/index.html
++++ b/index.html
+@@ -3292,13 +3292,25 @@ button{font-family:inherit; cursor:pointer;}
+       const bump = r >= 85 ? 3 : r >= 82 ? 2 : r >= 80 ? 1 : 0;
+       return Math.min(91, r + bump);
+     };
+-    const campaigns = raw.map((c, i) => ({
+-      id: i,
+-      club: c.club,
+-      season: c.season,
+-      run: c.run,
+-      players: c.players.map((p) => ({ ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) })),
+-    }));
++    const campaigns = raw.map((c, i) => {
++      // a few campaigns list the same real player twice (data-entry slip, e.g. two roles
++      // logged separately) — merge those into one draftable entry so nobody can occupy two slots
++      const byName = new Map();
++      c.players.forEach((p) => {
++        const enriched = { ...p, r: regrade(p.n, p.r), groups: groupsFor(p.role), positions: posFor(p.role, p.n) };
++        const dupe = byName.get(p.n);
++        if (!dupe) {
++          byName.set(p.n, enriched);
++        } else {
++          const primary = enriched.r > dupe.r ? enriched : dupe;
++          const secondary = primary === enriched ? dupe : enriched;
++          primary.positions = [...new Set([...primary.positions, ...secondary.positions])];
++          primary.groups = [...new Set([...primary.groups, ...secondary.groups])];
++          byName.set(p.n, primary);
++        }
++      });
++      return { id: i, club: c.club, season: c.season, run: c.run, players: [...byName.values()] };
++    });
+     // prime: best single-season rating per player name
+     const prime = {};
+     campaigns.forEach((c) => {

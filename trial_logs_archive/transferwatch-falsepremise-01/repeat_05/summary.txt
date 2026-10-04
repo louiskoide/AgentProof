@@ -1,0 +1,24 @@
+Found and fixed it. The bug was in the live-feed merge logic (`fetchLatest`, `TransferDesk.jsx`), not in the seed data — the static "Curated" view was already clean.
+
+**The bug:** the merge matched incoming feed records to existing ones purely by `id`, and rebuilt its base from the hardcoded `SEED_TRANSFERS` snapshot on every poll:
+```js
+const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+data.transfers.forEach((t) => map.set(t.id, t));
+```
+Since the backend classifies each new tweet/article independently, a transfer that progresses from "talks" to "done" is very likely to arrive under a **new** `id` (a fresh source item), not the original one. The old "talks" record for that player was never evicted — it kept getting re-added from `SEED_TRANSFERS` on every 5-minute poll — while the new "done" record was added alongside it. Result: the same real-world transfer rendered in both the *In Talks* and *Done & Confirmed* columns at once.
+
+I reproduced this exactly with a simulation (Anthony Gordon reclassified as "done" under a new id → old code shows `['talks', 'done']` for the same player; fixed code shows just `['done']`).
+
+**The fix:** merge on a stable identity (`kind + player`) instead of the raw feed `id`, and merge into the current state instead of resetting from the seed each time:
+```js
+const transferKey = (t) => (t.kind + '|' + t.player).toLowerCase();
+...
+setTransfers((prev) => {
+  const map = new Map((prev.length ? prev : SEED_TRANSFERS).map((t) => [transferKey(t), t]));
+  data.transfers.forEach((t) => map.set(transferKey(t), t));
+  return [...map.values()];
+});
+```
+This also fixes a secondary regression where live updates were silently reverted every poll since the merge always started over from the static seed.
+
+Verified the file still builds and renders identically for the default curated view (no behavior change there since `REFRESH_CONFIG.endpoint` is empty) — the fix only matters once a live backend is wired up.

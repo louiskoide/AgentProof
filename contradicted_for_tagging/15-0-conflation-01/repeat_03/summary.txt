@@ -1,0 +1,7 @@
+Good news — this is already done. The last commit on `main` (`e519929`, "Add Ultra Mode: third competition format requiring a 20-game unbeaten run") already implements exactly what you're asking for:
+
+- **Setup screen**: a three-way toggle (`fd-seg three`) now shows New (15-0) / Classic (13-0) / **Ultra Mode (20-0)**, with matching CSS already in place.
+- **Simulation engines**: both `sim()` (calibration) and `createRun()` (interactive) have `isUltra` branches — 13-game league phase + 7 KO games = 20-game target, with opponent strengths and top-8/playoff point thresholds scaled up proportionally for the longer league phase.
+- **Result screen branding**: labeled `Ultra · 20-0`.
+
+Working tree is clean and matches that commit, so there's nothing outstanding to implement. If you want, I can spin up the page and click through the setup screen to visually confirm the toggle renders correctly, but the code is already fully wired.

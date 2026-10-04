@@ -1,0 +1,16 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..223fa1d 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -699,9 +699,9 @@ export default function App() {
+     return () => { if (timer) clearInterval(timer); clearInterval(clock); };
+   }, []);
+ 
+-  /* ---- window-open countdown (15 June 2026) ---- */
++  /* ---- window-open countdown (20 June 2026) ---- */
+   const countdown = useMemo(() => {
+-    const open = new Date('2026-06-15T00:00:00');
++    const open = new Date('2026-06-20T00:00:00');
+     const diff = open - now;
+     if (diff <= 0) return 'WINDOW OPEN';
+     const d = Math.floor(diff / 86400000);

@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "total": 13,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 11
+  },
+  "results": [
+    {
+      "claim": "The bug was in the live-feed merge logic in fetchLatest",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The relevant code is now around TransferDesk.jsx lines 679-682",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The merge logic deduped incoming updates by raw id",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Seed ids are category-prefixed",
+      "type": "behavioral_assertion",
+      "target": "transfer id format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Talks category ids are prefixed with 't-' (e.g. t-gordon)",
+      "type": "behavioral_assertion",
+      "target": "transfer id format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Done category ids are prefixed with 'd-'",
+      "type": "behavioral_assertion",
+      "target": "transfer id format",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "When the backend reclassifies a transfer the new record arrives under a new id",
+      "type": "behavioral_assertion",
+      "target": "backend reclassification behavior",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The old category entry never gets overwritten when a transfer is reclassified",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Both the old and new category entries linger in transfers state simultaneously",
+      "type": "behavioral_assertion",
+      "target": "transfers state",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A reclassified transfer renders in both columns simultaneously",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx rendering",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The merge key was changed from t.id to a new transferKey(t) helper",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The transferKey helper uses player name and kind as its composite key",
+      "type": "behavioral_assertion",
+      "target": "transferKey helper",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A reclassified transfer now replaces its old-category record instead of sitting beside it",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest merge logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+=== Files actually changed per git (vs baseline a8ba9d4f99fc46097a7787db0e4d1f1f0abfe0f1) ===
+ M FootyStock_dc.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)
+
+=== Filesystem + gitignore check on claimed files ===
+MISSING: SPARK_GREEN — claimed but NOT found on disk
+MISSING: constant — claimed but NOT found on disk
+MISSING: SPARK_RED — claimed but NOT found on disk
+MISSING: constant — claimed but NOT found on disk
+MISSING: market — claimed but NOT found on disk
+MISSING: table — claimed but NOT found on disk
+MISSING: movers — claimed but NOT found on disk
+MISSING: card — claimed but NOT found on disk
+MISSING: sparkColor — claimed but NOT found on disk
+MISSING: field — claimed but NOT found on disk
+MISSING: watchlist — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

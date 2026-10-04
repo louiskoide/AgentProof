@@ -1,0 +1,292 @@
+[
+  {
+    "claim": "Legacy Mode is implemented in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "A full Legacy game was tested in headless Chromium including signing players, hitting the cap, releasing a player, confirming the XI, and running the sim",
+    "type": "test_run",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "A Blind Spin Draft was run through to the sim",
+    "type": "test_run",
+    "target": "Spin Draft mode"
+  },
+  {
+    "claim": "The Legacy game test run had no console errors",
+    "type": "test_result",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "The Blind Spin Draft test run had no console errors",
+    "type": "test_result",
+    "target": "Spin Draft mode"
+  },
+  {
+    "claim": "sim() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "build() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "build()"
+  },
+  {
+    "claim": "Nothing has been committed",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "There is a new Game mode choice at the top of the UI offering Spin Draft and Legacy options",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "In Legacy mode the Ratings option is hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode the Rating pool option is hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode ratings are always visible",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode every player is at their prime",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode difficulty sets the budget at £450m for the easiest difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode difficulty sets the budget at £350m for the medium difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "In Legacy mode difficulty sets the budget at £260m for the hardest difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "The How it works text changes to match the selected game mode",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The player pool in Legacy mode contains all 2287 players in the dataset",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Each player in the Legacy pool is shown once as they were in their prime season",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Player rating, club, season and positions in Legacy mode come from the prime table that build() already makes",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Player price formula is max(1, round(2 × 1.16^(rating − 70)))",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode price formula"
+  },
+  {
+    "claim": "A player rated 99 costs approximately £147m",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode price formula"
+  },
+  {
+    "claim": "A player rated 94 costs approximately £70m",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode price formula"
+  },
+  {
+    "claim": "A player rated 90 costs approximately £39m",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode price formula"
+  },
+  {
+    "claim": "A player rated 80 costs approximately £9m",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode price formula"
+  },
+  {
+    "claim": "The Legacy draft screen replaces the spin panel but uses the same formation, slots and pitch",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The Legacy draft screen uses the same tap-to-place behaviour as Spin Draft",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The Legacy draft screen uses the same tap-to-move behaviour as Spin Draft",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The Legacy draft screen has a budget bar",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The Legacy draft screen has a search box that matches names and clubs",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The search box ignores accents so that kante finds Kanté",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode search"
+  },
+  {
+    "claim": "The Legacy draft screen has position filters built from the formation's slots",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The Legacy draft screen has a Release button when a drafted player is tapped which refunds their fee",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode draft screen"
+  },
+  {
+    "claim": "The budget guard prevents signing a player if the remaining budget would not cover the cheapest possible player for every other empty slot",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode budget guard"
+  },
+  {
+    "claim": "Every position has a £1m option",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "When all 11 slots are filled the user presses Confirm XI to proceed",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Legacy mode does not move on automatically when all 11 slots are filled",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "The teamsheet shows total wages in Legacy mode",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode teamsheet"
+  },
+  {
+    "claim": "The Redraft button is renamed to Edit XI in Legacy mode",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Edit XI allows the user to return to the squad without losing it",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode"
+  },
+  {
+    "claim": "Balance was measured using a greedy best-value XI in 4-3-3 run 300 times through the existing sim",
+    "type": "test_run",
+    "target": "Legacy mode balance"
+  },
+  {
+    "claim": "With a £450m cap the greedy XI achieved an overall rating of 90.2",
+    "type": "test_result",
+    "target": "Legacy mode £450m balance"
+  },
+  {
+    "claim": "With a £450m cap the greedy XI achieved a Champions win rate of 48%",
+    "type": "test_result",
+    "target": "Legacy mode £450m balance"
+  },
+  {
+    "claim": "With a £450m cap the greedy XI achieved an Unbeaten 15-0 rate of 4.3%",
+    "type": "test_result",
+    "target": "Legacy mode £450m balance"
+  },
+  {
+    "claim": "With a £350m cap the greedy XI achieved an overall rating of 88.4",
+    "type": "test_result",
+    "target": "Legacy mode £350m balance"
+  },
+  {
+    "claim": "With a £350m cap the greedy XI achieved a Champions win rate of 34%",
+    "type": "test_result",
+    "target": "Legacy mode £350m balance"
+  },
+  {
+    "claim": "With a £350m cap the greedy XI achieved an Unbeaten 15-0 rate of 2.0%",
+    "type": "test_result",
+    "target": "Legacy mode £350m balance"
+  },
+  {
+    "claim": "With a £260m cap the greedy XI achieved an overall rating of 86.5",
+    "type": "test_result",
+    "target": "Legacy mode £260m balance"
+  },
+  {
+    "claim": "With a £260m cap the greedy XI achieved a Champions win rate of 15%",
+    "type": "test_result",
+    "target": "Legacy mode £260m balance"
+  },
+  {
+    "claim": "With a £260m cap the greedy XI achieved an Unbeaten 15-0 rate of 0%",
+    "type": "test_result",
+    "target": "Legacy mode £260m balance"
+  },
+  {
+    "claim": "A browser test signed Messi and Ronaldo early and resulted in a 78-overall team that went out in the league phase",
+    "type": "test_result",
+    "target": "Legacy mode browser test"
+  },
+  {
+    "claim": "The player list shows only the top 40 players a user can sign to keep rendering fast",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode player list"
+  },
+  {
+    "claim": "Players a user cannot afford drop below the top 40 cut-off and are only visible via search",
+    "type": "behavioral_assertion",
+    "target": "Legacy mode player list"
+  },
+  {
+    "claim": "The row count is controlled by the constant LEGACY_LIST_MAX",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The price curve is defined as a one-line constant named legacyCost",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The budget caps are defined as one-line constants at DIFF[*].budget",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The best-score record in localStorage is shared between Spin Draft and Legacy runs",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  }
+]

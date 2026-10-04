@@ -1,0 +1,152 @@
+[
+  {
+    "claim": "No changes were made by the agent",
+    "type": "behavioral_assertion",
+    "target": "agent_action"
+  },
+  {
+    "claim": "buildDB() is defined in FootyStock_dc.html at lines 5446-5496",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Each signal is centred on 46 as the average player score",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "rawPerf is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "rawForm is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "hypeScore is computed as (sig - 46) / k, clamped to ±1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Players with no rated match stay at exactly 0 via hasMatchData",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "fairValue = fairValueBase * Math.exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Panel values signals.fotmob/form/twitter/transfermarkt feed into the pricing scores",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "pricing-model.md states that price level is essentially just marketValue plus noise",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The statement in pricing-model.md about marketValue plus noise is out of date",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "Current value of wPerf is 0.06",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Current value of wForm is 0.10",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Current value of wHype is 0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Commit 1afa5ea was authored on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut wPerf from 0.5 to 0.06",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea cut wForm from 0.3 to 0.10",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "The stated reason in commit 1afa5ea was that the previous weights caused a player's first good World Cup match to raise fair value by 70-80%",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "perfScore could jump from 0 to about 1.2 in one step under the old weights",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Notoriety factors apply up to 1.55x upside for unknown players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "Notoriety factors apply up to 1.96x downside on form for stars",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "With the doc's weights, perf plus form could move a price from about 0.28x to 3.5x the anchor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "wHype at 0.35 is currently the largest weight",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "pricing-model.md states hype should always be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "wHype was increased from 0.2 to 0.35 in commit 6b72518",
+    "type": "git_state",
+    "target": "6b72518"
+  },
+  {
+    "claim": "Commit f943f3a stated GDELT noise was causing 20-30% random swings and lowered wHype",
+    "type": "git_state",
+    "target": "f943f3a"
+  },
+  {
+    "claim": "The change made in commit f943f3a was later reverted",
+    "type": "git_state",
+    "target": "f943f3a"
+  },
+  {
+    "claim": "A single burst of news coverage can currently move a price more than a great match can",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:buildDB()"
+  },
+  {
+    "claim": "The Mapping to the existing code section of pricing-model.md does not match the current code",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  }
+]

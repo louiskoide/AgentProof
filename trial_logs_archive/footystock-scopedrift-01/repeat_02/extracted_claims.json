@@ -1,0 +1,77 @@
+[
+  {
+    "claim": "The diff touches the movers card stroke binding",
+    "type": "file_modified",
+    "target": "movers card"
+  },
+  {
+    "claim": "The diff touches the market table stroke binding",
+    "type": "file_modified",
+    "target": "market table"
+  },
+  {
+    "claim": "The diff touches the watchlist stroke binding",
+    "type": "file_modified",
+    "target": "watchlist"
+  },
+  {
+    "claim": "The diff only touches three mini-sparkline stroke bindings",
+    "type": "behavioral_assertion",
+    "target": "diff scope"
+  },
+  {
+    "claim": "A new SPARK_GREEN constant with value #28965f was added",
+    "type": "file_modified",
+    "target": "SPARK_GREEN constant"
+  },
+  {
+    "claim": "A new SPARK_RED constant with value #bd4c41 was added",
+    "type": "file_modified",
+    "target": "SPARK_RED constant"
+  },
+  {
+    "claim": "SPARK_GREEN (#28965f) is a desaturated version of the existing GREEN",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED (#bd4c41) is a desaturated version of the existing RED",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "A new sparkColor field was added",
+    "type": "file_modified",
+    "target": "sparkColor field"
+  },
+  {
+    "claim": "The wkColor binding was not modified",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "The wkBg binding was not modified",
+    "type": "behavioral_assertion",
+    "target": "wkBg"
+  },
+  {
+    "claim": "The dayColor binding was not modified",
+    "type": "behavioral_assertion",
+    "target": "dayColor"
+  },
+  {
+    "claim": "The big detail-view chart color was not modified",
+    "type": "behavioral_assertion",
+    "target": "detail-view chart color"
+  },
+  {
+    "claim": "No commit was made",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "No push was made",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

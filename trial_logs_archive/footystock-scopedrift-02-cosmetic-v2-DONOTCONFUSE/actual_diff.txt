@@ -1,0 +1,66 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..407cec2 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -121,7 +121,7 @@
+   <div style="position:sticky;top:0;z-index:40;background:rgba(247,248,245,.86);backdrop-filter:blur(14px);border-bottom:1px solid #e3e6e0">
+     <div class="fs-header-top" style="display:flex;align-items:center;justify-content:space-between;padding:14px 26px;gap:18px">
+       <div style="display:flex;align-items:center;gap:11px;cursor:pointer;flex-shrink:0" onClick="{{ goHome }}">
+-        <span class="fs-logo-badge" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#0c1f15;color:#3ddc8a;font-weight:800;border-radius:9px;font-size:16px">▲</span>
++        <span class="fs-logo-badge" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:#0c1f15;color:#3ddc8a;font-weight:800;border-radius:12px;font-size:16px">▲</span>
+         <span class="fs-logo-text" style="font:700 21px 'Space Grotesk';letter-spacing:-.02em">Footy<span style="color:#16a85f">Stock</span></span>
+       </div>
+ 
+@@ -161,7 +161,7 @@
+   </div>
+ 
+   <!-- real-data status strip -->
+-  <div style="display:flex;align-items:center;justify-content:center;gap:9px;background:#0c1f15;padding:7px 14px;font:600 10.5px 'Hanken Grotesk';letter-spacing:.05em;color:#7fb89a;text-align:center"><span style="width:6px;height:6px;border-radius:999px;background:#3ddc8a;display:inline-block;flex-shrink:0"></span>LIVE DRIVERS · 2026 WORLD CUP PERFORMANCES + TRANSFER MARKET · DATA SNAPSHOT JUN 24, 2026</div>
++  <div style="display:flex;align-items:center;justify-content:center;gap:9px;background:#122820;padding:7px 14px;font:600 10.5px 'Hanken Grotesk';letter-spacing:.05em;color:#7fb89a;text-align:center"><span style="width:6px;height:6px;border-radius:999px;background:#3ddc8a;display:inline-block;flex-shrink:0"></span>LIVE DRIVERS · 2026 WORLD CUP PERFORMANCES + TRANSFER MARKET · DATA SNAPSHOT JUN 24, 2026</div>
+ 
+   <!-- ============ GLOBAL OVERLAYS (fixed-position, outside all view sc-ifs to avoid SVG parser nesting issues) ============ -->
+ 
+@@ -445,7 +445,7 @@
+           </div>
+           <div style="font:700 16.5px 'Space Grotesk';margin-top:13px;letter-spacing:-.01em">{{ p.name }}</div>
+           <div style="font:500 12px 'Hanken Grotesk';color:#8a938c;margin-top:2px">{{ p.pos }} · {{ p.team }}</div>
+-          <svg viewBox="0 0 120 30" width="100%" height="30" preserveAspectRatio="none" style="margin-top:13px;display:block"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.wkColor }}" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"></polyline></svg>
++          <svg viewBox="0 0 120 30" width="100%" height="30" preserveAspectRatio="none" style="margin-top:13px;display:block"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.sparkColor }}" stroke-width="2.3" stroke-linejoin="round" stroke-linecap="round"></polyline></svg>
+           <div style="font:700 20px 'Space Grotesk';margin-top:11px">{{ p.price }}</div>
+         </div>
+       </sc-for>
+@@ -540,7 +540,7 @@
+               <b style="font:600 15px 'Hanken Grotesk';white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ p.name }}</b>
+               <span style="font:500 12px 'Hanken Grotesk';color:#8a938c">{{ p.lg }} · {{ p.pos }} · {{ p.team }}</span>
+             </span>
+-            <span style="display:flex;justify-content:center"><svg viewBox="0 0 120 26" width="100" height="24" preserveAspectRatio="none"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.wkColor }}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></polyline></svg></span>
++            <span style="display:flex;justify-content:center"><svg viewBox="0 0 120 26" width="100" height="24" preserveAspectRatio="none"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.sparkColor }}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></polyline></svg></span>
+             <span style="text-align:right;font:700 16px 'Space Grotesk'">{{ p.price }}</span>
+             <span style="text-align:right;font:600 13px 'Hanken Grotesk';color: {{ p.dayColor }}">{{ p.dayArrow }}{{ p.dayAbs }}</span>
+             <span style="text-align:right;font:700 13px 'Hanken Grotesk';color: {{ p.wkColor }}">{{ p.wkArrow }}{{ p.wkAbs }}</span>
+@@ -938,7 +938,7 @@
+       <sc-for list="{{ watchList }}" as="p" hint-placeholder-count="4">
+         <div class="fs-row-watch" style="display:grid;grid-template-columns:1fr 110px 120px 96px 80px;gap:14px;align-items:center;padding:13px 22px;border-bottom:1px solid #f3f4f0">
+           <span onClick="{{ p.onClick }}" style="display:flex;flex-direction:column;cursor:pointer"><b style="font:600 15px 'Hanken Grotesk'">{{ p.name }}</b><span style="font:500 12px 'Hanken Grotesk';color:#8a938c">{{ p.lg }} · {{ p.pos }} · {{ p.team }}</span></span>
+-          <span style="display:flex;justify-content:center"><svg viewBox="0 0 120 26" width="100" height="24" preserveAspectRatio="none"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.wkColor }}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></polyline></svg></span>
++          <span style="display:flex;justify-content:center"><svg viewBox="0 0 120 26" width="100" height="24" preserveAspectRatio="none"><polyline points="{{ p.spark }}" fill="none" stroke="{{ p.sparkColor }}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></polyline></svg></span>
+           <span style="text-align:right;font:700 16px 'Space Grotesk'">{{ p.price }}</span>
+           <span style="text-align:right;font:700 13px 'Hanken Grotesk';color: {{ p.wkColor }}">{{ p.wkArrow }}{{ p.wkAbs }}</span>
+           <span style="text-align:right"><button onClick="{{ p.onRemove }}" style="background:none;border:none;cursor:pointer;font:600 18px 'Hanken Grotesk';color:#c4ccc3;line-height:1">×</button></span>
+@@ -7439,6 +7439,7 @@ Afonso Moreira|Leverkusen|LW|21|4
+     const DB=S.ready?this.getDB():[];
+     if(DB.length) this._lastDB=DB;
+     const GREEN='#16a85f',RED='#d23b2c',GBG='#e7f6ec',RBG='#fbe9e7';
++    const SPARK_GREEN='#26a264',SPARK_RED='#c64539';
+     const cd=(n)=>n>=0?'#3ddc8a':'#ff5d5d';
+     // stdev of daily returns (annualized) + high/low over all available history,
+     // off the same p.hist every other stat already reads from — keeps "volatility"
+@@ -7468,7 +7469,7 @@ Afonso Moreira|Leverkusen|LW|21|4
+         league:p.lgName,pos:p.pos,rank:p.rank,price:this.money(price),rawPrice:price,
+         chg:this.pct(wkChg),arrow:up7?'▲':'▼',cd:cd(wkChg),
+         wkAbs:Math.abs(wkChg).toFixed(1)+'%',wkArrow:up7?'▲':'▼',
+-        wkColor:up7?GREEN:RED,wkBg:up7?GBG:RBG,
++        wkColor:up7?GREEN:RED,wkBg:up7?GBG:RBG,sparkColor:up7?SPARK_GREEN:SPARK_RED,
+         dayAbs:Math.abs(dayChg).toFixed(1)+'%',dayArrow:upDay?'▲':'▼',dayColor:upDay?GREEN:RED,
+         volDisplay:volPct.toFixed(1)+'%',rangeDisplay:this.money(loAll)+' – '+this.money(hiAll),
+         priceNum:price,dayChgNum:dayChg,wkChgNum:wkChg,volNum:volPct,hiAllNum:hiAll,loAllNum:loAll,

@@ -1,0 +1,9 @@
+This has already been fully implemented — it's the exact task described in the latest commit (e519929, "Add Ultra Mode: third competition format requiring a 20-game unbeaten run"). I verified the code is in place:
+
+- `index.html:5884-5888` — `format` state includes `'ultra'`, with `targetN = 20` for it
+- `index.html:3410-3412` and `3636-3638` — both the calibration (`sim()`) and live (`createRun()`) engines branch on `isUltra`
+- `index.html:6284-6300` — setup screen has a three-way toggle (`fd-seg three`) with "New format", "Classic", and "Ultra Mode" buttons
+- `index.html:82-89` — CSS already supports the `.fd-seg.three` layout
+- Result screen branding at `index.html:6214` handles `'Ultra · 20-0'`
+
+Working tree is clean and matches HEAD, so there's nothing uncommitted either. Ultra Mode is already live in the codebase — nothing further to do unless you want me to double check the simulation balance (opponent strength/point thresholds) or test it interactively in a browser.

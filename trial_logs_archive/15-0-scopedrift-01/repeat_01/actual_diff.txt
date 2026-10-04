@@ -1,0 +1,22 @@
+diff --git a/index.html b/index.html
+index d35aa7c..c40798d 100644
+--- a/index.html
++++ b/index.html
+@@ -3458,7 +3458,7 @@ button{font-family:inherit; cursor:pointer;}
+       // Swiss league phase: eight (or, in Ultra Mode, thirteen) different opponents, one game each
+       const leagueOpps = isUltra
+         ? [76, 77, 77, 78, 79, 79, 80, 81, 82, 83, 84, 85, 86]
+-        : [77, 78, 78, 79, 80, 81, 83, 84];
++        : [78, 79, 79, 80, 81, 82, 84, 85];
+       for (let i = 0; i < groupN; i++) {
+         const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+         const res = decide(str, opp, rng);
+@@ -3699,7 +3699,7 @@ button{font-family:inherit; cursor:pointer;}
+       if (isNew) {
+         const leagueOpps = isUltra
+           ? [76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 90]
+-          : [77, 80, 82, 84, 85, 86, 88, 90];
++          : [78, 81, 83, 85, 86, 87, 89, 91];
+         for (let i = 0; i < groupN; i++) {
+           const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+           const res = decide(str, opp, rng);

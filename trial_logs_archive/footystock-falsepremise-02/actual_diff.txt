@@ -1,0 +1,33 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..200cb6d 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -6599,9 +6599,18 @@ Afonso Moreira|Leverkusen|LW|21|4
+     const arr=real.filter(e=>e.name!==myName).map(e=>({name:e.name,netWorth:e.netWorth||0,tradingPnl:e.tradingPnl||0,topHoldings:e.topHoldings||[]}));
+     arr.push({name:myName,netWorth:myNw,tradingPnl:myPnl,me:true});
+     arr.sort((a,b)=>sortBy==='tradingPnl'?(b.tradingPnl-a.tradingPnl):(b.netWorth-a.netWorth));
++    // Dense ranking: ties share a rank number, and the next distinct value
++    // takes rank+1 — never skips ranks the way index-based (or SQL RANK())
++    // numbering would for a tied group.
++    let curRank=0, prevVal=null;
++    arr.forEach(x=>{
++      const val=sortBy==='tradingPnl'?x.tradingPnl:x.netWorth;
++      if(prevVal===null||val!==prevVal){ curRank++; prevVal=val; }
++      x.rank=curRank;
++    });
+     return arr;
+   }
+-  myRank(){ const lb=this.leaderboardData(); return lb.findIndex(x=>x.me)+1; }
++  myRank(){ const lb=this.leaderboardData(); const me=lb.find(x=>x.me); return me?me.rank:lb.length+1; }
+ 
+   // ============ REFERRAL / SHARE ============
+   getRefCode(){
+@@ -8081,7 +8090,7 @@ Afonso Moreira|Leverkusen|LW|21|4
+     const lb=this.leaderboardData(); const medals={1:'🥇',2:'🥈',3:'🥉'};
+     const avatarColors=['#16a85f','#0c1f15','#2a6fdb','#b8543a','#7a4fbf','#c98a1e','#1f8a5b','#4a5568'];
+     const lbSortBy=S.lbSortBy||'netWorth';
+-    const leaderboard=lb.map((x,i)=>{ const rk=i+1;
++    const leaderboard=lb.map((x)=>{ const rk=x.rank;
+       const profit=x.tradingPnl||0; const up=profit>=0;
+       const initials=x.me?'YOU':x.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+       return { medal:medals[rk]||String(rk), rankColor:rk<=3?'#16201a':'#aab2ab', name:x.me?(x.name+' (you)'):x.name,

@@ -1,0 +1,8 @@
+Implementation complete. Summary of what was added to `TransferDesk.jsx`:
+
+- **Watchlist state**: `{ players: [], clubs: [] }` persisted to `localStorage` (`td-watchlist-v1`), loaded lazily on mount and saved on every change.
+- **Star buttons**: on the board, each `TransferCard` gets a star for the player (top-left of the card) and a small star next to each club chip (from/to). On the story feed, each `StoryCard` gets a star next to the club name in the header, plus a star on every candidate player row.
+- **Filter toggle**: a "Watchlist" pill button in the controls bar (next to search) shows the total starred count and toggles `watchOnly`. When active, the board only shows transfers where the player, "from" club, or "to" club is starred; the story feed only shows stories where the club or any candidate is starred.
+- Non-club placeholders (`Free agent`, `Multiple clubs`) are excluded from club starring since they aren't real clubs.
+
+No build system exists in this repo (single-file component), so I validated it with `esbuild` for syntax/bundling correctness rather than running a dev server — worth a quick visual check in whatever host renders this component.

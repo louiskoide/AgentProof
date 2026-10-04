@@ -1,0 +1,9 @@
+I've added 4-1-4-1 to the formation picker, but I haven't opened the page in a browser to check it.
+
+**Changes in `index.html`:**
+- **The formation itself** (`index.html:3257`): a goalkeeper and back four like the other four-at-the-back options, one DM on his own in front of the defence, then a flat midfield four (RM, CM, CM, LM) and a lone striker. I set the positions to match the spacing of the existing formations.
+- **The picker** (`index.html:5851`): 4-1-4-1 now sits between 4-2-3-1 and 3-4-3.
+
+The eligibility rules already cover every position in it (GK, RB, CB, LB, DM, CM, RM, LM, ST), and nothing else in the code uses formation names, so drafting and match simulation should work with it as they are.
+
+**Layout:** the picker grid has 3 columns, so with a seventh formation, 5-4-1 now sits alone on a third row. If you'd rather keep it tidy, I could switch to 4 columns (4 + 3) or make the last button fill the whole row.

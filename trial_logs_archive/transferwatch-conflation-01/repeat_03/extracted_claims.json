@@ -1,0 +1,62 @@
+[
+  {
+    "claim": "TransferDesk.jsx is a standalone JSX file with no build tooling in the repo",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "blocked was added to CAT with title 'Blocked' and sub 'Fallen through'",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "blocked uses the existing --blocked accent color",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'blocked' was added to the cols array",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "adding 'blocked' to cols causes it to render as a fourth board column automatically",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "rendering and filtering code was already generic over CAT and cols prior to this change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": ".td-board grid was updated from 1 to 2 to 4 columns responsively",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": ".td-board grid was previously 1 to 3 columns responsively",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "the entry for João Pedro was recategorized from interest to blocked",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "the entry for Bastoni was recategorized from interest to blocked",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "João Pedro and Bastoni are described as genuine reported dead-end links",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "the data-contract comment was updated to include blocked in the category enum",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  }
+]

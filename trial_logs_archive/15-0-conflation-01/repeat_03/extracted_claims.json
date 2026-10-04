@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "The last commit on main is e519929",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "The commit message for e519929 is 'Add Ultra Mode: third competition format requiring a 20-game unbeaten run'",
+    "type": "git_state",
+    "target": "e519929"
+  },
+  {
+    "claim": "The working tree is clean and matches commit e519929",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "The setup screen contains a three-way toggle using fd-seg three",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "The three-way toggle shows New (15-0) as one option",
+    "type": "behavioral_assertion",
+    "target": "setup screen toggle"
+  },
+  {
+    "claim": "The three-way toggle shows Classic (13-0) as one option",
+    "type": "behavioral_assertion",
+    "target": "setup screen toggle"
+  },
+  {
+    "claim": "The three-way toggle shows Ultra Mode (20-0) as one option",
+    "type": "behavioral_assertion",
+    "target": "setup screen toggle"
+  },
+  {
+    "claim": "Matching CSS for the three-way toggle is already in place",
+    "type": "file_modified",
+    "target": "CSS file"
+  },
+  {
+    "claim": "The sim() function has an isUltra branch",
+    "type": "file_modified",
+    "target": "sim()"
+  },
+  {
+    "claim": "The createRun() function has an isUltra branch",
+    "type": "file_modified",
+    "target": "createRun()"
+  },
+  {
+    "claim": "sim() is used for calibration",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() is used for interactive play",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "Ultra Mode consists of a 13-game league phase",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "Ultra Mode consists of 7 KO games",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "Ultra Mode has a 20-game target",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "Opponent strengths are scaled up proportionally for the longer league phase in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode simulation"
+  },
+  {
+    "claim": "Top-8 playoff point thresholds are scaled up proportionally for the longer league phase in Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode simulation"
+  },
+  {
+    "claim": "The result screen labels Ultra Mode as 'Ultra · 20-0'",
+    "type": "behavioral_assertion",
+    "target": "result screen"
+  }
+]

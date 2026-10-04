@@ -1,0 +1,1 @@
+All four Quarter-final opponent-strength values are bumped by 2 (84→86, 86→88, 86→88, 88→90), each in place relative to its own branch. Round of 16, Semi-final, Final, and the play-off round are all untouched.

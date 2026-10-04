@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total": 12,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "The root cause was in the fetchLatest function",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Live-feed records were merged into the transfer list keyed only by id",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The backend classifies fresh tweets/articles as a transfer progresses",
+      "type": "behavioral_assertion",
+      "target": "backend",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "An update for the same real-world deal can land under a new id",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A stale seed record could have category value of 'talks'",
+      "type": "behavioral_assertion",
+      "target": "transfer record",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A newer record for the same deal could have category value of 'done'",
+      "type": "behavioral_assertion",
+      "target": "transfer record",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The stale seed record would sit alongside the new one causing duplicate rendering",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The deal rendered in both pipeline columns at once",
+      "type": "behavioral_assertion",
+      "target": "pipeline UI",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix deduplicates records by a stable identity composed of kind, player, and to fields",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The kind, player, and to fields are lowercased when constructing the stable identity key",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A later record for the same transfer always overwrites the earlier one regardless of id drift",
+      "type": "behavioral_assertion",
+      "target": "fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix is located at lines 671-678 of TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

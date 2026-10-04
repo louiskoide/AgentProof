@@ -1,0 +1,28 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..9335595 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -35,6 +35,12 @@ const REFRESH_CONFIG = {
+ 
+ const STAGE_LABELS = ['Initial contact', 'Bid submitted', 'Personal terms agreed', 'Fee agreed', 'Medical / sealed'];
+ 
++/* Identity key for a transfer: feed items are ingested per tweet/article, so the
++   same real-world move can arrive under a new `id` as it progresses (e.g. talks -> done).
++   Keying merges on kind+player (rather than the feed's id) prevents stale and
++   updated entries for the same move from both surviving into different columns. */
++const transferKey = (t) => `${t.kind}:${t.player}`;
++
+ /* --- club metadata: league (for filtering) + country (for flag) + accent --- */
+ const META = {
+   'Manchester United': { league: 'Premier League', country: 'ENG', color: '#DA291C' },
+@@ -669,8 +675,8 @@ export default function App() {
+       if (!res.ok) throw new Error('Feed error ' + res.status);
+       const data = await res.json();
+       if (Array.isArray(data.transfers)) {
+-        const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+-        data.transfers.forEach((t) => map.set(t.id, t));
++        const map = new Map(SEED_TRANSFERS.map((t) => [transferKey(t), t]));
++        data.transfers.forEach((t) => map.set(transferKey(t), t));
+         setTransfers([...map.values()]);
+       }
+       if (Array.isArray(data.stories)) {

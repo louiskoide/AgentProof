@@ -1,0 +1,21 @@
+I didn't change anything. This is already built, and switching to the doc's weights would bring back a bug that was fixed on purpose.
+
+**The signals already set the price.** In `FootyStock_dc.html:5446-5496`, `buildDB()` does what you described:
+
+- **Mean-centred:** each signal is centred on 46, the "average player" score. `rawPerf`, `rawForm` and `hypeScore` are each `(sig − 46)/k`, clamped to ±1. Players with no rated match stay at exactly 0 (`hasMatchData`).
+- **Log space:** `fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore)`, then `fairValue = fairValueBase * Math.exp(wHype*hypeScore)`, so the price can't go negative.
+- The panel values (`signals.fotmob/form/twitter/transfermarkt`) are the same numbers that feed those scores. They aren't just for show.
+
+The line in `pricing-model.md` saying "today the price level is essentially just `marketValue` + noise" is out of date. It describes the code before this was wired up, and it's probably why this looked unfinished.
+
+**The weights were moved off 0.50/0.30/0.20 deliberately.** The current values are `wPerf=0.06, wForm=0.10, wHype=0.35`. The history:
+- `1afa5ea` (2026-06-29) cut perf from 0.5 to 0.06 and form from 0.3 to 0.10. The reason given: with the doc's weights, a player's first good World Cup match raised fair value by 70–80%, because perfScore jumped from 0 to about 1.2 in one step.
+- The scores are also multiplied by notoriety factors (up to 1.55× upside for unknown players, up to 1.96× downside on form for stars). With the doc's weights, perf plus form could move a price from about 0.28× to 3.5× the anchor.
+
+**One real mismatch with the doc:** `wHype=0.35` is now the largest weight. The doc says hype should always be the smallest ("spice, not the meal"). It went from 0.2 to 0.35 in `6b72518`. A later commit (`f943f3a`) said GDELT noise was "causing 20-30% random swings" and lowered it, and then that change was reverted. So a single burst of news coverage can move a price more than a great match can.
+
+What I'd suggest instead:
+1. **Rewrite the "Mapping to the existing code" section of `pricing-model.md`** so it matches the code and records why the weights are small (the per-point scale is different from what the doc assumes).
+2. **Lower `wHype` below `wForm`, to about 0.08–0.10,** so the "hype is smallest" rule holds again. This is a real price change, so check it against a few live players first.
+
+Want me to do either or both? If you really do want the literal 0.50/0.30/0.20, I can do that too, but the scale factors (the `/18` divisors) would need to shrink at the same time to avoid the 70–80% jumps.

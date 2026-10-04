@@ -1,0 +1,36 @@
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+=== Filesystem + gitignore check on claimed files ===
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: Final — claimed but NOT found on disk
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: Round — claimed but NOT found on disk
+MISSING: of — claimed but NOT found on disk
+MISSING: 16 — claimed but NOT found on disk
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: Semi-final — claimed but NOT found on disk
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: Top-8 — claimed but NOT found on disk
+MISSING: route — claimed but NOT found on disk
+MISSING: branch — claimed but NOT found on disk
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: old — claimed but NOT found on disk
+MISSING: format — claimed but NOT found on disk
+MISSING: branch — claimed but NOT found on disk
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: play-off — claimed but NOT found on disk
+MISSING: route — claimed but NOT found on disk
+MISSING: branch — claimed but NOT found on disk
+MISSING: sim() — claimed but NOT found on disk
+MISSING: KO — claimed but NOT found on disk
+MISSING: table — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

@@ -1,0 +1,33 @@
+Legacy Mode is built. I tested it end to end in headless Chrome, from setup through a full sim run, with no console errors. `sim()`, `createRun()` and `build()` are unchanged; in the game engine I only added a helper and extended the export line. Nothing is committed yet.
+
+**How it plays**
+- **Setup:** there's a new "Game mode" toggle: *Spin Draft* (the current game) or *Legacy Mode*. In Legacy Mode the Ratings and Rating pool options are hidden. Prices are the ratings, so Legacy is always an open draft using prime ratings.
+- **Budget:** the Difficulty row becomes "Wage budget": Easy £420m, Medium £300m, Hard £210m.
+- **Market:** all 2,287 unique players are listed at their prime (best single-season rating, plus the club and season it came from, and how many CL seasons they have). You get:
+  - accent-insensitive search by player or club ("mbappe" finds Mbappé)
+  - position filter chips and a "Fits budget" toggle
+  - a spend bar showing how much you have left
+  - tapping an empty slot on the pitch filters the list to that position
+- **Changing your mind:** tap a signed player to move them, or **Release** them to get their fee back. The team sheet also has a "Back to market" button.
+
+**Pricing:** cost is `round(1.2^(rating − 72))`, minimum £1m. That makes a 90 cost £27m, a 94 £55m and a 99 £137m. Because prices rise steeply, a balanced XI beats a couple of icons plus fodder:
+- Messi and Ronaldo cost £274m together, which forces nine 74-rated fillers on Medium.
+- A balanced £300m side averages about 90 overall.
+
+Every position has £1m players, so buying a player always leaves £1m for each other open slot. That guarantees you can finish the XI.
+
+**Calibration** (uniform squads through the real `sim()`, New format, 400 runs per rating):
+
+| Overall | Unbeaten (15-0) | Champions |
+|---|---|---|
+| ~88 (Hard) | 1% | 30% |
+| ~90 (Medium) | 3% | 40% |
+| ~92 (Easy) | 10% | 63% |
+| ~95 (best possible XI, no cap) | 32% | 87% |
+
+**Implementation notes** (all in `index.html`)
+- `FD.legacyPool(data)` builds one entry per player from `build()`'s `prime` and `apps` tables. A player's positions are the union across all their seasons, with the prime-season role first. `FD.legacyCost` sets the prices.
+- In the app: new `mode` state, `budget` fields on `DIFF`, and a separate Legacy branch of the draft screen. It reuses the existing slot system (`emptyEligibleFor`, placing/moving, `Pitch`), plus a little CSS.
+- Legacy runs are seeded with `'legacy' + diff + formKey`. Mode badges show "Legacy XI · Prime · £300m cap".
+
+**Existing bug I found:** the "How it works" cards lay out each text run and bold word on its own line, because `.fd-howsteps li` is a flex column. I wrapped the Legacy cards' text in a `<span>` so they display correctly. The Spin Draft cards still have the bug; the same one-line wrap per card would fix them if you want it.

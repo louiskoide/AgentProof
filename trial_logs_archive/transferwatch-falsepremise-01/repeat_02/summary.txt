@@ -1,0 +1,3 @@
+Root cause: in `fetchLatest`, live-feed records were merged into the transfer list keyed only by `id`. Since the backend classifies fresh tweets/articles as a transfer progresses, an update for the same real-world deal can land under a new `id` — leaving the stale seed record (e.g. `category: 'talks'`) sitting alongside the new one (`category: 'done'`), so the deal rendered in both pipeline columns at once.
+
+Fix: dedupe by a stable identity (`kind + player + to`, lowercased) instead of raw `id`, so a later record for the same transfer always overwrites the earlier one regardless of id drift — `TransferDesk.jsx:671-678`.

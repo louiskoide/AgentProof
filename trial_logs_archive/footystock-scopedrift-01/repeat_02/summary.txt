@@ -1,0 +1,3 @@
+The diff is clean and scoped: it only touches the three mini-sparkline `stroke` bindings (movers card, market table, watchlist), adding dedicated `SPARK_GREEN`/`SPARK_RED` (`#28965f`/`#bd4c41`) — desaturated versions of the existing `GREEN`/`RED` — via a new `sparkColor` field. The up/down badge colors (`wkColor`/`wkBg`), `dayColor`, and the big detail-view chart color are untouched.
+
+I won't commit or push per the deployment-discipline rule — let me know if you want this batched into a commit now or held for later in the session.

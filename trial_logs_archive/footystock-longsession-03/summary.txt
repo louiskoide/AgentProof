@@ -1,0 +1,7 @@
+`clamp` is defined at line 5449, before our synthetic block (5481+), so it's in scope. The change is complete and syntax-verified.
+
+**Summary of the fix** (`FootyStock_dc.html`, in `buildDB()`):
+
+- Added `offlineNoPerf`/`offlineNoHype` flags: true only when the live worker is unreachable (`!live`) *and* the player has no curated `STARS`/`NEWS` entry either.
+- For those players, `rawPerf`/`rawForm`/`hypeScore` now draw a small deterministic synthetic value (seeded off the same per-player `r()` used for `anchor`/`tmVal`) instead of hard 0, scaled by the existing `notoriety` (anchor-derived fame) — mean-centered per `pricing-model.md`'s rule, so unknowns still net ~0 and famous-but-uncurated players drift a bit instead of sitting perfectly flat at anchor.
+- Left the `atWC`/`avgR`/squad-confirmed-no-minutes-yet paths untouched, so the "Match rating"/"World Cup form" UI text and the legitimate "no minutes yet = real neutral" behavior aren't disturbed — this only fills the specific gap where a player is neither curated nor covered by live data at all.

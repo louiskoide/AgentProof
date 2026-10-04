@@ -1,0 +1,229 @@
+diff --git a/index.html b/index.html
+index d35aa7c..75e156b 100644
+--- a/index.html
++++ b/index.html
+@@ -64,6 +64,19 @@ button{font-family:inherit; cursor:pointer;}
+ .fd-badge{display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:6px 11px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft);}
+ .fd-badge .led{width:7px; height:7px; border-radius:50%; background:var(--done); animation:pulse 1.6s infinite;}
+ .fd-badge b{color:var(--ink);}
++.fd-badge-btn{border:1px solid var(--interest); color:var(--interest); transition:.15s;}
++.fd-badge-btn:hover{background:var(--interest); color:#fff;}
++
++.fd-h2h-picker{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
++.fd-h2h-select{flex:1; min-width:0; font-family:var(--font-ui); font-weight:700; font-size:14px; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:11px; padding:12px 12px;}
++.fd-h2h-swap{flex-shrink:0; width:38px; height:38px; border-radius:50%; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); font-size:16px; display:flex; align-items:center; justify-content:center; transition:.15s;}
++.fd-h2h-swap:hover{color:var(--ink); border-color:var(--ink-soft);}
++.fd-h2h-agg{display:flex; align-items:center; justify-content:center; gap:16px; padding:8px 0 2px;}
++.fd-h2h-aggclub{font-family:var(--font-display); font-size:17px; text-transform:uppercase; letter-spacing:.01em; flex:1; text-align:center;}
++.fd-h2h-aggscore{font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--ink); flex-shrink:0;}
++.fd-h2h-list{border-top:1px solid var(--line); margin-top:6px;}
++.fd-h2h-meeting{border-bottom:1px solid var(--line); padding-bottom:4px;}
++.fd-h2h-meetlabel{padding:12px 4px 0;}
+ 
+ 
+ /* ===========================================================================
+@@ -3921,7 +3934,7 @@ button{font-family:inherit; cursor:pointer;}
+     };
+   }
+ 
+-  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor };
++  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor, OPP_POOL, ELITE_CLUBS, SURPRISE_CLUBS };
+ })();
+ 
+ ;
+@@ -5872,6 +5885,66 @@ button{font-family:inherit; cursor:pointer;}
+     while (start - 1 >= 0 && /^[a-zà-ÿ]/.test(parts[start - 1])) start--;
+     return parts.slice(start).join(' ');
+   }
++
++  // ---- Head-to-head: replay a campaign's real, full-strength squad through the same
++  // engine used for live runs (deterministic per campaign, independent of any draft),
++  // then read off every match where the named opponent shows up. Doing this for both
++  // clubs' campaigns covers a pairing both ways: each as the side that's actually
++  // simulated, and each as the random opponent drawn into the other's run.
++  function squadForCampaign(c) {
++    return c.players.map((p) => ({
++      n: p.n,
++      shortName: shortName(p.n),
++      rating: p.r,
++      role: p.role,
++      line: (p.groups && p.groups[0]) || (FD.groupsFor(p.role) || ['MID'])[0],
++    }));
++  }
++  function simulateCampaignRun(c) {
++    const squad = squadForCampaign(c);
++    const run = FD.createRun(squad, c.club + '·' + c.season + ':h2h', { format: 'new' });
++    run.playGroup();
++    let guard = 0;
++    while (run.getStage() !== 'done' && guard < 80) {
++      guard++;
++      if (run.getStage() === 'table') run.proceed();
++      else if (run.getPending()) run.autoShootout();
++      else run.next();
++    }
++    return run.result();
++  }
++  function headToHead(campaigns, clubA, clubB) {
++    if (!clubA || !clubB || clubA === clubB) return { meetings: [], agg: null };
++    const meetings = [];
++    const collect = (simClub, oppClub) => {
++      campaigns.filter((c) => c.club === simClub).forEach((c) => {
++        const result = simulateCampaignRun(c);
++        result.matches.forEach((m) => {
++          if (m.opp !== oppClub) return;
++          meetings.push({
++            simClub, simSeason: c.season, simRun: c.run, opp: oppClub,
++            round: m.round, full: m.full, stage: m.stage, leg: m.leg,
++            gf: m.gf, ga: m.ga, res: m.res, agg: m.agg, pens: m.pens,
++            scorers: m.scorers, oppScorers: m.oppScorers,
++          });
++        });
++      });
++    };
++    collect(clubA, clubB);
++    collect(clubB, clubA);
++    meetings.sort((a, b) => (a.simSeason < b.simSeason ? -1 : a.simSeason > b.simSeason ? 1 : 0));
++    const agg = { played: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0 };
++    meetings.forEach((m) => {
++      const forA = m.simClub === clubA;
++      const res = forA ? m.res : m.res === 'W' ? 'L' : m.res === 'L' ? 'W' : 'D';
++      const gf = forA ? m.gf : m.ga;
++      const ga = forA ? m.ga : m.gf;
++      agg.played++;
++      if (res === 'W') agg.w++; else if (res === 'D') agg.d++; else agg.l++;
++      agg.gf += gf; agg.ga += ga;
++    });
++    return { meetings, agg };
++  }
+   function App() {
+     const data = useMemo(() => FD.build(), []);
+     const {
+@@ -5887,6 +5960,19 @@ button{font-family:inherit; cursor:pointer;}
+     const formation = FD.FORMATIONS[formKey];
+     const targetN = format === 'new' ? 15 : format === 'ultra' ? 20 : 13;
+ 
++    // head-to-head state
++    const h2hClubs = useMemo(() => {
++      const set = new Set();
++      campaigns.forEach((c) => set.add(c.club));
++      (FD.OPP_POOL || []).forEach((c) => set.add(c));
++      (FD.ELITE_CLUBS || []).forEach((c) => set.add(c));
++      (FD.SURPRISE_CLUBS || []).forEach((c) => set.add(c));
++      return Array.from(set).sort((a, b) => a.localeCompare(b));
++    }, [campaigns]);
++    const [h2hA, setH2hA] = useState('Real Madrid');
++    const [h2hB, setH2hB] = useState('Barcelona');
++    const h2h = useMemo(() => headToHead(campaigns, h2hA, h2hB), [campaigns, h2hA, h2hB]);
++
+     // draft state
+     const [filled, setFilled] = useState([]);
+     const [campaign, setCampaign] = useState(null);
+@@ -6223,7 +6309,8 @@ button{font-family:inherit; cursor:pointer;}
+       return /*#__PURE__*/React.createElement("div", {
+         className: "fd-wrap"
+       }, /*#__PURE__*/React.createElement(Masthead, {
+-        best: best
++        best: best,
++        onH2H: () => setPhase('h2h')
+       }), /*#__PURE__*/React.createElement("div", {
+         className: "fd-setup"
+       }, /*#__PURE__*/React.createElement("div", {
+@@ -6367,6 +6454,76 @@ button{font-family:inherit; cursor:pointer;}
+         count: campaigns.length
+       }));
+     }
++
++    // ============================ HEAD-TO-HEAD ============================
++    if (phase === 'h2h') {
++      const agg = h2h.agg;
++      const swap = () => {
++        setH2hA(h2hB);
++        setH2hB(h2hA);
++      };
++      const selectFor = (value, onChange) => /*#__PURE__*/React.createElement("select", {
++        className: "fd-h2h-select",
++        value: value,
++        onChange: (e) => onChange(e.target.value)
++      }, h2hClubs.map((c) => /*#__PURE__*/React.createElement("option", {
++        key: c,
++        value: c
++      }, c)));
++      return /*#__PURE__*/React.createElement("div", {
++        className: "fd-wrap"
++      }, /*#__PURE__*/React.createElement(MastheadSlim, null), /*#__PURE__*/React.createElement("div", {
++        className: "fd-subbar"
++      }, /*#__PURE__*/React.createElement("span", {
++        className: "fd-badge"
++      }, "Head-to-Head"), /*#__PURE__*/React.createElement("button", {
++        className: "fd-restart",
++        onClick: () => setPhase('setup')
++      }, "← Back")), /*#__PURE__*/React.createElement("div", {
++        className: "fd-panel rise"
++      }, /*#__PURE__*/React.createElement("h2", {
++        className: "fd-panel-h"
++      }, "Head-to-Head"), /*#__PURE__*/React.createElement("p", {
++        className: "fd-panel-sub"
++      }, "Pick two clubs and see every time they’ve crossed paths across the whole campaign pool — each club’s own historic squads simulated through the engine, both as the side actually being run and as the random opponent that turns up in the other club’s run."), /*#__PURE__*/React.createElement("div", {
++        className: "fd-h2h-picker"
++      }, selectFor(h2hA, setH2hA), /*#__PURE__*/React.createElement("button", {
++        className: "fd-h2h-swap",
++        onClick: swap,
++        "aria-label": "Swap clubs",
++        title: "Swap"
++      }, "⇄"), selectFor(h2hB, setH2hB)), h2hA === h2hB ? /*#__PURE__*/React.createElement("p", {
++        className: "meta"
++      }, "Pick two different clubs to compare.") : agg && agg.played ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
++        className: "fd-h2h-agg"
++      }, /*#__PURE__*/React.createElement("span", {
++        className: "fd-h2h-aggclub"
++      }, h2hA), /*#__PURE__*/React.createElement("span", {
++        className: "fd-h2h-aggscore"
++      }, agg.w, "–", agg.d, "–", agg.l), /*#__PURE__*/React.createElement("span", {
++        className: "fd-h2h-aggclub"
++      }, h2hB)), /*#__PURE__*/React.createElement("p", {
++        className: "meta",
++        style: {
++          textAlign: 'center',
++          margin: '6px 0 18px'
++        }
++      }, agg.played, " simulated meeting", agg.played === 1 ? '' : 's', " \xB7 goals ", agg.gf, "–", agg.ga, " \xB7 record shown as ", h2hA, "’s W–D–L"), /*#__PURE__*/React.createElement("div", {
++        className: "fd-h2h-list"
++      }, h2h.meetings.map((m, i) => /*#__PURE__*/React.createElement("div", {
++        key: i,
++        className: "fd-h2h-meeting"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: "meta fd-h2h-meetlabel"
++      }, m.simClub, " \xB7 ", m.simSeason, m.simRun ? " \xB7 real campaign result: " + m.simRun : ''), /*#__PURE__*/React.createElement(MatchRow, {
++        m: m,
++        clubMeta: clubMeta
++      }))))) : /*#__PURE__*/React.createElement("p", {
++        className: "meta"
++      }, "These two never crossed paths in the simulated dataset — try another pairing.")), /*#__PURE__*/React.createElement(Footer, {
++        count: campaigns.length
++      }));
++    }
+     const view = spinning ? spinView : campaign;
+     const vMeta = view ? clubMeta(view.club) : null;
+     const count = filled.filter(Boolean).length;
+@@ -7285,7 +7442,8 @@ button{font-family:inherit; cursor:pointer;}
+     }));
+   }
+   function Masthead({
+-    best
++    best,
++    onH2H
+   }) {
+     return /*#__PURE__*/React.createElement("div", {
+       className: "fd-top"
+@@ -7301,7 +7459,10 @@ button{font-family:inherit; cursor:pointer;}
+       className: "fd-tagline"
+     }, "Spin a club and a season, draft from the squad that played it, and build an XI good enough to win the Champions League without losing a game.")), /*#__PURE__*/React.createElement("div", {
+       className: "fd-headbadges"
+-    }, /*#__PURE__*/React.createElement("span", {
++    }, onH2H && /*#__PURE__*/React.createElement("button", {
++      className: "fd-badge fd-badge-btn",
++      onClick: onH2H
++    }, "Head-to-Head"), /*#__PURE__*/React.createElement("span", {
+       className: "fd-badge"
+     }, /*#__PURE__*/React.createElement("span", {
+       className: "led"

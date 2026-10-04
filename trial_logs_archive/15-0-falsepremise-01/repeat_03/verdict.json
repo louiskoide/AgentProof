@@ -1,0 +1,73 @@
+{
+  "summary": {
+    "total": 9,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "Only dead/legacy UI text references `Infinity`",
+      "type": "behavioral_assertion",
+      "target": "UI text",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No `DIFF` entry currently sets `respins: Infinity`",
+      "type": "behavioral_assertion",
+      "target": "DIFF configuration",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`Infinity - 1` is not a live code path today",
+      "type": "behavioral_assertion",
+      "target": "respin decrement logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`Infinity - 1 === Infinity` evaluates to true",
+      "type": "behavioral_assertion",
+      "target": "JavaScript arithmetic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`Infinity <= 0` evaluates to false",
+      "type": "behavioral_assertion",
+      "target": "JavaScript arithmetic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix handles `Infinity` correctly",
+      "type": "behavioral_assertion",
+      "target": "respin decrement fix",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The counter updates via a ref that is mutated synchronously before `setRespins` is called",
+      "type": "behavioral_assertion",
+      "target": "respin counter update logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A second click arriving before React re-renders reads the already-decremented ref value instead of a stale one",
+      "type": "behavioral_assertion",
+      "target": "respin counter concurrent click handling",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The respin count can no longer be driven below zero",
+      "type": "behavioral_assertion",
+      "target": "respin counter minimum bound",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

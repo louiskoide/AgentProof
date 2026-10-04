@@ -1,0 +1,16 @@
+You can now link transfers into a chain, and each chain shows as one connected sequence above the Interest / In Talks / Done columns. All changes are in `TransferDesk.jsx`. A test render showed the example chain once with its 3 steps, and none of those transfers also appeared in a column. I haven't looked at it in a browser, so the layout itself is unchecked. Nothing is committed.
+
+**Setting up a chain.** Chains are a separate list (`SEED_CHAINS`). Each one has a title, a short summary, and an ordered list of links. Each link points to an existing transfer by its id and has a `role`, a short line saying what that move means in the chain:
+```js
+{ id: 'c-...', title, blurb, links: [{ id: 'i-konate', role: 'Liverpool lose a starting centre-back' }, ...] }
+```
+The backend feed can also send `chains`, and they're merged in the same way as transfers and stories. I added this to the feed format described in the file's header comment.
+
+**How it looks:**
+- A "Transfer Chains" section sits above the columns. Each chain is one panel showing the title, the summary, and each transfer's normal card, labelled "Step N", joined by arrows. On wide screens the steps run left to right; on narrow screens they stack with downward arrows.
+- Each step shows its own status (Interest / In Talks / Done) in its colour, since one chain can mix stages.
+- Chained transfers are taken out of the columns so they don't show twice, and the column counts go down to match.
+- **Search and league filters:** if any move in a chain matches, the whole chain shows, so you keep the context. Searching for a chain's title also finds it.
+- If a link points to a transfer that no longer exists (e.g. the feed dropped it), that link is skipped. A chain left with fewer than two moves is hidden, and its remaining transfer goes back into its column.
+
+**Check the example chain before publishing.** I added one example, "The centre-back domino": Konaté → Real Madrid, then Upamecano → Liverpool, then Bremer → Bayern. The first link is already in your notes: Upamecano is described as a possible Konaté replacement. The second is my inference: nothing sourced says Bayern would sign Bremer to replace Upamecano. The role text says Bremer is "one of several options", but please confirm it against a source or replace it with a real chain.

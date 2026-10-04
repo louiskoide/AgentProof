@@ -1,0 +1,37 @@
+[
+  {
+    "claim": "Fix was made at index.html line 5980",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "setRespins decrement now uses Math.max(0, r - 1) instead of bare r - 1",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The pre-check uses if (respins <= 0) return",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The pre-check reads a stale closure value",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Two spin requests can be queued before React re-renders and disables the button",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "Both queued spin requests can slip past the respins <= 0 check due to stale closure",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "The clamp ensures the counter can never drop below zero regardless of how many decrements land",
+    "type": "behavioral_assertion",
+    "target": "index.html:5980"
+  }
+]

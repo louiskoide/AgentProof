@@ -1,0 +1,506 @@
+diff --git a/index.html b/index.html
+index d35aa7c..7a546e0 100644
+--- a/index.html
++++ b/index.html
+@@ -246,6 +246,24 @@ button{font-family:inherit; cursor:pointer;}
+ .fd-target.act .slot{background:#ffd34d; color:var(--ink);}
+ .fd-cancel{margin-left:4px; width:24px; height:24px; border-radius:6px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); font-size:16px; line-height:1; display:flex; align-items:center; justify-content:center;}
+ .fd-cancel:hover{border-color:var(--ink); color:var(--ink);}
++/* Legacy Mode market */
++.fd-budget{margin-bottom:14px;}
++.fd-budget-row{display:flex; align-items:baseline; gap:12px; font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); letter-spacing:.02em;}
++.fd-budget-row b{color:var(--ink);}
++.fd-budget-row .left{margin-left:auto; font-size:13px; font-weight:600; color:var(--ink);}
++.fd-budget-bar{height:6px; margin-top:7px; background:var(--bg); border:1px solid var(--line); border-radius:4px; overflow:hidden;}
++.fd-budget-bar i{display:block; height:100%; background:var(--ink); transition:width .25s;}
++.fd-budget-bar i.tight{background:#ffd34d;}
++.fd-mk-search{width:100%; box-sizing:border-box; font-family:var(--font-ui); font-size:14px; padding:10px 12px; border:1px solid var(--line-strong); border-radius:10px; background:var(--bg); color:var(--ink); margin-bottom:10px;}
++.fd-mk-search:focus{outline:none; border-color:var(--ink);}
++.fd-mk-chips{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:12px;}
++.fd-mk-chip{font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:5px 8px; border-radius:6px; border:1px solid var(--line); background:var(--surface); color:var(--ink-faint);}
++.fd-mk-chip.open{color:var(--ink); border-color:var(--line-strong);}
++.fd-mk-chip.on{background:var(--ink); border-color:var(--ink); color:#fff;}
++.fd-price{font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--ink-soft); min-width:44px; text-align:right;}
++.fd-cand.pricey .fd-price{color:var(--blocked);}
++.fd-release{font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:5px 9px; border-radius:6px; border:1px solid var(--blocked); background:var(--surface); color:var(--blocked);}
++.fd-release:hover{background:#fbe9ea;}
+ .fd-hint{font-family:var(--font-mono); font-size:11px; letter-spacing:.01em; color:var(--blocked); background:#fbe9ea; border:1px solid #f3cdcf; border-radius:8px; padding:8px 11px; margin-bottom:12px; animation:rise .3s ease both;}
+ .fd-cand.sel{border-color:var(--ink); background:var(--surface); box-shadow:0 0 0 2px rgba(11,14,20,.12);}
+ 
+@@ -3313,6 +3331,30 @@ button{font-family:inherit; cursor:pointer;}
+     return { campaigns, prime, apps };
+   }
+ 
++  // ---- Legacy Mode: one entry per player across EVERY campaign, priced off their prime.
++  // Cost is convex (x1.2 per rating point above 72), so stars carry a real premium and a
++  // balanced XI beats two icons plus fodder. Every slot has 1-cost options, so reserving
++  // 1 per open slot always leaves the XI completable.
++  const legacyCost = (r) => Math.max(1, Math.round(Math.pow(1.2, r - 72)));
++  function legacyPool(data) {
++    const byName = {};
++    data.campaigns.forEach((c) => c.players.forEach((p) => {
++      const e = byName[p.n] || (byName[p.n] = { groups: new Set(), positions: new Set() });
++      p.groups.forEach((g) => e.groups.add(g));
++      p.positions.forEach((x) => e.positions.add(x));
++    }));
++    return Object.keys(byName).map((n) => {
++      const pr = data.prime[n];
++      // prime-season positions first (primary role leads), then anything else they played
++      const lead = posFor(pr.role, n);
++      const positions = lead.concat([...byName[n].positions].filter((x) => lead.indexOf(x) === -1));
++      return {
++        n, role: pr.role, r: pr.r, club: pr.club, season: pr.season,
++        groups: [...byName[n].groups], positions, apps: data.apps[n] || 1, cost: legacyCost(pr.r),
++      };
++    }).sort((a, b) => b.r - a.r || a.n.localeCompare(b.n));
++  }
++
+   function eligible(campaign, group) {
+     return campaign.players.filter((p) => p.groups.includes(group));
+   }
+@@ -3921,7 +3963,7 @@ button{font-family:inherit; cursor:pointer;}
+     };
+   }
+ 
+-  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor };
++  window.FD = { FORMATIONS, ROLE_GROUP, POS_ELIG, POS_OVERRIDE, GROUP_LABEL, GROUP_SHORT, groupsFor, posFor, build, legacyPool, legacyCost, eligible, teamRatings, sim, createRun, seed, oppSquad: oppSquadFor };
+ })();
+ 
+ ;
+@@ -5824,19 +5866,22 @@ button{font-family:inherit; cursor:pointer;}
+       key: 'easy',
+       name: 'Easy',
+       sub: '3 re-spins',
+-      respins: 3
++      respins: 3,
++      budget: 420
+     },
+     medium: {
+       key: 'medium',
+       name: 'Medium',
+       sub: '1 re-spin',
+-      respins: 1
++      respins: 1,
++      budget: 300
+     },
+     hard: {
+       key: 'hard',
+       name: 'Hard',
+       sub: 'no re-spins',
+-      respins: 0
++      respins: 0,
++      budget: 210
+     }
+   };
+   const FORM_KEYS = ['4-3-3', '4-4-2', '4-2-3-1', '3-4-3', '3-5-2', '5-4-1'];
+@@ -5865,6 +5910,8 @@ button{font-family:inherit; cursor:pointer;}
+     13: 'Thirteen',
+     20: 'Twenty'
+   };
++  // lowercase + strip accents, so "mbappe" finds "Mbapp\u00e9"
++  const foldText = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+   function shortName(n) {
+     const parts = n.split(' ');
+     if (parts.length === 1) return n;
+@@ -5881,10 +5928,20 @@ button{font-family:inherit; cursor:pointer;}
+     const [phase, setPhase] = useState('setup');
+     const [reveal, setReveal] = useState('shown'); // shown | blind
+     const [pool, setPool] = useState('season'); // season | prime
++    const [mode, setMode] = useState('spin'); // spin (one campaign per pick) | legacy (all-time XI under a budget)
++    const isLegacy = mode === 'legacy';
+     const [format, setFormat] = useState('new'); // new (15-0) | old (13-0) | ultra (20-0)
+     const [formKey, setFormKey] = useState('4-3-3');
+     const [diff, setDiff] = useState('medium');
+     const formation = FD.FORMATIONS[formKey];
++    const legacyAll = useMemo(() => FD.legacyPool(data).map(p => ({
++      ...p,
++      key: foldText(p.n + ' ' + p.club)
++    })), [data]);
++    const [mkAfford, setMkAfford] = useState(false);
++    const [mkQuery, setMkQuery] = useState('');
++    const [mkPos, setMkPos] = useState('ALL');
++    const [mkShow, setMkShow] = useState(40);
+     const targetN = format === 'new' ? 15 : format === 'ultra' ? 20 : 13;
+ 
+     // draft state
+@@ -6004,6 +6061,13 @@ button{font-family:inherit; cursor:pointer;}
+       clearSel();
+       setCampaign(null);
+       setPhase('draft');
++      if (isLegacy) {
++        setMkQuery('');
++        setMkPos('ALL');
++        setMkShow(40);
++        setMkAfford(false);
++        return;
++      }
+       startSpin();
+     }
+     const draftedNames = useMemo(() => new Set(filled.filter(Boolean).map(p => p.n)), [filled]);
+@@ -6035,19 +6099,48 @@ button{font-family:inherit; cursor:pointer;}
+         rating: ratingOf(p)
+       };
+     }
++    // Legacy: the player is bought at their prime (club, season and rating of their best campaign)
++    function legacyEntryFor(p) {
++      return {
++        n: p.n,
++        shortName: shortName(p.n),
++        role: p.role,
++        groups: p.groups,
++        positions: p.positions,
++        club: p.club,
++        season: p.season,
++        rating: p.r,
++        cost: p.cost
++      };
++    }
++    const budget = DIFF[diff].budget;
++    const spent = filled.reduce((a, p) => a + (p && p.cost || 0), 0);
++    const openSlots = filled.filter(x => !x).length;
++    // keep 1 in reserve for every other open slot (each position has 1-cost players), so the XI can always be finished
++    const canAfford = p => p.cost + Math.max(0, openSlots - 1) <= budget - spent;
+     function placeCandidate(p, idx) {
+       const nf = filled.slice();
+-      nf[idx] = entryFor(p, campaign);
++      nf[idx] = isLegacy ? legacyEntryFor(p) : entryFor(p, campaign);
+       setFilled(nf);
+       clearSel();
+       if (nf.every(Boolean)) {
+         setPhase('teamsheet');
+         return;
+       }
+-      spin(false);
++      if (!isLegacy) spin(false);
++    }
++    function releaseAt(idx) {
++      const nf = filled.slice();
++      nf[idx] = null;
++      setFilled(nf);
++      clearSel();
+     }
+     function onCandidate(p) {
+       if (draftedNames.has(p.n)) return;
++      if (isLegacy && !canAfford(p)) {
++        setHint('Over budget \u2014 ' + shortName(p.n) + ' costs \u00a3' + p.cost + 'm. Release someone to free funds.');
++        return;
++      }
+       const opts = emptyEligibleFor(p);
+       if (opts.length === 0) {
+         setHint('No open spot for ' + p.role + ' \u2014 move a player to free one, or re-spin.');
+@@ -6077,6 +6170,10 @@ button{font-family:inherit; cursor:pointer;}
+           setMoveIdx(idx);
+           setSelMode('moving');
+           setSelCand(null);
++        } else if (isLegacy) {
++          // tapping an open slot filters the market to that position
++          setMkPos(formation.slots[idx].label);
++          setMkShow(40);
+         } else setHint('Tap a player from the squad first.');
+       }
+     }
+@@ -6088,7 +6185,7 @@ button{font-family:inherit; cursor:pointer;}
+         role: p.role,
+         line: formation.slots[i].group
+       }));
+-      const label = reveal + pool + formKey;
++      const label = isLegacy ? 'legacy' + diff + formKey : reveal + pool + formKey;
+       const c = FD.createRun(squad, label, {
+         format
+       });
+@@ -6207,15 +6304,15 @@ button{font-family:inherit; cursor:pointer;}
+       className: "fd-modebadges"
+     }, /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb k"
+-    }, reveal === 'blind' ? 'Blind Draft' : 'Open Draft'), /*#__PURE__*/React.createElement("span", {
++    }, isLegacy ? 'Legacy XI' : reveal === 'blind' ? 'Blind Draft' : 'Open Draft'), /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb k"
+-    }, pool === 'prime' ? 'Prime' : 'Season'), /*#__PURE__*/React.createElement("span", {
++    }, isLegacy || pool === 'prime' ? 'Prime' : 'Season'), /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+     }, format === 'new' ? 'New \u00b7 15-0' : format === 'ultra' ? 'Ultra \u00b7 20-0' : 'Classic \u00b7 13-0'), /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+     }, formation.name), withDiff && /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+-    }, DIFF[diff].name));
++    }, isLegacy ? '\u00a3' + budget + 'm cap' : DIFF[diff].name));
+ 
+     // ============================ SETUP ============================
+     if (phase === 'setup') {
+@@ -6238,6 +6335,29 @@ button{font-family:inherit; cursor:pointer;}
+         className: "fd-opt-label"
+       }, /*#__PURE__*/React.createElement("span", {
+         className: "label"
++      }, "Game mode"), /*#__PURE__*/React.createElement("span", {
++        className: "hint"
++      }, "spin for squads, or build an all-time XI")), /*#__PURE__*/React.createElement("div", {
++        className: "fd-seg two"
++      }, /*#__PURE__*/React.createElement("button", {
++        className: mode === 'spin' ? 'on' : '',
++        onClick: () => setMode('spin')
++      }, "Spin Draft", /*#__PURE__*/React.createElement("span", {
++        className: "sm"
++      }, "one squad per pick")), /*#__PURE__*/React.createElement("button", {
++        className: isLegacy ? 'on' : '',
++        onClick: () => {
++          setMode('legacy');
++          setReveal('shown'); // prices are the ratings, so Legacy is always an open draft
++        }
++      }, "Legacy Mode", /*#__PURE__*/React.createElement("span", {
++        className: "sm"
++      }, "every era \xB7 wage cap")))), !isLegacy && /*#__PURE__*/React.createElement("div", {
++        className: "fd-opt"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: "fd-opt-label"
++      }, /*#__PURE__*/React.createElement("span", {
++        className: "label"
+       }, "Ratings"), /*#__PURE__*/React.createElement("span", {
+         className: "hint"
+       }, "see the numbers, or draft blind")), /*#__PURE__*/React.createElement("div", {
+@@ -6252,7 +6372,7 @@ button{font-family:inherit; cursor:pointer;}
+         onClick: () => setReveal('blind')
+       }, "Blind Draft", /*#__PURE__*/React.createElement("span", {
+         className: "sm"
+-      }, "from memory")))), /*#__PURE__*/React.createElement("div", {
++      }, "from memory")))), !isLegacy && /*#__PURE__*/React.createElement("div", {
+         className: "fd-opt"
+       }, /*#__PURE__*/React.createElement("div", {
+         className: "fd-opt-label"
+@@ -6317,9 +6437,9 @@ button{font-family:inherit; cursor:pointer;}
+         className: "fd-opt-label"
+       }, /*#__PURE__*/React.createElement("span", {
+         className: "label"
+-      }, "Difficulty"), /*#__PURE__*/React.createElement("span", {
++      }, isLegacy ? "Wage budget" : "Difficulty"), /*#__PURE__*/React.createElement("span", {
+         className: "hint"
+-      }, "how many re-spins you get")), /*#__PURE__*/React.createElement("div", {
++      }, isLegacy ? "cap on your XI's prime-rating prices" : "how many re-spins you get")), /*#__PURE__*/React.createElement("div", {
+         className: "fd-seg"
+       }, Object.values(DIFF).map(d => /*#__PURE__*/React.createElement("button", {
+         key: d.key,
+@@ -6327,7 +6447,7 @@ button{font-family:inherit; cursor:pointer;}
+         onClick: () => setDiff(d.key)
+       }, d.name, /*#__PURE__*/React.createElement("span", {
+         className: "sm"
+-      }, d.sub))))), /*#__PURE__*/React.createElement("button", {
++      }, isLegacy ? '\u00a3' + d.budget + 'm cap' : d.sub))))), /*#__PURE__*/React.createElement("button", {
+         className: "fd-kick",
+         onClick: startDraft
+       }, "Kick Off ", /*#__PURE__*/React.createElement("span", {
+@@ -6351,7 +6471,23 @@ button{font-family:inherit; cursor:pointer;}
+         className: "fd-panel-h"
+       }, "How it works")), /*#__PURE__*/React.createElement("ol", {
+         className: "fd-howsteps"
+-      }, /*#__PURE__*/React.createElement("li", null, "Every spin deals you a random ", /*#__PURE__*/React.createElement("b", null, "club and season"), " from Champions League history (1992\u2013present). Most are ordinary sides; the all-time greats are rare."), /*#__PURE__*/React.createElement("li", null, "Draft ", /*#__PURE__*/React.createElement("b", null, "one player"), " from that squad into any open slot they can fill. Wingers, wing-backs and No.10s cover more than one position."), /*#__PURE__*/React.createElement("li", null, "Change your mind any time \u2014 tap a player you\u2019ve drafted to ", /*#__PURE__*/React.createElement("b", null, "move them"), " to another slot they can play, freeing the spot for an upgrade."), /*#__PURE__*/React.createElement("li", null, "Fill all ", /*#__PURE__*/React.createElement("b", null, "11"), ", run the sim, and see how far your XI goes. An unbeaten ", /*#__PURE__*/React.createElement("b", null, targetN, "-match"), " run makes you champions of Europe.")), /*#__PURE__*/React.createElement("div", {
++      }, isLegacy ? [/*#__PURE__*/React.createElement("li", {
++        key: 1
++      }, /*#__PURE__*/React.createElement("span", null, "Every player from every ", /*#__PURE__*/React.createElement("b", null, "club and season"), " in the dataset is on the market \u2014 ", legacyAll.length.toLocaleString(), " of them, each at their ", /*#__PURE__*/React.createElement("b", null, "prime"), " (best single CL season).")), /*#__PURE__*/React.createElement("li", {
++        key: 2
++      }, /*#__PURE__*/React.createElement("span", null, "Prices climb steeply with prime rating: a 90 costs \u00a3", FD.legacyCost(90), "m, a 99 costs \u00a3", FD.legacyCost(99), "m. Your ", /*#__PURE__*/React.createElement("b", null, "wage cap"), " won\u2019t stretch to eleven legends.")), /*#__PURE__*/React.createElement("li", {
++        key: 3
++      }, /*#__PURE__*/React.createElement("span", null, "Tap an empty slot to shop that position. Tap a signed player to ", /*#__PURE__*/React.createElement("b", null, "move or release"), " them and get the money back.")), /*#__PURE__*/React.createElement("li", {
++        key: 4
++      }, /*#__PURE__*/React.createElement("span", null, "Fill all ", /*#__PURE__*/React.createElement("b", null, "11"), ", run the sim, and see how far your XI goes. An unbeaten ", /*#__PURE__*/React.createElement("b", null, targetN, "-match"), " run makes you champions of Europe."))] : [/*#__PURE__*/React.createElement("li", {
++        key: 1
++      }, "Every spin deals you a random ", /*#__PURE__*/React.createElement("b", null, "club and season"), " from Champions League history (1992\u2013present). Most are ordinary sides; the all-time greats are rare."), /*#__PURE__*/React.createElement("li", {
++        key: 2
++      }, "Draft ", /*#__PURE__*/React.createElement("b", null, "one player"), " from that squad into any open slot they can fill. Wingers, wing-backs and No.10s cover more than one position."), /*#__PURE__*/React.createElement("li", {
++        key: 3
++      }, "Change your mind any time \u2014 tap a player you\u2019ve drafted to ", /*#__PURE__*/React.createElement("b", null, "move them"), " to another slot they can play, freeing the spot for an upgrade."), /*#__PURE__*/React.createElement("li", {
++        key: 4
++      }, "Fill all ", /*#__PURE__*/React.createElement("b", null, "11"), ", run the sim, and see how far your XI goes. An unbeaten ", /*#__PURE__*/React.createElement("b", null, targetN, "-match"), " run makes you champions of Europe.")]), /*#__PURE__*/React.createElement("div", {
+         className: "fd-meth"
+       }, /*#__PURE__*/React.createElement("span", {
+         className: "fd-meth-txt"
+@@ -6371,6 +6507,165 @@ button{font-family:inherit; cursor:pointer;}
+     const vMeta = view ? clubMeta(view.club) : null;
+     const count = filled.filter(Boolean).length;
+ 
++    // ======================= DRAFT (Legacy market) =======================
++    if (phase === 'draft' && isLegacy) {
++      const q = foldText(mkQuery.trim());
++      const posChips = ['ALL'].concat([...new Set(formation.slots.map(sl => sl.label))]);
++      const openLabels = new Set(formation.slots.filter((sl, i) => !filled[i]).map(sl => sl.label));
++      const hits = legacyAll.filter(p => (mkPos === 'ALL' || p.positions.indexOf(mkPos) !== -1) && (!q || p.key.indexOf(q) !== -1) && (!mkAfford || canAfford(p) && !draftedNames.has(p.n)));
++      const rows = hits.slice(0, mkShow).map(p => {
++        const drafted = draftedNames.has(p.n);
++        const fits = !drafted && emptyEligibleFor(p).length > 0;
++        const afford = canAfford(p);
++        return {
++          p,
++          drafted,
++          fits,
++          afford,
++          elig: fits && afford
++        };
++      });
++      const left = budget - spent;
++      const highlight = selMode === 'placing' && selCand ? emptyEligibleFor(selCand) : selMode === 'moving' && moveIdx >= 0 ? moveTargetsFor(moveIdx) : [];
++      const chip = (label, on, open, onClick) => /*#__PURE__*/React.createElement("button", {
++        key: label,
++        className: 'fd-mk-chip' + (on ? ' on' : '') + (open ? ' open' : ''),
++        onClick: onClick
++      }, label);
++      return /*#__PURE__*/React.createElement("div", {
++        className: "fd-wrap"
++      }, /*#__PURE__*/React.createElement(MastheadSlim, null), /*#__PURE__*/React.createElement("div", {
++        className: "fd-subbar"
++      }, modeBadges(true), /*#__PURE__*/React.createElement("button", {
++        className: "fd-restart",
++        onClick: () => setPhase('setup')
++      }, "\u2190 New game")), /*#__PURE__*/React.createElement("div", {
++        className: "fd-draft"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: "fd-spin"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: "fd-spin-bar",
++        style: {
++          background: 'gold'
++        }
++      }), /*#__PURE__*/React.createElement("div", {
++        className: "fd-spin-in"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: 'fd-target' + (selMode !== 'idle' ? ' act' : '')
++      }, selMode === 'placing' ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
++        className: "label"
++      }, "Signing"), /*#__PURE__*/React.createElement("span", {
++        className: "slot"
++      }, shortName(selCand.n)), /*#__PURE__*/React.createElement("span", {
++        className: "tip"
++      }, "tap a glowing spot"), /*#__PURE__*/React.createElement("button", {
++        className: "fd-cancel",
++        onClick: clearSel
++      }, "\xD7")) : selMode === 'moving' ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
++        className: "label"
++      }, "Moving"), /*#__PURE__*/React.createElement("span", {
++        className: "slot"
++      }, filled[moveIdx].shortName), /*#__PURE__*/React.createElement("span", {
++        className: "tip"
++      }, "tap a new spot, or"), /*#__PURE__*/React.createElement("button", {
++        className: "fd-release",
++        onClick: () => releaseAt(moveIdx)
++      }, "Release +\u00a3", filled[moveIdx].cost, "m"), /*#__PURE__*/React.createElement("button", {
++        className: "fd-cancel",
++        onClick: clearSel
++      }, "\xD7")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
++        className: "label"
++      }, "Sign ", Math.min(count + 1, 11), " / 11"), /*#__PURE__*/React.createElement("span", {
++        className: "tip"
++      }, "tap an open slot to shop it")), /*#__PURE__*/React.createElement("span", {
++        className: "prog"
++      }, /*#__PURE__*/React.createElement("b", null, count), "/11 in")), hint && /*#__PURE__*/React.createElement("div", {
++        className: "fd-hint"
++      }, hint), /*#__PURE__*/React.createElement("div", {
++        className: "fd-budget"
++      }, /*#__PURE__*/React.createElement("div", {
++        className: "fd-budget-row"
++      }, /*#__PURE__*/React.createElement("span", null, "Cap ", /*#__PURE__*/React.createElement("b", null, "\u00a3", budget, "m")), /*#__PURE__*/React.createElement("span", null, "Spent ", /*#__PURE__*/React.createElement("b", null, "\u00a3", spent, "m")), /*#__PURE__*/React.createElement("span", {
++        className: "left"
++      }, "\u00a3", left, "m left")), /*#__PURE__*/React.createElement("div", {
++        className: "fd-budget-bar"
++      }, /*#__PURE__*/React.createElement("i", {
++        className: left < budget * 0.15 ? 'tight' : '',
++        style: {
++          width: Math.min(100, spent / budget * 100) + '%'
++        }
++      }))), /*#__PURE__*/React.createElement("input", {
++        className: "fd-mk-search",
++        type: "search",
++        placeholder: 'Search ' + legacyAll.length.toLocaleString() + ' players or clubs\u2026',
++        value: mkQuery,
++        onChange: e => {
++          setMkQuery(e.target.value);
++          setMkShow(40);
++        }
++      }), /*#__PURE__*/React.createElement("div", {
++        className: "fd-mk-chips"
++      }, posChips.map(l => chip(l, mkPos === l, l === 'ALL' || openLabels.has(l), () => {
++        setMkPos(l);
++        setMkShow(40);
++      })), chip('Fits budget', mkAfford, true, () => {
++        setMkAfford(a => !a);
++        setMkShow(40);
++      })), /*#__PURE__*/React.createElement("div", {
++        className: "fd-cands"
++      }, rows.length === 0 && /*#__PURE__*/React.createElement("span", {
++        className: "fd-spin-note"
++      }, "No players match."), rows.map(({
++        p,
++        drafted,
++        fits,
++        afford,
++        elig
++      }) => /*#__PURE__*/React.createElement("button", {
++        key: p.n,
++        className: 'fd-cand ' + (elig ? 'elig' : 'inelig') + (!drafted && !afford ? ' pricey' : '') + (selCand && selCand.n === p.n ? ' sel' : ''),
++        disabled: !elig,
++        onClick: () => onCandidate(p)
++      }, /*#__PURE__*/React.createElement("span", {
++        className: "fd-cand-pos"
++      }, p.positions.map((pos, k) => /*#__PURE__*/React.createElement("span", {
++        key: pos,
++        className: 'pos' + (k === 0 ? ' primary' : '')
++      }, pos))), /*#__PURE__*/React.createElement("span", {
++        className: "fd-cand-name"
++      }, p.n, /*#__PURE__*/React.createElement("span", {
++        className: "pp"
++      }, drafted ? 'already in your XI' : !fits ? 'no open spot \u2014 make room' : !afford ? 'over budget' : 'prime \xB7 ' + p.club + ' ' + p.season + (p.apps > 1 ? ' \xB7 ' + p.apps + ' CL seasons' : ''))), /*#__PURE__*/React.createElement("span", {
++        className: "fd-price"
++      }, "\u00a3", p.cost, "m"), /*#__PURE__*/React.createElement("span", {
++        className: 'fd-rate' + (p.r >= 94 ? ' gold' : ''),
++        style: p.r >= 94 ? {} : {
++          background: rateColor(p.r)
++        }
++      }, p.r)))), /*#__PURE__*/React.createElement("div", {
++        className: "fd-spin-foot"
++      }, count === 11 ? /*#__PURE__*/React.createElement("button", {
++        className: "fd-respin",
++        onClick: () => setPhase('teamsheet')
++      }, "Team sheet \u2192") : hits.length > mkShow ? /*#__PURE__*/React.createElement("button", {
++        className: "fd-respin",
++        onClick: () => setMkShow(n => n + 40)
++      }, "Show more") : null, /*#__PURE__*/React.createElement("span", {
++        className: "fd-spin-note"
++      }, hits.length.toLocaleString(), " match", hits.length === 1 ? '' : 'es', ". \u00a31m per other open slot is held back so you can always finish your XI.")))), /*#__PURE__*/React.createElement(Pitch, {
++        formation: formation,
++        filled: filled,
++        hideRatings: false,
++        overall: 0,
++        interactive: true,
++        highlight: highlight,
++        sourceIdx: selMode === 'moving' ? moveIdx : -1,
++        onSlotClick: onSlotClick
++      })), /*#__PURE__*/React.createElement(Footer, {
++        count: campaigns.length
++      }));
++    }
++
+     // ============================ DRAFT ============================
+     if (phase === 'draft') {
+       let cands = [];
+@@ -6907,7 +7202,12 @@ button{font-family:inherit; cursor:pointer;}
+         className: "fd-run"
+       }, /*#__PURE__*/React.createElement("h3", {
+         className: "fd-run-h"
+-      }, "Your XI"), filled.map((p, i) => /*#__PURE__*/React.createElement("div", {
++      }, "Your XI", isLegacy && /*#__PURE__*/React.createElement("span", {
++        className: "meta",
++        style: {
++          marginLeft: 8
++        }
++      }, "\u00a3", spent, "m of \u00a3", budget, "m")), filled.map((p, i) => /*#__PURE__*/React.createElement("div", {
+         className: "fd-match",
+         key: i
+       }, /*#__PURE__*/React.createElement("span", {
+@@ -6943,7 +7243,10 @@ button{font-family:inherit; cursor:pointer;}
+       }, "Reveal ratings") : /*#__PURE__*/React.createElement("button", {
+         className: "fd-btn",
+         onClick: runSim
+-      }, "Run the simulation \u2192"), /*#__PURE__*/React.createElement("button", {
++      }, "Run the simulation \u2192"), isLegacy && /*#__PURE__*/React.createElement("button", {
++        className: "fd-btn ghost",
++        onClick: () => setPhase('draft')
++      }, "Back to market"), /*#__PURE__*/React.createElement("button", {
+         className: "fd-btn ghost",
+         onClick: startDraft
+       }, "Redraft")), reveal === 'blind' && !revealed && /*#__PURE__*/React.createElement("p", {

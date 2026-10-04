@@ -1,0 +1,22 @@
+Legacy Mode is in, and I played it through end to end in headless Chrome: setup → sign 11 → release and re-sign → lock in → full sim → result. There were no console errors, and Spin Draft still works as before.
+
+**How it plays**
+- **Setup:** there's a new **Game mode** toggle at the top: *Spin Draft* (the existing game) or *Legacy Mode*. In Legacy, the Ratings and Rating pool rows are hidden. Prices give away ratings, so blind drafting makes no sense, and prime ratings are always used. Difficulty now sets the budget (£600m / £450m / £330m) instead of re-spins. The "How it works" steps switch to match.
+- **Draft screen:** every player in the dataset (2,287) appears once, at their prime rating, club and season. You get:
+  - a budget bar
+  - a search box that ignores accents and also matches clubs, so "ilkay" finds İlkay Gündoğan
+  - filters: Open slots / GK / DEF / MID / ATT / All
+  - a list sorted by rating, with players you can sign right now shown first. Players you can't sign are dimmed and marked "over budget" or "no open spot".
+- **Pricing:** `£5m × e^((rating − 75) / 7)`. That gives 80 → £10m, 85 → £21m, 90 → £43m, 94 → £75m and 99 → £154m. The three budgets buy roughly an average-92, 90 or 88 XI if you spread the money evenly. When I tested the sim, a 90-rated side won the whole thing about 42% of the time, and a 94-rated side went unbeaten about 22% of the time. You can't spend your last pound while slots are still open: it always keeps £1m back for each other empty slot, so you can't get stuck.
+- **Squad moves:** tap a player on the pitch to move them or release them, which refunds the full fee. Tapping an empty slot filters the list to that line. A full XI isn't locked automatically: you press **Lock in XI →**. The teamsheet shows each player's fee and your total spend, and has an **Adjust XI** button to go back.
+
+**Code changes (all in `index.html`)**
+- `build()`: each prime entry now also stores that season's `groups` and `positions`. The existing fields and their users are unchanged.
+- `sim()`, `createRun()`, formations and slots are untouched. Legacy picks go into the same `filled` array and through the same `runSim()`.
+- The `overall` calculation now happens before the draft screens so the Legacy pitch can show OVR (overall rating). It's the same calculation, just earlier.
+- New CSS classes are prefixed `.fd-lg-*`.
+
+**Worth knowing**
+- A greedy start is punished: buying Ronaldo, Messi and Lewandowski first left £26m for eight players and a 79-rated side. That's the intended tension, but the budgets and price curve are single constants (`DIFF[*].budget`, `legacyPrice`) if you want to tune them.
+- The saved best run (`fd_best`) is shared between Spin and Legacy, so a Legacy run can replace your Spin best.
+- Nothing is committed yet. Say if you want a commit.

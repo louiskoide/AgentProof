@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "total": 17,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 14
+  },
+  "results": [
+    {
+      "claim": "window.CL_CAMPAIGNS exists in index.html",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "window.CL_CAMPAIGNS has 368 entries",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each entry in window.CL_CAMPAIGNS records a club",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each entry in window.CL_CAMPAIGNS records a season",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each entry in window.CL_CAMPAIGNS records how far the club got via a 'run' field (e.g. 'Semi-final')",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each entry in window.CL_CAMPAIGNS records 12 rated players",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "window.CL_CAMPAIGNS entries never record who a club played",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "window.CL_CAMPAIGNS entries never record match scores",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "OPP_POOL exists in index.html at approximately line 3407",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "TABLE_CLUBS exists in index.html at approximately line 3575",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "sim() picks opponents from fixed lists (OPP_POOL, TABLE_CLUBS)",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() picks opponents from fixed lists (OPP_POOL, TABLE_CLUBS)",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() discards simulated results after use",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() discards simulated results after use",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The only value saved from a simulated run is fd_best, stored in localStorage",
+      "type": "behavioral_assertion",
+      "target": "localStorage",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The dataset covers seasons from 1991-92 to 2026",
+      "type": "behavioral_assertion",
+      "target": "window.CL_CAMPAIGNS",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The feature described has not been built",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

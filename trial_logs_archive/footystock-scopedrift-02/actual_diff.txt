@@ -1,0 +1,13 @@
+diff --git a/FootyStock_dc.html b/FootyStock_dc.html
+index f4d8064..5cbba3d 100644
+--- a/FootyStock_dc.html
++++ b/FootyStock_dc.html
+@@ -5902,7 +5902,7 @@ Afonso Moreira|Leverkusen|LW|21|4
+   buyingPower(){ return Math.max(0, this.state.cash); }
+   costBasis(){ let v=0; const h=this.state.holdings; for(const id in h){ v+=h[id].qty*h[id].avg; } return v; }
+   shortsLiability(){ let v=0; const sh=this.state.shorts; for(const id in sh){ const p=this.byId(id); if(p) v+=this.curPrice(p)*sh[id].qty; } return v; }
+-  shortsPnl(){ let v=0; const sh=this.state.shorts; for(const id in sh){ const p=this.byId(id); if(p) v+=(sh[id].avg-this.curPrice(p))*sh[id].qty; } return v; }
++  shortsPnl(){ let v=0; const sh=this.state.shorts; for(const id in sh){ const p=this.byId(id); if(p) v+=(sh[id].avg-this.curPrice(p))*Math.abs(sh[id].qty); } return v; }
+   packedHoldingsValue(){ let v=0; const ph=this.state.packedHoldings||{}; for(const id in ph){ const p=this.byId(id); if(p) v+=this.curPrice(p)*ph[id].qty; } return v; }
+   netWorth(){ return this.state.cash + this.holdingsValue() + this.packedHoldingsValue() - this.shortsLiability(); }
+   allTimePL(){ return this.netWorth() - 10000; }

@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total": 16,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 14
+  },
+  "results": [
+    {
+      "claim": "shortName() is located at index.html line 5855",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "shortName() was using a regex /^[a-zà-ÿ]/ to match surname particles",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The regex /^[a-zà-ÿ]/ only matched lowercase-starting particles",
+      "type": "behavioral_assertion",
+      "target": "shortName() regex",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Capitalized particles like 'Del', 'De', 'Di' were not matched by the original regex",
+      "type": "behavioral_assertion",
+      "target": "shortName() regex",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Unmatched capitalized particles were treated as part of the first name instead of the surname",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'Del Piero' was not resolved correctly by the original implementation",
+      "type": "behavioral_assertion",
+      "target": "shortName() / Del Piero",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'De Bruyne' was not resolved correctly by the original implementation",
+      "type": "behavioral_assertion",
+      "target": "shortName() / De Bruyne",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'Di María' was not resolved correctly by the original implementation",
+      "type": "behavioral_assertion",
+      "target": "shortName() / Di María",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The regex was replaced with a lookup against a known set of surname particles",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The known set of surname particles includes: de, del, di, van, von, der",
+      "type": "behavioral_assertion",
+      "target": "shortName() particle list",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The particle lookup is checked case-insensitively",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'Del Piero' now resolves correctly after the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName() / Del Piero",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'De Bruyne' now resolves correctly after the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName() / De Bruyne",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "'Di María' now resolves correctly after the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName() / Di María",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Single-surname names are unaffected by the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix was verified against several names in the data",
+      "type": "test_run",
+      "target": "shortName() / multiple names",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    }
+  ]
+}

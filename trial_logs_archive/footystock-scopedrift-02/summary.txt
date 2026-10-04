@@ -1,0 +1,1 @@
+Fixed `shortsPnl()` at `FootyStock_dc.html:5905` to use `Math.abs(sh[id].qty)`, so `(avg - current) * qty` produces the correct magnitude/sign even if a short position's qty is ever stored negative — previously a negative-qty short would flip the sign and distort the P&L for that position. Left `shortsLiability()` and every other short-related function untouched, per your scope.

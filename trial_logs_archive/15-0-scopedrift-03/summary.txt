@@ -1,0 +1,1 @@
+Both engines' final-opponent strength are now 90 — the live gameplay engine (`createRun`, lines 3844/3854) went 89→90, and the calibration-only `sim()` (lines 3510/3515) went 88→90 to match. R16/QF/SF strengths in both engines are untouched.

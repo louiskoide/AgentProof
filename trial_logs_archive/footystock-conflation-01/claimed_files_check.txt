@@ -1,0 +1,1 @@
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:19:22 2026)

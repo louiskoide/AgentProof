@@ -1,0 +1,16 @@
+I've added the head-to-head view. It opens from a **Head-to-Head →** button under Kick Off on the setup screen. It runs in headless Chrome at desktop and phone widths with no console errors. I haven't committed anything.
+
+**Where the meetings come from:** the campaign dataset only has squads and each club's real-life finish, not match results. So the view plays each of the 368 campaigns through the existing `sim()` engine once, with that squad as the drafted club, and records every opponent it faced. `sim()` gives the same result every time, so the head-to-head record doesn't change between visits. For clubs A and B, the view shows B as an opponent in A's runs and A as an opponent in B's runs, always scored from A's side. Simming everything takes about 30ms and is cached per format.
+
+**What the view shows:**
+- **Pickers:** two club dropdowns with flags, a swap button, and a toggle for the three formats (15-0, 13-0, 20-0). The toggle is linked to the one on the setup screen.
+- **Summary:** A wins, draws and B wins, with a bar in the same green/amber/red as the results. Below that, both clubs' totals for goals, knockout ties won (decided on aggregate, then penalties), finals won, biggest win, and how many meetings came in each club's own runs.
+- **Every meeting:** grouped by the campaign it came from (club and season). Each group shows the real-life finish as a tag next to where the sim run ended. Each game shows round and leg, the score, a win/draw/loss badge for A, and the aggregate and penalty result where they apply. The drafted club's name is in bold.
+
+**Checks:**
+- Swapping A and B gives exactly mirrored totals in all three formats, and the goal totals match the list of games.
+- I also tested changing clubs and format, the empty state, and the back button.
+
+**Limitation:** `sim()` only draws opponents from a fixed list of 18 big clubs. Most pairs are covered, but two clubs that are both outside that list (for example Celtic and Rangers) can never meet. The view explains this instead of just showing zeros. Widening the list would change `sim()` itself, so I left it alone.
+
+The code is in `index.html`: `allMeetings` and `headToHead` in the engine next to `window.FD`, the `H2HView` component just before `App`, the new `h2h` screen in `App`, and a block of `.fd-h2h-*` styles.

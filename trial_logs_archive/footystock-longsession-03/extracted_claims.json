@@ -1,0 +1,117 @@
+[
+  {
+    "claim": "clamp is defined at line 5449",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "clamp is defined before the synthetic block at line 5481+",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "clamp is in scope for the synthetic block",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the change is syntax-verified",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "offlineNoPerf flag was added to buildDB()",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "offlineNoHype flag was added to buildDB()",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "offlineNoPerf is true only when the live worker is unreachable (!live) and the player has no curated STARS entry",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "offlineNoHype is true only when the live worker is unreachable (!live) and the player has no curated NEWS entry",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawPerf draws a small deterministic synthetic value for offlineNoPerf players instead of hard 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawForm draws a small deterministic synthetic value for offlineNoPerf players instead of hard 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "hypeScore draws a small deterministic synthetic value for offlineNoHype players instead of hard 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the synthetic value is seeded off the same per-player r() used for anchor and tmVal",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the synthetic value is scaled by the existing notoriety (anchor-derived fame)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the synthetic values are mean-centered per pricing-model.md's rule",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "unknown players net approximately 0 under the new synthetic value logic",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "famous-but-uncurated players drift a bit instead of sitting perfectly flat at anchor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the atWC path was left untouched",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the avgR path was left untouched",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the squad-confirmed-no-minutes-yet path was left untouched",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the Match rating UI text behavior is not disturbed by the change",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the World Cup form UI text behavior is not disturbed by the change",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the legitimate no-minutes-yet equals real neutral behavior is not disturbed by the change",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "the fix targets the specific gap where a player is neither curated nor covered by live data at all",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  }
+]

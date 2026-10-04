@@ -1,0 +1,1 @@
+That's the only consumer of FORM_KEYS, and the slot roles (DM, RM, CM, LM, ST) are all used by existing formations already, so eligibility logic needs no changes. Added `4-1-4-1` to `FORMATIONS` in index.html:3266-3273 (GK, back 4, lone DM, flat midfield 4, lone striker) and to the `FORM_KEYS` picker list at index.html:5851.

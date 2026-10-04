@@ -1,0 +1,47 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..75bd052 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -452,6 +452,8 @@ const CSS = `
+ .td-lg{font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.04em; padding:8px 12px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); cursor:pointer; transition:.14s; white-space:nowrap;}
+ .td-lg:hover{border-color:var(--ink-soft);}
+ .td-lg.active{background:var(--ink); color:#fff; border-color:var(--ink);}
++.td-lg-blocked{display:inline-flex; align-items:center; gap:5px;}
++.td-lg-blocked.active{background:var(--blocked); border-color:var(--blocked);}
+ 
+ /* pipeline board */
+ .td-board{display:grid; grid-template-columns:1fr; gap:18px;}
+@@ -645,6 +647,7 @@ function StoryCard({ s, idx }) {
+ export default function App() {
+   const [tab, setTab] = useState('transfers');
+   const [league, setLeague] = useState('All');
++  const [blockedOnly, setBlockedOnly] = useState(false);
+   const [query, setQuery] = useState('');
+   const [transfers, setTransfers] = useState(SEED_TRANSFERS);
+   const [stories, setStories] = useState(SEED_STORIES);
+@@ -715,10 +718,11 @@ export default function App() {
+ 
+   const filteredTransfers = useMemo(() => transfers.filter((t) => {
+     if (!matchLeague(t.leagues)) return false;
++    if (blockedOnly && !t.blocked) return false;
+     if (!q) return true;
+     return [t.player, t.from, t.to, t.position, t.note, ...(t.sources || [])]
+       .filter(Boolean).join(' ').toLowerCase().includes(q);
+-  }), [transfers, league, q]);
++  }), [transfers, league, blockedOnly, q]);
+ 
+   const filteredStories = useMemo(() => stories.filter((s) => {
+     if (league !== 'All' && s.league !== league) return false;
+@@ -797,6 +801,12 @@ export default function App() {
+                   {l === 'All' ? 'All leagues' : l}
+                 </button>
+               ))}
++              <button
++                className={'td-lg td-lg-blocked' + (blockedOnly ? ' active' : '')}
++                onClick={() => setBlockedOnly((v) => !v)}
++              >
++                <Ban size={11} /> Blocked
++              </button>
+             </div>
+           </div>
+         </div>

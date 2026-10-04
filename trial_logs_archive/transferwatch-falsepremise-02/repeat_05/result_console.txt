@@ -1,0 +1,10 @@
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

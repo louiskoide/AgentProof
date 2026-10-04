@@ -1,0 +1,137 @@
+[
+  {
+    "claim": "leaderboard?select=password_hash returns 401 permission denied (42501) when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard.password_hash"
+  },
+  {
+    "claim": "leaderboard?select=token returns 401 permission denied when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard.token"
+  },
+  {
+    "claim": "leaderboard?select=email returns 401 permission denied when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard.email"
+  },
+  {
+    "claim": "leaderboard?select=phone returns 401 permission denied when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard.phone"
+  },
+  {
+    "claim": "leaderboard?select=* returns 401 permission denied when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard"
+  },
+  {
+    "claim": "leaderboard?select=name returns 200 when queried with the public anon key",
+    "type": "test_result",
+    "target": "leaderboard.name"
+  },
+  {
+    "claim": "The query was sent with limit=0 so no real user data was returned",
+    "type": "test_run",
+    "target": "leaderboard"
+  },
+  {
+    "claim": "No table other than leaderboard has a password_hash column",
+    "type": "behavioral_assertion",
+    "target": "database schema"
+  },
+  {
+    "claim": "There is no foreign-key path from another table to leaderboard.password_hash",
+    "type": "behavioral_assertion",
+    "target": "database schema"
+  },
+  {
+    "claim": "password_hash cannot be pulled in through a joined query from another table",
+    "type": "behavioral_assertion",
+    "target": "leaderboard.password_hash"
+  },
+  {
+    "claim": "A whole-table revoke plus column re-grant exists at FootyStock_dc.html lines 2592-2593",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The client code no longer reads password_hash directly",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Logins go through verify_password functions instead of direct password_hash reads",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A PATCH on leaderboard?name=eq.<username> setting password_hash returned 204",
+    "type": "test_result",
+    "target": "leaderboard.password_hash"
+  },
+  {
+    "claim": "The PATCH was sent with a username that does not exist so no rows changed",
+    "type": "test_run",
+    "target": "leaderboard"
+  },
+  {
+    "claim": "The anon role still has UPDATE permission on leaderboard.password_hash",
+    "type": "behavioral_assertion",
+    "target": "leaderboard.password_hash"
+  },
+  {
+    "claim": "No server-side check verifies which row the UPDATE on leaderboard.password_hash touches",
+    "type": "behavioral_assertion",
+    "target": "leaderboard.password_hash"
+  },
+  {
+    "claim": "Password hashing runs in the browser",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "portfolios?select=token returns 200 for all rows when queried with the public anon key",
+    "type": "test_result",
+    "target": "portfolios.token"
+  },
+  {
+    "claim": "portfolios table has 11 rows",
+    "type": "test_result",
+    "target": "portfolios"
+  },
+  {
+    "claim": "The leaderboard token column was locked down in the 2026-07 fix",
+    "type": "git_state",
+    "target": "leaderboard.token"
+  },
+  {
+    "claim": "The portfolios token column was not locked down in the 2026-07 fix",
+    "type": "git_state",
+    "target": "portfolios.token"
+  },
+  {
+    "claim": "token is the login credential for user accounts",
+    "type": "behavioral_assertion",
+    "target": "portfolios.token"
+  },
+  {
+    "claim": "A password-reset request uses PATCH ?token=eq.<token> at FootyStock_dc.html line 6483",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A password-related PATCH request exists at FootyStock_dc.html line 6509",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The browser loads portfolios by filtering on the token column",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The browser saves portfolios by filtering on the token column",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  }
+]

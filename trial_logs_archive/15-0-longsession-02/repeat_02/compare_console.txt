@@ -1,0 +1,18 @@
+
+=== Trial Verdict Summary ===
+Total claims: 70
+Confirmed: 2
+Contradicted: 4  <-- these need attention
+Unverifiable (manual review needed): 64
+
+=== Contradicted claims ===
+- [file_modified] The sim() function is untouched
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] The createRun() function is untouched
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] Formations logic is untouched
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] Slots logic is untouched
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

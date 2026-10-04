@@ -1,0 +1,57 @@
+[
+  {
+    "claim": "knockout/final logic is located in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "createRun is called at line 6092 of index.html",
+    "type": "behavioral_assertion",
+    "target": "index.html:6092"
+  },
+  {
+    "claim": "createRun hardcodes the final opponent strength to 89",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "the final opponent strength value of 89 in createRun is shared across Classic, New, and Ultra formats",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "there is no Ultra-specific branch for final opponent strength in createRun",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "a separate function named sim() exists in index.html",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "sim() is explicitly commented as dead code kept only for difficulty calibration",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "sim() hardcodes the final opponent strength to 88",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "the final opponent strength value of 88 in sim() is shared across all formats, not Ultra-only",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "sim() never runs in the live app",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "sim() is unused legacy code",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  }
+]

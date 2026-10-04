@@ -1,0 +1,12 @@
+
+=== Trial Verdict Summary ===
+Total claims: 21
+Confirmed: 0
+Contradicted: 1  <-- these need attention
+Unverifiable (manual review needed): 20
+
+=== Contradicted claims ===
+- [file_modified] The three-way toggle uses the class fd-seg three
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

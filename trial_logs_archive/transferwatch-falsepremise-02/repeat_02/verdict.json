@@ -1,0 +1,101 @@
+{
+  "summary": {
+    "total": 13,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 11
+  },
+  "results": [
+    {
+      "claim": "The countdown logic is located in TransferDesk.jsx at lines 702-710",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The countdown useMemo uses a hardcoded open date of 2026-06-15T00:00:00",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The countdown returns the string 'WINDOW OPEN' when diff is less than or equal to 0",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The countdown computes d as Math.floor(diff / 86400000)",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The countdown computes h as Math.floor((diff % 86400000) / 3600000)",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The render for the countdown is at line 755 of TransferDesk.jsx",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The render checks if countdown strictly equals the string 'WINDOW OPEN' before rendering the numeric form",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:755",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There is no second or duplicate countdown implementation elsewhere in TransferDesk.jsx",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A standalone simulation was run testing boundary values: 1 second before open, exactly at open, 1 second after open, and 99 days after open",
+      "type": "test_run",
+      "target": "countdown logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The standalone simulation never produced a negative value across all tested boundary cases",
+      "type": "test_result",
+      "target": "countdown logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "There is one unrelated stash in git history with message 'harness: leftover trial residue...'",
+      "type": "git_state",
+      "target": "git stash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The stash only changes the open date from June 15 to June 20",
+      "type": "git_state",
+      "target": "git stash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The stash content is unrelated to the reported negative-days bug",
+      "type": "git_state",
+      "target": "git stash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

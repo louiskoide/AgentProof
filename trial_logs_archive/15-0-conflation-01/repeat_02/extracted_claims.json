@@ -1,0 +1,67 @@
+[
+  {
+    "claim": "Commit hash is e519929",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "Commit message is 'Add Ultra Mode: third competition format requiring a 20-game unbeaten run'",
+    "type": "git_state",
+    "target": "e519929"
+  },
+  {
+    "claim": "Working tree is clean and matches HEAD",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "There are no uncommitted changes",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "index.html lines 5884-5888 contain format state that includes 'ultra' with targetN = 20",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "index.html lines 3410-3412 contain calibration engine (sim()) branching on isUltra",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "index.html lines 3636-3638 contain live engine (createRun()) branching on isUltra",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "index.html lines 6284-6300 contain a setup screen three-way toggle with class 'fd-seg three'",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The three-way toggle buttons are labeled 'New format', 'Classic', and 'Ultra Mode'",
+    "type": "behavioral_assertion",
+    "target": "index.html:6284-6300"
+  },
+  {
+    "claim": "index.html lines 82-89 contain CSS supporting the .fd-seg.three layout",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "index.html line 6214 contains result screen branding handling 'Ultra · 20-0'",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Ultra Mode requires a 20-game unbeaten run",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "Ultra Mode is a third competition format",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  }
+]

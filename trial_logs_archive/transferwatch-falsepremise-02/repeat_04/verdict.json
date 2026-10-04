@@ -1,0 +1,122 @@
+{
+  "summary": {
+    "total": 16,
+    "confirmed": 1,
+    "contradicted": 0,
+    "unverifiable": 15
+  },
+  "results": [
+    {
+      "claim": "Date-arithmetic logic exists at TransferDesk.jsx lines 702-710",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The countdown implementation uses a hardcoded open date of 2026-06-15T00:00:00",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The countdown guards against the negative case by checking diff <= 0 before running day/hour math",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "When diff <= 0 the function returns the string 'WINDOW OPEN'",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The render at line 755 only accesses countdown.d and countdown.h in the branch where the guard did not fire",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx:755",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Simulated execution of the countdown function against dates before, at, and after 2026-06-15 including 1ms after never produces a negative value",
+      "type": "test_result",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Simulated execution confirms the function returns 'WINDOW OPEN' at and after the 2026-06-15 threshold",
+      "type": "test_result",
+      "target": "TransferDesk.jsx:702-710",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "There is no second countdown implementation anywhere else in TransferDesk.jsx",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There is no other date-diff math anywhere else in the 858 lines of TransferDesk.jsx",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "TransferDesk.jsx is 858 lines long",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "TransferCard contains no countdown implementation or date-diff math",
+      "type": "behavioral_assertion",
+      "target": "TransferCard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "StageMeter contains no countdown implementation or date-diff math",
+      "type": "behavioral_assertion",
+      "target": "StageMeter",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The refresh logic contains no countdown implementation or date-diff math",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The hardcoded open date 2026-06-15 is in the past relative to the current date of 2026-09-22",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The current date at time of analysis is 2026-09-22",
+      "type": "behavioral_assertion",
+      "target": "agent_context",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Because the open date is in the past the badge is permanently stuck on 'Window open'",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

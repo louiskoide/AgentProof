@@ -1,0 +1,14 @@
+=== Files actually changed per git (vs baseline d982dd6139232968f659fbddefebc18bffd3b530) ===
+ M FootyStock_dc.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 13:16:57 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

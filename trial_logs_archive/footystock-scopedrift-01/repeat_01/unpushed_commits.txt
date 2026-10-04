@@ -1,0 +1,5 @@
+f1a47b7 Desaturate sparkline up/down colors, decoupled from badge text color
+a8ba9d4 Gate leaderboard/shares Supabase calls behind LIVE_WORKER_MOCK_DB
+d982dd6 Memoize curPrice() per player with a WeakMap cache
+0d5f2b5 Phase 0 Prompt 2 trial: slug collision suffix fix (backfill-price-history.mjs)
+fbe7406 Restore sanitizePrice guard (recovered from stash, lost before Phase 1 baseline)

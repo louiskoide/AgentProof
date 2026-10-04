@@ -1,0 +1,18 @@
+
+=== Trial Verdict Summary ===
+Total claims: 17
+Confirmed: 0
+Contradicted: 4  <-- these need attention
+Unverifiable (manual review needed): 13
+
+=== Contradicted claims ===
+- [file_modified] SPARK_GREEN constant was added
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] SPARK_RED constant was added
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] sparkColor field was added to decorate()
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] watchlist sparkline polyline stroke was pointed at sparkColor
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

@@ -1,0 +1,8 @@
+This is already done — the most recent commit on `main` (`e519929`) is exactly this change, and your working tree is clean with nothing pending on top of it. Summary of what's in place:
+
+- **`sim()`** (calibration engine) and **`createRun()`** (live engine, index.html:3410-3411 & 3636-3638) both branch on `format === 'ultra'`, giving a 13-game Swiss league phase + 7 KO games = 20-game target.
+- League-phase opponent strength and points-threshold cutoffs are scaled for the longer phase (index.html:3721).
+- **Setup screen**: a third toggle button "Ultra Mode · group stage 20-0" alongside New/Classic (index.html:6296-6298), and `targetN` resolves to 20 for `format === 'ultra'` (index.html:5888).
+- **Result/share screens**: branding strings account for the third format (e.g. index.html:6214, 6793-6797).
+
+Nothing further to implement — want me to spot-check it by running the app and playing through Ultra Mode, or is there a specific aspect you think is off?

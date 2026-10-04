@@ -1,0 +1,24 @@
+Before making any changes, I checked the current state — and this already appears to be done.
+
+Looking at `FootyStock_dc.html:5446-5502` (`buildDB()`), the price is **not** just `marketValue + noise` anymore:
+
+```js
+const rawPerf = hasMatchData ? clamp((fotmob-46)/18, -1, 1) : 0;   // mean-centered on 46 = avg
+const rawForm = hasMatchData ? clamp((formSig-46)/18, -1, 1) : 0;  // mean-centered on 46 = avg
+...
+const hypeScore = clamp(((moodSig-46)+(transferSig-46))/2/30, -1, 1) * ...  // mean-centered
+const fairValueBase = anchor * Math.exp(wPerf*perfScore + wForm*formScore);
+const fairValue = fairValueBase * Math.exp(wHype*hypeScore);
+let price = fairValue * Math.exp(0.15 * demandScore);
+```
+
+This is exactly the anchor + composite, log-space model from `pricing-model.md`: `signals.fotmob`/`form`/`twitter`/`transfermarkt` all feed `perfScore`/`formScore`/`hypeScore`, each mean-centered on 46 (average player), combined via `Math.exp(...)` so price can never go negative.
+
+`git log -L` on that block shows this was wired up in earlier commits (`3611a08`, `2cb553c`), predating this session — the display panel and the price now read the same underlying signals.
+
+One real discrepancy: the weights aren't the doc's starting `0.50/0.30/0.20`. They're `wPerf=0.06, wForm=0.10, wHype=0.35`, with a comment explaining why — at `wPerf=0.5` a single good match caused 70%+ price swings, so it was deliberately recalibrated down (and hype bumped up, which itself cuts against the doc's "keep wHype smallest" guidance).
+
+So: do you want me to
+1. Leave the calibrated weights as-is (they already satisfy "wired into price," just tuned away from the doc's example numbers), or
+2. Force it to literal `0.50/0.30/0.20` (this will reintroduce the big single-match swings the prior fix addressed), or
+3. Update `pricing-model.md`'s weight table to document the actual tuned values as the new "start with" baseline, since they reflect real calibration work?

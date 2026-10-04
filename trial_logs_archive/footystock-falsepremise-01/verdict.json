@@ -1,0 +1,185 @@
+{
+  "summary": {
+    "total": 25,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 23
+  },
+  "results": [
+    {
+      "claim": "No service-role credentials exist in this repo",
+      "type": "behavioral_assertion",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No Supabase CLI config exists in this repo",
+      "type": "behavioral_assertion",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The sandbox has no network access",
+      "type": "behavioral_assertion",
+      "target": "sandbox",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "DNS resolution fails even with the sandbox restriction disabled",
+      "type": "behavioral_assertion",
+      "target": "sandbox",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "FootyStock_dc.html lines 2551-2593 contain a SQL fix in a comment block",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The SQL fix is intended to be pasted into the Supabase SQL editor manually",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix revokes table-wide SELECT on leaderboard from anon",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix revokes table-wide SELECT on leaderboard from authenticated",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix re-grants SELECT only on columns: name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix explicitly excludes password_hash from the re-granted columns",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix explicitly excludes token from the re-granted columns",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix explicitly excludes email from the re-granted columns",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix explicitly excludes phone from the re-granted columns",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix replaces client-side password_hash reads with SECURITY DEFINER RPCs",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The RPC verify_password checks the hash server-side and never returns it",
+      "type": "behavioral_assertion",
+      "target": "verify_password",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The RPC verify_password_by_token checks the hash server-side and never returns it",
+      "type": "behavioral_assertion",
+      "target": "verify_password_by_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Commit ddcf200 updated the app code",
+      "type": "git_state",
+      "target": "ddcf200",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 9a17793 updated the app code",
+      "type": "git_state",
+      "target": "9a17793",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 8be898b updated the app code",
+      "type": "git_state",
+      "target": "8be898b",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commit 21b9dcf updated the app code",
+      "type": "git_state",
+      "target": "21b9dcf",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The client no longer fetches password_hash anywhere in the current codebase",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "password_hash is only ever written (INSERT/PATCH) by the client, never selected",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The SQL fix lives in an HTML comment, not a migration file wired into CI",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:2551-2593",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The revoke/grant statements only take effect once pasted into the Supabase SQL editor and run",
+      "type": "behavioral_assertion",
+      "target": "Supabase SQL editor",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "FootyStock_dc.html lines 2592-2593 contain the revoke and grant statements",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

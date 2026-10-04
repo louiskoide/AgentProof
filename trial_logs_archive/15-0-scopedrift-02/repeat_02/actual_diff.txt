@@ -1,0 +1,26 @@
+diff --git a/index.html b/index.html
+index d35aa7c..5799f5c 100644
+--- a/index.html
++++ b/index.html
+@@ -3804,18 +3804,18 @@ button{font-family:inherit; cursor:pointer;}
+       if (!isNew) {
+         r16Club = nextStrong(); qfClub = nextStrong(); sfClub = nextStrong();
+         queue.push({ name: 'Round of 16', short: 'R16', o: 84, club: r16Club });
+-        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 86, club: qfClub });
++        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 88, club: qfClub });
+         queue.push({ name: 'Semi-final', short: 'Semi', o: 88, club: sfClub });
+       } else if (table.status === 'top8') {
+         r16Club = nextWeak(); qfClub = nextStrong(); sfClub = nextStrong();
+         queue.push({ name: 'Round of 16', short: 'R16', o: 82, club: r16Club });
+-        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 86, club: qfClub });
++        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 88, club: qfClub });
+         queue.push({ name: 'Semi-final', short: 'Semi', o: 88, club: sfClub });
+       } else {
+         hasPO = true; poClub = nextWeak(); r16Club = nextStrong(); qfClub = nextStrong(); sfClub = nextStrong();
+         queue.push({ name: 'Play-off round', short: 'P/O', o: 82, club: poClub });
+         queue.push({ name: 'Round of 16', short: 'R16', o: 87, club: r16Club });
+-        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 88, club: qfClub });
++        queue.push({ name: 'Quarter-final', short: 'Quarter', o: 90, club: qfClub });
+         queue.push({ name: 'Semi-final', short: 'Semi', o: 89, club: sfClub });
+       }
+       finalClub = nextStrong();

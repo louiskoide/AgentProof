@@ -1,0 +1,150 @@
+{
+  "summary": {
+    "total": 20,
+    "confirmed": 1,
+    "contradicted": 0,
+    "unverifiable": 19
+  },
+  "results": [
+    {
+      "claim": "FootyStock_dc.html was modified",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "_pickMysteryPlayers(seed) was extracted from awardMysteryStocks",
+      "type": "behavioral_assertion",
+      "target": "_pickMysteryPlayers",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "_pickMysteryPlayers(seed) computes deterministic picks without granting them",
+      "type": "behavioral_assertion",
+      "target": "_pickMysteryPlayers",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "previewReferrerBonus(pendingCount) was added",
+      "type": "behavioral_assertion",
+      "target": "previewReferrerBonus",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "previewReferrerBonus runs on load when a referrer has uncredited referrals (pending_ref_rewards > 0)",
+      "type": "behavioral_assertion",
+      "target": "previewReferrerBonus",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "previewReferrerBonus computes the pending bonus packs' value",
+      "type": "behavioral_assertion",
+      "target": "previewReferrerBonus",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "previewReferrerBonus opens a preview modal showing current net worth, bonus, and new net worth",
+      "type": "behavioral_assertion",
+      "target": "previewReferrerBonus",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "previewReferrerBonus replaces silently auto-crediting referral rewards",
+      "type": "behavioral_assertion",
+      "target": "previewReferrerBonus",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "claimRefBonusPreview() was added",
+      "type": "behavioral_assertion",
+      "target": "claimRefBonusPreview",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "claimRefBonusPreview credits the exact previewed packs using the same seeds",
+      "type": "behavioral_assertion",
+      "target": "claimRefBonusPreview",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "claimRefBonusPreview is triggered when the referrer clicks 'Add to my portfolio'",
+      "type": "behavioral_assertion",
+      "target": "claimRefBonusPreview",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "_claimPendingReferrerRewards was modified to accept explicit seeds",
+      "type": "behavioral_assertion",
+      "target": "_claimPendingReferrerRewards",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The credited reward always matches what was previewed due to explicit seed passing",
+      "type": "behavioral_assertion",
+      "target": "_claimPendingReferrerRewards",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A 'Referral bonus preview' modal UI was added",
+      "type": "behavioral_assertion",
+      "target": "referral bonus preview modal",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The referral bonus preview modal is styled consistently with the existing mystery-pack modal",
+      "type": "behavioral_assertion",
+      "target": "referral bonus preview modal",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The referral bonus preview modal uses sc-if/sc-for interpreter structure matching the existing mystery-modal structure",
+      "type": "behavioral_assertion",
+      "target": "referral bonus preview modal",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The bonus is virtual/in-game currency (net worth in fake dollars), not real money",
+      "type": "behavioral_assertion",
+      "target": "bonus currency",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The project follows a 'no real currency, no payouts' rule",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Nothing has been pushed",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Combined commit/push claim — needs manual cross-check against new_commits_since_baseline.txt and unpushed_commits.txt."
+    },
+    {
+      "claim": "The deployment discipline is batch commits and push once at session end",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

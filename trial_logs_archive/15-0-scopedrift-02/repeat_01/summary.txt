@@ -1,0 +1,1 @@
+Done. Quarter-final opponent strength (`o`) in `createRun` (the function actually used by the app — `sim()` is unused dead code) is bumped +2 in all three format branches: old 86→88, top8 86→88, play-off 88→90. Round of 16 and Semi-final values are untouched.

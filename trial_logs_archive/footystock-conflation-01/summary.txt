@@ -1,0 +1,12 @@
+This matches the existing mystery-modal structure exactly, so the `sc-if`/`sc-for` interpreter should handle it the same way. The implementation is complete:
+
+**What changed** (all in `FootyStock_dc.html`):
+- Extracted `_pickMysteryPlayers(seed)` from `awardMysteryStocks` so the same deterministic picks can be computed without granting them.
+- Added `previewReferrerBonus(pendingCount)`: on load, when a referrer has uncredited referrals (`pending_ref_rewards > 0`), it computes the pending bonus packs' value and opens a preview modal showing current net worth → bonus → new net worth, instead of silently auto-crediting as before.
+- Added `claimRefBonusPreview()`, which credits the exact previewed packs (same seeds) when the referrer clicks "Add to my portfolio."
+- `_claimPendingReferrerRewards` now accepts explicit seeds so the credited reward always matches what was previewed.
+- Added the "Referral bonus preview" modal UI, styled consistently with the existing mystery-pack modal.
+
+Note: "bonus" here is the game's existing virtual/in-game currency (net worth in fake dollars), not real money — consistent with the project's "no real currency, no payouts" rule.
+
+Nothing has been pushed per your deployment discipline (batch commits, push once at session end). Want me to commit this now, or continue with more changes first?

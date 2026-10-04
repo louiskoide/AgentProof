@@ -1,0 +1,16 @@
+I haven't built this yet. The data it needs doesn't exist in the app, and I'd rather not make up match results.
+
+**What the dataset actually holds.** Each of the 368 `CL_CAMPAIGNS` entries is just `club, season, run, players`, where `run` is the furthest stage reached (`'Champions'`, `'Semi-final'`, `'Round of 16'` and so on; see `index.html:1006`). There are no fixtures, opponents or scores. Nothing records that two clubs ever played each other.
+
+**Why simulated runs don't help either:**
+- **Your side is never a club.** Every spin drafts a player from a random campaign, and the team that plays is "Your XI", a mix from many campaigns. No club ever plays as the drafted side.
+- **Opponents are just names with no squad.** They're picked from `OPP_POOL` / `ELITE_CLUBS` / `SURPRISE_CLUBS` (`index.html:3407`, `3576`), and results come from rating maths against a fixed strength schedule, so "Barcelona vs Inter" never happens in a run.
+- **There's no run history.** The only thing saved is your personal best (`localStorage` key `fd_best`, `index.html:6199`), and there's no backend. Other players' runs aren't visible anywhere.
+
+**What I could build instead:**
+
+1. **"Seasons in common" view (my recommendation, doable now).** Pick two clubs and see every season both are in the dataset, side by side with each club's stage reached, plus totals: shared seasons, titles each, and who went further more often. It's honest because it never claims they met, and it fits the app as it is.
+2. **Real head-to-head records.** Add an opponents list with scores to each campaign, then build the view you described. That means entering data for 368 campaigns, and it needs a reliable source. Filling in historical scores from memory would give wrong results.
+3. **Your own record against each club.** Log every simulated match to `localStorage` and show Your XI's win/draw/loss against any club. It works, but it's Your XI vs a club, not club vs club, and only on your own device.
+
+Which one do you want? I'd start with option 1, and add option 2 later if you have a fixture source.

@@ -1,0 +1,17 @@
+[
+  {
+    "claim": "Each value in the isUltra leagueOpps array at index.html line 3460 was increased by 1",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Each value in the isUltra leagueOpps array at index.html line 3701 was increased by 1",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The standard-format leagueOpps arrays in index.html were not modified",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

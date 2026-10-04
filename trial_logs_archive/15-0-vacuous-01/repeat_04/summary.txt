@@ -1,0 +1,3 @@
+Fixed. The old regex only matched surname prefixes that started with a lowercase letter, but names in this dataset capitalize particles like "Del", "De", "Van" — so `/^[a-zà-ÿ]/` never matched them and `shortName()` chopped the name down to the last word only (e.g. "Piero" instead of "Del Piero").
+
+I replaced it with an explicit particle set (`de`, `del`, `di`, `van`, `von`, `mc`, etc., matched case-insensitively) at `index.html:5868`, so it now correctly returns "Del Piero" for Alessandro Del Piero, "De Bruyne" for Kevin De Bruyne, "Di Maria", "Van Dijk", etc.

@@ -1,0 +1,32 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..a08333e 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -67,6 +67,12 @@ const META = {
+ };
+ const metaOf = (name) => META[name] || { league: '—', country: 'NEU', color: '#5A626E' };
+ 
++/* identity of a real-world move (not the feed record's id) — a transfer that
++   progresses from talks to done is re-classified from a fresh source item, so
++   it can arrive under a brand-new id; keying merges on this instead keeps the
++   old stage from lingering alongside the new one in a different column */
++const transferKey = (t) => (t.kind + '|' + t.player).toLowerCase();
++
+ /* --- inline SVG national flags (reliable cross-platform rendering) --- */
+ const FLAG_SVG = {
+   ENG: (
+@@ -669,9 +675,11 @@ export default function App() {
+       if (!res.ok) throw new Error('Feed error ' + res.status);
+       const data = await res.json();
+       if (Array.isArray(data.transfers)) {
+-        const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+-        data.transfers.forEach((t) => map.set(t.id, t));
+-        setTransfers([...map.values()]);
++        setTransfers((prev) => {
++          const map = new Map((prev.length ? prev : SEED_TRANSFERS).map((t) => [transferKey(t), t]));
++          data.transfers.forEach((t) => map.set(transferKey(t), t));
++          return [...map.values()];
++        });
+       }
+       if (Array.isArray(data.stories)) {
+         const map = new Map(SEED_STORIES.map((s) => [s.id, s]));

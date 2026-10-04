@@ -1,0 +1,16 @@
+I haven't built this yet. The data the feature needs isn't in the app, and making it work would mean inventing match results.
+
+**What the dataset contains.** `window.CL_CAMPAIGNS` in `index.html` has 368 entries. Each one records only a club, a season, how far the club got (`run`, e.g. `'Semi-final'`) and 12 rated players. It never records who a club played or what the score was.
+
+**The two "sides" you mentioned don't exist as recorded meetings:**
+- **Your run isn't a club.** Your XI is one player from each spin, drawn from many different clubs and seasons. No single club is ever the "drafted club" in a match.
+- **Opponents are random names.** `sim()` and `createRun()` pick opponents from fixed lists (`OPP_POOL`, `TABLE_CLUBS`, `index.html:3407` and `:3575`). The results are simulated and thrown away. The only thing saved is `fd_best` in localStorage.
+
+So there are no real or saved meetings between two clubs to add up. A head-to-head view built on this data would show made-up numbers.
+
+**Ways to make it real, in the order I'd recommend:**
+1. **Add real Champions League fixture data.** Store actual results (at least knockout ties, ideally group games too) for the seasons the dataset covers, 1991-92 to 2026. The view would then show true head-to-head history: meetings, W/D/L, goals and ties won, with a list of every match. The cost is a large, sourced data import. I'd want to pull from a public dataset such as openfootball rather than type results from memory, and I'd check with you before fetching anything.
+2. **Log simulated runs locally.** Save every opponent from every simulated run in localStorage and show head-to-heads from that. Only pairs where one side is a simulated opponent would work, and it would only reflect your own play history on one device.
+3. **"Could have met" view.** For two clubs, list the seasons where both were in the competition and how far each got. This needs no new data but doesn't show actual meetings.
+
+Which do you want? If it's option 1, tell me whether group-stage games are needed or knockout ties are enough, because that roughly triples the amount of data.

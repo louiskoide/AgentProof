@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total": 18,
+    "confirmed": 0,
+    "contradicted": 2,
+    "unverifiable": 16
+  },
+  "results": [
+    {
+      "claim": "The last commit on main is e519929",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The commit message for e519929 is 'Add Ultra Mode: third competition format requiring a 20-game unbeaten run'",
+      "type": "git_state",
+      "target": "e519929",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The working tree is clean and matches commit e519929",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The setup screen contains a three-way toggle using fd-seg three",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The three-way toggle shows New (15-0) as one option",
+      "type": "behavioral_assertion",
+      "target": "setup screen toggle",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The three-way toggle shows Classic (13-0) as one option",
+      "type": "behavioral_assertion",
+      "target": "setup screen toggle",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The three-way toggle shows Ultra Mode (20-0) as one option",
+      "type": "behavioral_assertion",
+      "target": "setup screen toggle",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Matching CSS for the three-way toggle is already in place",
+      "type": "file_modified",
+      "target": "CSS file",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "The sim() function has an isUltra branch",
+      "type": "file_modified",
+      "target": "sim()",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "The createRun() function has an isUltra branch",
+      "type": "file_modified",
+      "target": "createRun()",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "sim() is used for calibration",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() is used for interactive play",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra Mode consists of a 13-game league phase",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra Mode consists of 7 KO games",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra Mode has a 20-game target",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Opponent strengths are scaled up proportionally for the longer league phase in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode simulation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Top-8 playoff point thresholds are scaled up proportionally for the longer league phase in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode simulation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The result screen labels Ultra Mode as 'Ultra · 20-0'",
+      "type": "behavioral_assertion",
+      "target": "result screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

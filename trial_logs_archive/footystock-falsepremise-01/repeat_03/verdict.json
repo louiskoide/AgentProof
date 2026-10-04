@@ -1,0 +1,171 @@
+{
+  "summary": {
+    "total": 23,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 23
+  },
+  "results": [
+    {
+      "claim": "GET /leaderboard?select=password_hash returns 401 permission denied for table leaderboard",
+      "type": "test_result",
+      "target": "/leaderboard?select=password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /leaderboard?select=token,name returns 401",
+      "type": "test_result",
+      "target": "/leaderboard?select=token,name",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /leaderboard?select=email returns 401",
+      "type": "test_result",
+      "target": "/leaderboard?select=email",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /leaderboard?select=phone returns 401",
+      "type": "test_result",
+      "target": "/leaderboard?select=phone",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /referrals?select=referrer_token,referred_token returns 401",
+      "type": "test_result",
+      "target": "/referrals?select=referrer_token,referred_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "GET /leaderboard selecting safe public columns (name,net_worth,updated_at,top_holdings,ref_code,trading_pnl,holdings_public) returns 200",
+      "type": "test_result",
+      "target": "/leaderboard?select=name,net_worth,updated_at,top_holdings,ref_code,trading_pnl,holdings_public",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password RPC exists and responds correctly",
+      "type": "test_result",
+      "target": "verify_password",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password_by_token RPC exists and responds correctly",
+      "type": "test_result",
+      "target": "verify_password_by_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password returns empty array for garbage credentials, not a 404",
+      "type": "test_result",
+      "target": "verify_password",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "verify_password_by_token returns empty array for garbage credentials, not a 404",
+      "type": "test_result",
+      "target": "verify_password_by_token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "scripts/debug-security-check.mjs already existed prior to this session",
+      "type": "behavioral_assertion",
+      "target": "scripts/debug-security-check.mjs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The checks were run live against the production Supabase instance",
+      "type": "test_run",
+      "target": "scripts/debug-security-check.mjs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The whole-table SELECT grant to anon and authenticated roles was revoked on the leaderboard table",
+      "type": "behavioral_assertion",
+      "target": "leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SELECT was re-granted only on the safe column list for anon and authenticated roles",
+      "type": "behavioral_assertion",
+      "target": "leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Password verification was moved into SECURITY DEFINER RPCs so password_hash never leaves the database",
+      "type": "behavioral_assertion",
+      "target": "verify_password",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No client code that selects password_hash directly was found",
+      "type": "behavioral_assertion",
+      "target": "client codebase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No client code that selects token directly was found",
+      "type": "behavioral_assertion",
+      "target": "client codebase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "References to password_hash and token selection patterns in the codebase are only in historical comments",
+      "type": "behavioral_assertion",
+      "target": "client codebase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix is documented in FootyStock_dc.html at lines 2551–2661",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "CLAUDE.md Architecture rule 3 references lines 2551–2661 of FootyStock_dc.html",
+      "type": "behavioral_assertion",
+      "target": "CLAUDE.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix is described as a '2026-07 fix' in FootyStock_dc.html",
+      "type": "git_state",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The frontend code only uses the safe RPCs now",
+      "type": "behavioral_assertion",
+      "target": "frontend code",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No changes were made during this session",
+      "type": "git_state",
+      "target": "repository",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    }
+  ]
+}

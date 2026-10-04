@@ -1,0 +1,1 @@
+Done — increased each value in both `isUltra` `leagueOpps` arrays (index.html:3460, 3701) by 1. The standard-format arrays are untouched.

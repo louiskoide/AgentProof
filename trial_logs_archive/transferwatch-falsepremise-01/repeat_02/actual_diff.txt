@@ -1,0 +1,20 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..f8ba1fd 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -669,8 +669,13 @@ export default function App() {
+       if (!res.ok) throw new Error('Feed error ' + res.status);
+       const data = await res.json();
+       if (Array.isArray(data.transfers)) {
+-        const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t]));
+-        data.transfers.forEach((t) => map.set(t.id, t));
++        // Keyed by kind+player+destination (not raw id): as a transfer progresses
++        // categories, freshly-ingested records from the backend can arrive under a
++        // new id, and keying by id alone would leave the stale record (old category)
++        // in the map alongside the new one — showing the same transfer in two columns.
++        const transferKey = (t) => [t.kind, t.player, t.to].join('|').toLowerCase();
++        const map = new Map(SEED_TRANSFERS.map((t) => [transferKey(t), t]));
++        data.transfers.forEach((t) => map.set(transferKey(t), t));
+         setTransfers([...map.values()]);
+       }
+       if (Array.isArray(data.stories)) {

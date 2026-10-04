@@ -1,0 +1,172 @@
+[
+  {
+    "claim": "A new SEED_CHAINS list was added",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each chain has a title, short summary, and an ordered list of links",
+    "type": "behavioral_assertion",
+    "target": "SEED_CHAINS"
+  },
+  {
+    "claim": "Each link names an existing transfer by id",
+    "type": "behavioral_assertion",
+    "target": "SEED_CHAINS"
+  },
+  {
+    "claim": "Each link can include a via line explaining how the previous move leads to it",
+    "type": "behavioral_assertion",
+    "target": "SEED_CHAINS"
+  },
+  {
+    "claim": "The backend format now accepts a chains array",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Refreshes add or replace chains by id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each chain block has a header containing the word Chain, the title, and a move count",
+    "type": "behavioral_assertion",
+    "target": "chain UI block"
+  },
+  {
+    "claim": "Each chain block displays the summary text",
+    "type": "behavioral_assertion",
+    "target": "chain UI block"
+  },
+  {
+    "claim": "Each chain block displays existing transfer cards in order",
+    "type": "behavioral_assertion",
+    "target": "chain UI block"
+  },
+  {
+    "claim": "Every card in a chain has a numbered label showing its status",
+    "type": "behavioral_assertion",
+    "target": "chain transfer card"
+  },
+  {
+    "claim": "Status labels show one of: Interest, In Talks, or Done",
+    "type": "behavioral_assertion",
+    "target": "chain transfer card"
+  },
+  {
+    "claim": "Between cards an arrow displays the via text",
+    "type": "behavioral_assertion",
+    "target": "chain UI block"
+  },
+  {
+    "claim": "On desktop the cards run left to right",
+    "type": "behavioral_assertion",
+    "target": "chain UI layout"
+  },
+  {
+    "claim": "On narrow screens the cards stack with downward arrows",
+    "type": "behavioral_assertion",
+    "target": "chain UI layout"
+  },
+  {
+    "claim": "Each chain appears as one full-width block above the board",
+    "type": "behavioral_assertion",
+    "target": "chain UI block"
+  },
+  {
+    "claim": "A transfer that is in a chain is removed from the three columns",
+    "type": "behavioral_assertion",
+    "target": "column display logic"
+  },
+  {
+    "claim": "The column counts decrease to exclude transfers in chains",
+    "type": "behavioral_assertion",
+    "target": "column count display"
+  },
+  {
+    "claim": "The count on the Transfers tab still includes transfers that are in chains",
+    "type": "behavioral_assertion",
+    "target": "Transfers tab count"
+  },
+  {
+    "claim": "If any move in a chain matches the current search or league filter the whole chain is shown",
+    "type": "behavioral_assertion",
+    "target": "chain filter logic"
+  },
+  {
+    "claim": "Moves in a chain that do not match the current filter are faded rather than hidden",
+    "type": "behavioral_assertion",
+    "target": "chain filter logic"
+  },
+  {
+    "claim": "Links pointing at a transfer id that does not exist are skipped",
+    "type": "behavioral_assertion",
+    "target": "chain render logic"
+  },
+  {
+    "claim": "A chain with fewer than two valid moves after filtering bad links is not shown",
+    "type": "behavioral_assertion",
+    "target": "chain render logic"
+  },
+  {
+    "claim": "The app was rendered to HTML server-side and built without errors",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The app was not viewed in a browser",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The seed chain shows up with 3 steps",
+    "type": "test_result",
+    "target": "The Gordon domino chain"
+  },
+  {
+    "claim": "The seed chain shows up with 2 connectors",
+    "type": "test_result",
+    "target": "The Gordon domino chain"
+  },
+  {
+    "claim": "Gordon's card appears once instead of twice",
+    "type": "test_result",
+    "target": "The Gordon domino chain"
+  },
+  {
+    "claim": "A sample chain named The Gordon domino was added",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Gordon domino chain consists of Gordon to Barcelona, Bremer to Bayern, and Maignan to Juventus",
+    "type": "behavioral_assertion",
+    "target": "The Gordon domino chain"
+  },
+  {
+    "claim": "The Bayern story in the existing data says With Anthony Gordon gone to Barça Bayern pivot to defence",
+    "type": "behavioral_assertion",
+    "target": "Bayern transfer story"
+  },
+  {
+    "claim": "The Juventus story in the existing data says they must sell to buy and need a goalkeeper",
+    "type": "behavioral_assertion",
+    "target": "Juventus transfer story"
+  },
+  {
+    "claim": "No sources report the Gordon domino as a single chain",
+    "type": "behavioral_assertion",
+    "target": "The Gordon domino chain"
+  },
+  {
+    "claim": "All changes are in TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Nothing is committed",
+    "type": "git_state",
+    "target": "TransferDesk.jsx"
+  }
+]

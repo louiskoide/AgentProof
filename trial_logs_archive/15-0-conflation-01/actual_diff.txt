@@ -1,0 +1,151 @@
+diff --git a/index.html b/index.html
+index e12d9ee..d35aa7c 100644
+--- a/index.html
++++ b/index.html
+@@ -81,6 +81,7 @@ button{font-family:inherit; cursor:pointer;}
+ .fd-opt-label .hint{font-size:11.5px; color:var(--ink-faint);}
+ .fd-seg{display:inline-flex; background:var(--bg); border:1px solid var(--line); border-radius:11px; padding:4px; gap:3px; width:100%;}
+ .fd-seg.two button{flex:1;}
++.fd-seg.three button{flex:1;}
+ .fd-seg button{flex:1; border:none; background:transparent; color:var(--ink-soft); font-family:var(--font-ui); font-weight:700; font-size:13px; padding:11px 10px; border-radius:8px; transition:.15s; display:flex; flex-direction:column; align-items:center; gap:2px; letter-spacing:.01em;}
+ .fd-seg button .sm{font-family:var(--font-mono); font-weight:500; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);}
+ .fd-seg button.on{background:var(--ink); color:#fff;}
+@@ -3407,7 +3408,9 @@ button{font-family:inherit; cursor:pointer;}
+ 
+   function sim(squad, label, opts) {
+     const format = (opts && opts.format) || 'new';
+-    const isNew = format === 'new';
++    const isOld = format === 'old';
++    const isUltra = format === 'ultra';
++    const isNew = !isOld;
+     const ratings = squad.map((p) => p.rating);
+     const total = ratings.reduce((a, b) => a + b, 0);
+     const avg = total / ratings.length;
+@@ -3449,11 +3452,13 @@ button{font-family:inherit; cursor:pointer;}
+     // Group / League phase — opponents raised so the league stage actually bites
+     const groupName = isNew ? 'League Phase' : 'Group Stage';
+     const groupShort = isNew ? 'League' : 'Group';
+-    const groupN = isNew ? 8 : 6;
++    const groupN = isOld ? 6 : (isUltra ? 13 : 8);
+     let pts = 0;
+     if (isNew) {
+-      // Swiss league phase: eight different opponents, one game each
+-      const leagueOpps = [77, 78, 78, 79, 80, 81, 83, 84];
++      // Swiss league phase: eight (or, in Ultra Mode, thirteen) different opponents, one game each
++      const leagueOpps = isUltra
++        ? [76, 77, 77, 78, 79, 79, 80, 81, 82, 83, 84, 85, 86]
++        : [77, 78, 78, 79, 80, 81, 83, 84];
+       for (let i = 0; i < groupN; i++) {
+         const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+         const res = decide(str, opp, rng);
+@@ -3479,7 +3484,7 @@ button{font-family:inherit; cursor:pointer;}
+     }
+ 
+     let furthest = groupName;
+-    const out = pts < (isNew ? 10 : 8);
++    const out = pts < (isOld ? 8 : isUltra ? 16 : 10);
+     let champions = false;
+ 
+     const KO = [
+@@ -3629,7 +3634,9 @@ button{font-family:inherit; cursor:pointer;}
+ 
+   function createRun(squad, label, opts) {
+     const format = (opts && opts.format) || 'new';
+-    const isNew = format === 'new';
++    const isOld = format === 'old';
++    const isUltra = format === 'ultra';
++    const isNew = !isOld;
+     const ratings = squad.map((p) => p.rating);
+     const total = ratings.reduce((a, b) => a + b, 0);
+     const avg = total / ratings.length;
+@@ -3661,7 +3668,7 @@ button{font-family:inherit; cursor:pointer;}
+     const tally = (res) => { if (res === 'W') w++; else if (res === 'D') { d++; perfect = false; } else { l++; perfect = false; } };
+     const groupName = isNew ? 'League Phase' : 'Group Stage';
+     const groupShort = isNew ? 'League' : 'Group';
+-    const groupN = isNew ? 8 : 6;
++    const groupN = isOld ? 6 : (isUltra ? 13 : 8);
+     const targetN = groupN + 7;
+     let furthest = groupName;
+ 
+@@ -3690,7 +3697,9 @@ button{font-family:inherit; cursor:pointer;}
+ 
+     function playGroup() {
+       if (isNew) {
+-        const leagueOpps = [77, 80, 82, 84, 85, 86, 88, 90];
++        const leagueOpps = isUltra
++          ? [76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 90]
++          : [77, 80, 82, 84, 85, 86, 88, 90];
+         for (let i = 0; i < groupN; i++) {
+           const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+           const res = decide(str, opp, rng);
+@@ -3709,9 +3718,12 @@ button{font-family:inherit; cursor:pointer;}
+         // the 9th-24th sides (smaller clubs, plus the odd fallen giant) — kept distinct from the top-8 seeds
+         weakPool = shuffle(surpShuf.slice(1).concat(eliteShuf.slice(7))).filter((c) => !strongSet[c]);
+         const playoffClubs = weakPool.slice(0, 15);
++        // Ultra Mode's longer (13-game) league phase means more points are on offer, so scale the cutoffs to match
++        const topPts = isUltra ? 26 : 16, topHi = isUltra ? 34 : 21;
++        const poPts = isUltra ? 16 : 10, poHi = isUltra ? 24 : 15;
+         let status, rows, blockTitle, blockNote;
+-        if (pts >= 16) { status = 'top8'; rows = buildBlock(pts, top8Clubs, 1, 21, 16); blockTitle = 'League Phase \u2014 Top 8'; blockNote = 'The top eight go straight through to the Round of 16.'; }
+-        else if (pts >= 10) { status = 'playoff'; rows = buildBlock(pts, playoffClubs, 9, 15, 10); blockTitle = 'League Phase \u2014 Play-off places (9\u201324)'; blockNote = 'Finishing 9th\u201324th means a two-legged knockout play-off.'; }
++        if (pts >= topPts) { status = 'top8'; rows = buildBlock(pts, top8Clubs, 1, topHi, topPts); blockTitle = 'League Phase \u2014 Top 8'; blockNote = 'The top eight go straight through to the Round of 16.'; }
++        else if (pts >= poPts) { status = 'playoff'; rows = buildBlock(pts, playoffClubs, 9, poHi, poPts); blockTitle = 'League Phase \u2014 Play-off places (9\u201324)'; blockNote = 'Finishing 9th\u201324th means a two-legged knockout play-off.'; }
+         else { status = 'out'; rows = null; blockTitle = 'League Phase'; blockNote = 'Finishing 25th\u201336th means elimination.'; }
+         table = { kind: 'league', status, rows, position: rows ? (rows.find((r) => r.you) || {}).pos : null, blockTitle, blockNote, pts, played: groupN };
+       } else {
+@@ -5850,7 +5862,8 @@ button{font-family:inherit; cursor:pointer;}
+   };
+   const NUMWORD = {
+     15: 'Fifteen',
+-    13: 'Thirteen'
++    13: 'Thirteen',
++    20: 'Twenty'
+   };
+   function shortName(n) {
+     const parts = n.split(' ');
+@@ -5868,11 +5881,11 @@ button{font-family:inherit; cursor:pointer;}
+     const [phase, setPhase] = useState('setup');
+     const [reveal, setReveal] = useState('shown'); // shown | blind
+     const [pool, setPool] = useState('season'); // season | prime
+-    const [format, setFormat] = useState('new'); // new (15-0) | old (13-0)
++    const [format, setFormat] = useState('new'); // new (15-0) | old (13-0) | ultra (20-0)
+     const [formKey, setFormKey] = useState('4-3-3');
+     const [diff, setDiff] = useState('medium');
+     const formation = FD.FORMATIONS[formKey];
+-    const targetN = format === 'new' ? 15 : 13;
++    const targetN = format === 'new' ? 15 : format === 'ultra' ? 20 : 13;
+ 
+     // draft state
+     const [filled, setFilled] = useState([]);
+@@ -6198,7 +6211,7 @@ button{font-family:inherit; cursor:pointer;}
+       className: "fd-mb k"
+     }, pool === 'prime' ? 'Prime' : 'Season'), /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+-    }, format === 'new' ? 'New \u00b7 15-0' : 'Classic \u00b7 13-0'), /*#__PURE__*/React.createElement("span", {
++    }, format === 'new' ? 'New \u00b7 15-0' : format === 'ultra' ? 'Ultra \u00b7 20-0' : 'Classic \u00b7 13-0'), /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+     }, formation.name), withDiff && /*#__PURE__*/React.createElement("span", {
+       className: "fd-mb"
+@@ -6268,7 +6281,7 @@ button{font-family:inherit; cursor:pointer;}
+       }, "Competition format"), /*#__PURE__*/React.createElement("span", {
+         className: "hint"
+       }, "games needed for a perfect run")), /*#__PURE__*/React.createElement("div", {
+-        className: "fd-seg two"
++        className: "fd-seg three"
+       }, /*#__PURE__*/React.createElement("button", {
+         className: format === 'new' ? 'on' : '',
+         onClick: () => setFormat('new')
+@@ -6279,7 +6292,12 @@ button{font-family:inherit; cursor:pointer;}
+         onClick: () => setFormat('old')
+       }, "Classic", /*#__PURE__*/React.createElement("span", {
+         className: "sm"
+-      }, "group stage \xB7 13-0")))), /*#__PURE__*/React.createElement("div", {
++      }, "group stage \xB7 13-0")), /*#__PURE__*/React.createElement("button", {
++        className: format === 'ultra' ? 'on' : '',
++        onClick: () => setFormat('ultra')
++      }, "Ultra Mode", /*#__PURE__*/React.createElement("span", {
++        className: "sm"
++      }, "league phase \xB7 20-0")))), /*#__PURE__*/React.createElement("div", {
+         className: "fd-opt"
+       }, /*#__PURE__*/React.createElement("div", {
+         className: "fd-opt-label"

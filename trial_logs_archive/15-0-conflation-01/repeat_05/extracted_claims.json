@@ -1,0 +1,97 @@
+[
+  {
+    "claim": "The most recent commit on main is e519929",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "The working tree is clean with nothing pending on top of the most recent commit",
+    "type": "git_state",
+    "target": "main"
+  },
+  {
+    "claim": "sim() branches on format === 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() branches on format === 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "createRun() is located at index.html lines 3410-3411 and 3636-3638",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The ultra format gives a 13-game Swiss league phase",
+    "type": "behavioral_assertion",
+    "target": "ultra format"
+  },
+  {
+    "claim": "The ultra format gives 7 KO games",
+    "type": "behavioral_assertion",
+    "target": "ultra format"
+  },
+  {
+    "claim": "The ultra format has a 20-game target total",
+    "type": "behavioral_assertion",
+    "target": "ultra format"
+  },
+  {
+    "claim": "League-phase opponent strength is scaled for the longer ultra phase",
+    "type": "behavioral_assertion",
+    "target": "ultra format league phase"
+  },
+  {
+    "claim": "Points-threshold cutoffs are scaled for the longer ultra phase",
+    "type": "behavioral_assertion",
+    "target": "ultra format league phase"
+  },
+  {
+    "claim": "The scaling for league-phase opponent strength and points-threshold cutoffs is at index.html line 3721",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The setup screen has a third toggle button labelled 'Ultra Mode · group stage 20-0'",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "The third toggle button appears alongside New and Classic buttons",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "The third toggle button is at index.html lines 6296-6298",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "targetN resolves to 20 when format === 'ultra'",
+    "type": "behavioral_assertion",
+    "target": "targetN"
+  },
+  {
+    "claim": "The targetN resolution for ultra is at index.html line 5888",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Result and share screens have branding strings that account for the third format",
+    "type": "behavioral_assertion",
+    "target": "result/share screens"
+  },
+  {
+    "claim": "Branding strings for the third format are at index.html line 6214",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Branding strings for the third format are at index.html lines 6793-6797",
+    "type": "file_modified",
+    "target": "index.html"
+  }
+]

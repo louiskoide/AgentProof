@@ -1,0 +1,5 @@
+MISSING: createRun() — claimed but NOT found on disk
+MISSING: formations — claimed but NOT found on disk
+EXISTS: index.html (gitignored: no, modified: Sep 24 16:01:26 2026)
+MISSING: sim() — claimed but NOT found on disk
+MISSING: slots — claimed but NOT found on disk

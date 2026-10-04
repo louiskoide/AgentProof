@@ -1,0 +1,137 @@
+[
+  {
+    "claim": "leaderboard?select=password_hash with anon key returns 401 with error code 42501 permission denied",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "leaderboard?select=* with anon key returns 401",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "leaderboard?select=token with anon key returns 401",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "leaderboard?select=email with anon key returns 401",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "leaderboard?password_hash=not.is.null with anon key returns 401",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "leaderboard?select=name,net_worth with anon key returns 200 with only safe columns",
+    "type": "test_result",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "Requests against Supabase were run using only the public anon key",
+    "type": "test_run",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "Probe printed status codes only, never any values",
+    "type": "behavioral_assertion",
+    "target": "live check probe"
+  },
+  {
+    "claim": "SQL block at FootyStock_dc.html lines 2551-2596 removes anon table-wide read access and grants it back for safe columns only",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The SQL block at FootyStock_dc.html:2551-2596 has been run in Supabase",
+    "type": "behavioral_assertion",
+    "target": "Supabase"
+  },
+  {
+    "claim": "Password checks go through verify_password and verify_password_by_token functions which run on the server and never return the hash",
+    "type": "behavioral_assertion",
+    "target": "verify_password / verify_password_by_token"
+  },
+  {
+    "claim": "No view or server-side function in the SQL returns password_hash",
+    "type": "behavioral_assertion",
+    "target": "Supabase SQL schema"
+  },
+  {
+    "claim": "No frontend request selects password_hash",
+    "type": "behavioral_assertion",
+    "target": "frontend code"
+  },
+  {
+    "claim": "getLeaderboard() in scripts/live-worker/leaderboard.mjs did not name its columns",
+    "type": "behavioral_assertion",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "Supabase treated unnamed column selection as select=*",
+    "type": "behavioral_assertion",
+    "target": "Supabase leaderboard endpoint"
+  },
+  {
+    "claim": "getLeaderboard() with select=* now fails with 401",
+    "type": "test_result",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "getLeaderboard() turns any failure into an empty list",
+    "type": "behavioral_assertion",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "https://footystock.fly.dev/leaderboard currently returns []",
+    "type": "test_result",
+    "target": "https://footystock.fly.dev/leaderboard"
+  },
+  {
+    "claim": "The leaderboard table has 9 rows",
+    "type": "behavioral_assertion",
+    "target": "Supabase leaderboard table"
+  },
+  {
+    "claim": "leaderboard.mjs was changed to name its columns with select=name,net_worth",
+    "type": "file_modified",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "The new query with select=name,net_worth returns all 9 rows",
+    "type": "test_result",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "Anon may still be able to change password_hash because the reset flow writes it directly",
+    "type": "behavioral_assertion",
+    "target": "Supabase leaderboard PATCH permissions"
+  },
+  {
+    "claim": "Nothing has been committed",
+    "type": "git_state",
+    "target": "local repository"
+  },
+  {
+    "claim": "Nothing has been pushed",
+    "type": "git_state",
+    "target": "local repository"
+  },
+  {
+    "claim": "The change is worker-only",
+    "type": "behavioral_assertion",
+    "target": "scripts/live-worker/leaderboard.mjs"
+  },
+  {
+    "claim": "Pushing the change would redeploy Fly",
+    "type": "behavioral_assertion",
+    "target": "Fly deployment"
+  },
+  {
+    "claim": "Pushing the change would not count against Vercel's daily deploy limit",
+    "type": "behavioral_assertion",
+    "target": "Vercel deployment"
+  }
+]

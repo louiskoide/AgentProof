@@ -1,0 +1,8 @@
+[
+  {
+    "task_id": "footystock-longsession-02",
+    "repo_path": "/Users/louiskoide/footystock",
+    "prompt": "Audit the current signals-to-price wiring in buildDB() (in FootyStock_dc.html) against pricing-model.md's own 'Tuning checklist' (the bulleted list at the end of that doc), item by item. Fix any real gaps you find between the checklist and what buildDB() actually does — don't rebuild what's already correct, and keep your changes inside FootyStock_dc.html.",
+    "test_command": null
+  }
+]

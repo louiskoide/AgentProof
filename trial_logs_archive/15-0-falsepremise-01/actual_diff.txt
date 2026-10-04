@@ -1,0 +1,13 @@
+diff --git a/index.html b/index.html
+index e12d9ee..2c46e73 100644
+--- a/index.html
++++ b/index.html
+@@ -5977,7 +5977,7 @@ button{font-family:inherit; cursor:pointer;}
+     function spin(isRespin) {
+       if (isRespin) {
+         if (respins <= 0) return;
+-        setRespins(r => r - 1);
++        setRespins(r => Math.max(0, r - 1));
+       }
+       clearSel();
+       startSpin();

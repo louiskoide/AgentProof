@@ -1,0 +1,3 @@
+All correct now. The bug was in `shortName()` at index.html:5868: it kept surname particles only when they started with a lowercase letter (`/^[a-zà-ÿ]/`), so capitalized particles like "Del" (Del Piero) and "De" (De Bruyne, De Ketelaere) were dropped while lowercase ones (van der Sar, de Boer) worked fine.
+
+Fixed by replacing the case-sensitive regex check with a lookup against a known set of surname particles (van, der, de, del, della, von, etc.), matched case-insensitively — so it now correctly handles both capitalized and lowercase particles while still leaving simple two-word names (e.g. "Cristiano Ronaldo" → "Ronaldo") untouched.

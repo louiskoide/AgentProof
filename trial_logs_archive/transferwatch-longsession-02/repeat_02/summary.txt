@@ -1,0 +1,22 @@
+I've added transfer chains. Linked transfers now show as one numbered row above the board, joined by arrows, with each step saying why it follows the one before. I haven't viewed it in a browser, so the layout is untested. The file compiles, and a server render with real React produced the expected output. Nothing is committed.
+
+**How chains are stored.** Chains are their own list (`SEED_CHAINS` in `TransferDesk.jsx`), alongside the transfers and stories. Each chain has a title, a short summary and an ordered list of transfers. Every step after the first says how it follows from the one before:
+- **Funds:** the selling club spends that fee. The label is generated, e.g. "Liverpool reinvest the X fee".
+- **Replaces:** the club fills the gap left. E.g. "Liverpool replace Ibrahima Konaté".
+- You can write your own wording for any step instead of the generated label.
+
+**What you'll see on the board:**
+- A "Linked Chains" section sits above the three columns, one full-width row per chain. On narrow screens the steps stack vertically.
+- Each step is the normal card with a step number, its stage (Interest, In Talks or Done) and the reason it follows the previous step. Stages can differ within a chain, so one step can be done while the next is still in talks.
+- Each chain header shows how many of its moves are done (e.g. "1/2 done").
+- Chained transfers are taken out of the columns so nothing appears twice. The column counts went from 14/9/5 to 11/8/4.
+
+**Filtering.** If any step matches the league filter or search, the whole chain stays visible so you keep the context. Steps that don't match are faded. Searching also matches the chain's title and summary.
+
+**Live feed.** The feed can now send chains too, and the format note at the top of the file documents this. Feed chains are merged by ID, the same way as transfers and stories.
+
+**Edge cases.** Steps pointing to unknown transfers are skipped. A chain with fewer than two valid steps isn't shown, and its transfers go back into the columns. A transfer can only be in one chain; if two chains list it, the first one keeps it.
+
+**Please check the example chains before publishing.** I linked transfers that were already in the data rather than inventing new reports:
+- **Centre-back domino (three steps):** Konaté to Real Madrid, then Upamecano to Liverpool, then Bremer to Bayern. Upamecano as Konaté's replacement comes from your existing note. Bremer replacing Upamecano at Bayern is my own guess from the Bayern centre-back story, not something a source reported.
+- **Madrid's dugout swap (two steps):** Xabi Alonso to Chelsea, then Mourinho to Real Madrid.

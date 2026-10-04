@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total": 18,
+    "confirmed": 1,
+    "contradicted": 0,
+    "unverifiable": 17
+  },
+  "results": [
+    {
+      "claim": "Merge logic was fixed in fetchLatest",
+      "type": "file_modified",
+      "target": "TransferDesk.jsx",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Board columns are strictly keyed off t.category",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Curated seed data has zero duplicate ids",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx seed data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Curated seed data has zero duplicate players",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx seed data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Seed data was verified by parsing the array directly",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx seed data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The only location a transfer's category ever changes is the live-feed merge",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Live-feed merge combined records purely by id",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The app's id convention bakes the category into the id",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Example id d-barco encodes a category prefix",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Example id t-gordon encodes a category prefix",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Example id i-tchouameni encodes a category prefix",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "When a deal progresses from talks to done the incoming record arrives under a new id rather than replacing the old one",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Merging by id alone kept both the stale talks record and the new done record",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The same transfer rendered in both columns simultaneously due to the bug",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix collapses records referring to the same real-world move matched by player and destination after the id-based merge",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix keeps only the furthest-along category when collapsing duplicate real-world moves",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The deduplication fix only affects the live-feed code path via REFRESH_CONFIG.endpoint",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix is inert until a backend is wired up",
+      "type": "behavioral_assertion",
+      "target": "TransferDesk.jsx fetchLatest",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

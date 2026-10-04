@@ -1,0 +1,3 @@
+Only dead/legacy UI text references `Infinity`; no `DIFF` entry currently sets `respins: Infinity`, so `Infinity - 1` isn't a live path today, but the fix handles it correctly anyway (`Infinity - 1 === Infinity`, `Infinity <= 0` is false), so it stays safe if that mode returns.
+
+The counter now updates via a ref that's mutated synchronously before `setRespins` is called, so a second click arriving before React re-renders reads the already-decremented value instead of a stale one — the count can no longer be driven below zero.

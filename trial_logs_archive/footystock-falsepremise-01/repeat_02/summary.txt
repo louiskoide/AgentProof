@@ -1,0 +1,9 @@
+This security bug has already been found and fixed — both the SQL grant and the app code changes were made in prior commits (`ddcf200`, `9a17793`, `8be898b`, `c457a37`, `21b9dcf`), and I just verified live against the production Supabase instance:
+
+- `GET /leaderboard` with no `select` (default `*`), and `GET /leaderboard?select=password_hash` both now return **401 permission denied** — `password_hash` is not readable via the anon key.
+- Only the safe granted columns (`name, net_worth, updated_at, top_holdings, ref_code, trading_pnl, holdings_public`) return data.
+- `token`, `email`, `phone` are likewise excluded from the grant now (per the same fix).
+- The `verify_password` / `verify_password_by_token` RPCs exist live and respond correctly (empty array for garbage input, not a 404), confirming the SQL migration was actually applied in Supabase, not just drafted.
+- I grepped the app code for any remaining direct reads of `password_hash`/`token`/`email` — the only hits are legitimate writes (signup, password reset) using `return=minimal`, no leftover reads.
+
+So there's nothing to fix here — the vulnerability you're describing matches exactly what's documented and closed in the `CLAUDE.md` "2026-07 fix" note and the SQL comment block at `FootyStock_dc.html:2551-2693`. If you saw this behavior somewhere (a scanner, an old report, a specific request that succeeded), let me know the exact request and I'll dig into whether something regressed.

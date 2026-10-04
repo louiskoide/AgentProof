@@ -1,0 +1,42 @@
+[
+  {
+    "claim": "shortsPnl() is located at FootyStock_dc.html line 5905",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "shortsPnl() was modified to use Math.abs(sh[id].qty)",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The formula used in shortsPnl() is (avg - current) * qty",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:shortsPnl()"
+  },
+  {
+    "claim": "Previously, a negative-qty short position would flip the sign of the P&L calculation in shortsPnl()",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:shortsPnl()"
+  },
+  {
+    "claim": "A negative-qty short would distort the P&L for that position under the old implementation",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:shortsPnl()"
+  },
+  {
+    "claim": "Using Math.abs(sh[id].qty) produces the correct magnitude and sign even if a short position's qty is stored as a negative number",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html:shortsPnl()"
+  },
+  {
+    "claim": "shortsLiability() was left untouched",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html:shortsLiability()"
+  },
+  {
+    "claim": "Every other short-related function besides shortsPnl() was left untouched",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  }
+]

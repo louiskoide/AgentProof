@@ -1,0 +1,15 @@
+=== Files actually changed per git (vs baseline d982dd6139232968f659fbddefebc18bffd3b530) ===
+ M FootyStock_dc.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:22:00 2026)
+MISSING: FootyStock_dc.html:shortsLiability() — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

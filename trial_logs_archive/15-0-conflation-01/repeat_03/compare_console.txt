@@ -1,0 +1,14 @@
+
+=== Trial Verdict Summary ===
+Total claims: 18
+Confirmed: 0
+Contradicted: 2  <-- these need attention
+Unverifiable (manual review needed): 16
+
+=== Contradicted claims ===
+- [file_modified] The sim() function has an isUltra branch
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] The createRun() function has an isUltra branch
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

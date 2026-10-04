@@ -1,0 +1,31 @@
+diff --git a/index.html b/index.html
+index d35aa7c..15cf810 100644
+--- a/index.html
++++ b/index.html
+@@ -5893,6 +5893,7 @@ button{font-family:inherit; cursor:pointer;}
+     const [spinning, setSpinning] = useState(false);
+     const [spinView, setSpinView] = useState(null);
+     const [respins, setRespins] = useState(0);
++    const respinsRef = useRef(0);
+     const [selMode, setSelMode] = useState('idle'); // idle | placing | moving
+     const [selCand, setSelCand] = useState(null);
+     const [moveIdx, setMoveIdx] = useState(-1);
+@@ -5989,14 +5990,16 @@ button{font-family:inherit; cursor:pointer;}
+     }
+     function spin(isRespin) {
+       if (isRespin) {
+-        if (respins <= 0) return;
+-        setRespins(r => r - 1);
++        if (respinsRef.current <= 0) return;
++        respinsRef.current -= 1;
++        setRespins(respinsRef.current);
+       }
+       clearSel();
+       startSpin();
+     }
+     function startDraft() {
+       setFilled(Array(formation.slots.length).fill(null));
++      respinsRef.current = DIFF[diff].respins;
+       setRespins(DIFF[diff].respins);
+       setRevealed(false);
+       setResult(null);

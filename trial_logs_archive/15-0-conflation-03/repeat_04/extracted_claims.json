@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "4-1-4-1 was added to the formation picker",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The formation shape for 4-1-4-1 is defined at line 3257 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The formation picker button for 4-1-4-1 is defined at line 5851 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The 4-1-4-1 shape includes a flat back four",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation shape"
+  },
+  {
+    "claim": "The 4-1-4-1 shape includes one holding midfielder (DM) sitting just in front of the back four",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation shape"
+  },
+  {
+    "claim": "The 4-1-4-1 shape includes four midfielders (RM, CM, CM, LM) ahead of the DM",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation shape"
+  },
+  {
+    "claim": "The 4-1-4-1 shape includes one striker (ST) up top",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation shape"
+  },
+  {
+    "claim": "The positions for 4-1-4-1 were copied from the existing 4-3-3 and 4-4-2 shapes",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The 4-1-4-1 picker button sits between 4-2-3-1 and 4-3-3 variants and the back-three shapes",
+    "type": "behavioral_assertion",
+    "target": "index.html:5851"
+  },
+  {
+    "claim": "Formations are saved by name, not by their place in the list",
+    "type": "behavioral_assertion",
+    "target": "formation save logic"
+  },
+  {
+    "claim": "Adding 4-1-4-1 in the middle of the list does not affect any saved formation choices",
+    "type": "behavioral_assertion",
+    "target": "formation save logic"
+  },
+  {
+    "claim": "Adding 4-1-4-1 in the middle of the list does not affect the share image",
+    "type": "behavioral_assertion",
+    "target": "share image"
+  },
+  {
+    "claim": "The picker grid has 3 columns",
+    "type": "behavioral_assertion",
+    "target": "formation picker grid"
+  },
+  {
+    "claim": "There are now 7 formations in the picker",
+    "type": "behavioral_assertion",
+    "target": "formation picker"
+  },
+  {
+    "claim": "With 7 formations in a 3-column grid, the last formation (5-4-1) sits alone on a third row",
+    "type": "behavioral_assertion",
+    "target": "formation picker grid"
+  },
+  {
+    "claim": "The app has not been opened to visually verify the changes on screen",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "claim": "Watchlist functionality was added to TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Players can be starred in TransferDesk.jsx",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Clubs can be starred in TransferDesk.jsx",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The watchlist is saved in the browser's localStorage",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The watchlist is stored under the key td-watchlist-v1",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  },
+  {
+    "claim": "A 'Starred only' toggle filters the transfer board",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A 'Starred only' toggle filters the story feed",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The file compiles",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The app was rendered once server-side with a saved watchlist containing Éderson and Napoli",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The correct stars showed as filled when Éderson and Napoli were in the saved watchlist",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The toggle showed a count of 2 when Éderson and Napoli were in the saved watchlist",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A corrupted saved localStorage value did not crash the page",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The toggle is not covered by the server-side render test",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The server-side render only shows the default tab with the toggle off",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Filtering on both tabs has not been verified by click-through in the browser",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Empty-state messages have not been verified by click-through in the browser",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Nothing has been committed",
+    "type": "git_state",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfer cards have a star in the top-right corner that stars the player",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfer cards have a small star next to the 'from' club that appears on hover and stays visible once filled",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfer cards have a small star next to the 'to' club that appears on hover and stays visible once filled",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "On touch screens the club stars on transfer cards are always visible",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Story cards have a star next to the club heading",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Story cards have a star on each candidate row",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Starred candidate rows get a gold highlight",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each candidate's current club can be starred on hover in story cards",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Clubs that only appear as candidates such as Brighton, Como, and RB Leipzig can be starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'Free agent' has no star because it is a placeholder",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'Multiple clubs' has no star because it is a placeholder",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The 'Starred only' toggle sits next to the search box",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The 'Starred only' toggle shows how many items are starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The 'Starred only' toggle works together with the league filter",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The 'Starred only' toggle works together with the search",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A transfer card is shown in 'Starred only' mode if its player is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A transfer card is shown in 'Starred only' mode if its 'from' club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A transfer card is shown in 'Starred only' mode if its 'to' club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A story is shown in 'Starred only' mode if its club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A story is shown in 'Starred only' mode if any candidate is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A story is shown in 'Starred only' mode if any candidate's current club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Starring Chelsea brings up Barcelona's story because it lists João Pedro and Pedro Neto",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "An empty-state message is shown when nothing is starred yet",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "An empty-state message is shown when nothing starred matches the current filters",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Items are matched by name",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Starring Éderson on the board also stars him in United's story",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "'AC Milan' on the board and 'Milan' in the 'Napoli & Milan' story do not match",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Starring Napoli brings up the joint Napoli & Milan story",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The star on the joint story's heading saves 'Napoli & Milan' as a single entry in the watchlist",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The on/off state of the toggle is not saved between visits",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Only the watchlist itself is saved between visits, not the toggle state",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  },
+  {
+    "claim": "If localStorage is not available the watchlist still works but is lost when the page closes",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  }
+]

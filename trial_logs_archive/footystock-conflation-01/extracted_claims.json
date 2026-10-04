@@ -1,0 +1,102 @@
+[
+  {
+    "claim": "FootyStock_dc.html was modified",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "_pickMysteryPlayers(seed) was extracted from awardMysteryStocks",
+    "type": "behavioral_assertion",
+    "target": "_pickMysteryPlayers"
+  },
+  {
+    "claim": "_pickMysteryPlayers(seed) computes deterministic picks without granting them",
+    "type": "behavioral_assertion",
+    "target": "_pickMysteryPlayers"
+  },
+  {
+    "claim": "previewReferrerBonus(pendingCount) was added",
+    "type": "behavioral_assertion",
+    "target": "previewReferrerBonus"
+  },
+  {
+    "claim": "previewReferrerBonus runs on load when a referrer has uncredited referrals (pending_ref_rewards > 0)",
+    "type": "behavioral_assertion",
+    "target": "previewReferrerBonus"
+  },
+  {
+    "claim": "previewReferrerBonus computes the pending bonus packs' value",
+    "type": "behavioral_assertion",
+    "target": "previewReferrerBonus"
+  },
+  {
+    "claim": "previewReferrerBonus opens a preview modal showing current net worth, bonus, and new net worth",
+    "type": "behavioral_assertion",
+    "target": "previewReferrerBonus"
+  },
+  {
+    "claim": "previewReferrerBonus replaces silently auto-crediting referral rewards",
+    "type": "behavioral_assertion",
+    "target": "previewReferrerBonus"
+  },
+  {
+    "claim": "claimRefBonusPreview() was added",
+    "type": "behavioral_assertion",
+    "target": "claimRefBonusPreview"
+  },
+  {
+    "claim": "claimRefBonusPreview credits the exact previewed packs using the same seeds",
+    "type": "behavioral_assertion",
+    "target": "claimRefBonusPreview"
+  },
+  {
+    "claim": "claimRefBonusPreview is triggered when the referrer clicks 'Add to my portfolio'",
+    "type": "behavioral_assertion",
+    "target": "claimRefBonusPreview"
+  },
+  {
+    "claim": "_claimPendingReferrerRewards was modified to accept explicit seeds",
+    "type": "behavioral_assertion",
+    "target": "_claimPendingReferrerRewards"
+  },
+  {
+    "claim": "The credited reward always matches what was previewed due to explicit seed passing",
+    "type": "behavioral_assertion",
+    "target": "_claimPendingReferrerRewards"
+  },
+  {
+    "claim": "A 'Referral bonus preview' modal UI was added",
+    "type": "behavioral_assertion",
+    "target": "referral bonus preview modal"
+  },
+  {
+    "claim": "The referral bonus preview modal is styled consistently with the existing mystery-pack modal",
+    "type": "behavioral_assertion",
+    "target": "referral bonus preview modal"
+  },
+  {
+    "claim": "The referral bonus preview modal uses sc-if/sc-for interpreter structure matching the existing mystery-modal structure",
+    "type": "behavioral_assertion",
+    "target": "referral bonus preview modal"
+  },
+  {
+    "claim": "The bonus is virtual/in-game currency (net worth in fake dollars), not real money",
+    "type": "behavioral_assertion",
+    "target": "bonus currency"
+  },
+  {
+    "claim": "The project follows a 'no real currency, no payouts' rule",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Nothing has been pushed",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "The deployment discipline is batch commits and push once at session end",
+    "type": "git_state",
+    "target": "repository"
+  }
+]

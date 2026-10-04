@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "total": 3,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 1
+  },
+  "results": [
+    {
+      "claim": "Each value in the isUltra leagueOpps array at index.html line 3460 was increased by 1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "Each value in the isUltra leagueOpps array at index.html line 3701 was increased by 1",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The non-Ultra league arrays were left untouched",
+      "type": "behavioral_assertion",
+      "target": "index.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

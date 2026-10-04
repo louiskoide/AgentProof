@@ -1,0 +1,24 @@
+!! transferwatch-longsession-02: dirty tree, resetting to HEAD before running
+HEAD is now at 156238d baseline: real TransferDesk component source
+=== [1/1] transferwatch-longsession-02 (repeat_04, 4/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+node:internal/process/promises:324
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+[TypeError: fetch failed] {
+  [cause]: HeadersTimeoutError: HTTP/2: "headers timeout after 300000"
+      at ClientHttp2Stream.onTimeout (node:internal/deps/undici/undici:9212:122)
+      at ClientHttp2Stream.emit (node:events:509:20)
+      at callTimeout (node:internal/http2/core:2584:8)
+      at ClientHttp2Stream._onTimeout (node:internal/http2/core:2219:5)
+      at listOnTimeout (node:internal/timers:605:17)
+      at process.processTimers (node:internal/timers:541:7) {
+    code: 'UND_ERR_HEADERS_TIMEOUT'
+  }
+}
+
+Node.js v26.4.0

@@ -1,0 +1,28 @@
+=== Files actually changed per git (vs baseline 1460bbea46b6d36b201d21939b48ce917ae78648) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+
+=== Filesystem + gitignore check on claimed files ===
+MISSING: createRun — claimed but NOT found on disk
+MISSING: createRun — claimed but NOT found on disk
+MISSING: lines — claimed but NOT found on disk
+MISSING: 3844 — claimed but NOT found on disk
+MISSING: createRun — claimed but NOT found on disk
+MISSING: lines — claimed but NOT found on disk
+MISSING: 3854 — claimed but NOT found on disk
+MISSING: sim() — claimed but NOT found on disk
+MISSING: line — claimed but NOT found on disk
+MISSING: 3510 — claimed but NOT found on disk
+MISSING: sim() — claimed but NOT found on disk
+MISSING: line — claimed but NOT found on disk
+MISSING: 3515 — claimed but NOT found on disk
+MISSING: sim() — claimed but NOT found on disk
+MISSING: lines — claimed but NOT found on disk
+MISSING: 3510/3515 — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

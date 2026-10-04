@@ -1,0 +1,1 @@
+Added a "Blocked" toggle button next to the league filters (`TransferDesk.jsx:794-808`) using the existing `Ban` icon, wired to a new `blockedOnly` state that filters `filteredTransfers` down to `blocked: true` items when active, with active-state styling matching the existing blocked color token.

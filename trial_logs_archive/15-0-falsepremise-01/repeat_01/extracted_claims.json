@@ -1,0 +1,52 @@
+[
+  {
+    "claim": "Both call sites are covered by the fix",
+    "type": "behavioral_assertion",
+    "target": "call sites"
+  },
+  {
+    "claim": "respinsRef was added mirroring the existing spinTokenRef pattern",
+    "type": "file_modified",
+    "target": "respinsRef"
+  },
+  {
+    "claim": "spinTokenRef pattern already existed before this fix",
+    "type": "behavioral_assertion",
+    "target": "spinTokenRef"
+  },
+  {
+    "claim": "respinsRef is the authoritative counter that spin() checks and decrements",
+    "type": "behavioral_assertion",
+    "target": "spin()"
+  },
+  {
+    "claim": "respinsRef is synchronously updated",
+    "type": "behavioral_assertion",
+    "target": "respinsRef"
+  },
+  {
+    "claim": "spin() previously relied on the respins React state value",
+    "type": "behavioral_assertion",
+    "target": "spin()"
+  },
+  {
+    "claim": "respins React state value only updates on the next render",
+    "type": "behavioral_assertion",
+    "target": "respins state"
+  },
+  {
+    "claim": "Two rapid clicks in the same event batch could both pass the respins <= 0 guard",
+    "type": "behavioral_assertion",
+    "target": "respins guard"
+  },
+  {
+    "claim": "The race condition could drive the respins count negative",
+    "type": "behavioral_assertion",
+    "target": "respins count"
+  },
+  {
+    "claim": "The fix closes the race condition where two rapid clicks in the same event batch bypass the respins <= 0 guard",
+    "type": "behavioral_assertion",
+    "target": "spin() race condition"
+  }
+]

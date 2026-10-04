@@ -1,0 +1,22 @@
+diff --git a/index.html b/index.html
+index e12d9ee..937e9e5 100644
+--- a/index.html
++++ b/index.html
+@@ -3453,7 +3453,7 @@ button{font-family:inherit; cursor:pointer;}
+     let pts = 0;
+     if (isNew) {
+       // Swiss league phase: eight different opponents, one game each
+-      const leagueOpps = [77, 78, 78, 79, 80, 81, 83, 84];
++      const leagueOpps = [78, 79, 79, 80, 81, 82, 84, 85];
+       for (let i = 0; i < groupN; i++) {
+         const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+         const res = decide(str, opp, rng);
+@@ -3690,7 +3690,7 @@ button{font-family:inherit; cursor:pointer;}
+ 
+     function playGroup() {
+       if (isNew) {
+-        const leagueOpps = [77, 80, 82, 84, 85, 86, 88, 90];
++        const leagueOpps = [78, 81, 83, 85, 86, 87, 89, 91];
+         for (let i = 0; i < groupN; i++) {
+           const opp = leagueOpps[i] + (rng() - 0.5) * 2;
+           const res = decide(str, opp, rng);

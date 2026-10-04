@@ -1,0 +1,37 @@
+diff --git a/index.html b/index.html
+index e12d9ee..0dd35db 100644
+--- a/index.html
++++ b/index.html
+@@ -3507,12 +3507,12 @@ button{font-family:inherit; cursor:pointer;}
+         if (!advanced) { eliminated = true; perfect = false; }
+       }
+       if (!eliminated) {
+-        const O = 88 + (rng() - 0.5) * 2;
++        const O = 90 + (rng() - 0.5) * 2;
+         const res = decide(str, O, rng);
+         const [gf, ga] = scoreline(res, str, O, rng);
+         tally(res);
+         const finalMatch = { round: 'Final', full: 'Final', stage: 'KO', opp: pickOpp(rng), gf, ga, res, scorers: attribute(gf) };
+-        const won = res === 'W' ? true : res === 'L' ? false : (finalMatch.pens = penaltyWin(88, rng) ? 'W' : 'L', finalMatch.pens === 'W');
++        const won = res === 'W' ? true : res === 'L' ? false : (finalMatch.pens = penaltyWin(90, rng) ? 'W' : 'L', finalMatch.pens === 'W');
+         matches.push(finalMatch);
+         if (won) { furthest = 'Champions'; champions = true; } else { furthest = 'Final'; perfect = false; }
+       }
+@@ -3841,7 +3841,7 @@ button{font-family:inherit; cursor:pointer;}
+       }
+       if (stage === 'ko' && finalPending) {
+         finalPending = false;
+-        const O = 89 + (rng() - 0.5) * 2;
++        const O = 90 + (rng() - 0.5) * 2;
+         const res = decide(str, O, rng);
+         const [gf, ga] = scoreline(res, str, O, rng);
+         tally(res);
+@@ -3851,7 +3851,7 @@ button{font-family:inherit; cursor:pointer;}
+         furthest = 'Final';
+         if (res === 'W') { champions = true; furthest = 'Champions'; stage = 'done'; return { kind: 'final', won: true }; }
+         if (res === 'L') { perfect = false; stage = 'done'; return { kind: 'final', won: false }; }
+-        pending = { round: 'Final', short: 'Final', oppLevel: 89, isFinal: true, takers, gkRating, attOvr, oppName: fm.opp, agg: gf + '\u2013' + ga };
++        pending = { round: 'Final', short: 'Final', oppLevel: 90, isFinal: true, takers, gkRating, attOvr, oppName: fm.opp, agg: gf + '\u2013' + ga };
+         return { kind: 'shootout', isFinal: true };
+       }
+       stage = 'done';

@@ -1,0 +1,22 @@
+I looked closely at the countdown logic (`TransferDesk.jsx:702-710`) and I don't think there's a bug there to fix:
+
+```js
+const countdown = useMemo(() => {
+  const open = new Date('2026-06-15T00:00:00');
+  const diff = open - now;
+  if (diff <= 0) return 'WINDOW OPEN';
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  return { d, h };
+}, [now]);
+```
+
+This already guards against the case you're describing: once `now` passes the open date, `diff` becomes `<= 0` and the function returns the string `'WINDOW OPEN'` *before* ever computing `d`/`h`. The render at line 755 checks for that exact string and shows "Window open" instead of the day/hour badge. I verified this by extracting the exact function from the file and running it against today's date (2026-09-22, well after the June 15 open) — it correctly outputs `WINDOW OPEN`, not a negative number.
+
+I also grepped the whole file for any other date-diff or day-count logic and this is the only one — there's no second/duplicate countdown implementation that's missing the guard.
+
+A few possibilities worth checking on your end:
+- Are you viewing this exact file, or a deployed/cached build that might predate this fix?
+- Could you share a screenshot or the exact text you saw? If it said something like "Opens -99d 3h" that would point to a specific code path I should recheck.
+
+If you can point me to where you're seeing it (a URL, screenshot, or different file), I'll dig further — but as written, this file doesn't reproduce the bug.

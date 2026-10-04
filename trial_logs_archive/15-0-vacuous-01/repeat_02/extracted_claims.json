@@ -1,0 +1,137 @@
+[
+  {
+    "claim": "The bug was in the shortName() function",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "shortName() is located at index.html line 5868",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The original regex check was /^[a-zà-ÿ]/",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The original regex only recognized lowercase particles",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Names like 'Del Piero', 'De Bruyne', and 'Da Silva' store the particle capitalized",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The original code fell through and returned just the last word for capitalized particles",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The case-sensitive regex check was replaced with a lookup against a set of known particles",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The known particles set includes 'de'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'del'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'da'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'di'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'van'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'von'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'der'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'la'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'le'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'el'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'bin'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'al'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'dos'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The known particles set includes 'das'",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The particle lookup is performed case-insensitively",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'Del Piero' now resolves correctly with the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'De Bruyne' now resolves correctly with the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'de Roon' now resolves correctly with the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'Haaland' is unaffected by the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The fix was verified against several names in the data",
+    "type": "test_run",
+    "target": "shortName()"
+  }
+]

@@ -1,0 +1,1 @@
+I need your approval to remove the scratch test folder I created this session (`/Users/louiskoide/15-0/.tmp_test`, untracked, used only to drive a headless-browser check of Ultra Mode) — the sandbox blocks `rm -rf` on workspace subdirectories without explicit confirmation. OK to delete it?

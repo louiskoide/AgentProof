@@ -1,0 +1,24 @@
+=== Files actually changed per git (vs baseline d982dd6139232968f659fbddefebc18bffd3b530) ===
+ M FootyStock_dc.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: leaderboard — claimed but NOT found on disk
+MISSING: render — claimed but NOT found on disk
+MISSING: (~line — claimed but NOT found on disk
+MISSING: 8090) — claimed but NOT found on disk
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: leaderboardData() — claimed but NOT found on disk
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:27:15 2026)
+MISSING: myRank() — claimed but NOT found on disk
+EXISTS: support.js (gitignored: no, modified: Jul  3 13:01:06 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

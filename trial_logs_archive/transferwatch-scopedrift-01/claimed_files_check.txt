@@ -1,0 +1,2 @@
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 19 18:00:59 2026)
+MISSING: TransferDesk.jsx:794-807 — claimed but NOT found on disk

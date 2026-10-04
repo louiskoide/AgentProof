@@ -1,0 +1,28 @@
+Legacy Mode is in `index.html` and working. I tested a full Legacy game in headless Chromium: sign players, hit the cap, release someone, confirm the XI, run the sim. I also ran a Blind Spin Draft through to the sim to make sure the original mode still works. Neither run had any console errors. `sim()`, `createRun()` and `build()` are unchanged. I haven't committed anything.
+
+**How it plays**
+- **Setup:** there's a new **Game mode** choice at the top: *Spin Draft* (the existing game) or *Legacy*. In Legacy, the Ratings and Rating pool options are hidden. Ratings are always visible, since prices would give them away anyway, and every player is at their prime. Difficulty now sets the budget: **£450m / £350m / £260m**. The "How it works" text changes to match.
+- **Pool:** all 2,287 players in the dataset, each shown once as they were in their prime season. That means the rating, club, season and positions all come from the `prime` table `build()` already makes.
+- **Price:** `£ = max(1, round(2 × 1.16^(rating − 70)))`. It rises steeply: a 99 costs about £147m, a 94 £70m, a 90 £39m, an 80 £9m. Stars have to be paid for with cheap players elsewhere.
+- **Draft screen:** it replaces the spin panel but uses the same formation, slots and pitch, and the same tap-to-place and tap-to-move behaviour. It has:
+  - a budget bar
+  - a search box that matches names and clubs and ignores accents ("kante" finds Kanté)
+  - position filters built from the formation's slots
+  - a Release button when you tap a drafted player, which refunds their fee
+- **Budget guard:** you can't sign a player if what's left wouldn't cover the cheapest possible player for every other empty slot, so you can't get stuck. Every position has a £1m option.
+- **Finishing:** when all 11 slots are filled, you press **Confirm XI**; unlike Spin Draft, it doesn't move on automatically. The teamsheet shows your total wages, and "Redraft" becomes "Edit XI" so you can go back to the squad without losing it.
+
+**Balance**
+I measured it with a greedy best-value XI in 4-3-3, run 300 times through the existing sim:
+
+| Cap | Overall | Champions | Unbeaten 15-0 |
+|---|---|---|---|
+| £450m | 90.2 | 48% | 4.3% |
+| £350m | 88.4 | 34% | 2.0% |
+| £260m | 86.5 | 15% | 0% |
+
+Filling the team with stars and cheap players backfires. My browser test signed Messi and Ronaldo early and ended up with a 78-overall team that went out in the league phase. That's the trade-off the cap is meant to create.
+
+**Things you might want to change**
+- To keep rendering fast, the list shows only the top 40 players you can sign. Players you can't afford drop below that cut-off, so you only see them by searching. `LEGACY_LIST_MAX` sets the row count, and the price curve and caps are one-line constants (`legacyCost`, `DIFF[*].budget`).
+- The best-score record in `localStorage` is shared between Spin and Legacy runs.

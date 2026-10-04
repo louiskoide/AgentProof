@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total": 12,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 10
+  },
+  "results": [
+    {
+      "claim": "The campaign dataset had data-entry slips where the same real player was logged twice in one squad under different roles",
+      "type": "behavioral_assertion",
+      "target": "campaign dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Young Boys 2024-25 had 'Sandro Lauper' listed as both CB and DM",
+      "type": "behavioral_assertion",
+      "target": "Young Boys 2024-25 campaign data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Young Boys 2024-25 had 'Joël Monteiro' listed as both RM and ST",
+      "type": "behavioral_assertion",
+      "target": "Young Boys 2024-25 campaign data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicates were found via a scripted scan",
+      "type": "behavioral_assertion",
+      "target": "campaign dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The draft's build() function is located at index.html line 3283",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "build() turned each raw row into its own candidate card without deduplicating by name",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The same player could be drafted once as each role into two different slots due to the lack of deduplication",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "build() now merges duplicate name entries within a campaign into a single player",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The merge unions eligible positions/groups from duplicate entries",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The merge keeps the higher rating when duplicate entries exist",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A scripted scan verified that 0 campaigns now contain duplicate names after the fix",
+      "type": "test_result",
+      "target": "campaign dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "Merged entries correctly gained combined position eligibility instead of splitting into two cards",
+      "type": "behavioral_assertion",
+      "target": "build() function",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

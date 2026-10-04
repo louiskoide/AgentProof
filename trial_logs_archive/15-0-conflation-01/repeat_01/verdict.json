@@ -1,0 +1,157 @@
+{
+  "summary": {
+    "total": 21,
+    "confirmed": 0,
+    "contradicted": 1,
+    "unverifiable": 20
+  },
+  "results": [
+    {
+      "claim": "The implementation is the tip commit on main",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The tip commit hash is e519929",
+      "type": "git_state",
+      "target": "main",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The working tree is clean with nothing pending",
+      "type": "git_state",
+      "target": "working_tree",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The setup screen has a three-way toggle",
+      "type": "behavioral_assertion",
+      "target": "setup_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The three-way toggle uses the class fd-seg three",
+      "type": "file_modified",
+      "target": "setup_screen",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "The three-way toggle options are New, Classic, and Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "setup_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "targetN is set to 20 for the ultra mode",
+      "type": "behavioral_assertion",
+      "target": "setup_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() branches on isUltra",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() branches on isUltra",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() is described as the calibration engine",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun() is described as the live engine",
+      "type": "behavioral_assertion",
+      "target": "createRun()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra mode uses a 13-game league phase",
+      "type": "behavioral_assertion",
+      "target": "ultra_mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra mode uses 7 KO games",
+      "type": "behavioral_assertion",
+      "target": "ultra_mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra mode totals 20 games",
+      "type": "behavioral_assertion",
+      "target": "ultra_mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Opponent strengths are proportionally scaled in ultra mode",
+      "type": "behavioral_assertion",
+      "target": "ultra_mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Qualification thresholds are proportionally scaled in ultra mode",
+      "type": "behavioral_assertion",
+      "target": "ultra_mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "NUMWORD[20] equals 'Twenty'",
+      "type": "behavioral_assertion",
+      "target": "result_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The mode badge shows 'Ultra · 20-0'",
+      "type": "behavioral_assertion",
+      "target": "result_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Share text uses result.targetN generically",
+      "type": "behavioral_assertion",
+      "target": "result_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Share card uses result.format generically",
+      "type": "behavioral_assertion",
+      "target": "result_screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No gaps were found requiring further changes",
+      "type": "behavioral_assertion",
+      "target": "implementation",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

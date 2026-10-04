@@ -1,0 +1,16 @@
+
+=== Trial Verdict Summary ===
+Total claims: 8
+Confirmed: 0
+Contradicted: 3  <-- these need attention
+Unverifiable (manual review needed): 5
+
+=== Contradicted claims ===
+- [file_modified] shortsPnl() is located at FootyStock_dc.html line 5905
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] shortsPnl() was modified to use Math.abs(sh[id].qty)
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] shortsLiability() was left untouched
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

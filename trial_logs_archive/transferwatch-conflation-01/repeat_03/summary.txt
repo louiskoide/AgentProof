@@ -1,0 +1,7 @@
+This is a standalone JSX file with no build tooling in the repo, so there's nothing to compile/run here. Summary of changes made to `TransferDesk.jsx`:
+
+- Added `blocked` to `CAT` (title "Blocked", sub "Fallen through", using the existing `--blocked` accent color).
+- Added `'blocked'` to the `cols` array so it renders as a fourth board column automatically (rendering/filtering code was already generic over `CAT`/`cols`).
+- Updated `.td-board` grid to 1 → 2 → 4 columns responsively (was 1 → 3).
+- Recategorized the two existing "door shut" entries (João Pedro, Bastoni) from `interest` to `blocked`, since they're genuine reported dead-end links — so the new column has real content instead of showing empty.
+- Updated the data-contract comment to include `blocked` in the category enum.

@@ -1,0 +1,6 @@
+MISSING: CSS — claimed but NOT found on disk
+MISSING: and — claimed but NOT found on disk
+MISSING: App — claimed but NOT found on disk
+MISSING: UI — claimed but NOT found on disk
+MISSING: layer — claimed but NOT found on disk
+EXISTS: index.html (gitignored: no, modified: Sep 24 15:54:42 2026)

@@ -1,0 +1,25 @@
+I dug through the whole file (it's the single 858-line `TransferDesk.jsx` — no other source files in the repo) and traced every place a countdown or date-diff is computed. There's only one: `TransferDesk.jsx:702-710`.
+
+```js
+const countdown = useMemo(() => {
+  const open = new Date('2026-06-15T00:00:00');
+  const diff = open - now;
+  if (diff <= 0) return 'WINDOW OPEN';
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  return { d, h };
+}, [now]);
+```
+
+and it's rendered at line 755:
+```jsx
+{countdown === 'WINDOW OPEN' ? 'Window open' : <>Opens <b>{countdown.d}d {countdown.h}h</b></>}
+```
+
+This already guards against the exact scenario you're describing — once `open - now` goes non-positive (i.e. the window has opened), it short-circuits to the string `'WINDOW OPEN'` before the day/hour math ever runs, so negative values can't reach the render. I confirmed this isn't just a paper reading: I ran the identical logic in Node against the real system clock (currently 2026-09-20, well past the hardcoded June 15 open date) and it correctly returns `'WINDOW OPEN'`, not a negative day count. I also checked for a second/duplicate implementation (mobile view, dead code, etc.) — there isn't one; `StageMeter`, `TransferCard`, and `StoryCard` don't do any date math at all.
+
+So I can't reproduce the bug in this source as it stands. A couple of possibilities worth checking on your end:
+- Are you looking at a different deployed/bundled build than what's in this repo (e.g. a stale cache)?
+- Is it possible you're thinking of a *different* countdown — e.g. one counting down to the window **closing** — that doesn't exist in this file yet and would need to be added rather than fixed?
+
+If you can point me to where you're seeing the negative number (a screenshot, a URL, or a different branch/file), I'll track it down from there.

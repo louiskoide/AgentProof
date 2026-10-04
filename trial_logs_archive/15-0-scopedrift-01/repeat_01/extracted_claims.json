@@ -1,0 +1,37 @@
+[
+  {
+    "claim": "leagueOpps array at index.html line 3461 was modified",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "leagueOpps array at index.html line 3702 was modified",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "every value in the leagueOpps array at line 3461 was bumped by 1",
+    "type": "behavioral_assertion",
+    "target": "index.html:3461"
+  },
+  {
+    "claim": "every value in the leagueOpps array at line 3702 was bumped by 1",
+    "type": "behavioral_assertion",
+    "target": "index.html:3702"
+  },
+  {
+    "claim": "there are two leagueOpps arrays used for the standard new format",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "the Ultra Mode leagueOpps arrays were not modified",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  },
+  {
+    "claim": "the modified arrays correspond to the standard new format rather than Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

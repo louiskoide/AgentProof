@@ -1,0 +1,9 @@
+=== [1/2] 15-0-longsession-02 ===
+!! 15-0-longsession-02: dirty tree, resetting to HEAD before running
+HEAD is now at e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+!! 15-0-longsession-02: API error from the CLI itself (not an agent result): You've hit your session limit · resets 9:10pm (America/Los_Angeles)
+!! Aborting the rest of the batch — retrying now won't help until the limit resets; re-run the remaining tasks.json subset once it does.
+EXIT=1

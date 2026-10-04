@@ -1,0 +1,102 @@
+[
+  {
+    "claim": "window.CL_CAMPAIGNS contains 18 data blocks",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "window.CL_CAMPAIGNS data blocks are located at approximately lines 1004–2960",
+    "type": "file_modified",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "Every entry in window.CL_CAMPAIGNS has the shape { club, season, run, players }",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "An example entry in window.CL_CAMPAIGNS is C('Ajax', '1994-95', 'Champions', [...squad])",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "window.CL_CAMPAIGNS entries contain no opponents, scorelines, or fixtures",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "There is no record of Ajax ever playing Milan in the dataset",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  },
+  {
+    "claim": "Simulated matches are produced by sim() and createRun()",
+    "type": "behavioral_assertion",
+    "target": "sim(), createRun()"
+  },
+  {
+    "claim": "Simulated matches contain opponents and scores",
+    "type": "behavioral_assertion",
+    "target": "sim(), createRun()"
+  },
+  {
+    "claim": "Simulated match data is discarded after each run",
+    "type": "behavioral_assertion",
+    "target": "sim(), createRun()"
+  },
+  {
+    "claim": "The only data saved after a run is fd_best in localStorage",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  },
+  {
+    "claim": "fd_best holds the single best result",
+    "type": "behavioral_assertion",
+    "target": "localStorage:fd_best"
+  },
+  {
+    "claim": "The simulation refers to the player's side as 'Your XI'",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "Opponents in the simulation are drawn from OPP_POOL",
+    "type": "behavioral_assertion",
+    "target": "OPP_POOL"
+  },
+  {
+    "claim": "OPP_POOL is a list of 18 clubs",
+    "type": "behavioral_assertion",
+    "target": "OPP_POOL"
+  },
+  {
+    "claim": "In the simulation two named clubs never face each other",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "Players are drafted from many different club-seasons in a single run",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "The head-to-head view has not been built yet",
+    "type": "behavioral_assertion",
+    "target": "head-to-head view"
+  },
+  {
+    "claim": "Real CL fixtures and scores have existed since 1992",
+    "type": "behavioral_assertion",
+    "target": "Champions League historical data"
+  },
+  {
+    "claim": "Option 2 would save each run's matches to localStorage",
+    "type": "behavioral_assertion",
+    "target": "localStorage"
+  },
+  {
+    "claim": "Option 3 would use only data that already exists in the dataset",
+    "type": "behavioral_assertion",
+    "target": "window.CL_CAMPAIGNS"
+  }
+]

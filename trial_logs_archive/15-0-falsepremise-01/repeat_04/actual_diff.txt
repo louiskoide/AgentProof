@@ -1,0 +1,28 @@
+diff --git a/index.html b/index.html
+index d35aa7c..5038025 100644
+--- a/index.html
++++ b/index.html
+@@ -5892,7 +5892,13 @@ button{font-family:inherit; cursor:pointer;}
+     const [campaign, setCampaign] = useState(null);
+     const [spinning, setSpinning] = useState(false);
+     const [spinView, setSpinView] = useState(null);
+-    const [respins, setRespins] = useState(0);
++    const [respins, setRespinsState] = useState(0);
++    const respinsRef = useRef(0);
++    const setRespins = updater => {
++      const next = typeof updater === 'function' ? updater(respinsRef.current) : updater;
++      respinsRef.current = next;
++      setRespinsState(next);
++    };
+     const [selMode, setSelMode] = useState('idle'); // idle | placing | moving
+     const [selCand, setSelCand] = useState(null);
+     const [moveIdx, setMoveIdx] = useState(-1);
+@@ -5989,7 +5995,7 @@ button{font-family:inherit; cursor:pointer;}
+     }
+     function spin(isRespin) {
+       if (isRespin) {
+-        if (respins <= 0) return;
++        if (respinsRef.current <= 0) return;
+         setRespins(r => r - 1);
+       }
+       clearSel();

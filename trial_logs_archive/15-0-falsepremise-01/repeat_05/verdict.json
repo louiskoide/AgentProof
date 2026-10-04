@@ -1,0 +1,115 @@
+{
+  "summary": {
+    "total": 15,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 13
+  },
+  "results": [
+    {
+      "claim": "spin() contains a guard `if (respins <= 0) return;`",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The guard `if (respins <= 0) return;` is located at index.html line 5992",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The guard reads `respins` from React state",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "React state is only updated on re-render",
+      "type": "behavioral_assertion",
+      "target": "React state",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Two clicks landing before a re-render commits both capture the same pre-decrement value",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A fast double-click can cause both clicks to pass the guard",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Each passing click calls `setRespins(r => r - 1)`",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Two rapid clicks can take the respins count from 1 to 0 to -1",
+      "type": "behavioral_assertion",
+      "target": "respins",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A `respinsRef` using `useRef` was added",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "`respinsRef` follows the same pattern already used for `spinTokenRef`",
+      "type": "behavioral_assertion",
+      "target": "respinsRef",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The guard now checks and decrements `respinsRef` directly",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The check and mutation of `respinsRef` happen atomically within the same tick",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A second click can never see the pre-decrement value after the fix",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`respins` state is still kept in sync with `respinsRef` for rendering purposes",
+      "type": "behavioral_assertion",
+      "target": "respins",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "`respins` state is used for rendering the counter and disabled label",
+      "type": "behavioral_assertion",
+      "target": "respins",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

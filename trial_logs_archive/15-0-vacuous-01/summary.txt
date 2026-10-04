@@ -1,0 +1,3 @@
+Fixed. `shortName()` in `index.html:5855` was using a regex that only matched lowercase-starting particles (`/^[a-zà-ÿ]/`), so capitalized particles like "Del", "De", "Di" (as in "Del Piero", "De Bruyne", "Di María") were skipped and treated as part of the first name instead of the surname.
+
+I replaced it with a lookup against a known set of surname particles (`de, del, di, van, von, der, ...`), checked case-insensitively, so it correctly keeps the particle regardless of capitalization. Verified against several names in the data — "Del Piero", "De Bruyne", and "Di María" now resolve correctly, while single-surname names are unaffected.

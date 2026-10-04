@@ -1,0 +1,10 @@
+
+=== Trial Verdict Summary ===
+Total claims: 34
+Confirmed: 4
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 30
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json

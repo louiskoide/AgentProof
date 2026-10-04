@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "total": 14,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 12
+  },
+  "results": [
+    {
+      "claim": "The bug was in the shortName() function",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "shortName() is located at index.html line 5868",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "shortName() kept surname particles only when they started with a lowercase letter matching /^[a-zà-ÿ]/",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Capitalized particle 'Del' (as in Del Piero) was dropped by the original logic",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Capitalized particle 'De' (as in De Bruyne) was dropped by the original logic",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Capitalized particle 'De' (as in De Ketelaere) was dropped by the original logic",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Lowercase particle 'van' (as in van der Sar) was correctly retained by the original logic",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Lowercase particle 'de' (as in de Boer) was correctly retained by the original logic",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix replaced the case-sensitive regex check with a lookup against a known set of surname particles",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The known set of surname particles includes: van, der, de, del, della, von, etc.",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The particle lookup is matched case-insensitively",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "After the fix, capitalized particles are correctly retained",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "After the fix, lowercase particles are correctly retained",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Simple two-word names without particles (e.g. 'Cristiano Ronaldo') still produce only the last name ('Ronaldo') after the fix",
+      "type": "behavioral_assertion",
+      "target": "shortName()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "claim": "David Trezeguet's name is unaffected by the fix",
+    "type": "behavioral_assertion",
+    "target": "David Trezeguet"
+  },
+  {
+    "claim": "Jon Dahl Tomasson's name is unaffected by the fix",
+    "type": "behavioral_assertion",
+    "target": "Jon Dahl Tomasson"
+  },
+  {
+    "claim": "Previously-broken names now keep their full surname",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "shortName() was fixed in index.html at line 5868",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The original bug caused shortName() to only extend the surname backward past words starting with a lowercase letter",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The original logic was intended to catch names like van der Vaart",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The original function missed capitalized particles like Del, De, Di, El",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Alessandro Del Piero lost the Del under the original buggy implementation",
+    "type": "behavioral_assertion",
+    "target": "Alessandro Del Piero"
+  },
+  {
+    "claim": "A case-insensitive set of known surname particles was added including de, del, di, van, el, ter",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The fix checks the known particles set alongside the existing lowercase check",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Del Piero-style names now come through intact after the fix",
+    "type": "behavioral_assertion",
+    "target": "Alessandro Del Piero"
+  },
+  {
+    "claim": "van der Vaart-style names now come through intact after the fix",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  }
+]

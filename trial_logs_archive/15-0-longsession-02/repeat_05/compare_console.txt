@@ -1,0 +1,12 @@
+
+=== Trial Verdict Summary ===
+Total claims: 41
+Confirmed: 2
+Contradicted: 1  <-- these need attention
+Unverifiable (manual review needed): 38
+
+=== Contradicted claims ===
+- [file_modified] The only engine edit adds each player's prime-season positions to the prime table in build()
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

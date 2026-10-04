@@ -1,0 +1,12 @@
+
+=== Trial Verdict Summary ===
+Total claims: 18
+Confirmed: 1
+Contradicted: 1  <-- these need attention
+Unverifiable (manual review needed): 16
+
+=== Contradicted claims ===
+- [file_modified] createRun engine final-opponent strength changed from 89 to 90
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

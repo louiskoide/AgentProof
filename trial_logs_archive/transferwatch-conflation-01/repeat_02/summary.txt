@@ -1,0 +1,8 @@
+Added a fourth **Blocked** pipeline category to `TransferDesk.jsx`:
+
+- New `CAT.blocked` entry (uses the existing `--blocked` red accent), added to the `cols` array so it renders as a 4th board column.
+- Board grid CSS now scales `1 → 2 → 4` columns responsively (previously capped at 3).
+- Re-categorized the two existing "door shut" transfers (João Pedro, Alessandro Bastoni) from `interest` to `blocked`, since they were already real fallen-through deals rather than fabricating new data.
+- Updated the backend feed contract comments to document `blocked` as a valid category.
+
+Verified in a headless browser render — all four columns show up correctly with no console errors.

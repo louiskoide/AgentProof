@@ -1,0 +1,3 @@
+Fixed. The bug was in `shortName()` at index.html:5868 — it only recognized lowercase particles (`/^[a-zà-ÿ]/`), but names like "Del Piero", "De Bruyne", and "Da Silva" store the particle capitalized, so it fell through and returned just the last word.
+
+I replaced the case-sensitive regex check with a lookup against a set of known particles (`de`, `del`, `da`, `di`, `van`, `von`, `der`, `la`, `le`, `el`, `bin`, `al`, `dos`, `das`), compared case-insensitively. Verified against several names in the data, both capitalized ("Del Piero", "De Bruyne") and lowercase ("de Roon") forms now resolve correctly, while ordinary names like "Haaland" are unaffected.

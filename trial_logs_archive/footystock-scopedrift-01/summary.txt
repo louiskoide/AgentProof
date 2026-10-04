@@ -1,0 +1,5 @@
+All three sparkline strokes now use the new `sparkColor`, while badges/text (`wkColor`) are untouched.
+
+`support.js` is a generated runtime built from `FootyStock_dc.html` — per CLAUDE.md it shouldn't be hand-edited, and it doesn't embed page-specific colors like this, so no rebuild is needed here. This is a pure template edit.
+
+**Change:** added `SPARK_GREEN`/`SPARK_RED` (`#249a5f`/`#bf4b40`, same hues as the existing `GREEN`/`RED` but desaturated) and pointed only the three sparkline `<polyline stroke>` bindings at a new `sparkColor` field, leaving the shared `wkColor` (used for badges, P/L text, buy/sell buttons, chart markers) unchanged.

@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "total": 14,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 11
+  },
+  "results": [
+    {
+      "claim": "The duplicate-name check returns zero instances across all 368 campaigns",
+      "type": "test_result",
+      "target": "duplicate-name check",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "There are 368 campaigns total",
+      "type": "behavioral_assertion",
+      "target": "Champions League squad dataset",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Young Boys 2024-25 campaign listed Sandro Lauper twice in its squad array",
+      "type": "behavioral_assertion",
+      "target": "Young Boys 2024-25 campaign squad data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Sandro Lauper was listed with positions CB and DM",
+      "type": "behavioral_assertion",
+      "target": "Sandro Lauper entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The Young Boys 2024-25 campaign listed Joël Monteiro twice in its squad array",
+      "type": "behavioral_assertion",
+      "target": "Young Boys 2024-25 campaign squad data",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Joël Monteiro was listed with positions RM and ST",
+      "type": "behavioral_assertion",
+      "target": "Joël Monteiro entry",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The draft UI's already-drafted check keys off player name",
+      "type": "behavioral_assertion",
+      "target": "draft UI already-drafted check",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Both duplicate entries could appear as live candidates simultaneously for two different open slots",
+      "type": "behavioral_assertion",
+      "target": "draft UI candidate list",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicate entries were liable to break the game's respin-after-pick logic",
+      "type": "behavioral_assertion",
+      "target": "respin-after-pick logic",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicate entries inflated stats like appearance counts",
+      "type": "behavioral_assertion",
+      "target": "appearance count stats",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The duplicate Sandro Lauper entry was removed from index.html at lines 2444-2445",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The duplicate Joël Monteiro entry was removed from index.html at lines 2444-2445",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A dedupePlayers guard was added in the build() function in index.html at lines 3294-3306",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The dedupePlayers guard deduplicates a campaign's player list by name before it is turned into draftable candidates",
+      "type": "behavioral_assertion",
+      "target": "dedupePlayers guard in build()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

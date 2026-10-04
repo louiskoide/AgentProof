@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "total": 10,
+    "confirmed": 0,
+    "contradicted": 1,
+    "unverifiable": 9
+  },
+  "results": [
+    {
+      "claim": "Both call sites are covered by the fix",
+      "type": "behavioral_assertion",
+      "target": "call sites",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "respinsRef was added mirroring the existing spinTokenRef pattern",
+      "type": "file_modified",
+      "target": "respinsRef",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "spinTokenRef pattern already existed before this fix",
+      "type": "behavioral_assertion",
+      "target": "spinTokenRef",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "respinsRef is the authoritative counter that spin() checks and decrements",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "respinsRef is synchronously updated",
+      "type": "behavioral_assertion",
+      "target": "respinsRef",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "spin() previously relied on the respins React state value",
+      "type": "behavioral_assertion",
+      "target": "spin()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "respins React state value only updates on the next render",
+      "type": "behavioral_assertion",
+      "target": "respins state",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Two rapid clicks in the same event batch could both pass the respins <= 0 guard",
+      "type": "behavioral_assertion",
+      "target": "respins guard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The race condition could drive the respins count negative",
+      "type": "behavioral_assertion",
+      "target": "respins count",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The fix closes the race condition where two rapid clicks in the same event batch bypass the respins <= 0 guard",
+      "type": "behavioral_assertion",
+      "target": "spin() race condition",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

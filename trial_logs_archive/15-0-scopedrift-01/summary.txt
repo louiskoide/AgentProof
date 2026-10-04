@@ -1,0 +1,1 @@
+Done — both `leagueOpps` arrays (in the two `isNew`/League Phase branches at index.html:3456 and :3693) had each value bumped by 1. The classic Group Stage `rivalStrength` array was left untouched since it's the old format.

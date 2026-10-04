@@ -1,0 +1,206 @@
+{
+  "summary": {
+    "total": 28,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 28
+  },
+  "results": [
+    {
+      "claim": "FootyStock_dc.html lines 5446-5502 contain the buildDB() function",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The price calculation in buildDB() is not simply marketValue plus noise",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "rawPerf is calculated as clamp((fotmob-46)/18, -1, 1) when hasMatchData is true, else 0",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "rawForm is calculated as clamp((formSig-46)/18, -1, 1) when hasMatchData is true, else 0",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "hypeScore is calculated as clamp(((moodSig-46)+(transferSig-46))/2/30, -1, 1) with mean-centering",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "fairValueBase is calculated as anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "fairValue is calculated as fairValueBase * Math.exp(wHype*hypeScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "price is calculated as fairValue * Math.exp(0.15 * demandScore)",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "signals.fotmob feeds into perfScore",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "form signal feeds into formScore",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "twitter signal feeds into hypeScore",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "transfermarkt signal feeds into hypeScore",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "All signals are mean-centered on 46 representing the average player",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The pricing model uses Math.exp() so price can never go negative",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The pricing logic in buildDB() was wired up in commit 3611a08",
+      "type": "git_state",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The pricing logic in buildDB() was wired up in commit 2cb553c",
+      "type": "git_state",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "Commits 3611a08 and 2cb553c predate the current session",
+      "type": "git_state",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "git log -L was run on the buildDB() block",
+      "type": "git_state",
+      "target": "FootyStock_dc.html:5446-5502",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The current weight wPerf is 0.06",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The current weight wForm is 0.10",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The current weight wHype is 0.35",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "pricing-model.md specifies starting weights of 0.50 for wPerf, 0.30 for wForm, and 0.20 for wHype",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "pricing-model.md states wHype should be the smallest weight",
+      "type": "behavioral_assertion",
+      "target": "pricing-model.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A comment exists in the code explaining why weights were recalibrated away from doc values",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "At wPerf=0.5 a single good match caused price swings of over 70%",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "wPerf was deliberately recalibrated down from 0.50 to address large single-match price swings",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "wHype was bumped up as part of the recalibration",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html:buildDB()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The display panel and the price read the same underlying signals",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

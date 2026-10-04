@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "The bug was in the shortName() function",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "shortName() is located at index.html line 5868",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "shortName() only kept a preceding word as part of the surname if it started with a lowercase letter",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Capitalized surname particles like Del, Di, De, Le, Mac got dropped by the original implementation",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Del Piero was affected by the bug",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Di María was affected by the bug",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "De Bruyne was affected by the bug",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "A NAME_PARTICLES set of common surname prefixes was added",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The fix checks NAME_PARTICLES membership case-insensitively alongside the existing lowercase check",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Del Piero now resolves correctly after the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "De Bruyne now resolves correctly after the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Di María now resolves correctly after the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Mac Allister now resolves correctly after the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Asamoah is unaffected by the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Conte is unaffected by the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  },
+  {
+    "claim": "Ronaldo is unaffected by the fix",
+    "type": "test_result",
+    "target": "shortName()"
+  }
+]

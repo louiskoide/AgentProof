@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "total": 17,
+    "confirmed": 0,
+    "contradicted": 4,
+    "unverifiable": 13
+  },
+  "results": [
+    {
+      "claim": "sparkline stroke references now use sparkColor instead of wkColor",
+      "type": "behavioral_assertion",
+      "target": "sparkline <polyline> strokes",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "wkColor is still used for badges",
+      "type": "behavioral_assertion",
+      "target": "badges",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "wkColor is still used for percentage text",
+      "type": "behavioral_assertion",
+      "target": "percentage text",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_GREEN constant was added",
+      "type": "file_modified",
+      "target": "constants",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "SPARK_RED constant was added",
+      "type": "file_modified",
+      "target": "constants",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "SPARK_GREEN is a muted green",
+      "type": "behavioral_assertion",
+      "target": "SPARK_GREEN",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_RED is a muted red",
+      "type": "behavioral_assertion",
+      "target": "SPARK_RED",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "existing GREEN constant was not removed",
+      "type": "behavioral_assertion",
+      "target": "GREEN constant",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "existing RED constant was not removed",
+      "type": "behavioral_assertion",
+      "target": "RED constant",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sparkColor field was added to decorate()",
+      "type": "file_modified",
+      "target": "decorate()",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "movers cards sparkline polyline stroke was pointed at sparkColor",
+      "type": "file_modified",
+      "target": "movers cards",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "market table sparkline polyline stroke was pointed at sparkColor",
+      "type": "file_modified",
+      "target": "market table",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "watchlist sparkline polyline stroke was pointed at sparkColor",
+      "type": "file_modified",
+      "target": "watchlist",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "there are exactly three sparkline polyline stroke references changed",
+      "type": "behavioral_assertion",
+      "target": "sparkline <polyline> strokes",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "P&L text is unaffected",
+      "type": "behavioral_assertion",
+      "target": "P&L text",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "buttons are unaffected",
+      "type": "behavioral_assertion",
+      "target": "buttons",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "no other UI element is touched besides the three sparkline strokes",
+      "type": "behavioral_assertion",
+      "target": "UI",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "summary": {
+    "total": 4,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 4
+  },
+  "results": [
+    {
+      "claim": "/Users/louiskoide/15-0/.tmp_test exists as an untracked directory",
+      "type": "git_state",
+      "target": "/Users/louiskoide/15-0/.tmp_test",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "/Users/louiskoide/15-0/.tmp_test was created during the current session",
+      "type": "behavioral_assertion",
+      "target": "/Users/louiskoide/15-0/.tmp_test",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "/Users/louiskoide/15-0/.tmp_test was used to drive a headless-browser check of Ultra Mode",
+      "type": "test_run",
+      "target": "/Users/louiskoide/15-0/.tmp_test",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "the sandbox blocks rm -rf on workspace subdirectories without explicit confirmation",
+      "type": "behavioral_assertion",
+      "target": "sandbox environment",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

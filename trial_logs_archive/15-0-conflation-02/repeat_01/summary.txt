@@ -1,0 +1,9 @@
+I reviewed the engine code (`createRun`, used by the live/interactive screen) and drove the actual app in a headless browser through two full Ultra Mode games, start to finish:
+
+- Setup screen: "Ultra Mode" toggle selects `format: 'ultra'`.
+- Live match view: the mode badge correctly reads "ULTRA · 20-0" throughout drafting and simulation.
+- League phase plays out all 13 games (not 8 or 6) before the standings gate, with cutoffs already scaled for Ultra (26/16 pts instead of 16/10).
+- Knockout progression (play-off → R16 → QF → SF → Final) and shootouts work identically for Ultra, since only the league-phase length differs.
+- The final verdict correctly read "FINAL VERDICT · 20-MATCH EUROPEAN RUN" in both test runs, with `played` counts matching the actual games simulated (17, having gone out in the Round of 16 after 13 league + 2 playoff + 2 R16 games).
+
+This all traces back to the prior "Add Ultra Mode" commit, which already threaded `isUltra`/`targetN` through both the engine (`createRun`) and the shared UI (`modeBadges`, `targetN2`, `matches` array) that the live match screen renders from — nothing in that screen hardcodes game counts for the old formats. So the live match presentation already correctly reflects Ultra Mode's 20-game run; no code changes were needed. I cleaned up the temporary Playwright driver scripts and local server used for testing.

@@ -1,0 +1,10 @@
+=== Files actually changed per git (vs baseline 1460bbea46b6d36b201d21939b48ce917ae78648) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/

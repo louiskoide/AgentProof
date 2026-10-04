@@ -1,0 +1,4 @@
+MISSING: SPARK_GREEN — claimed but NOT found on disk
+MISSING: SPARK_RED — claimed but NOT found on disk
+MISSING: player-row — claimed but NOT found on disk
+MISSING: object — claimed but NOT found on disk

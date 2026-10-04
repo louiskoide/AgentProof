@@ -1,0 +1,5 @@
+Fixed in `TransferDesk.jsx`.
+
+**Root cause:** `fetchLatest` merged live feed updates into a `Map` keyed by the feed record's `id`. Per the backend contract in the file's own docstring, the feed classifies each *newly ingested* tweet/article into its own record — so when a transfer progresses from "In Talks" to "Done & Confirmed," the backend can send it under a fresh `id` rather than updating the original one. Both records then survived in `transfers`: the stale `talks` one (original id) and the new `done` one (new id), and since the board filters strictly by `category`, the same player rendered in both columns at once. The merge also always rebuilt from the static `SEED_TRANSFERS` constant instead of current state, so previously-applied live updates could be silently discarded on the next poll too.
+
+**Fix:** dedupe by the transfer's real identity (`player + kind`) instead of the raw feed id, and merge on top of the current `transfers` state via a functional `setTransfers` update instead of resetting to the seed baseline each poll.

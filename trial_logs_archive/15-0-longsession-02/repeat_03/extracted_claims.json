@@ -1,0 +1,362 @@
+[
+  {
+    "claim": "Legacy Mode is built",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "Legacy Mode was tested end to end in headless Chrome",
+    "type": "test_run",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "Testing covered from setup through a full sim run",
+    "type": "test_run",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "No console errors were produced during testing",
+    "type": "test_result",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "sim() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "createRun()"
+  },
+  {
+    "claim": "build() is unchanged",
+    "type": "behavioral_assertion",
+    "target": "build()"
+  },
+  {
+    "claim": "In the game engine only a helper was added and the export line was extended",
+    "type": "file_modified",
+    "target": "game engine"
+  },
+  {
+    "claim": "Nothing is committed yet",
+    "type": "git_state",
+    "target": "repository"
+  },
+  {
+    "claim": "There is a new Game mode toggle with options Spin Draft and Legacy Mode",
+    "type": "behavioral_assertion",
+    "target": "setup screen"
+  },
+  {
+    "claim": "In Legacy Mode the Ratings options are hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode setup screen"
+  },
+  {
+    "claim": "In Legacy Mode the Rating pool options are hidden",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode setup screen"
+  },
+  {
+    "claim": "In Legacy Mode prices are the ratings",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing"
+  },
+  {
+    "claim": "Legacy Mode is always an open draft using prime ratings",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode"
+  },
+  {
+    "claim": "The Difficulty row becomes Wage budget in Legacy Mode",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty UI"
+  },
+  {
+    "claim": "Easy difficulty wage budget is £420m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty"
+  },
+  {
+    "claim": "Medium difficulty wage budget is £300m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty"
+  },
+  {
+    "claim": "Hard difficulty wage budget is £210m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty"
+  },
+  {
+    "claim": "All 2,287 unique players are listed in the market",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market"
+  },
+  {
+    "claim": "Players are listed at their prime rating defined as best single-season rating",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market"
+  },
+  {
+    "claim": "Player listings include the club and season the prime rating came from",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market"
+  },
+  {
+    "claim": "Player listings include how many CL seasons they have",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market"
+  },
+  {
+    "claim": "The market supports accent-insensitive search by player name",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market search"
+  },
+  {
+    "claim": "The market supports accent-insensitive search by club name",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market search"
+  },
+  {
+    "claim": "Searching mbappe finds Mbappé",
+    "type": "test_result",
+    "target": "Legacy Mode market search"
+  },
+  {
+    "claim": "The market has position filter chips",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market UI"
+  },
+  {
+    "claim": "The market has a Fits budget toggle",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market UI"
+  },
+  {
+    "claim": "There is a spend bar showing how much budget remains",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market UI"
+  },
+  {
+    "claim": "Tapping an empty slot on the pitch filters the market list to that position",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market interaction"
+  },
+  {
+    "claim": "Tapping a signed player allows moving them",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode player management"
+  },
+  {
+    "claim": "Releasing a signed player returns their fee to the budget",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode player management"
+  },
+  {
+    "claim": "The team sheet has a Back to market button",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode team sheet UI"
+  },
+  {
+    "claim": "Player cost formula is round(1.2^(rating − 72)) with a minimum of £1m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing formula"
+  },
+  {
+    "claim": "A rating of 90 costs £27m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing"
+  },
+  {
+    "claim": "A rating of 94 costs £55m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing"
+  },
+  {
+    "claim": "A rating of 99 costs £137m",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing"
+  },
+  {
+    "claim": "Messi and Ronaldo cost £274m together",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode pricing"
+  },
+  {
+    "claim": "Spending £274m on Messi and Ronaldo forces nine 74-rated fillers on Medium difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode budget dynamics"
+  },
+  {
+    "claim": "A balanced £300m side averages about 90 overall",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode budget dynamics"
+  },
+  {
+    "claim": "Every position has £1m players available",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode market"
+  },
+  {
+    "claim": "Buying any player always leaves £1m for each other open slot",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode budget guarantee"
+  },
+  {
+    "claim": "It is always possible to finish the XI",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode budget guarantee"
+  },
+  {
+    "claim": "Calibration used uniform squads through the real sim()",
+    "type": "test_run",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "Calibration used New format",
+    "type": "test_run",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "Calibration used 400 runs per rating",
+    "type": "test_run",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 88 overall achieves 1% unbeaten rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 88 overall achieves 30% Champions rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 90 overall achieves 3% unbeaten rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 90 overall achieves 40% Champions rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 92 overall achieves 10% unbeaten rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 92 overall achieves 63% Champions rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 95 overall achieves 32% unbeaten rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "A squad of approximately 95 overall achieves 87% Champions rate",
+    "type": "test_result",
+    "target": "sim() calibration"
+  },
+  {
+    "claim": "88 overall corresponds to Hard difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty calibration"
+  },
+  {
+    "claim": "90 overall corresponds to Medium difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty calibration"
+  },
+  {
+    "claim": "92 overall corresponds to Easy difficulty",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty calibration"
+  },
+  {
+    "claim": "95 overall corresponds to the best possible XI with no cap",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode difficulty calibration"
+  },
+  {
+    "claim": "FD.legacyPool(data) builds one entry per player from build()'s prime and apps tables",
+    "type": "behavioral_assertion",
+    "target": "FD.legacyPool"
+  },
+  {
+    "claim": "A player's positions are the union across all their seasons with the prime-season role first",
+    "type": "behavioral_assertion",
+    "target": "FD.legacyPool"
+  },
+  {
+    "claim": "FD.legacyCost sets the prices",
+    "type": "behavioral_assertion",
+    "target": "FD.legacyCost"
+  },
+  {
+    "claim": "There is new mode state in the app",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "There are budget fields on DIFF",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "There is a separate Legacy branch of the draft screen",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "Legacy Mode reuses the existing slot system including emptyEligibleFor",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode implementation"
+  },
+  {
+    "claim": "Legacy Mode reuses placing and moving logic",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode implementation"
+  },
+  {
+    "claim": "Legacy Mode reuses the Pitch component",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode implementation"
+  },
+  {
+    "claim": "Legacy runs are seeded with 'legacy' + diff + formKey",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode simulation seeding"
+  },
+  {
+    "claim": "Mode badges show 'Legacy XI · Prime · £300m cap'",
+    "type": "behavioral_assertion",
+    "target": "Legacy Mode UI badge"
+  },
+  {
+    "claim": "All implementation changes are in index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The How it works cards lay out each text run and bold word on its own line due to .fd-howsteps li being a flex column",
+    "type": "behavioral_assertion",
+    "target": ".fd-howsteps li CSS bug"
+  },
+  {
+    "claim": "Legacy cards' text was wrapped in a <span> to fix the display bug",
+    "type": "file_modified",
+    "target": "index.html Legacy how-it-works cards"
+  },
+  {
+    "claim": "The Spin Draft how-it-works cards still have the flex column layout bug",
+    "type": "behavioral_assertion",
+    "target": "Spin Draft how-it-works cards"
+  }
+]

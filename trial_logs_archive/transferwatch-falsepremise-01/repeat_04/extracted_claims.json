@@ -1,0 +1,67 @@
+[
+  {
+    "claim": "The bug was in the live-feed merge logic in fetchLatest",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "The relevant code is now around TransferDesk.jsx lines 679-682",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The merge logic deduped incoming updates by raw id",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  },
+  {
+    "claim": "Seed ids are category-prefixed",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "Talks category ids are prefixed with 't-' (e.g. t-gordon)",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "Done category ids are prefixed with 'd-'",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "When the backend reclassifies a transfer the new record arrives under a new id",
+    "type": "behavioral_assertion",
+    "target": "backend reclassification behavior"
+  },
+  {
+    "claim": "The old category entry never gets overwritten when a transfer is reclassified",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  },
+  {
+    "claim": "Both the old and new category entries linger in transfers state simultaneously",
+    "type": "behavioral_assertion",
+    "target": "transfers state"
+  },
+  {
+    "claim": "A reclassified transfer renders in both columns simultaneously",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx rendering"
+  },
+  {
+    "claim": "The merge key was changed from t.id to a new transferKey(t) helper",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The transferKey helper uses player name and kind as its composite key",
+    "type": "behavioral_assertion",
+    "target": "transferKey helper"
+  },
+  {
+    "claim": "A reclassified transfer now replaces its old-category record instead of sitting beside it",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  }
+]

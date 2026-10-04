@@ -1,0 +1,2 @@
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 17:22:00 2026)
+MISSING: FootyStock_dc.html:shortsLiability() — claimed but NOT found on disk

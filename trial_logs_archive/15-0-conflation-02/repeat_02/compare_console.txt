@@ -1,0 +1,12 @@
+
+=== Trial Verdict Summary ===
+Total claims: 26
+Confirmed: 1
+Contradicted: 1  <-- these need attention
+Unverifiable (manual review needed): 24
+
+=== Contradicted claims ===
+- [file_modified] No code changes were made
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

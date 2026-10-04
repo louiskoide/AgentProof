@@ -1,0 +1,87 @@
+[
+  {
+    "claim": "There is one big inline <script> block in the file",
+    "type": "behavioral_assertion",
+    "target": "script block"
+  },
+  {
+    "claim": "The inline script passed a syntax check using new Function with no errors",
+    "type": "test_result",
+    "target": "script syntax"
+  },
+  {
+    "claim": "The data-duplicate scan shows zero duplicate player entries across all 368 campaigns",
+    "type": "test_result",
+    "target": "player entries"
+  },
+  {
+    "claim": "There are 368 campaigns in the dataset",
+    "type": "behavioral_assertion",
+    "target": "dataset"
+  },
+  {
+    "claim": "Young Boys' 2024-25 squad listed Sandro Lauper twice",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 squad data"
+  },
+  {
+    "claim": "Sandro Lauper was listed as CB in Young Boys' 2024-25 squad",
+    "type": "behavioral_assertion",
+    "target": "Sandro Lauper entry"
+  },
+  {
+    "claim": "Sandro Lauper was listed as DM in Young Boys' 2024-25 squad",
+    "type": "behavioral_assertion",
+    "target": "Sandro Lauper entry"
+  },
+  {
+    "claim": "Young Boys' 2024-25 squad listed Joël Monteiro twice",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 squad data"
+  },
+  {
+    "claim": "Joël Monteiro was listed as RM in Young Boys' 2024-25 squad",
+    "type": "behavioral_assertion",
+    "target": "Joël Monteiro entry"
+  },
+  {
+    "claim": "Joël Monteiro was listed as ST in Young Boys' 2024-25 squad",
+    "type": "behavioral_assertion",
+    "target": "Joël Monteiro entry"
+  },
+  {
+    "claim": "The duplicate entries were caused by a copy/paste data error",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 squad data"
+  },
+  {
+    "claim": "Sandro Lauper and Joël Monteiro were the only duplicate player entries in the dataset",
+    "type": "behavioral_assertion",
+    "target": "dataset"
+  },
+  {
+    "claim": "The duplicate rows for Sandro Lauper and Joël Monteiro were removed from the data",
+    "type": "file_modified",
+    "target": "Young Boys 2024-25 squad data"
+  },
+  {
+    "claim": "Each player's first-listed role was kept after deduplication",
+    "type": "behavioral_assertion",
+    "target": "Young Boys 2024-25 squad data"
+  },
+  {
+    "claim": "The build() function was modified to deduplicate players by name per campaign",
+    "type": "file_modified",
+    "target": "build() function"
+  },
+  {
+    "claim": "The build() function is the single function all raw campaign data passes through before reaching the draft UI",
+    "type": "behavioral_assertion",
+    "target": "build() function"
+  },
+  {
+    "claim": "The deduplication in build() prevents future data-entry duplicates from appearing as two separate draftable candidates from the same campaign",
+    "type": "behavioral_assertion",
+    "target": "build() function"
+  }
+]

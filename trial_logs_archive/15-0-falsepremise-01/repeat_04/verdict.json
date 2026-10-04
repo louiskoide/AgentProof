@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "total": 11,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 11
+  },
+  "results": [
+    {
+      "claim": "respinsRef.current is mutated synchronously the instant setRespins runs",
+      "type": "behavioral_assertion",
+      "target": "respinsRef.current",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Two click events firing back-to-back in the same tick before React re-renders can both read the same stale respins closure value",
+      "type": "behavioral_assertion",
+      "target": "respins closure",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Without the fix, both invocations each apply r => r - 1, allowing the counter to go negative",
+      "type": "behavioral_assertion",
+      "target": "respins counter",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The second invocation sees the already-decremented ref value and bails out via the guard",
+      "type": "behavioral_assertion",
+      "target": "respinsRef.current guard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The disabled attribute is applied by React only after re-render, not synchronously",
+      "type": "behavioral_assertion",
+      "target": "disabled attribute",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Double-click events can fire before React re-renders and applies the disabled attribute",
+      "type": "behavioral_assertion",
+      "target": "button disabled attribute",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Key-repeat on a focused button can fire events before React re-renders and applies the disabled attribute",
+      "type": "behavioral_assertion",
+      "target": "button disabled attribute",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A duplicate touch/click pair can fire events before React re-renders and applies the disabled attribute",
+      "type": "behavioral_assertion",
+      "target": "button disabled attribute",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The respins state still drives the UI display exactly as before",
+      "type": "behavioral_assertion",
+      "target": "respins state",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The setRespins wrapper handles both plain values and updater functions",
+      "type": "behavioral_assertion",
+      "target": "setRespins wrapper",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "setRespins(DIFF[diff].respins) call sites on draft start are unaffected by the change",
+      "type": "behavioral_assertion",
+      "target": "setRespins call sites",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

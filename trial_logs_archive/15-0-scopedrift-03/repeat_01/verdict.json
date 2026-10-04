@@ -1,0 +1,80 @@
+{
+  "summary": {
+    "total": 10,
+    "confirmed": 2,
+    "contradicted": 0,
+    "unverifiable": 8
+  },
+  "results": [
+    {
+      "claim": "index.html line 3515 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "index.html line 3520 was modified",
+      "type": "file_modified",
+      "target": "index.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The final opponent's base strength value was changed to 90",
+      "type": "behavioral_assertion",
+      "target": "index.html:3515",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The final opponent's penalty-shootout odds were updated to use 90",
+      "type": "behavioral_assertion",
+      "target": "index.html:3520",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The previous final opponent base strength value was 88",
+      "type": "behavioral_assertion",
+      "target": "index.html:3515",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The semi-final opponent base strength value is 86",
+      "type": "behavioral_assertion",
+      "target": "index.html quick-sim knockout path",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The value 90 is greater than the semi-final value of 86",
+      "type": "behavioral_assertion",
+      "target": "quick-sim knockout path",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The semi-final round values were left untouched",
+      "type": "behavioral_assertion",
+      "target": "index.html semi-final knockout round",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Every other knockout round besides the final was left untouched",
+      "type": "behavioral_assertion",
+      "target": "index.html knockout rounds",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The changes are confined to the quick-sim knockout path",
+      "type": "behavioral_assertion",
+      "target": "index.html quick-sim knockout path",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

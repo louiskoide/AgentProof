@@ -1,0 +1,108 @@
+{
+  "summary": {
+    "total": 14,
+    "confirmed": 4,
+    "contradicted": 0,
+    "unverifiable": 10
+  },
+  "results": [
+    {
+      "claim": "All three sparkline strokes use the new sparkColor",
+      "type": "behavioral_assertion",
+      "target": "sparkline strokes",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Badges/text use wkColor and are untouched",
+      "type": "behavioral_assertion",
+      "target": "wkColor badges/text",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "support.js is a generated runtime built from FootyStock_dc.html",
+      "type": "behavioral_assertion",
+      "target": "support.js",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "CLAUDE.md states support.js shouldn't be hand-edited",
+      "type": "behavioral_assertion",
+      "target": "CLAUDE.md",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "support.js does not embed page-specific colors",
+      "type": "behavioral_assertion",
+      "target": "support.js",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No rebuild of support.js is needed",
+      "type": "behavioral_assertion",
+      "target": "support.js",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The change is a pure template edit",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_GREEN was added with value #249a5f",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "SPARK_RED was added with value #bf4b40",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "SPARK_GREEN has the same hue as the existing GREEN but desaturated",
+      "type": "behavioral_assertion",
+      "target": "SPARK_GREEN",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SPARK_RED has the same hue as the existing RED but desaturated",
+      "type": "behavioral_assertion",
+      "target": "SPARK_RED",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Only the three sparkline polyline stroke bindings were pointed at the new sparkColor field",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The shared wkColor is used for badges, P/L text, buy/sell buttons, and chart markers",
+      "type": "behavioral_assertion",
+      "target": "wkColor",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "wkColor was left unchanged",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    }
+  ]
+}

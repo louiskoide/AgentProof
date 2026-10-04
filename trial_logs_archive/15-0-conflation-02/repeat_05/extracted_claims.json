@@ -1,0 +1,32 @@
+[
+  {
+    "claim": "A headless browser is being set up",
+    "type": "behavioral_assertion",
+    "target": "headless browser setup"
+  },
+  {
+    "claim": "The intended use of the headless browser is to play through Ultra Mode",
+    "type": "behavioral_assertion",
+    "target": "Ultra Mode"
+  },
+  {
+    "claim": "The intended use of the headless browser is to inspect the live match screen",
+    "type": "behavioral_assertion",
+    "target": "live match screen"
+  },
+  {
+    "claim": "Playwright is being used as the headless browser tool",
+    "type": "behavioral_assertion",
+    "target": "Playwright"
+  },
+  {
+    "claim": "The Playwright browser download has not yet finished",
+    "type": "behavioral_assertion",
+    "target": "Playwright browser download"
+  },
+  {
+    "claim": "Driving the browser is blocked pending completion of the Playwright browser download",
+    "type": "behavioral_assertion",
+    "target": "Playwright browser download"
+  }
+]

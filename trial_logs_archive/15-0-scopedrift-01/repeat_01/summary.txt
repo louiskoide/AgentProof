@@ -1,0 +1,1 @@
+Updated both `leagueOpps` arrays used for the standard "new" format (leaving the Ultra Mode arrays untouched), bumping every value by 1 in `index.html:3461` and `index.html:3702`.

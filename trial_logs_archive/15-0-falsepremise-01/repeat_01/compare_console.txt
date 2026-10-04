@@ -1,0 +1,12 @@
+
+=== Trial Verdict Summary ===
+Total claims: 10
+Confirmed: 0
+Contradicted: 1  <-- these need attention
+Unverifiable (manual review needed): 9
+
+=== Contradicted claims ===
+- [file_modified] respinsRef was added mirroring the existing spinTokenRef pattern
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

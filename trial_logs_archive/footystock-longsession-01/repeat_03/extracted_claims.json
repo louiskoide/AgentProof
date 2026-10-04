@@ -1,0 +1,172 @@
+[
+  {
+    "claim": "No changes were made by the agent",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "Signals feed the actual price since the first commit (14973a8)",
+    "type": "git_state",
+    "target": "14973a8"
+  },
+  {
+    "claim": "The 'Mapping to the existing code' section of pricing-model.md says the price is just market value plus noise",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "buildDB() is located at FootyStock_dc.html lines 5446-5490",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The anchor is the VAL() market value, or a tier-based estimate if a player has none",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The anchor logic is at line 5243",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Each signal is shifted so an average player with a score of 46 contributes 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Each signal is clamped to [-1, 1]",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Players with no rated match stay at exactly 0",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Mean-centering and clamping logic is at lines 5469-5470 and 5488",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code computes fairValueBase as anchor * Math.exp(wPerf*perfScore + wForm*formScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code computes fairValue as fairValueBase * Math.exp(wHype*hypeScore)",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Demand is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A ±50% daily circuit breaker is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Event bumps that decay are layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "An intraday wobble in curPrice() is layered on top of fairValue",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wPerf=0.06",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wForm=0.10",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The code uses wHype=0.35",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The doc specifies weights of 0.50/0.30/0.20",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "The code started with weights exactly 0.5/0.3/0.2",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The weights were lowered on purpose from 0.5/0.3/0.2",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Commit 1afa5ea was authored on 2026-06-29",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "Commit 1afa5ea explains why the weights were lowered",
+    "type": "git_state",
+    "target": "1afa5ea"
+  },
+  {
+    "claim": "At wPerf=0.5, a player's first good World Cup match moved their fair value by 70-80%",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores run from about -1 to +1",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores can be multiplied by up to 1.55 for well-known players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Scores can be multiplied by up to 1.96 for well-known players",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "exp(0.5 × 1.55) is approximately 2.2× the anchor",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The doc's rule states wHype should be the smallest weight",
+    "type": "behavioral_assertion",
+    "target": "pricing-model.md"
+  },
+  {
+    "claim": "hype is currently the largest weight in the code",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "A separate daily event bump already carries most of the effect of a match",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wHype went from 0.2 to 0.35 to 0.25 to 0.35 in one day of commits",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The wHype=0.25 version was noted as causing 20-30% random swings from GDELT",
+    "type": "git_state",
+    "target": "FootyStock_dc.html"
+  }
+]

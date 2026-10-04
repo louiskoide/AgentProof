@@ -1,0 +1,6 @@
+I added 4-1-4-1 to the formation picker in `index.html`. I haven't opened the app to check it on screen.
+
+- **Shape** (`index.html:3257`): a flat back four and one holding midfielder (DM) sitting just in front of them. Ahead of the DM are four midfielders (RM, CM, CM, LM) and one striker (ST) up top. I copied the positions from the existing 4-3-3 and 4-4-2 shapes.
+- **Picker** (`index.html:5851`): the button sits between 4-2-3-1 and 4-3-3 variants and the back-three shapes. Formations are saved by name, not by their place in the list, so adding one in the middle doesn't affect any saved choices or the share image.
+
+**Layout issue:** the picker grid has 3 columns, so with 7 formations the last one (5-4-1) now sits alone on a third row. If that looks off, I can switch the grid to 4 columns, which gives rows of 4 and 3.

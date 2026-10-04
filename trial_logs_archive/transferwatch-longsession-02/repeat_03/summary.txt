@@ -1,0 +1,19 @@
+You can now link transfers into a chain. Each chain appears as one full-width block above the board, with its moves shown in order and joined by arrows. I haven't looked at it in a browser, but I rendered the app to HTML (server-side) and it builds without errors. The seed chain shows up with 3 steps and 2 connectors, and Gordon's card appears once instead of twice.
+
+**How to link transfers**
+- There's a new `SEED_CHAINS` list. Each chain has a title and short summary, plus an ordered list of links. Each link names an existing transfer by id and can include a `via` line explaining how the previous move leads to it (e.g. "Bremer sale funds Juve's rebuild").
+- The backend format now accepts a `chains` array, and refreshes add or replace chains by id, the same way transfers and stories already work.
+
+**How it looks**
+- Each chain block has a header ("Chain", the title, "3 linked moves") and the summary, then the existing transfer cards in order.
+- Every card has a numbered label showing its status (Interest / In Talks / Done). Links in a chain can be at different stages, and without the columns the status would otherwise be lost.
+- Between cards, an arrow shows the `via` text. On desktop the cards run left to right; on narrow screens they stack with downward arrows.
+- A transfer that's in a chain is taken out of the three columns, so it isn't shown twice. The column counts go down to match, but the count on the Transfers tab still includes everything.
+
+**Filtering and bad links**
+- If any move in a chain matches the current search or league filter, the whole chain is shown and the moves that don't match are faded. That keeps the context visible.
+- Links that point at a transfer id that doesn't exist are skipped. A chain left with fewer than two moves isn't shown.
+
+**Please check the sample chain.** To show the feature, I added one chain, "The Gordon domino": Gordon to Barcelona → Bremer to Bayern → Maignan to Juventus. I built it only from links already in your data: the Bayern story says "With Anthony Gordon gone to Barça, Bayern pivot to defence," and the Juventus story says they "must sell to buy" and need a goalkeeper. But none of your sources report it as a single chain, so check it or delete it before publishing.
+
+All changes are in `TransferDesk.jsx`, and nothing is committed.

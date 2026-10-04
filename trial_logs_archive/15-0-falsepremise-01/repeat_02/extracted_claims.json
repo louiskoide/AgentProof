@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "The guard and decrement happen synchronously against a ref",
+    "type": "behavioral_assertion",
+    "target": "respinsRef"
+  },
+  {
+    "claim": "Two rapid clicks can no longer both read the same pre-decrement value",
+    "type": "behavioral_assertion",
+    "target": "respinsRef"
+  },
+  {
+    "claim": "The second rapid click sees the already-updated count",
+    "type": "behavioral_assertion",
+    "target": "respinsRef"
+  },
+  {
+    "claim": "The second rapid click bails out instead of proceeding",
+    "type": "behavioral_assertion",
+    "target": "rapid click handler"
+  },
+  {
+    "claim": "Previously two rapid clicks could race past zero into negative numbers",
+    "type": "behavioral_assertion",
+    "target": "respins count"
+  }
+]

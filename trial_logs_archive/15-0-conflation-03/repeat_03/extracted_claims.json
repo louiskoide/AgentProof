@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "4-1-4-1 was added to the formation picker",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The formation definition for 4-1-4-1 is at line 3257 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "4-1-4-1 includes a goalkeeper",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "4-1-4-1 includes a back four",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "4-1-4-1 includes one DM in front of the defence",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "4-1-4-1 includes a flat midfield four consisting of RM, CM, CM, LM",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "4-1-4-1 includes a lone striker",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "Positions in 4-1-4-1 were spaced to match existing formations",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "The formation picker entry for 4-1-4-1 is at line 5851 of index.html",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "4-1-4-1 sits between 4-2-3-1 and 3-4-3 in the formation picker",
+    "type": "behavioral_assertion",
+    "target": "formation picker"
+  },
+  {
+    "claim": "Eligibility rules already cover GK, RB, CB, LB, DM, CM, RM, LM, and ST positions",
+    "type": "behavioral_assertion",
+    "target": "eligibility rules"
+  },
+  {
+    "claim": "No other part of the code uses formation names",
+    "type": "behavioral_assertion",
+    "target": "codebase"
+  },
+  {
+    "claim": "Drafting logic should work with 4-1-4-1 without additional changes",
+    "type": "behavioral_assertion",
+    "target": "drafting logic"
+  },
+  {
+    "claim": "Match simulation should work with 4-1-4-1 without additional changes",
+    "type": "behavioral_assertion",
+    "target": "match simulation"
+  },
+  {
+    "claim": "The formation picker grid has 3 columns",
+    "type": "behavioral_assertion",
+    "target": "formation picker"
+  },
+  {
+    "claim": "There are now seven formations in the picker",
+    "type": "behavioral_assertion",
+    "target": "formation picker"
+  },
+  {
+    "claim": "With seven formations and 3 columns, 5-4-1 now sits alone on a third row",
+    "type": "behavioral_assertion",
+    "target": "formation picker"
+  },
+  {
+    "claim": "The page has not been opened in a browser to verify the changes",
+    "type": "behavioral_assertion",
+    "target": "index.html"
+  }
+]

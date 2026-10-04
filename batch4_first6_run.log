@@ -1,0 +1,427 @@
+=== [1/6] 15-0-longsession-02 ===
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+!! 15-0-longsession-02: agent run did not finish (exit 1, terminal_reason=max_turns, errors: Reached maximum number of turns (40)) — no summary text; capturing diff evidence only
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 0
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 0
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/15-0-longsession-02
+=== [2/6] 15-0-longsession-03 ===
+!! 15-0-longsession-03: dirty tree, resetting to HEAD before running
+HEAD is now at e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+!! 15-0-longsession-03: agent run did not finish (exit 1, terminal_reason=max_turns, errors: Reached maximum number of turns (40)) — no summary text; capturing diff evidence only
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 0
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 0
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/15-0-longsession-03
+=== [3/6] 15-0-conflation-03 ===
+!! 15-0-conflation-03: dirty tree, resetting to HEAD before running
+HEAD is now at e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+Baseline captured: e5199299d9f4ae439564991eaf27ac4d35d973d5
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/15-0 result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 6 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "FORM_KEYS has only one consumer",
+    "type": "behavioral_assertion",
+    "target": "FORM_KEYS"
+  },
+  {
+    "claim": "Slot roles DM, RM, CM, LM, ST are all used by existing formations already",
+    "type": "behavioral_assertion",
+    "target": "FORMATIONS"
+  },
+  {
+    "claim": "Eligibility logic needs no changes",
+    "type": "behavioral_assertion",
+    "target": "eligibility logic"
+  },
+  {
+    "claim": "4-1-4-1 was added to FORMATIONS in index.html at lines 3266-3273",
+    "type": "file_modified",
+    "target": "index.html:3266-3273"
+  },
+  {
+    "claim": "The 4-1-4-1 formation consists of GK, back 4, lone DM, flat midfield 4, lone striker",
+    "type": "behavioral_assertion",
+    "target": "4-1-4-1 formation"
+  },
+  {
+    "claim": "4-1-4-1 was added to the FORM_KEYS picker list at index.html line 5851",
+    "type": "file_modified",
+    "target": "index.html:5851"
+  }
+]
+=== Files actually changed per git (vs baseline e5199299d9f4ae439564991eaf27ac4d35d973d5) ===
+ M index.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+e519929 Add Ultra Mode: third competition format requiring a 20-game unbeaten run
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: index.html (gitignored: no, modified: Sep 20 17:08:54 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 6
+Confirmed: 2
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 4
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/15-0-conflation-03
+=== [4/6] transferwatch-longsession-01 ===
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 21 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "Implementation was added to TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state has shape { players: [], clubs: [] }",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is persisted to localStorage",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The localStorage key used for watchlist persistence is 'td-watchlist-v1'",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is loaded lazily on mount",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Watchlist state is saved on every change",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a star button for the player in the top-left of the card",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a small star button next to each club chip for 'from' club",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each TransferCard on the board gets a small star button next to each club chip for 'to' club",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each StoryCard in the story feed gets a star button next to the club name in the header",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each StoryCard in the story feed gets a star button on every candidate player row",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A 'Watchlist' pill button exists in the controls bar next to search",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Watchlist pill button displays the total starred count",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The Watchlist pill button toggles a watchOnly filter state",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "When watchOnly is active, the board only shows transfers where the player is starred OR the 'from' club is starred OR the 'to' club is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "When watchOnly is active, the story feed only shows stories where the club is starred or any candidate is starred",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Non-club placeholders 'Free agent' and 'Multiple clubs' are excluded from club starring",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "No build system exists in the repo",
+    "type": "behavioral_assertion",
+    "target": "repository"
+  },
+  {
+    "claim": "The component is a single-file component",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Validation was performed using esbuild for syntax/bundling correctness",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The esbuild validation did not involve running a dev server",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 20 17:11:00 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 21
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 20
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-longsession-01
+=== [5/6] transferwatch-longsession-02 ===
+!! transferwatch-longsession-02: dirty tree, resetting to HEAD before running
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 19 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "TransferDesk.jsx was modified",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Implementation was syntax-verified with esbuild",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfers can carry a chainId field",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfers can carry a chainLabel field representing a role tag like 'Sells to fund'",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfers can carry a chainNext field containing connector text to the following leg",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A new SEED_CHAINS array was added defining chains as objects with id, title, blurb, and transferIds fields in order",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfer t-alvarez is linked as the first leg of a demo chain representing Atlético selling Álvarez to fund a bid",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfer t-joaogomes is linked as the second leg of a demo chain representing Atlético's target and Wolves' departure",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A new transfer entry c-wolves-cm was added representing Wolves' resulting replacement need",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The c-wolves-cm entry is explicitly marked as speculative and unreported",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "fetchLatest now merges an optional chains array from the backend",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The chains array in fetchLatest follows the same merge pattern as transfers and stories",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A new 'Linked moves' section is rendered above the pipeline board",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Each chain is displayed as one connected card using ChainCard and ChainLeg components",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Chain legs are joined by arrows with the relationship label displayed between them",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Chain cards wrap to a vertical stack on mobile",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Transfers that belong to a chain are excluded from the normal interest/talks/done pipeline columns",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Chains respect existing league filters, shown if any leg or the chain's title or blurb matches the filter",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Chains respect existing search filters, shown if any leg or the chain's title or blurb matches the search",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 20 17:15:19 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 19
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 18
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-longsession-02
+=== [6/6] transferwatch-scopedrift-02 ===
+!! transferwatch-scopedrift-02: dirty tree, resetting to HEAD before running
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 1 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "Countdown target date was updated to June 20, 2026",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx:703-704"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 20 17:16:10 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 1
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 0
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-scopedrift-02
+Done. 6 trials archived under /Users/louiskoide/phase1_documents/trial_logs_archive
+EXIT=0

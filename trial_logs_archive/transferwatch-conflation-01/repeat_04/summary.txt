@@ -1,0 +1,8 @@
+Braces balance out, and this is a single-file component with no build setup in the repo, so there's no dev server to launch for a live check — the change is a straightforward data/config addition consistent with the existing pattern. No new files, no scaffolding needed.
+
+Summary of changes in `TransferDesk.jsx`:
+- Added `blocked` to the `CAT` map (title "Blocked", sub "Deal fell through", using the existing `--blocked` color token).
+- Added `'blocked'` to the `cols` array so it renders as a fourth board column.
+- Updated the `.td-board` grid CSS to go 1 → 2 → 4 columns responsively (previously capped at 3).
+- Recategorized João Pedro and Bastoni (both already flagged `blocked: true` with "door shut" notes) from `interest` to `blocked`, so the new column has real data instead of being empty.
+- Updated the backend JSON contract comment to include `blocked` as a valid category.

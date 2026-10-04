@@ -1,0 +1,199 @@
+{
+  "summary": {
+    "total": 27,
+    "confirmed": 3,
+    "contradicted": 0,
+    "unverifiable": 24
+  },
+  "results": [
+    {
+      "claim": "leaderboard?select=password_hash returns 401 permission denied (42501) when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard.password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "leaderboard?select=token returns 401 permission denied when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard.token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "leaderboard?select=email returns 401 permission denied when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard.email",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "leaderboard?select=phone returns 401 permission denied when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard.phone",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "leaderboard?select=* returns 401 permission denied when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "leaderboard?select=name returns 200 when queried with the public anon key",
+      "type": "test_result",
+      "target": "leaderboard.name",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The query was sent with limit=0 so no real user data was returned",
+      "type": "test_run",
+      "target": "leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "No table other than leaderboard has a password_hash column",
+      "type": "behavioral_assertion",
+      "target": "database schema",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "There is no foreign-key path from another table to leaderboard.password_hash",
+      "type": "behavioral_assertion",
+      "target": "database schema",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "password_hash cannot be pulled in through a joined query from another table",
+      "type": "behavioral_assertion",
+      "target": "leaderboard.password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A whole-table revoke plus column re-grant exists at FootyStock_dc.html lines 2592-2593",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The client code no longer reads password_hash directly",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Logins go through verify_password functions instead of direct password_hash reads",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A PATCH on leaderboard?name=eq.<username> setting password_hash returned 204",
+      "type": "test_result",
+      "target": "leaderboard.password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The PATCH was sent with a username that does not exist so no rows changed",
+      "type": "test_run",
+      "target": "leaderboard",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The anon role still has UPDATE permission on leaderboard.password_hash",
+      "type": "behavioral_assertion",
+      "target": "leaderboard.password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No server-side check verifies which row the UPDATE on leaderboard.password_hash touches",
+      "type": "behavioral_assertion",
+      "target": "leaderboard.password_hash",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Password hashing runs in the browser",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "portfolios?select=token returns 200 for all rows when queried with the public anon key",
+      "type": "test_result",
+      "target": "portfolios.token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "portfolios table has 11 rows",
+      "type": "test_result",
+      "target": "portfolios",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The leaderboard token column was locked down in the 2026-07 fix",
+      "type": "git_state",
+      "target": "leaderboard.token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The portfolios token column was not locked down in the 2026-07 fix",
+      "type": "git_state",
+      "target": "portfolios.token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "token is the login credential for user accounts",
+      "type": "behavioral_assertion",
+      "target": "portfolios.token",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A password-reset request uses PATCH ?token=eq.<token> at FootyStock_dc.html line 6483",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "A password-related PATCH request exists at FootyStock_dc.html line 6509",
+      "type": "file_modified",
+      "target": "FootyStock_dc.html",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "The browser loads portfolios by filtering on the token column",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The browser saves portfolios by filtering on the token column",
+      "type": "behavioral_assertion",
+      "target": "FootyStock_dc.html",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

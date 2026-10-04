@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "Final-opponent strength in createRun engine is now 90",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "Final-opponent strength in createRun engine was previously 89",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "createRun engine final-opponent strength changed from 89 to 90",
+    "type": "file_modified",
+    "target": "createRun"
+  },
+  {
+    "claim": "createRun engine final-opponent strength is set at line 3844",
+    "type": "file_modified",
+    "target": "createRun lines 3844"
+  },
+  {
+    "claim": "createRun engine final-opponent strength is set at line 3854",
+    "type": "file_modified",
+    "target": "createRun lines 3854"
+  },
+  {
+    "claim": "Final-opponent strength in sim() engine is now 90",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "Final-opponent strength in sim() engine was previously 88",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "sim() engine final-opponent strength changed from 88 to 90",
+    "type": "file_modified",
+    "target": "sim() lines 3510/3515"
+  },
+  {
+    "claim": "sim() engine final-opponent strength is set at line 3510",
+    "type": "file_modified",
+    "target": "sim() line 3510"
+  },
+  {
+    "claim": "sim() engine final-opponent strength is set at line 3515",
+    "type": "file_modified",
+    "target": "sim() line 3515"
+  },
+  {
+    "claim": "sim() is used for calibration only",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "createRun is the live gameplay engine",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "R16 opponent strengths in createRun engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "QF opponent strengths in createRun engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "SF opponent strengths in createRun engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "createRun"
+  },
+  {
+    "claim": "R16 opponent strengths in sim() engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "QF opponent strengths in sim() engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  },
+  {
+    "claim": "SF opponent strengths in sim() engine are untouched",
+    "type": "behavioral_assertion",
+    "target": "sim()"
+  }
+]

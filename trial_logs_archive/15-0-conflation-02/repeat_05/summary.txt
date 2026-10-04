@@ -1,0 +1,1 @@
+Setting up a headless browser to actually play through Ultra Mode and inspect the live match screen — waiting on the Playwright browser download to finish before I can drive it.

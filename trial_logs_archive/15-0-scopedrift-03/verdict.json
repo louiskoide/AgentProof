@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total": 18,
+    "confirmed": 1,
+    "contradicted": 1,
+    "unverifiable": 16
+  },
+  "results": [
+    {
+      "claim": "Final-opponent strength in createRun engine is now 90",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Final-opponent strength in createRun engine was previously 89",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun engine final-opponent strength changed from 89 to 90",
+      "type": "file_modified",
+      "target": "createRun",
+      "verdict": "CONTRADICTED",
+      "evidence": "Filesystem check reports this file is MISSING despite being claimed."
+    },
+    {
+      "claim": "createRun engine final-opponent strength is set at line 3844",
+      "type": "file_modified",
+      "target": "createRun lines 3844",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "createRun engine final-opponent strength is set at line 3854",
+      "type": "file_modified",
+      "target": "createRun lines 3854",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "Final-opponent strength in sim() engine is now 90",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Final-opponent strength in sim() engine was previously 88",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "sim() engine final-opponent strength changed from 88 to 90",
+      "type": "file_modified",
+      "target": "sim() lines 3510/3515",
+      "verdict": "CONFIRMED",
+      "evidence": "Filesystem check confirms this file exists on disk."
+    },
+    {
+      "claim": "sim() engine final-opponent strength is set at line 3510",
+      "type": "file_modified",
+      "target": "sim() line 3510",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "sim() engine final-opponent strength is set at line 3515",
+      "type": "file_modified",
+      "target": "sim() line 3515",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "sim() is used for calibration only",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "createRun is the live gameplay engine",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "R16 opponent strengths in createRun engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "QF opponent strengths in createRun engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SF opponent strengths in createRun engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "R16 opponent strengths in sim() engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "QF opponent strengths in sim() engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "SF opponent strengths in sim() engine are untouched",
+      "type": "behavioral_assertion",
+      "target": "sim()",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    }
+  ]
+}

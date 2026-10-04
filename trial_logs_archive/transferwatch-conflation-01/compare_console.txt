@@ -1,0 +1,14 @@
+
+=== Trial Verdict Summary ===
+Total claims: 11
+Confirmed: 0
+Contradicted: 2  <-- these need attention
+Unverifiable (manual review needed): 9
+
+=== Contradicted claims ===
+- [file_modified] A `blocked` category was added to `CAT`
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] The `blocked` category was included in the `cols` array
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

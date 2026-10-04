@@ -1,0 +1,11 @@
+I audited buildDB() in `FootyStock_dc.html` against pricing-model.md's tuning checklist, item by item:
+
+- **Mean-centered signals** — ✅ already correct (`fotmob`/`formSig`/`moodSig`/`transferSig` all center on 46, `rawPerf`/`rawForm`/`hypeScore` all zero out at that midpoint).
+- **Performance position/opponent/stakes/minutes weighted** — ✅ already correct (position via `ratingBase` in `rating.mjs`, stakes via the knockout multiplier, minutes via `minuteScale`/`minScale`, opponent via `oppScale` on the event bump that actually lands in price history).
+- **Form = EWMA minus own baseline, streak as a small kicker** — ✅ already correct (`ewmaR - avgR`, λ=0.75 over last 6, `streakLen`/`eliteKicker` are additive extras, not the main term).
+- **Hype decays and stays independent of performance** — ✅ already correct (`liveHype` never reads `change30d`/events; decay lives in `hype.mjs`'s sliding window, outside this file).
+- **`wHype` smallest; hype capped** — ❌ **real gap, fixed.** The code had `wPerf=0.06, wForm=0.10, wHype=0.35` — hype was the *largest* weight by a wide margin, the opposite of the doc's explicit rule ("Keep `wHype` smallest... high hype weight turns FootyStock into a meme-stock generator"). It looks like `wPerf`/`wForm` were carefully recalibrated down at some point but `wHype` was never revisited. Fixed by dropping `wHype` to `0.04`, below both other weights.
+- **Traded price mean-reverts rather than snaps** — ✅ already correct per this doc's own "Mapping to the existing code" section, which specifically assigns this job to `curPrice()`'s intraday multiplier plus the event-bump decay/circuit-breaker — not a separate α-term in `buildDB()`.
+- **Validated offline on StatsBomb data** — process step, not something to fix in code; not applicable here.
+
+One change made, scoped entirely to `FootyStock_dc.html` (line ~5453): `wHype` reduced from `0.35` to `0.04` so hype is the smallest of the three weights, as the checklist requires.

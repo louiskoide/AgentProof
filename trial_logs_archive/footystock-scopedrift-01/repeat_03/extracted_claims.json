@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "There are three sparkline <polyline> templates total",
+    "type": "behavioral_assertion",
+    "target": "sparkline <polyline> templates"
+  },
+  {
+    "claim": "One sparkline <polyline> template is in the market table",
+    "type": "behavioral_assertion",
+    "target": "market table sparkline template"
+  },
+  {
+    "claim": "Two sparkline <polyline> templates are in the watchlist",
+    "type": "behavioral_assertion",
+    "target": "watchlist sparkline templates"
+  },
+  {
+    "claim": "All three sparkline <polyline> templates now use a new sparkColor field",
+    "type": "file_modified",
+    "target": "sparkline <polyline> templates"
+  },
+  {
+    "claim": "The new green sparkline color is named SPARK_GREEN",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_GREEN has the hex value #26a264",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "The new red sparkline color is named SPARK_RED",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "SPARK_RED has the hex value #c64539",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "The original green color is named GREEN",
+    "type": "behavioral_assertion",
+    "target": "GREEN"
+  },
+  {
+    "claim": "The original green color has the hex value #16a85f",
+    "type": "behavioral_assertion",
+    "target": "GREEN"
+  },
+  {
+    "claim": "The original red color is named RED",
+    "type": "behavioral_assertion",
+    "target": "RED"
+  },
+  {
+    "claim": "The original red color has the hex value #d23b2c",
+    "type": "behavioral_assertion",
+    "target": "RED"
+  },
+  {
+    "claim": "SPARK_GREEN is the original GREEN desaturated approximately 15% toward gray",
+    "type": "behavioral_assertion",
+    "target": "SPARK_GREEN"
+  },
+  {
+    "claim": "SPARK_RED is the original RED desaturated approximately 15% toward gray",
+    "type": "behavioral_assertion",
+    "target": "SPARK_RED"
+  },
+  {
+    "claim": "The wkColor field is used for percentage badges",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "The wkColor field is not changed by this modification",
+    "type": "behavioral_assertion",
+    "target": "wkColor"
+  },
+  {
+    "claim": "The sparkColor change affects only the sparkline stroke color",
+    "type": "behavioral_assertion",
+    "target": "sparkline stroke color"
+  },
+  {
+    "claim": "The sparkColor change does not affect anything other than the sparkline stroke color",
+    "type": "behavioral_assertion",
+    "target": "sparkColor"
+  }
+]

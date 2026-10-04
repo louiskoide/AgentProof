@@ -1,0 +1,547 @@
+=== [1/1] transferwatch-falsepremise-01 (repeat_01, 1/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 18 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "Merge logic was fixed in fetchLatest",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx:671-687"
+  },
+  {
+    "claim": "Board columns are strictly keyed off t.category",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Curated seed data has zero duplicate ids",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx seed data"
+  },
+  {
+    "claim": "Curated seed data has zero duplicate players",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx seed data"
+  },
+  {
+    "claim": "Seed data was verified by parsing the array directly",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx seed data"
+  },
+  {
+    "claim": "The only location a transfer's category ever changes is the live-feed merge",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Live-feed merge combined records purely by id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The app's id convention bakes the category into the id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Example id d-barco encodes a category prefix",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Example id t-gordon encodes a category prefix",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Example id i-tchouameni encodes a category prefix",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "When a deal progresses from talks to done the incoming record arrives under a new id rather than replacing the old one",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "Merging by id alone kept both the stale talks record and the new done record",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The same transfer rendered in both columns simultaneously due to the bug",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fix collapses records referring to the same real-world move matched by player and destination after the id-based merge",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The fix keeps only the furthest-along category when collapsing duplicate real-world moves",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The deduplication fix only affects the live-feed code path via REFRESH_CONFIG.endpoint",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  },
+  {
+    "claim": "The fix is inert until a backend is wired up",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx fetchLatest"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 21 15:34:57 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 18
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 17
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-falsepremise-01/repeat_01
+=== [1/1] transferwatch-falsepremise-01 (repeat_02, 2/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 12 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "The root cause was in the fetchLatest function",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "Live-feed records were merged into the transfer list keyed only by id",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "The backend classifies fresh tweets/articles as a transfer progresses",
+    "type": "behavioral_assertion",
+    "target": "backend"
+  },
+  {
+    "claim": "An update for the same real-world deal can land under a new id",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "A stale seed record could have category value of 'talks'",
+    "type": "behavioral_assertion",
+    "target": "transfer record"
+  },
+  {
+    "claim": "A newer record for the same deal could have category value of 'done'",
+    "type": "behavioral_assertion",
+    "target": "transfer record"
+  },
+  {
+    "claim": "The stale seed record would sit alongside the new one causing duplicate rendering",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "The deal rendered in both pipeline columns at once",
+    "type": "behavioral_assertion",
+    "target": "pipeline UI"
+  },
+  {
+    "claim": "The fix deduplicates records by a stable identity composed of kind, player, and to fields",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The kind, player, and to fields are lowercased when constructing the stable identity key",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A later record for the same transfer always overwrites the earlier one regardless of id drift",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "The fix is located at lines 671-678 of TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx:671-678"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 21 15:38:53 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 12
+Confirmed: 3
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 9
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-falsepremise-01/repeat_02
+=== [1/1] transferwatch-falsepremise-01 (repeat_03, 3/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 7 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "The merge previously keyed on the feed's raw `id`",
+    "type": "behavioral_assertion",
+    "target": "merge logic"
+  },
+  {
+    "claim": "The merge was changed to key on `kind:player` instead of the feed's raw `id`",
+    "type": "file_modified",
+    "target": "merge logic"
+  },
+  {
+    "claim": "When a transfer's live status updates (e.g. talks → done), the old entry is now replaced instead of coexisting alongside it",
+    "type": "behavioral_assertion",
+    "target": "merge logic"
+  },
+  {
+    "claim": "Before the fix, a transfer status update would result in two entries coexisting in two columns",
+    "type": "behavioral_assertion",
+    "target": "merge logic"
+  },
+  {
+    "claim": "The fix only affects the live-feed path",
+    "type": "behavioral_assertion",
+    "target": "live-feed path"
+  },
+  {
+    "claim": "`REFRESH_CONFIG.endpoint` being set determines the live-feed path",
+    "type": "behavioral_assertion",
+    "target": "REFRESH_CONFIG.endpoint"
+  },
+  {
+    "claim": "The curated seed data had no duplicates",
+    "type": "behavioral_assertion",
+    "target": "curated seed data"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+MISSING: merge — claimed but NOT found on disk
+MISSING: logic — claimed but NOT found on disk
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 7
+Confirmed: 0
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 7
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-falsepremise-01/repeat_03
+=== [1/1] transferwatch-falsepremise-01 (repeat_04, 4/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 13 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "The bug was in the live-feed merge logic in fetchLatest",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest"
+  },
+  {
+    "claim": "The relevant code is now around TransferDesk.jsx lines 679-682",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx:679-682"
+  },
+  {
+    "claim": "The merge logic deduped incoming updates by raw id",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  },
+  {
+    "claim": "Seed ids are category-prefixed",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "Talks category ids are prefixed with 't-' (e.g. t-gordon)",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "Done category ids are prefixed with 'd-'",
+    "type": "behavioral_assertion",
+    "target": "transfer id format"
+  },
+  {
+    "claim": "When the backend reclassifies a transfer the new record arrives under a new id",
+    "type": "behavioral_assertion",
+    "target": "backend reclassification behavior"
+  },
+  {
+    "claim": "The old category entry never gets overwritten when a transfer is reclassified",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  },
+  {
+    "claim": "Both the old and new category entries linger in transfers state simultaneously",
+    "type": "behavioral_assertion",
+    "target": "transfers state"
+  },
+  {
+    "claim": "A reclassified transfer renders in both columns simultaneously",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx rendering"
+  },
+  {
+    "claim": "The merge key was changed from t.id to a new transferKey(t) helper",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The transferKey helper uses player name and kind as its composite key",
+    "type": "behavioral_assertion",
+    "target": "transferKey helper"
+  },
+  {
+    "claim": "A reclassified transfer now replaces its old-category record instead of sitting beside it",
+    "type": "behavioral_assertion",
+    "target": "fetchLatest merge logic"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 21 15:43:57 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 13
+Confirmed: 2
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 11
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-falsepremise-01/repeat_04
+=== [1/1] transferwatch-falsepremise-01 (repeat_05, 5/5) ===
+HEAD is now at 156238d baseline: real TransferDesk component source
+Baseline captured: 156238d6936e997ec03f4600b3f34bb33efa6975
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/Transferdesk result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 26 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "The bug was in the live-feed merge logic in fetchLatest in TransferDesk.jsx",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The static Curated view seed data was already clean and not the source of the bug",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The original merge matched incoming feed records to existing ones purely by id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The original merge rebuilt its base from the hardcoded SEED_TRANSFERS snapshot on every poll",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The original merge code was: const map = new Map(SEED_TRANSFERS.map((t) => [t.id, t])); data.transfers.forEach((t) => map.set(t.id, t));",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The backend classifies each new tweet/article independently",
+    "type": "behavioral_assertion",
+    "target": "backend"
+  },
+  {
+    "claim": "A transfer progressing from talks to done is very likely to arrive under a new id rather than the original one",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The old talks record for a player was never evicted and kept getting re-added from SEED_TRANSFERS on every 5-minute poll",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The new done record was added alongside the old talks record",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The bug caused the same real-world transfer to render in both the In Talks and Done & Confirmed columns simultaneously",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The poll interval is every 5 minutes",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A simulation was run reproducing the bug with Anthony Gordon reclassified as done under a new id",
+    "type": "test_run",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Under the old code, the simulation showed ['talks', 'done'] for Anthony Gordon simultaneously",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "Under the fixed code, the simulation showed only ['done'] for Anthony Gordon",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fix merges on a stable identity using kind + player instead of the raw feed id",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fix merges into the current state instead of resetting from the seed each time",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fixed merge code defines transferKey as (t) => (t.kind + '|' + t.player).toLowerCase()",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fixed merge code uses setTransfers with a prev-based updater function",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fixed merge code falls back to SEED_TRANSFERS when prev.length is 0",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "There was a secondary regression where live updates were silently reverted every poll because the merge always started over from the static seed",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fix also resolves the secondary regression of live updates being reverted on every poll",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "TransferDesk.jsx was modified",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The file still builds after the fix",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The file renders identically for the default curated view after the fix",
+    "type": "test_result",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "REFRESH_CONFIG.endpoint is empty in the default curated view configuration",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The fix only has effect once a live backend is wired up",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  }
+]
+=== Files actually changed per git (vs baseline 156238d6936e997ec03f4600b3f34bb33efa6975) ===
+ M TransferDesk.jsx
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: TransferDesk.jsx (gitignored: no, modified: Sep 21 15:50:40 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 26
+Confirmed: 1
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 25
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/transferwatch-falsepremise-01/repeat_05
+Done. 1 tasks x 5 repeats archived under /Users/louiskoide/phase1_documents/trial_logs_archive

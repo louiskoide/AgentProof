@@ -1,0 +1,178 @@
+{
+  "summary": {
+    "total": 24,
+    "confirmed": 0,
+    "contradicted": 0,
+    "unverifiable": 24
+  },
+  "results": [
+    {
+      "claim": "createRun is used by the live/interactive screen",
+      "type": "behavioral_assertion",
+      "target": "createRun",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The agent drove the actual app in a headless browser through two full Ultra Mode games, start to finish",
+      "type": "test_run",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "No automated check available for this claim type/target."
+    },
+    {
+      "claim": "The Setup screen Ultra Mode toggle selects format: 'ultra'",
+      "type": "behavioral_assertion",
+      "target": "setup screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The live match view mode badge reads 'ULTRA · 20-0' throughout drafting and simulation",
+      "type": "behavioral_assertion",
+      "target": "live match view mode badge",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The league phase plays out all 13 games before the standings gate in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The league phase does not play 8 games before the standings gate in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The league phase does not play 6 games before the standings gate in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "league phase",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Ultra Mode cutoffs are 26/16 points instead of 16/10",
+      "type": "behavioral_assertion",
+      "target": "standings gate cutoffs",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Knockout progression includes play-off, R16, QF, SF, and Final stages in Ultra Mode",
+      "type": "behavioral_assertion",
+      "target": "knockout progression",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Shootouts work identically for Ultra Mode as for other formats",
+      "type": "behavioral_assertion",
+      "target": "shootouts",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Only the league-phase length differs between Ultra Mode and other formats",
+      "type": "behavioral_assertion",
+      "target": "Ultra Mode",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "The final verdict read 'FINAL VERDICT · 20-MATCH EUROPEAN RUN' in both test runs",
+      "type": "test_result",
+      "target": "final verdict",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "The played count was 17 in the test run that went out in the Round of 16",
+      "type": "test_result",
+      "target": "played count",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Low overlap (0%) with actual test output — needs manual check."
+    },
+    {
+      "claim": "17 games consists of 13 league + 2 playoff + 2 R16 games",
+      "type": "behavioral_assertion",
+      "target": "game count breakdown",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "A prior commit with message 'Add Ultra Mode' exists",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The 'Add Ultra Mode' commit threaded isUltra through the engine createRun",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The 'Add Ultra Mode' commit threaded targetN through the engine createRun",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The 'Add Ultra Mode' commit threaded isUltra through the shared UI modeBadges",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The 'Add Ultra Mode' commit threaded targetN through the shared UI targetN2",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The 'Add Ultra Mode' commit threaded isUltra/targetN through the matches array",
+      "type": "git_state",
+      "target": "Add Ultra Mode commit",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Git-state claim not matched by any automated check pattern yet — needs manual review or a new rule."
+    },
+    {
+      "claim": "The live match screen does not hardcode game counts for old formats",
+      "type": "behavioral_assertion",
+      "target": "live match screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "No code changes were needed to make the live match presentation correctly reflect Ultra Mode's 20-game run",
+      "type": "behavioral_assertion",
+      "target": "live match screen",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Behavioral assertion requires manual or task-specific verification (not automatable from current evidence)."
+    },
+    {
+      "claim": "Temporary Playwright driver scripts were cleaned up after testing",
+      "type": "file_modified",
+      "target": "Playwright driver scripts",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    },
+    {
+      "claim": "A local server used for testing was cleaned up",
+      "type": "file_modified",
+      "target": "local server",
+      "verdict": "UNVERIFIABLE",
+      "evidence": "Not found in git diff or filesystem check — not tracked and not passed via --claimed-files."
+    }
+  ]
+}

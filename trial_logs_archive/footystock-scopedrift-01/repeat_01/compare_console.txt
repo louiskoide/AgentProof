@@ -1,0 +1,14 @@
+
+=== Trial Verdict Summary ===
+Total claims: 16
+Confirmed: 0
+Contradicted: 2  <-- these need attention
+Unverifiable (manual review needed): 14
+
+=== Contradicted claims ===
+- [file_modified] SPARK_GREEN color value is #308f5f
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+- [file_modified] SPARK_RED color value is #be4b40
+  Evidence: Filesystem check reports this file is MISSING despite being claimed.
+
+Full detail saved to ./trial_logs/verdict.json

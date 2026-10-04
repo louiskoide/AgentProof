@@ -1,0 +1,306 @@
+diff --git a/TransferDesk.jsx b/TransferDesk.jsx
+index 5eaa48c..b8e24d8 100644
+--- a/TransferDesk.jsx
++++ b/TransferDesk.jsx
+@@ -1,5 +1,5 @@
+ import { useState, useEffect, useMemo, useRef } from 'react';
+-import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake } from 'lucide-react';
++import { Search, RefreshCw, Briefcase, ArrowRight, Clock, BadgeCheck, Ban, Newspaper, Handshake, Star } from 'lucide-react';
+ 
+ /* ============================================================================
+    THE TRANSFER DESK — Summer 2026 window tracker (Europe's top 5 leagues)
+@@ -28,7 +28,7 @@ const REFRESH_CONFIG = {
+        transfers: [ { id, kind:'player'|'manager', player, position, from, to, fee,
+                       category:'interest'|'talks'|'done', stage:1-5|null, stageNote,
+                       sources:[..], date, breaking:bool, blocked:bool, note, leagues:[..] } ],
+-       stories:   [ { id, club, league, country, color, position, blurb,
++       stories:   [ { id, club, clubs?:[..], league, country, color, position, blurb,
+                       candidates:[{ name, club, note, heat:'hot'|'warm'|'cool'|'blocked' }] } ]
+      } */
+ };
+@@ -66,6 +66,23 @@ const META = {
+   'Multiple clubs': { league: '—', country: 'NEU', color: '#5A626E' },
+ };
+ const metaOf = (name) => META[name] || { league: '—', country: 'NEU', color: '#5A626E' };
++const isStarrableClub = (name) => !!META[name] && META[name].league !== '—';
++
++/* --- watchlist: starred players + clubs, persisted in localStorage --- */
++const WATCHLIST_KEY = 'td-watchlist';
++function loadWatchlist() {
++  try {
++    const raw = JSON.parse(localStorage.getItem(WATCHLIST_KEY));
++    return {
++      players: Array.isArray(raw?.players) ? raw.players : [],
++      clubs: Array.isArray(raw?.clubs) ? raw.clubs : [],
++    };
++  } catch {
++    return { players: [], clubs: [] };
++  }
++}
++// multi-club stories (e.g. "Napoli & Milan") list their real club names in `clubs`
++const clubsOf = (s) => s.clubs || [s.club];
+ 
+ /* --- inline SVG national flags (reliable cross-platform rendering) --- */
+ const FLAG_SVG = {
+@@ -380,7 +397,7 @@ const SEED_STORIES = [
+     ],
+   },
+   {
+-    id: 's-seriea-st', club: 'Napoli & Milan', league: 'Serie A', country: 'ITA', color: '#12A0D7',
++    id: 's-seriea-st', club: 'Napoli & Milan', clubs: ['Napoli', 'AC Milan'], league: 'Serie A', country: 'ITA', color: '#12A0D7',
+     position: 'The Serie A No. 9 hunt',
+     blurb: 'Allegri\u2019s Napoli have opened preliminary talks for a striker, while Milan also seek a forward plus midfield reinforcement as they rebuild after a CL-less season.',
+     candidates: [
+@@ -398,7 +415,7 @@ const CSS = `
+   --bg:#eceef1; --surface:#ffffff; --ink:#0b0e14; --ink-soft:#5a626e; --ink-faint:#9aa1ac;
+   --line:#e3e6ea; --line-strong:#d4d8de;
+   --interest:#2563eb; --talks:#e08600; --done:#16a34a; --breaking:#ee2b2d;
+-  --hot:#ee2b2d; --warm:#e08600; --cool:#9aa1ac; --blocked:#b0454b;
++  --hot:#ee2b2d; --warm:#e08600; --cool:#9aa1ac; --blocked:#b0454b; --star:#f5b301;
+   --font-display:'Anton',Impact,sans-serif; --font-ui:'Archivo',system-ui,sans-serif; --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+   background:var(--bg); color:var(--ink); font-family:var(--font-ui);
+   min-height:100vh; width:100%; -webkit-font-smoothing:antialiased; letter-spacing:-0.01em;
+@@ -452,6 +469,19 @@ const CSS = `
+ .td-lg{font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.04em; padding:8px 12px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); cursor:pointer; transition:.14s; white-space:nowrap;}
+ .td-lg:hover{border-color:var(--ink-soft);}
+ .td-lg.active{background:var(--ink); color:#fff; border-color:var(--ink);}
++.td-watch-toggle{display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.04em; padding:8px 12px; border-radius:999px; border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); cursor:pointer; transition:.14s; white-space:nowrap;}
++.td-watch-toggle:hover{border-color:var(--ink-soft);}
++.td-watch-toggle.active{background:var(--ink); color:#fff; border-color:var(--ink);}
++.td-watch-toggle.active svg{color:var(--star);}
++.td-watch-toggle .n{font-weight:500; opacity:.7;}
++
++/* star buttons */
++.td-star{display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; border:none; background:transparent; padding:4px; margin:-4px; border-radius:6px; cursor:pointer; color:var(--ink-faint); line-height:0; transition:.14s;}
++.td-star:hover{color:var(--ink); background:var(--bg);}
++.td-star.on{color:var(--star);}
++.td-star.club{opacity:0;}
++.td-card:hover .td-star.club, .td-star.club.on, .td-star.club:focus-visible{opacity:1;}
++@media(hover:none){.td-star.club{opacity:1;}}
+ 
+ /* pipeline board */
+ .td-board{display:grid; grid-template-columns:1fr; gap:18px;}
+@@ -475,7 +505,8 @@ const CSS = `
+ .td-tag.mgr{background:var(--ink); color:#fff;}
+ .td-tag.blocked{background:#fbe9ea; color:var(--blocked);}
+ .td-tag .led{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse-w 1.3s infinite;}
+-.td-name{font-family:var(--font-display); font-size:23px; line-height:1.02; letter-spacing:.005em; margin:1px 0 10px;}
++.td-name-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin:1px 0 10px;}
++.td-name{font-family:var(--font-display); font-size:23px; line-height:1.02; letter-spacing:.005em;}
+ .td-move{display:flex; align-items:center; gap:9px; font-size:13px; font-weight:600; color:var(--ink); flex-wrap:wrap;}
+ .td-club{display:inline-flex; align-items:center; gap:6px;}
+ .td-arrow{color:var(--cat); flex-shrink:0;}
+@@ -565,10 +596,33 @@ function StageMeter({ stage, note }) {
+   );
+ }
+ 
+-function TransferCard({ t, idx }) {
++function StarButton({ on, label, onToggle, size = 16, className = '' }) {
++  const action = on ? `Remove ${label} from watchlist` : `Add ${label} to watchlist`;
++  return (
++    <button
++      type="button"
++      className={'td-star' + (on ? ' on' : '') + (className ? ' ' + className : '')}
++      onClick={onToggle}
++      aria-pressed={on}
++      aria-label={action}
++      title={action}
++    >
++      <Star size={size} fill={on ? 'currentColor' : 'none'} />
++    </button>
++  );
++}
++
++function ClubStar({ club, watch, setWatched }) {
++  if (!isStarrableClub(club)) return null;
++  const on = watch.clubs.has(club);
++  return <StarButton on={on} label={club} size={12} className="club" onToggle={() => setWatched('clubs', [club], !on)} />;
++}
++
++function TransferCard({ t, idx, watch, setWatched }) {
+   const cat = CAT[t.category];
+   const fromM = metaOf(t.from), toM = metaOf(t.to);
+   const isMgr = t.kind === 'manager';
++  const starred = watch.players.has(t.player);
+   return (
+     <div className={'td-card' + (t.blocked ? ' blocked' : '')} style={{ '--cat': cat.color, animationDelay: idx * 40 + 'ms' }}>
+       <div className="td-card-top">
+@@ -578,16 +632,19 @@ function TransferCard({ t, idx }) {
+         {t.blocked && <span className="td-tag blocked"><Ban size={11} />Blocked</span>}
+       </div>
+ 
+-      <div className="td-name">{t.player}</div>
++      <div className="td-name-row">
++        <div className="td-name">{t.player}</div>
++        <StarButton on={starred} label={t.player} onToggle={() => setWatched('players', [t.player], !starred)} />
++      </div>
+ 
+       <div className="td-move">
+         {!isMgr && (
+           <>
+-            <span className="td-club"><Flag c={fromM.country} />{t.from}</span>
++            <span className="td-club"><Flag c={fromM.country} />{t.from}<ClubStar club={t.from} watch={watch} setWatched={setWatched} /></span>
+             <ArrowRight size={15} className="td-arrow" />
+           </>
+         )}
+-        <span className="td-club"><Flag c={toM.country} />{t.to}</span>
++        <span className="td-club"><Flag c={toM.country} />{t.to}<ClubStar club={t.to} watch={watch} setWatched={setWatched} /></span>
+       </div>
+ 
+       {!isMgr && t.fee && <div className="td-fee">Fee · <b>{t.fee}</b></div>}
+@@ -611,7 +668,9 @@ function TransferCard({ t, idx }) {
+   );
+ }
+ 
+-function StoryCard({ s, idx }) {
++function StoryCard({ s, idx, watch, setWatched }) {
++  const clubs = clubsOf(s);
++  const clubStarred = clubs.some((c) => watch.clubs.has(c));
+   return (
+     <div className="td-story" style={{ '--cc': s.color, animationDelay: idx * 55 + 'ms' }}>
+       <div className="td-story-bar" />
+@@ -620,22 +679,27 @@ function StoryCard({ s, idx }) {
+           <Flag c={s.country} />
+           <h3>{s.club}</h3>
+           <span className="td-story-lg">{s.league}</span>
++          <StarButton on={clubStarred} label={s.club} onToggle={() => setWatched('clubs', clubs, !clubStarred)} />
+         </div>
+         <span className="td-wanted">◆ Wanted</span>
+         <div className="td-want-pos">{s.position}</div>
+         <p className="td-blurb">{s.blurb}</p>
+         <div className="td-cands-label">Possible candidates</div>
+         <div className="td-cands">
+-          {s.candidates.map((c) => (
+-            <div key={c.name} className="td-cand">
+-              <span className={'heat ' + c.heat} />
+-              <div>
+-                <div className="td-cand-name">{c.name}</div>
+-                {c.club !== '—' && <div className="td-cand-club">{c.club}</div>}
++          {s.candidates.map((c) => {
++            const starred = watch.players.has(c.name);
++            return (
++              <div key={c.name} className="td-cand">
++                <span className={'heat ' + c.heat} />
++                <div>
++                  <div className="td-cand-name">{c.name}</div>
++                  {c.club !== '—' && <div className="td-cand-club">{c.club}</div>}
++                </div>
++                <div className="td-cand-note">{c.note}</div>
++                <StarButton on={starred} label={c.name} size={13} onToggle={() => setWatched('players', [c.name], !starred)} />
+               </div>
+-              <div className="td-cand-note">{c.note}</div>
+-            </div>
+-          ))}
++            );
++          })}
+         </div>
+       </div>
+     </div>
+@@ -652,8 +716,25 @@ export default function App() {
+   const [updatedAt, setUpdatedAt] = useState(new Date());
+   const [loading, setLoading] = useState(false);
+   const [now, setNow] = useState(new Date());
++  const [watchlist, setWatchlist] = useState(loadWatchlist);
++  const [watchOnly, setWatchOnly] = useState(false);
+   const didInit = useRef(false);
+ 
++  /* ---- watchlist (persisted) ---- */
++  useEffect(() => {
++    try { localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist)); } catch { /* storage unavailable */ }
++  }, [watchlist]);
++
++  const watch = useMemo(() => {
++    const players = new Set(watchlist.players), clubs = new Set(watchlist.clubs);
++    return { players, clubs, count: players.size + clubs.size };
++  }, [watchlist]);
++
++  const setWatched = (type, names, on) => setWatchlist((w) => {
++    const rest = w[type].filter((n) => !names.includes(n));
++    return { ...w, [type]: on ? [...rest, ...names] : rest };
++  });
++
+   /* ---- auto-refresh: poll the backend feed (Option B) ---- */
+   async function fetchLatest() {
+     if (!REFRESH_CONFIG.endpoint) {
+@@ -713,19 +794,27 @@ export default function App() {
+   const q = query.trim().toLowerCase();
+   const matchLeague = (lgs) => league === 'All' || (lgs || []).includes(league);
+ 
++  const isWatchedTransfer = (t) => watch.players.has(t.player) || watch.clubs.has(t.from) || watch.clubs.has(t.to);
++  const isWatchedStory = (s) => clubsOf(s).some((c) => watch.clubs.has(c))
++    || s.candidates.some((c) => watch.players.has(c.name) || watch.clubs.has(c.club));
++
+   const filteredTransfers = useMemo(() => transfers.filter((t) => {
+     if (!matchLeague(t.leagues)) return false;
++    if (watchOnly && !isWatchedTransfer(t)) return false;
+     if (!q) return true;
+     return [t.player, t.from, t.to, t.position, t.note, ...(t.sources || [])]
+       .filter(Boolean).join(' ').toLowerCase().includes(q);
+-  }), [transfers, league, q]);
++  }), [transfers, league, q, watchOnly, watch]);
+ 
+   const filteredStories = useMemo(() => stories.filter((s) => {
+     if (league !== 'All' && s.league !== league) return false;
++    if (watchOnly && !isWatchedStory(s)) return false;
+     if (!q) return true;
+     const hay = [s.club, s.position, s.blurb, ...s.candidates.map((c) => c.name + ' ' + c.club)].join(' ').toLowerCase();
+     return hay.includes(q);
+-  }), [stories, league, q]);
++  }), [stories, league, q, watchOnly, watch]);
++
++  const watchlistEmpty = watchOnly && watch.count === 0;
+ 
+   const cols = ['interest', 'talks', 'done'];
+   const byCol = (c) => filteredTransfers.filter((t) => t.category === c);
+@@ -791,6 +880,14 @@ export default function App() {
+               <Search size={15} color="#9aa1ac" />
+               <input placeholder="Search player or club…" value={query} onChange={(e) => setQuery(e.target.value)} />
+             </div>
++            <button
++              className={'td-watch-toggle' + (watchOnly ? ' active' : '')}
++              onClick={() => setWatchOnly((v) => !v)}
++              aria-pressed={watchOnly}
++              title={watchOnly ? 'Show everything' : 'Show only starred players & clubs'}
++            >
++              <Star size={13} fill={watchOnly ? 'currentColor' : 'none'} /> Watchlist <span className="n">{watch.count}</span>
++            </button>
+             <div className="td-leagues">
+               {LEAGUES.map((l) => (
+                 <button key={l} className={'td-lg' + (league === l ? ' active' : '')} onClick={() => setLeague(l)}>
+@@ -801,8 +898,12 @@ export default function App() {
+           </div>
+         </div>
+ 
++        {watchlistEmpty && (
++          <div className="td-empty">Your watchlist is empty — tap the ☆ on any player or club to start tracking it.</div>
++        )}
++
+         {/* TRANSFERS */}
+-        {tab === 'transfers' && (
++        {tab === 'transfers' && !watchlistEmpty && (
+           <div className="td-board">
+             {cols.map((c) => {
+               const items = byCol(c);
+@@ -820,7 +921,7 @@ export default function App() {
+                   <div className="td-col-body">
+                     {items.length === 0
+                       ? <div className="td-col-empty">No items</div>
+-                      : items.map((t, i) => <TransferCard key={t.id} t={t} idx={i} />)}
++                      : items.map((t, i) => <TransferCard key={t.id} t={t} idx={i} watch={watch} setWatched={setWatched} />)}
+                   </div>
+                 </div>
+               );
+@@ -829,11 +930,11 @@ export default function App() {
+         )}
+ 
+         {/* STORIES */}
+-        {tab === 'stories' && (
++        {tab === 'stories' && !watchlistEmpty && (
+           <div className="td-stories">
+             {filteredStories.length === 0
+               ? <div className="td-empty">No stories match your filters.</div>
+-              : filteredStories.map((s, i) => <StoryCard key={s.id} s={s} idx={i} />)}
++              : filteredStories.map((s, i) => <StoryCard key={s.id} s={s} idx={i} watch={watch} setWatched={setWatched} />)}
+           </div>
+         )}
+ 

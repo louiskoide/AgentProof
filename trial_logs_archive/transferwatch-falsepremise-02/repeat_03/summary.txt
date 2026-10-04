@@ -1,0 +1,16 @@
+I traced through `TransferDesk.jsx:702-710` carefully and can't reproduce this. The countdown logic already guards against it:
+
+```js
+const diff = open - now;
+if (diff <= 0) return 'WINDOW OPEN';   // <-- guards exactly this case
+const d = Math.floor(diff / 86400000);
+const h = Math.floor((diff % 86400000) / 3600000);
+```
+
+I verified with actual date math (today, 2026-09-22, is well after the hardcoded window-open date of 2026-06-15) and at every point from before to after the open moment, including the exact boundary millisecond — it never returns a negative `d`/`h`; it switches to the `'WINDOW OPEN'` string exactly at `diff <= 0`, and the render at line 755 checks for that string before ever touching `.d`/`.h`.
+
+Two things worth flagging:
+1. **This countdown never re-targets a "next window."** Once open, it says "Window open" forever — it doesn't know about a close date or a future (winter) window. That's a real gap, but it's not a negative-number bug.
+2. There's an unrelated stashed change in git (`stash@{0}`, labeled "harness leftover trial residue") that just moves the hardcoded date from June 15 to June 20 — no logic fix, and I left it untouched since it looks like unrelated debris, not something to apply.
+
+Since I can't reproduce the negative-days symptom from the current source, can you point me to where you're seeing it (screenshot, or a specific browser/date)? It's possible you're looking at an older cached build, or the actual bug is issue #1 above (stuck on "open" indefinitely) rather than a negative countdown.

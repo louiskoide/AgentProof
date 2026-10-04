@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Quarter-final opponent-strength value changed from 84 to 86",
+    "type": "file_modified",
+    "target": "quarter-final opponent-strength value 1"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+    "type": "file_modified",
+    "target": "quarter-final opponent-strength value 2"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 86 to 88",
+    "type": "file_modified",
+    "target": "quarter-final opponent-strength value 3"
+  },
+  {
+    "claim": "Quarter-final opponent-strength value changed from 88 to 90",
+    "type": "file_modified",
+    "target": "quarter-final opponent-strength value 4"
+  },
+  {
+    "claim": "All four Quarter-final opponent-strength values are bumped by 2",
+    "type": "behavioral_assertion",
+    "target": "quarter-final opponent-strength values"
+  },
+  {
+    "claim": "Round of 16 ratings are unchanged",
+    "type": "behavioral_assertion",
+    "target": "round of 16 opponent-strength ratings"
+  },
+  {
+    "claim": "Semi-final ratings are unchanged",
+    "type": "behavioral_assertion",
+    "target": "semi-final opponent-strength ratings"
+  },
+  {
+    "claim": "Final ratings are unchanged",
+    "type": "behavioral_assertion",
+    "target": "final opponent-strength ratings"
+  },
+  {
+    "claim": "Play-off round ratings are unchanged",
+    "type": "behavioral_assertion",
+    "target": "play-off round opponent-strength ratings"
+  }
+]

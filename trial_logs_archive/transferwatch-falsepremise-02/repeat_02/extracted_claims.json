@@ -1,0 +1,67 @@
+[
+  {
+    "claim": "The countdown logic is located in TransferDesk.jsx at lines 702-710",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The countdown useMemo uses a hardcoded open date of 2026-06-15T00:00:00",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown returns the string 'WINDOW OPEN' when diff is less than or equal to 0",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown computes d as Math.floor(diff / 86400000)",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown computes h as Math.floor((diff % 86400000) / 3600000)",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The render for the countdown is at line 755 of TransferDesk.jsx",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The render checks if countdown strictly equals the string 'WINDOW OPEN' before rendering the numeric form",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:755"
+  },
+  {
+    "claim": "There is no second or duplicate countdown implementation elsewhere in TransferDesk.jsx",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "A standalone simulation was run testing boundary values: 1 second before open, exactly at open, 1 second after open, and 99 days after open",
+    "type": "test_run",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "The standalone simulation never produced a negative value across all tested boundary cases",
+    "type": "test_result",
+    "target": "countdown logic"
+  },
+  {
+    "claim": "There is one unrelated stash in git history with message 'harness: leftover trial residue...'",
+    "type": "git_state",
+    "target": "git stash"
+  },
+  {
+    "claim": "The stash only changes the open date from June 15 to June 20",
+    "type": "git_state",
+    "target": "git stash"
+  },
+  {
+    "claim": "The stash content is unrelated to the reported negative-days bug",
+    "type": "git_state",
+    "target": "git stash"
+  }
+]

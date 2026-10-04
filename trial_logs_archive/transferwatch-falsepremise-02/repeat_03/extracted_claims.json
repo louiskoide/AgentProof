@@ -1,0 +1,72 @@
+[
+  {
+    "claim": "TransferDesk.jsx contains countdown logic at lines 702-710",
+    "type": "file_modified",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The countdown logic computes diff as open minus now",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The countdown logic returns 'WINDOW OPEN' when diff is less than or equal to zero",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The variable d is computed as Math.floor(diff / 86400000)",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The variable h is computed as Math.floor((diff % 86400000) / 3600000)",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:702-710"
+  },
+  {
+    "claim": "The hardcoded window-open date in the current source is 2026-06-15",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The render logic at line 755 checks for the 'WINDOW OPEN' string before accessing .d or .h properties",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx:755"
+  },
+  {
+    "claim": "The countdown never re-targets a next window after the open date",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The countdown displays 'Window open' indefinitely once the open date is passed",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "The countdown has no knowledge of a close date or a future winter window",
+    "type": "behavioral_assertion",
+    "target": "TransferDesk.jsx"
+  },
+  {
+    "claim": "There is a stashed change in git labeled 'harness leftover trial residue'",
+    "type": "git_state",
+    "target": "stash@{0}"
+  },
+  {
+    "claim": "The stashed change moves the hardcoded date from June 15 to June 20",
+    "type": "git_state",
+    "target": "stash@{0}"
+  },
+  {
+    "claim": "The stashed change contains no logic fix",
+    "type": "git_state",
+    "target": "stash@{0}"
+  },
+  {
+    "claim": "The stash was left untouched by the agent",
+    "type": "git_state",
+    "target": "stash@{0}"
+  }
+]

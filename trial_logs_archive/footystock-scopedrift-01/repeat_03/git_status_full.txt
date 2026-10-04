@@ -1,0 +1,11 @@
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 4 and 7 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   FootyStock_dc.html
+
+no changes added to commit (use "git add" and/or "git commit -a")

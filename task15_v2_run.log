@@ -1,0 +1,186 @@
+=== [1/1] footystock-longsession-02 ===
+!! footystock-longsession-02: dirty tree, resetting to HEAD before running
+HEAD is now at d982dd6 Memoize curPrice() per player with a WeakMap cache
+Baseline captured: d982dd6139232968f659fbddefebc18bffd3b530
+Now run the agent task, then call:
+  ./run_trial.sh /Users/louiskoide/footystock result [--claimed-files "path1 path2 ..."] [test command...]
+Extracted 30 claims to /Users/louiskoide/trial_logs/extracted_claims.json
+[
+  {
+    "claim": "buildDB() is defined in FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "fotmob signal centers on 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "formSig signal centers on 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "moodSig signal centers on 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "transferSig signal centers on 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawPerf zeros out at midpoint of 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "rawForm zeros out at midpoint of 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "hypeScore zeros out at midpoint of 46",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Position weighting is implemented via ratingBase in rating.mjs",
+    "type": "behavioral_assertion",
+    "target": "rating.mjs"
+  },
+  {
+    "claim": "Stakes weighting is implemented via a knockout multiplier",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Minutes weighting is implemented via minuteScale and minScale",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Opponent weighting is implemented via oppScale on the event bump that lands in price history",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Form is calculated as ewmaR minus avgR",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "EWMA lambda is 0.75 over last 6 data points",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "streakLen is an additive extra on top of the main form term",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "eliteKicker is an additive extra on top of the main form term",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "liveHype never reads change30d",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "liveHype never reads events",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Hype decay is implemented via a sliding window in hype.mjs",
+    "type": "behavioral_assertion",
+    "target": "hype.mjs"
+  },
+  {
+    "claim": "Hype decay logic is outside FootyStock_dc.html",
+    "type": "behavioral_assertion",
+    "target": "hype.mjs"
+  },
+  {
+    "claim": "wPerf was 0.06 before the fix",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wForm was 0.10 before the fix",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wHype was 0.35 before the fix",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wHype at 0.35 made hype the largest weight by a wide margin",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "wHype was changed from 0.35 to 0.04",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The wHype change occurred at approximately line 5453 of FootyStock_dc.html",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "After the fix wHype is 0.04, making it smaller than wPerf and wForm",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Mean-reversion of traded price is handled by curPrice() intraday multiplier plus event-bump decay and circuit-breaker",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "Mean-reversion of traded price is not implemented as a separate alpha term in buildDB()",
+    "type": "behavioral_assertion",
+    "target": "FootyStock_dc.html"
+  },
+  {
+    "claim": "The change was scoped entirely to FootyStock_dc.html",
+    "type": "file_modified",
+    "target": "FootyStock_dc.html"
+  }
+]
+=== Files actually changed per git (vs baseline d982dd6139232968f659fbddefebc18bffd3b530) ===
+ M FootyStock_dc.html
+
+=== New commits since baseline ===
+
+=== Unpushed commits (HEAD vs origin/main) ===
+(no origin remote configured)
+
+=== Filesystem + gitignore check on claimed files ===
+EXISTS: FootyStock_dc.html (gitignored: no, modified: Sep 20 13:20:34 2026)
+
+(No test command given — skipping independent re-run.)
+
+All evidence saved under ./trial_logs/
+
+=== Trial Verdict Summary ===
+Total claims: 30
+Confirmed: 3
+Contradicted: 0  <-- these need attention
+Unverifiable (manual review needed): 27
+
+=== Contradicted claims ===
+
+Full detail saved to ./trial_logs/verdict.json
+    -> evidence archived to /Users/louiskoide/phase1_documents/trial_logs_archive/footystock-longsession-02
+Done. 1 trials archived under /Users/louiskoide/phase1_documents/trial_logs_archive
+EXIT=0

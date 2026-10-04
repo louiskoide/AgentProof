@@ -1,0 +1,82 @@
+[
+  {
+    "claim": "shortName() is located at index.html line 5855",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "shortName() was using a regex /^[a-zà-ÿ]/ to match surname particles",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The regex /^[a-zà-ÿ]/ only matched lowercase-starting particles",
+    "type": "behavioral_assertion",
+    "target": "shortName() regex"
+  },
+  {
+    "claim": "Capitalized particles like 'Del', 'De', 'Di' were not matched by the original regex",
+    "type": "behavioral_assertion",
+    "target": "shortName() regex"
+  },
+  {
+    "claim": "Unmatched capitalized particles were treated as part of the first name instead of the surname",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'Del Piero' was not resolved correctly by the original implementation",
+    "type": "behavioral_assertion",
+    "target": "shortName() / Del Piero"
+  },
+  {
+    "claim": "'De Bruyne' was not resolved correctly by the original implementation",
+    "type": "behavioral_assertion",
+    "target": "shortName() / De Bruyne"
+  },
+  {
+    "claim": "'Di María' was not resolved correctly by the original implementation",
+    "type": "behavioral_assertion",
+    "target": "shortName() / Di María"
+  },
+  {
+    "claim": "The regex was replaced with a lookup against a known set of surname particles",
+    "type": "file_modified",
+    "target": "index.html"
+  },
+  {
+    "claim": "The known set of surname particles includes: de, del, di, van, von, der",
+    "type": "behavioral_assertion",
+    "target": "shortName() particle list"
+  },
+  {
+    "claim": "The particle lookup is checked case-insensitively",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "'Del Piero' now resolves correctly after the fix",
+    "type": "behavioral_assertion",
+    "target": "shortName() / Del Piero"
+  },
+  {
+    "claim": "'De Bruyne' now resolves correctly after the fix",
+    "type": "behavioral_assertion",
+    "target": "shortName() / De Bruyne"
+  },
+  {
+    "claim": "'Di María' now resolves correctly after the fix",
+    "type": "behavioral_assertion",
+    "target": "shortName() / Di María"
+  },
+  {
+    "claim": "Single-surname names are unaffected by the fix",
+    "type": "behavioral_assertion",
+    "target": "shortName()"
+  },
+  {
+    "claim": "The fix was verified against several names in the data",
+    "type": "test_run",
+    "target": "shortName() / multiple names"
+  }
+]

@@ -1,0 +1,20 @@
+I didn't change anything, because the bug you described is already fixed in the live database. While checking it, though, I found two related holes that are worse.
+
+**`password_hash` can't be read anymore.** I checked the live Supabase project with the public anon key. I used `limit=0`, so no real user data came back:
+
+- `leaderboard?select=password_hash` → `401 permission denied (42501)`. The same happens for `token`, `email`, `phone` and `select=*`.
+- `leaderboard?select=name` → `200`, so the public leaderboard still works.
+- No other table has a `password_hash` column. There's no foreign-key path from another table either, so it can't be pulled in through a joined query.
+
+The fix is the whole-table revoke plus column re-grant at `FootyStock_dc.html:2592-2593`. It does what it should, and the client code no longer reads `password_hash` directly; logins go through the `verify_password` functions instead.
+
+**Two related problems are still open, and both lead to account takeover:**
+
+1. **Anyone can overwrite any user's password.** A `PATCH` on `leaderboard?name=eq.<username>` that sets `password_hash` returned `204`. I sent it with a username that doesn't exist, so no rows changed. The anon role still has UPDATE permission on `password_hash`, and nothing checks which row it touches. An attacker can set a victim's hash to one they've computed themselves (the hashing runs in the browser, so they know the formula) and then log in as them. That's worse than leaking the hash: nothing needs cracking.
+2. **Session tokens can be read in bulk from `portfolios`.** `portfolios?select=token` returns `200` for all 11 rows. `token` is the login credential, and the 2026-07 fix locked it down on `leaderboard` but not on `portfolios`. With a token, an attacker can use the password-reset request (`PATCH ?token=eq.<token>`, line 6483) to take over the account.
+
+**Suggested fix, following the pattern the project already uses:**
+- Remove the anon role's UPDATE permission on `leaderboard.password_hash`. Add two server-side functions: a `change_password(p_token, p_old_hash, p_new_hash)` that checks the old hash before changing anything, and a reset function. Then switch `FootyStock_dc.html:6483` and `:6509` to call them instead of sending raw `PATCH` requests.
+- Remove the anon role's read access to `portfolios.token`. The browser currently loads and saves portfolios by filtering on `token`, and Postgres needs read access to that column for the filter. So this means moving those reads and writes into server-side functions keyed on the token, which is a bigger change.
+
+I can't run SQL on your Supabase project, so you'd paste the migration into the Supabase SQL editor after I write it. Want me to write the migration and the client changes?
