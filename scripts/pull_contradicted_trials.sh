@@ -22,11 +22,12 @@ set -euo pipefail
 #
 # Usage:
 #   ./pull_contradicted_trials.sh [archive_root] [out_dir]
-#   defaults: archive_root=./trial_logs_archive  out_dir=./contradicted_for_tagging
+#   defaults: archive_root=../results/trial_logs_archive  out_dir=../results/contradicted_for_tagging
 
 HARNESS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ARCHIVE_ROOT="${1:-$HARNESS_DIR/trial_logs_archive}"
-OUT_DIR="${2:-$HARNESS_DIR/contradicted_for_tagging}"
+ROOT_DIR="$(cd "$HARNESS_DIR/.." && pwd)"
+ARCHIVE_ROOT="${1:-$ROOT_DIR/results/trial_logs_archive}"
+OUT_DIR="${2:-$ROOT_DIR/results/contradicted_for_tagging}"
 
 rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"

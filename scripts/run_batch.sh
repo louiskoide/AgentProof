@@ -50,7 +50,8 @@ set -euo pipefail
 #   START_REPEAT=3 REPEATS=5 ./run_batch.sh tasks_subset.json   # resume from repeat 3, applies to every task in the file
 
 HARNESS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ARCHIVE_ROOT="$HARNESS_DIR/trial_logs_archive"
+ROOT_DIR="$(cd "$HARNESS_DIR/.." && pwd)"
+ARCHIVE_ROOT="$ROOT_DIR/results/trial_logs_archive"
 mkdir -p "$ARCHIVE_ROOT"
 
 : "${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY must be set — extract_claims.js calls the API directly}"

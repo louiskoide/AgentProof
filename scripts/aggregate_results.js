@@ -30,7 +30,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ARCHIVE_ROOT = process.argv[2] || path.join(__dirname, 'trial_logs_archive');
+const ARCHIVE_ROOT = process.argv[2] || path.join(__dirname, '..', 'results', 'trial_logs_archive');
 
 const CLASS_MAP = {
   vacuous: 'vacuous_success',

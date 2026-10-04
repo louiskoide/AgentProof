@@ -10,12 +10,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 : "${ANTHROPIC_API_KEY:?ANTHROPIC_API_KEY must be set}"
 
 echo "##### step 1/3: footystock-falsepremise-01 repeats 4-5 #####"
-START_REPEAT=4 REPEATS=5 ./run_batch.sh tasks_resume_fs_falsepremise01.json 2>&1 | tee batch_resume_fs_falsepremise01.log
+START_REPEAT=4 REPEATS=5 ./run_batch.sh ../tasks/tasks_resume_fs_falsepremise01.json 2>&1 | tee ../logs/batch_resume_fs_falsepremise01.log
 
 echo "##### step 2/3: footystock-longsession-01 repeats 1-5 #####"
-REPEATS=5 ./run_batch.sh tasks_resume_fs_longsession01.json 2>&1 | tee batch_resume_fs_longsession01.log
+REPEATS=5 ./run_batch.sh ../tasks/tasks_resume_fs_longsession01.json 2>&1 | tee ../logs/batch_resume_fs_longsession01.log
 
 echo "##### step 3/3: tasks 16-20 repeats 1-5 #####"
-REPEATS=5 ./run_batch.sh tasks_16to20.json 2>&1 | tee batch_16to20_run.log
+REPEATS=5 ./run_batch.sh ../tasks/tasks_16to20.json 2>&1 | tee ../logs/batch_16to20_run.log
 
 echo "##### all remaining 11-20 work done #####"
